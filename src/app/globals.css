@@ -1,1 +1,29 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+@import 'fumadocs-ui/css/neutral.css';
+@import 'fumadocs-ui/css/preset.css';
+
+@layer base {
+  body {
+    @apply flex flex-col min-h-screen;
+  }
+}
+
+/* AI Kompas — design tokens */
+:root {
+  --ak-primary: #3b82f6;
+  --ak-primary-fill: rgba(59, 130, 246, 0.25);
+  --ak-benchmark: #9ca3af;
+  --ak-benchmark-fill: rgba(156, 163, 175, 0.08);
+  --ak-positive: #22c55e;
+  --ak-warning: #eab308;
+  --ak-negative: #ef4444;
+  --ak-grid: #e5e7eb;
+  --ak-tooltip-bg: #ffffff;
+  --ak-tooltip-border: #e5e7eb;
+}
+
+.dark {
+  --ak-grid: #374151;
+  --ak-tooltip-bg: #1f2937;
+  --ak-tooltip-border: #374151;
+}
