@@ -5,13 +5,15 @@ import {
   DocsTitle,
   DocsDescription,
 } from 'fumadocs-ui/page';
-import { notFound } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
 import defaultMdxComponents from 'fumadocs-ui/mdx';
 
 export default async function Page(props: {
   params: Promise<{ slug?: string[] }>;
 }) {
   const params = await props.params;
+  if (!params.slug) redirect('/kacena/uvod');
+
   const page = kacenaSource.getPage(params.slug);
   if (!page) notFound();
 
