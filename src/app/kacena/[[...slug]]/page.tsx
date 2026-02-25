@@ -8,6 +8,10 @@ import {
 import { notFound, redirect } from 'next/navigation';
 import defaultMdxComponents from 'fumadocs-ui/mdx';
 import { TeamRadar } from '@/components/charts/team-radar';
+import { ScatterPlotChart } from '@/components/charts/scatter-plot';
+import { HeatmapTable } from '@/components/charts/heatmap-table';
+import { ActivityHeatmap } from '@/components/charts/activity-heatmap';
+import { ToolsHeatmap } from '@/components/charts/tools-heatmap';
 import { MetricCards } from '@/components/ui/metric-cards';
 import { Callout } from '@/components/ui/callout';
 
@@ -30,6 +34,10 @@ export default async function Page(props: {
         <MDX components={{
           ...defaultMdxComponents,
           TeamRadar,
+          ScatterPlotChart,
+          HeatmapTable,
+          ActivityHeatmap,
+          ToolsHeatmap,
           MetricCards,
           Callout,
         }} />
