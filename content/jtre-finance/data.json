@@ -1,0 +1,512 @@
+{
+  "klient": "jtre-finance",
+  "pocet_respondentov": 10,
+  "tym": {
+    "index_umim": 3.96,
+    "index_chci": 5.89,
+    "prehlcenost": 4.8,
+    "prescasy": 5.1,
+    "strach_z_ai": 4.9,
+    "pocet_lidi": 10,
+    "benchmark": {
+      "index_umim": {
+        "hodnota": 3.9,
+        "rozdil": 0.06
+      },
+      "index_chci": {
+        "hodnota": 5.83,
+        "rozdil": 0.06
+      },
+      "prehlcenost": {
+        "hodnota": 5.6,
+        "rozdil": -0.8
+      },
+      "prescasy": {
+        "hodnota": 4.9,
+        "rozdil": 0.2
+      },
+      "strach_z_ai": {
+        "hodnota": 4.1,
+        "rozdil": 0.8
+      }
+    }
+  },
+  "benchmark": {
+    "index_umim": 3.9,
+    "index_chci": 5.83,
+    "index_rozptylu": 1,
+    "prehlcenost": 5.6,
+    "prescasy": 4.9,
+    "strach_z_ai": 4.1
+  },
+  "lide": [
+    {
+      "jmeno": "Leona Holíková",
+      "kategorie": "HR",
+      "tym": "finance",
+      "rozhovor": true,
+      "index_umim": 1.93,
+      "index_chci": 4.5,
+      "znalosti": 2.86,
+      "schopnosti": 1.0,
+      "zkouseni": 4.0,
+      "spravnost_odpovedi": 3,
+      "znam_nastroje": 2,
+      "pouzivam_nastroje": 1,
+      "platim_nastroje": 0,
+      "bavi_prace": 8.0,
+      "prehlcenost": 9.0,
+      "prescasy": 3.0,
+      "strach_z_ai": 5.0,
+      "experimentovani_mimo_praci": 5.0,
+      "sebehodnoceni": 2.0,
+      "role": "HR",
+      "delka_ve_firme": 0.0,
+      "zodpovednosti": "Vedení personální agendy + příslušná administrativa, poskytování podkladů pro mzdy, vnitřní směrnice, benefity, organizace školení zaměstnanců, nábor nových zaměstnanců, firemní akce pro zaměstnance,"
+    },
+    {
+      "jmeno": "Ivana Bendová",
+      "kategorie": "Support",
+      "tym": "finance",
+      "rozhovor": false,
+      "index_umim": 0.89,
+      "index_chci": 3.8,
+      "znalosti": 1.79,
+      "schopnosti": 0.0,
+      "zkouseni": 2.0,
+      "spravnost_odpovedi": 1,
+      "znam_nastroje": 3,
+      "pouzivam_nastroje": 0,
+      "platim_nastroje": 0,
+      "bavi_prace": 6.0,
+      "prehlcenost": 3.0,
+      "prescasy": 4.0,
+      "strach_z_ai": 5.0,
+      "experimentovani_mimo_praci": 1.0,
+      "sebehodnoceni": 3.0,
+      "role": "Asistent / support",
+      "delka_ve_firme": null,
+      "zodpovednosti": ""
+    },
+    {
+      "jmeno": "Jan Ascherl",
+      "kategorie": "AML",
+      "tym": "finance",
+      "rozhovor": false,
+      "index_umim": 4.0,
+      "index_chci": 9.2,
+      "znalosti": 5.0,
+      "schopnosti": 3.0,
+      "zkouseni": 8.33,
+      "spravnost_odpovedi": 2,
+      "znam_nastroje": 10,
+      "pouzivam_nastroje": 4,
+      "platim_nastroje": 0,
+      "bavi_prace": 10.0,
+      "prehlcenost": 4.0,
+      "prescasy": 10.0,
+      "strach_z_ai": 1.0,
+      "experimentovani_mimo_praci": 8.0,
+      "sebehodnoceni": 9.0,
+      "role": "AML Manager",
+      "delka_ve_firme": 1.0,
+      "zodpovednosti": "AML a jina oblast Compliance"
+    },
+    {
+      "jmeno": "Lucia Čabajová",
+      "kategorie": "Finance",
+      "tym": "finance",
+      "rozhovor": true,
+      "index_umim": 3.86,
+      "index_chci": 4.3,
+      "znalosti": 5.71,
+      "schopnosti": 2.0,
+      "zkouseni": 3.33,
+      "spravnost_odpovedi": 5,
+      "znam_nastroje": 6,
+      "pouzivam_nastroje": 2,
+      "platim_nastroje": 0,
+      "bavi_prace": 9.0,
+      "prehlcenost": 5.0,
+      "prescasy": 5.0,
+      "strach_z_ai": 4.0,
+      "experimentovani_mimo_praci": 8.0,
+      "sebehodnoceni": 3.0,
+      "role": "Financni specialistq",
+      "delka_ve_firme": 15.0,
+      "zodpovednosti": "Reportingy tykajici se real estate"
+    },
+    {
+      "jmeno": "František Jíša",
+      "kategorie": "Management",
+      "tym": "finance",
+      "rozhovor": false,
+      "index_umim": 6.93,
+      "index_chci": 7.4,
+      "znalosti": 7.86,
+      "schopnosti": 6.0,
+      "zkouseni": 7.67,
+      "spravnost_odpovedi": 5,
+      "znam_nastroje": 12,
+      "pouzivam_nastroje": 6,
+      "platim_nastroje": 2,
+      "bavi_prace": 8.0,
+      "prehlcenost": 7.0,
+      "prescasy": 9.0,
+      "strach_z_ai": 6.0,
+      "experimentovani_mimo_praci": 10.0,
+      "sebehodnoceni": 7.0,
+      "role": "Manažer",
+      "delka_ve_firme": 7.0,
+      "zodpovednosti": "Financování, účetnictví, daně, korporátní agenda, reporting"
+    },
+    {
+      "jmeno": "Duc Minh Hoang",
+      "kategorie": "Analytik",
+      "tym": "finance",
+      "rozhovor": false,
+      "index_umim": 5.0,
+      "index_chci": 5.3,
+      "znalosti": 5.0,
+      "schopnosti": 5.0,
+      "zkouseni": 4.67,
+      "spravnost_odpovedi": 4,
+      "znam_nastroje": 6,
+      "pouzivam_nastroje": 2,
+      "platim_nastroje": 2,
+      "bavi_prace": 8.0,
+      "prehlcenost": 5.0,
+      "prescasy": 5.0,
+      "strach_z_ai": 3.0,
+      "experimentovani_mimo_praci": 8.0,
+      "sebehodnoceni": 6.0,
+      "role": "Analytik",
+      "delka_ve_firme": 4.0,
+      "zodpovednosti": "Investicni analytiku"
+    },
+    {
+      "jmeno": "Iveta Polášíková",
+      "kategorie": "Support",
+      "tym": "finance",
+      "rozhovor": false,
+      "index_umim": 3.14,
+      "index_chci": 6.5,
+      "znalosti": 4.29,
+      "schopnosti": 2.0,
+      "zkouseni": 5.33,
+      "spravnost_odpovedi": 3,
+      "znam_nastroje": 6,
+      "pouzivam_nastroje": 2,
+      "platim_nastroje": 0,
+      "bavi_prace": 9.0,
+      "prehlcenost": 1.0,
+      "prescasy": 1.0,
+      "strach_z_ai": 4.0,
+      "experimentovani_mimo_praci": 10.0,
+      "sebehodnoceni": 5.0,
+      "role": "Asistent / support",
+      "delka_ve_firme": 4.0,
+      "zodpovednosti": "za včas odvedenou práci"
+    },
+    {
+      "jmeno": "Geis Kaltounová",
+      "kategorie": "Analytik",
+      "tym": "finance",
+      "rozhovor": false,
+      "index_umim": 7.11,
+      "index_chci": 8.4,
+      "znalosti": 8.21,
+      "schopnosti": 6.0,
+      "zkouseni": 8.0,
+      "spravnost_odpovedi": 5,
+      "znam_nastroje": 13,
+      "pouzivam_nastroje": 4,
+      "platim_nastroje": 2,
+      "bavi_prace": 8.0,
+      "prehlcenost": 3.0,
+      "prescasy": 6.0,
+      "strach_z_ai": 5.0,
+      "experimentovani_mimo_praci": 10.0,
+      "sebehodnoceni": 7.0,
+      "role": "Analytik",
+      "delka_ve_firme": 2.0,
+      "zodpovednosti": "finanční specialista/analytik"
+    },
+    {
+      "jmeno": "Zdeněk Král",
+      "kategorie": "Controlling",
+      "tym": "finance",
+      "rozhovor": true,
+      "index_umim": 5.11,
+      "index_chci": 7.3,
+      "znalosti": 8.21,
+      "schopnosti": 2.0,
+      "zkouseni": 7.33,
+      "spravnost_odpovedi": 7,
+      "znam_nastroje": 9,
+      "pouzivam_nastroje": 2,
+      "platim_nastroje": 0,
+      "bavi_prace": 8.0,
+      "prehlcenost": 6.0,
+      "prescasy": 5.0,
+      "strach_z_ai": 7.0,
+      "experimentovani_mimo_praci": 10.0,
+      "sebehodnoceni": 8.0,
+      "role": "Controlling",
+      "delka_ve_firme": 2.0,
+      "zodpovednosti": "Platby firmy (faktur, DPH, poplatků). Kontrola faktur. Archivace dokumentů. Digitalizace oddělení. Vytváření podkladů pro cashflow. Vytváření podkladů pro zprávy. Korporátní dokumenty. Komunikace s externími účetními. Dodávání podkladů pro VDR. Emailová komunikace s dodavateli. Předávání dokumentů."
+    },
+    {
+      "jmeno": "Dominika Langová",
+      "kategorie": "Support",
+      "tym": "finance",
+      "rozhovor": false,
+      "index_umim": 1.61,
+      "index_chci": 2.2,
+      "znalosti": 3.21,
+      "schopnosti": 0.0,
+      "zkouseni": 1.33,
+      "spravnost_odpovedi": 2,
+      "znam_nastroje": 5,
+      "pouzivam_nastroje": 0,
+      "platim_nastroje": 0,
+      "bavi_prace": 3.0,
+      "prehlcenost": 5.0,
+      "prescasy": 3.0,
+      "strach_z_ai": 9.0,
+      "experimentovani_mimo_praci": 2.0,
+      "sebehodnoceni": 5.0,
+      "role": "Asistent / support",
+      "delka_ve_firme": 2.0,
+      "zodpovednosti": "za chod kancelare"
+    }
+  ],
+  "cinnosti": [
+    {
+      "nazev": "psaní_mailů",
+      "prumer": 4.0,
+      "distribuce": {
+        "denne": 10,
+        "tyden": 0,
+        "mesic": 0,
+        "mene": 0
+      }
+    },
+    {
+      "nazev": "psaní_chatových_zpráv",
+      "prumer": 3.2,
+      "distribuce": {
+        "denne": 6,
+        "tyden": 1,
+        "mesic": 2,
+        "mene": 1
+      }
+    },
+    {
+      "nazev": "vyhodnocování_dat",
+      "prumer": 3.1,
+      "distribuce": {
+        "denne": 5,
+        "tyden": 3,
+        "mesic": 0,
+        "mene": 2
+      }
+    },
+    {
+      "nazev": "příprava_prezentací",
+      "prumer": 1.3,
+      "distribuce": {
+        "denne": 0,
+        "tyden": 2,
+        "mesic": 0,
+        "mene": 7
+      }
+    },
+    {
+      "nazev": "dohledávání_informací_v_interních_materiálech",
+      "prumer": 3.2,
+      "distribuce": {
+        "denne": 5,
+        "tyden": 4,
+        "mesic": 0,
+        "mene": 0
+      }
+    },
+    {
+      "nazev": "monitoring_veřejných_zdrojů",
+      "prumer": 2.3,
+      "distribuce": {
+        "denne": 2,
+        "tyden": 3,
+        "mesic": 2,
+        "mene": 2
+      }
+    },
+    {
+      "nazev": "analýza_souborů",
+      "prumer": 2.7,
+      "distribuce": {
+        "denne": 2,
+        "tyden": 5,
+        "mesic": 1,
+        "mene": 2
+      }
+    },
+    {
+      "nazev": "extrakce_informací_z_dokumentů",
+      "prumer": 2.3,
+      "distribuce": {
+        "denne": 2,
+        "tyden": 3,
+        "mesic": 2,
+        "mene": 2
+      }
+    },
+    {
+      "nazev": "psaní_marketingových_textů",
+      "prumer": 1.0,
+      "distribuce": {
+        "denne": 0,
+        "tyden": 0,
+        "mesic": 1,
+        "mene": 8
+      }
+    },
+    {
+      "nazev": "projektové_řízení",
+      "prumer": 1.5,
+      "distribuce": {
+        "denne": 1,
+        "tyden": 1,
+        "mesic": 1,
+        "mene": 6
+      }
+    },
+    {
+      "nazev": "porady",
+      "prumer": 1.9,
+      "distribuce": {
+        "denne": 0,
+        "tyden": 3,
+        "mesic": 4,
+        "mene": 2
+      }
+    },
+    {
+      "nazev": "pohovory_s_kandidáty",
+      "prumer": 1.5,
+      "distribuce": {
+        "denne": 0,
+        "tyden": 3,
+        "mesic": 0,
+        "mene": 6
+      }
+    },
+    {
+      "nazev": "služební_cesty",
+      "prumer": 1.0,
+      "distribuce": {
+        "denne": 0,
+        "tyden": 0,
+        "mesic": 1,
+        "mene": 8
+      }
+    },
+    {
+      "nazev": "překlady",
+      "prumer": 1.2,
+      "distribuce": {
+        "denne": 0,
+        "tyden": 0,
+        "mesic": 3,
+        "mene": 6
+      }
+    }
+  ],
+  "nastroje": [
+    {
+      "nazev": "chatgpt",
+      "neznam": 0,
+      "znam": 2,
+      "pouzivam": 8
+    },
+    {
+      "nazev": "microsoft_copilot",
+      "neznam": 1,
+      "znam": 6,
+      "pouzivam": 3
+    },
+    {
+      "nazev": "perplexity",
+      "neznam": 3,
+      "znam": 3,
+      "pouzivam": 4
+    },
+    {
+      "nazev": "notebooklm",
+      "neznam": 2,
+      "znam": 6,
+      "pouzivam": 2
+    },
+    {
+      "nazev": "google_gemini",
+      "neznam": 2,
+      "znam": 6,
+      "pouzivam": 2
+    },
+    {
+      "nazev": "claude",
+      "neznam": 3,
+      "znam": 5,
+      "pouzivam": 1
+    },
+    {
+      "nazev": "cursor",
+      "neznam": 6,
+      "znam": 3,
+      "pouzivam": 0
+    },
+    {
+      "nazev": "gamma",
+      "neznam": 8,
+      "znam": 2,
+      "pouzivam": 0
+    },
+    {
+      "nazev": "relevance",
+      "neznam": 9,
+      "znam": 1,
+      "pouzivam": 0
+    },
+    {
+      "nazev": "heygen",
+      "neznam": 8,
+      "znam": 1,
+      "pouzivam": 0
+    },
+    {
+      "nazev": "elevenlabs",
+      "neznam": 8,
+      "znam": 2,
+      "pouzivam": 0
+    },
+    {
+      "nazev": "relay",
+      "neznam": 7,
+      "znam": 3,
+      "pouzivam": 0
+    },
+    {
+      "nazev": "microsoft_power_automate",
+      "neznam": 4,
+      "znam": 4,
+      "pouzivam": 1
+    },
+    {
+      "nazev": "canva",
+      "neznam": 3,
+      "znam": 5,
+      "pouzivam": 2
+    }
+  ]
+}

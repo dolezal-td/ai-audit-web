@@ -43,6 +43,7 @@
     {
       "jmeno": "Jan Kočí",
       "kategorie": "Management",
+      "tym": "projektove-rizeni",
       "rozhovor": true,
       "index_umim": 2.46,
       "index_chci": 2.9,
@@ -66,6 +67,7 @@
     {
       "jmeno": "Filip Schroll",
       "kategorie": "Management",
+      "tym": "obchod",
       "rozhovor": false,
       "index_umim": 5.89,
       "index_chci": 7.5,
@@ -89,6 +91,7 @@
     {
       "jmeno": "Jana Řehořová",
       "kategorie": "Projekt",
+      "tym": "projektove-rizeni",
       "rozhovor": true,
       "index_umim": 1.79,
       "index_chci": 2.0,
@@ -112,6 +115,7 @@
     {
       "jmeno": "Václav Bouček",
       "kategorie": "Obchod",
+      "tym": "obchod",
       "rozhovor": true,
       "index_umim": 2.68,
       "index_chci": 5.1,
@@ -135,6 +139,7 @@
     {
       "jmeno": "Leona Holíková",
       "kategorie": "HR",
+      "tym": "finance",
       "rozhovor": true,
       "index_umim": 1.93,
       "index_chci": 4.5,
@@ -158,6 +163,7 @@
     {
       "jmeno": "Pavel Stáhlík",
       "kategorie": "Management",
+      "tym": "projektove-rizeni",
       "rozhovor": true,
       "index_umim": 2.64,
       "index_chci": 5.3,
@@ -181,6 +187,7 @@
     {
       "jmeno": "Martin Koiš",
       "kategorie": "Management",
+      "tym": "projektove-rizeni",
       "rozhovor": true,
       "index_umim": 2.64,
       "index_chci": 5.1,
@@ -204,6 +211,7 @@
     {
       "jmeno": "Roman Gorski",
       "kategorie": "Support",
+      "tym": "projektove-rizeni",
       "rozhovor": false,
       "index_umim": 1.43,
       "index_chci": 2.9,
@@ -227,6 +235,7 @@
     {
       "jmeno": "Jaroslav Semorád",
       "kategorie": "Obchod",
+      "tym": "obchod",
       "rozhovor": false,
       "index_umim": 4.18,
       "index_chci": 6.3,
@@ -250,6 +259,7 @@
     {
       "jmeno": "Ivana Bendová",
       "kategorie": "Support",
+      "tym": "finance",
       "rozhovor": false,
       "index_umim": 0.89,
       "index_chci": 3.8,
@@ -273,6 +283,7 @@
     {
       "jmeno": "Hana Čunderlíková",
       "kategorie": "Obchod",
+      "tym": "obchod",
       "rozhovor": false,
       "index_umim": 3.68,
       "index_chci": 5.4,
@@ -296,6 +307,7 @@
     {
       "jmeno": "Daniel Falťan",
       "kategorie": "Management",
+      "tym": "projektove-rizeni",
       "rozhovor": true,
       "index_umim": 4.68,
       "index_chci": 7.6,
@@ -319,6 +331,7 @@
     {
       "jmeno": "Jan Ascherl",
       "kategorie": "AML",
+      "tym": "finance",
       "rozhovor": false,
       "index_umim": 4.0,
       "index_chci": 9.2,
@@ -342,6 +355,7 @@
     {
       "jmeno": "Daniel Petrlík",
       "kategorie": "Projekt",
+      "tym": "projektove-rizeni",
       "rozhovor": true,
       "index_umim": 4.04,
       "index_chci": 4.5,
@@ -365,6 +379,7 @@
     {
       "jmeno": "Lucia Čabajová",
       "kategorie": "Finance",
+      "tym": "finance",
       "rozhovor": true,
       "index_umim": 3.86,
       "index_chci": 4.3,
@@ -388,6 +403,7 @@
     {
       "jmeno": "Tomáš Lepka",
       "kategorie": "",
+      "tym": "obchod",
       "rozhovor": false,
       "index_umim": 2.11,
       "index_chci": 4.3,
@@ -411,6 +427,7 @@
     {
       "jmeno": "František Jíša",
       "kategorie": "Management",
+      "tym": "finance",
       "rozhovor": false,
       "index_umim": 6.93,
       "index_chci": 7.4,
@@ -434,6 +451,7 @@
     {
       "jmeno": "Duc Minh Hoang",
       "kategorie": "Analytik",
+      "tym": "finance",
       "rozhovor": false,
       "index_umim": 5.0,
       "index_chci": 5.3,
@@ -457,6 +475,7 @@
     {
       "jmeno": "pavel opatřil",
       "kategorie": "Management",
+      "tym": "projektove-rizeni",
       "rozhovor": false,
       "index_umim": 1.43,
       "index_chci": 4.0,
@@ -480,6 +499,7 @@
     {
       "jmeno": "Marko Pašalić",
       "kategorie": "Projekt",
+      "tym": "obchod",
       "rozhovor": true,
       "index_umim": 7.29,
       "index_chci": 8.6,
@@ -503,6 +523,7 @@
     {
       "jmeno": "Václav Sigmund",
       "kategorie": "Management",
+      "tym": "projektove-rizeni",
       "rozhovor": false,
       "index_umim": 3.68,
       "index_chci": 1.5,
@@ -526,6 +547,7 @@
     {
       "jmeno": "Iveta Polášíková",
       "kategorie": "Support",
+      "tym": "finance",
       "rozhovor": false,
       "index_umim": 3.14,
       "index_chci": 6.5,
@@ -549,6 +571,7 @@
     {
       "jmeno": "Geis Kaltounová",
       "kategorie": "Analytik",
+      "tym": "finance",
       "rozhovor": false,
       "index_umim": 7.11,
       "index_chci": 8.4,
@@ -572,6 +595,7 @@
     {
       "jmeno": "Zdeněk Král",
       "kategorie": "Controlling",
+      "tym": "finance",
       "rozhovor": true,
       "index_umim": 5.11,
       "index_chci": 7.3,
@@ -595,6 +619,7 @@
     {
       "jmeno": "Petr Holan",
       "kategorie": "Management",
+      "tym": "projektove-rizeni",
       "rozhovor": true,
       "index_umim": 2.96,
       "index_chci": 5.1,
@@ -618,6 +643,7 @@
     {
       "jmeno": "jiří knob",
       "kategorie": "Management",
+      "tym": "projektove-rizeni",
       "rozhovor": true,
       "index_umim": 2.79,
       "index_chci": 3.5,
@@ -641,6 +667,7 @@
     {
       "jmeno": "Monika Veselá",
       "kategorie": "Marketing",
+      "tym": "obchod",
       "rozhovor": true,
       "index_umim": 2.96,
       "index_chci": 6.6,
@@ -664,6 +691,7 @@
     {
       "jmeno": "Libor Pokorný",
       "kategorie": "Management",
+      "tym": "obchod",
       "rozhovor": true,
       "index_umim": 4.75,
       "index_chci": 6.9,
@@ -687,6 +715,7 @@
     {
       "jmeno": "Dominika Langová",
       "kategorie": "Support",
+      "tym": "finance",
       "rozhovor": false,
       "index_umim": 1.61,
       "index_chci": 2.2,
@@ -710,6 +739,7 @@
     {
       "jmeno": "Tomáš Pospíšil",
       "kategorie": "Management",
+      "tym": "projektove-rizeni",
       "rozhovor": true,
       "index_umim": 3.32,
       "index_chci": 6.2,
@@ -733,6 +763,7 @@
     {
       "jmeno": "Tomáš Mraček",
       "kategorie": "Projekt",
+      "tym": "projektove-rizeni",
       "rozhovor": true,
       "index_umim": 4.04,
       "index_chci": 6.5,
@@ -756,6 +787,7 @@
     {
       "jmeno": "Daniel Melzer",
       "kategorie": "Obchod",
+      "tym": "obchod",
       "rozhovor": false,
       "index_umim": 3.18,
       "index_chci": 3.9,
@@ -779,6 +811,7 @@
     {
       "jmeno": "Lukáš Levický",
       "kategorie": "Projekt",
+      "tym": "projektove-rizeni",
       "rozhovor": false,
       "index_umim": 4.54,
       "index_chci": 3.9,
@@ -802,6 +835,7 @@
     {
       "jmeno": "Radek Spurný",
       "kategorie": "Management",
+      "tym": "projektove-rizeni",
       "rozhovor": false,
       "index_umim": 1.43,
       "index_chci": 2.4,

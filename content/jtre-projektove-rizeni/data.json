@@ -1,0 +1,632 @@
+{
+  "klient": "jtre-projektove-rizeni",
+  "pocet_respondentov": 15,
+  "tym": {
+    "index_umim": 2.92,
+    "index_chci": 4.23,
+    "prehlcenost": 6.07,
+    "prescasy": 5.73,
+    "strach_z_ai": 3.13,
+    "pocet_lidi": 15,
+    "benchmark": {
+      "index_umim": {
+        "hodnota": 3.9,
+        "rozdil": -0.98
+      },
+      "index_chci": {
+        "hodnota": 5.83,
+        "rozdil": -1.6
+      },
+      "prehlcenost": {
+        "hodnota": 5.6,
+        "rozdil": 0.47
+      },
+      "prescasy": {
+        "hodnota": 4.9,
+        "rozdil": 0.83
+      },
+      "strach_z_ai": {
+        "hodnota": 4.1,
+        "rozdil": -0.97
+      }
+    }
+  },
+  "benchmark": {
+    "index_umim": 3.9,
+    "index_chci": 5.83,
+    "index_rozptylu": 1,
+    "prehlcenost": 5.6,
+    "prescasy": 4.9,
+    "strach_z_ai": 4.1
+  },
+  "lide": [
+    {
+      "jmeno": "Jan Kočí",
+      "kategorie": "Management",
+      "tym": "projektove-rizeni",
+      "rozhovor": true,
+      "index_umim": 2.46,
+      "index_chci": 2.9,
+      "znalosti": 3.93,
+      "schopnosti": 1.0,
+      "zkouseni": 2.67,
+      "spravnost_odpovedi": 4,
+      "znam_nastroje": 3,
+      "pouzivam_nastroje": 1,
+      "platim_nastroje": 0,
+      "bavi_prace": 6.0,
+      "prehlcenost": 9.0,
+      "prescasy": 9.0,
+      "strach_z_ai": 3.0,
+      "experimentovani_mimo_praci": 5.0,
+      "sebehodnoceni": 3.0,
+      "role": "Manažer",
+      "delka_ve_firme": 2.0,
+      "zodpovednosti": "vedoucí brněnské pobočky"
+    },
+    {
+      "jmeno": "Jana Řehořová",
+      "kategorie": "Projekt",
+      "tym": "projektove-rizeni",
+      "rozhovor": true,
+      "index_umim": 1.79,
+      "index_chci": 2.0,
+      "znalosti": 3.57,
+      "schopnosti": 0.0,
+      "zkouseni": 1.0,
+      "spravnost_odpovedi": 4,
+      "znam_nastroje": 2,
+      "pouzivam_nastroje": 0,
+      "platim_nastroje": 0,
+      "bavi_prace": 5.0,
+      "prehlcenost": 8.0,
+      "prescasy": 8.0,
+      "strach_z_ai": 3.0,
+      "experimentovani_mimo_praci": 1.0,
+      "sebehodnoceni": 1.0,
+      "role": "Projekťák",
+      "delka_ve_firme": 17.0,
+      "zodpovednosti": "příprava projektu"
+    },
+    {
+      "jmeno": "Pavel Stáhlík",
+      "kategorie": "Management",
+      "tym": "projektove-rizeni",
+      "rozhovor": true,
+      "index_umim": 2.64,
+      "index_chci": 5.3,
+      "znalosti": 4.29,
+      "schopnosti": 1.0,
+      "zkouseni": 5.0,
+      "spravnost_odpovedi": 4,
+      "znam_nastroje": 4,
+      "pouzivam_nastroje": 1,
+      "platim_nastroje": 0,
+      "bavi_prace": 9.0,
+      "prehlcenost": 10.0,
+      "prescasy": 9.0,
+      "strach_z_ai": 1.0,
+      "experimentovani_mimo_praci": 6.0,
+      "sebehodnoceni": 5.0,
+      "role": "Manažer",
+      "delka_ve_firme": 2.0,
+      "zodpovednosti": "řízení projektu"
+    },
+    {
+      "jmeno": "Martin Koiš",
+      "kategorie": "Management",
+      "tym": "projektove-rizeni",
+      "rozhovor": true,
+      "index_umim": 2.64,
+      "index_chci": 5.1,
+      "znalosti": 4.29,
+      "schopnosti": 1.0,
+      "zkouseni": 3.33,
+      "spravnost_odpovedi": 4,
+      "znam_nastroje": 4,
+      "pouzivam_nastroje": 1,
+      "platim_nastroje": 0,
+      "bavi_prace": 7.0,
+      "prehlcenost": 3.0,
+      "prescasy": 3.0,
+      "strach_z_ai": 1.0,
+      "experimentovani_mimo_praci": 2.0,
+      "sebehodnoceni": 2.0,
+      "role": "Manažer",
+      "delka_ve_firme": 7.0,
+      "zodpovednosti": "projekt management, realizácia projektov - povoľovanie a výstavba, organizácia externých dodávateľov a interná komunikácia pre naplnenie obchodného zadania,"
+    },
+    {
+      "jmeno": "Roman Gorski",
+      "kategorie": "Support",
+      "tym": "projektove-rizeni",
+      "rozhovor": false,
+      "index_umim": 1.43,
+      "index_chci": 2.9,
+      "znalosti": 2.86,
+      "schopnosti": 0.0,
+      "zkouseni": 1.0,
+      "spravnost_odpovedi": 4,
+      "znam_nastroje": 0,
+      "pouzivam_nastroje": 0,
+      "platim_nastroje": 0,
+      "bavi_prace": 5.0,
+      "prehlcenost": 2.0,
+      "prescasy": 2.0,
+      "strach_z_ai": 5.0,
+      "experimentovani_mimo_praci": 1.0,
+      "sebehodnoceni": 1.0,
+      "role": "Asistent / support",
+      "delka_ve_firme": 20.0,
+      "zodpovednosti": "akvizice"
+    },
+    {
+      "jmeno": "Daniel Falťan",
+      "kategorie": "Management",
+      "tym": "projektove-rizeni",
+      "rozhovor": true,
+      "index_umim": 4.68,
+      "index_chci": 7.6,
+      "znalosti": 5.36,
+      "schopnosti": 4.0,
+      "zkouseni": 7.0,
+      "spravnost_odpovedi": 5,
+      "znam_nastroje": 5,
+      "pouzivam_nastroje": 3,
+      "platim_nastroje": 1,
+      "bavi_prace": 9.0,
+      "prehlcenost": 5.0,
+      "prescasy": 5.0,
+      "strach_z_ai": 4.0,
+      "experimentovani_mimo_praci": 8.0,
+      "sebehodnoceni": 5.0,
+      "role": "Manažer",
+      "delka_ve_firme": 1.0,
+      "zodpovednosti": "Jsem zodpovědný za celý průběh a vývoj projektů."
+    },
+    {
+      "jmeno": "Daniel Petrlík",
+      "kategorie": "Projekt",
+      "tym": "projektove-rizeni",
+      "rozhovor": true,
+      "index_umim": 4.04,
+      "index_chci": 4.5,
+      "znalosti": 6.07,
+      "schopnosti": 2.0,
+      "zkouseni": 4.67,
+      "spravnost_odpovedi": 5,
+      "znam_nastroje": 7,
+      "pouzivam_nastroje": 3,
+      "platim_nastroje": 0,
+      "bavi_prace": 5.0,
+      "prehlcenost": 7.0,
+      "prescasy": 5.0,
+      "strach_z_ai": 5.0,
+      "experimentovani_mimo_praci": 8.0,
+      "sebehodnoceni": 5.0,
+      "role": "Projekťák",
+      "delka_ve_firme": 1.0,
+      "zodpovednosti": "Projektové řízení"
+    },
+    {
+      "jmeno": "pavel opatřil",
+      "kategorie": "Management",
+      "tym": "projektove-rizeni",
+      "rozhovor": false,
+      "index_umim": 1.43,
+      "index_chci": 4.0,
+      "znalosti": 2.86,
+      "schopnosti": 0.0,
+      "zkouseni": 3.33,
+      "spravnost_odpovedi": 3,
+      "znam_nastroje": 2,
+      "pouzivam_nastroje": 0,
+      "platim_nastroje": 0,
+      "bavi_prace": 5.0,
+      "prehlcenost": 5.0,
+      "prescasy": 5.0,
+      "strach_z_ai": 5.0,
+      "experimentovani_mimo_praci": 5.0,
+      "sebehodnoceni": 5.0,
+      "role": "Manažer",
+      "delka_ve_firme": 20.0,
+      "zodpovednosti": "dokončení projektu"
+    },
+    {
+      "jmeno": "Václav Sigmund",
+      "kategorie": "Management",
+      "tym": "projektove-rizeni",
+      "rozhovor": false,
+      "index_umim": 3.68,
+      "index_chci": 1.5,
+      "znalosti": 5.36,
+      "schopnosti": 2.0,
+      "zkouseni": 1.0,
+      "spravnost_odpovedi": 4,
+      "znam_nastroje": 7,
+      "pouzivam_nastroje": 3,
+      "platim_nastroje": 0,
+      "bavi_prace": 5.0,
+      "prehlcenost": 3.0,
+      "prescasy": 3.0,
+      "strach_z_ai": 3.0,
+      "experimentovani_mimo_praci": 10.0,
+      "sebehodnoceni": 6.0,
+      "role": "Manažer",
+      "delka_ve_firme": 1.0,
+      "zodpovednosti": "realizace výstavby"
+    },
+    {
+      "jmeno": "Petr Holan",
+      "kategorie": "Management",
+      "tym": "projektove-rizeni",
+      "rozhovor": true,
+      "index_umim": 2.96,
+      "index_chci": 5.1,
+      "znalosti": 3.93,
+      "schopnosti": 2.0,
+      "zkouseni": 4.67,
+      "spravnost_odpovedi": 3,
+      "znam_nastroje": 5,
+      "pouzivam_nastroje": 2,
+      "platim_nastroje": 0,
+      "bavi_prace": 6.0,
+      "prehlcenost": 5.0,
+      "prescasy": 8.0,
+      "strach_z_ai": 3.0,
+      "experimentovani_mimo_praci": 7.0,
+      "sebehodnoceni": 3.0,
+      "role": "Manažer",
+      "delka_ve_firme": 5.0,
+      "zodpovednosti": "Řízení svěřeného projektu a mentoring mladšího kolegy."
+    },
+    {
+      "jmeno": "jiří knob",
+      "kategorie": "Management",
+      "tym": "projektove-rizeni",
+      "rozhovor": true,
+      "index_umim": 2.79,
+      "index_chci": 3.5,
+      "znalosti": 3.57,
+      "schopnosti": 2.0,
+      "zkouseni": 3.0,
+      "spravnost_odpovedi": 3,
+      "znam_nastroje": 4,
+      "pouzivam_nastroje": 2,
+      "platim_nastroje": 0,
+      "bavi_prace": 7.0,
+      "prehlcenost": 6.0,
+      "prescasy": 6.0,
+      "strach_z_ai": 3.0,
+      "experimentovani_mimo_praci": 8.0,
+      "sebehodnoceni": 2.0,
+      "role": "Manažer",
+      "delka_ve_firme": 19.0,
+      "zodpovednosti": "za přípravu a běh všech projektů od akvizice po předání  koncovému klientovi"
+    },
+    {
+      "jmeno": "Tomáš Pospíšil",
+      "kategorie": "Management",
+      "tym": "projektove-rizeni",
+      "rozhovor": true,
+      "index_umim": 3.32,
+      "index_chci": 6.2,
+      "znalosti": 4.64,
+      "schopnosti": 2.0,
+      "zkouseni": 6.0,
+      "spravnost_odpovedi": 5,
+      "znam_nastroje": 3,
+      "pouzivam_nastroje": 2,
+      "platim_nastroje": 0,
+      "bavi_prace": 8.0,
+      "prehlcenost": 8.0,
+      "prescasy": 5.0,
+      "strach_z_ai": 3.0,
+      "experimentovani_mimo_praci": 7.0,
+      "sebehodnoceni": 3.0,
+      "role": "Manažer",
+      "delka_ve_firme": 1.0,
+      "zodpovednosti": "vedoucí oddělení realizací developerský staveb"
+    },
+    {
+      "jmeno": "Tomáš Mraček",
+      "kategorie": "Projekt",
+      "tym": "projektove-rizeni",
+      "rozhovor": true,
+      "index_umim": 4.04,
+      "index_chci": 6.5,
+      "znalosti": 6.07,
+      "schopnosti": 2.0,
+      "zkouseni": 5.0,
+      "spravnost_odpovedi": 6,
+      "znam_nastroje": 5,
+      "pouzivam_nastroje": 3,
+      "platim_nastroje": 0,
+      "bavi_prace": 8.0,
+      "prehlcenost": 4.0,
+      "prescasy": 5.0,
+      "strach_z_ai": 3.0,
+      "experimentovani_mimo_praci": 3.0,
+      "sebehodnoceni": 3.0,
+      "role": "Projekťák",
+      "delka_ve_firme": 0.0,
+      "zodpovednosti": "Za realizační přípravu a realizaci stavebních projektů."
+    },
+    {
+      "jmeno": "Lukáš Levický",
+      "kategorie": "Projekt",
+      "tym": "projektove-rizeni",
+      "rozhovor": false,
+      "index_umim": 4.54,
+      "index_chci": 3.9,
+      "znalosti": 6.07,
+      "schopnosti": 3.0,
+      "zkouseni": 3.33,
+      "spravnost_odpovedi": 5,
+      "znam_nastroje": 7,
+      "pouzivam_nastroje": 5,
+      "platim_nastroje": 0,
+      "bavi_prace": 6.0,
+      "prehlcenost": 6.0,
+      "prescasy": 5.0,
+      "strach_z_ai": 4.0,
+      "experimentovani_mimo_praci": 6.0,
+      "sebehodnoceni": 5.0,
+      "role": "Projekťák",
+      "delka_ve_firme": 1.5,
+      "zodpovednosti": "Za priebeh a výsledok projektu."
+    },
+    {
+      "jmeno": "Radek Spurný",
+      "kategorie": "Management",
+      "tym": "projektove-rizeni",
+      "rozhovor": false,
+      "index_umim": 1.43,
+      "index_chci": 2.4,
+      "znalosti": 2.86,
+      "schopnosti": 0.0,
+      "zkouseni": 1.67,
+      "spravnost_odpovedi": 4,
+      "znam_nastroje": 0,
+      "pouzivam_nastroje": 0,
+      "platim_nastroje": 0,
+      "bavi_prace": 6.0,
+      "prehlcenost": 10.0,
+      "prescasy": 8.0,
+      "strach_z_ai": 1.0,
+      "experimentovani_mimo_praci": 1.0,
+      "sebehodnoceni": 1.0,
+      "role": "Manažer",
+      "delka_ve_firme": 3.0,
+      "zodpovednosti": "za projekty"
+    }
+  ],
+  "cinnosti": [
+    {
+      "nazev": "psaní_mailů",
+      "prumer": 4.0,
+      "distribuce": {
+        "denne": 15,
+        "tyden": 0,
+        "mesic": 0,
+        "mene": 0
+      }
+    },
+    {
+      "nazev": "psaní_chatových_zpráv",
+      "prumer": 2.6,
+      "distribuce": {
+        "denne": 3,
+        "tyden": 6,
+        "mesic": 3,
+        "mene": 3
+      }
+    },
+    {
+      "nazev": "vyhodnocování_dat",
+      "prumer": 3.2,
+      "distribuce": {
+        "denne": 8,
+        "tyden": 4,
+        "mesic": 1,
+        "mene": 2
+      }
+    },
+    {
+      "nazev": "příprava_prezentací",
+      "prumer": 1.2,
+      "distribuce": {
+        "denne": 0,
+        "tyden": 0,
+        "mesic": 4,
+        "mene": 10
+      }
+    },
+    {
+      "nazev": "dohledávání_informací_v_interních_materiálech",
+      "prumer": 3.07,
+      "distribuce": {
+        "denne": 7,
+        "tyden": 3,
+        "mesic": 4,
+        "mene": 1
+      }
+    },
+    {
+      "nazev": "monitoring_veřejných_zdrojů",
+      "prumer": 2.6,
+      "distribuce": {
+        "denne": 2,
+        "tyden": 6,
+        "mesic": 6,
+        "mene": 1
+      }
+    },
+    {
+      "nazev": "analýza_souborů",
+      "prumer": 3.2,
+      "distribuce": {
+        "denne": 5,
+        "tyden": 8,
+        "mesic": 2,
+        "mene": 0
+      }
+    },
+    {
+      "nazev": "extrakce_informací_z_dokumentů",
+      "prumer": 1.8,
+      "distribuce": {
+        "denne": 0,
+        "tyden": 5,
+        "mesic": 3,
+        "mene": 6
+      }
+    },
+    {
+      "nazev": "psaní_marketingových_textů",
+      "prumer": 1.13,
+      "distribuce": {
+        "denne": 0,
+        "tyden": 0,
+        "mesic": 2,
+        "mene": 13
+      }
+    },
+    {
+      "nazev": "projektové_řízení",
+      "prumer": 3.33,
+      "distribuce": {
+        "denne": 8,
+        "tyden": 5,
+        "mesic": 1,
+        "mene": 1
+      }
+    },
+    {
+      "nazev": "porady",
+      "prumer": 2.8,
+      "distribuce": {
+        "denne": 3,
+        "tyden": 9,
+        "mesic": 1,
+        "mene": 1
+      }
+    },
+    {
+      "nazev": "pohovory_s_kandidáty",
+      "prumer": 1.8,
+      "distribuce": {
+        "denne": 0,
+        "tyden": 5,
+        "mesic": 2,
+        "mene": 8
+      }
+    },
+    {
+      "nazev": "služební_cesty",
+      "prumer": 1.2,
+      "distribuce": {
+        "denne": 0,
+        "tyden": 0,
+        "mesic": 3,
+        "mene": 12
+      }
+    },
+    {
+      "nazev": "překlady",
+      "prumer": 1.2,
+      "distribuce": {
+        "denne": 0,
+        "tyden": 1,
+        "mesic": 1,
+        "mene": 13
+      }
+    }
+  ],
+  "nastroje": [
+    {
+      "nazev": "chatgpt",
+      "neznam": 2,
+      "znam": 4,
+      "pouzivam": 9
+    },
+    {
+      "nazev": "microsoft_copilot",
+      "neznam": 2,
+      "znam": 6,
+      "pouzivam": 6
+    },
+    {
+      "nazev": "perplexity",
+      "neznam": 10,
+      "znam": 2,
+      "pouzivam": 2
+    },
+    {
+      "nazev": "notebooklm",
+      "neznam": 6,
+      "znam": 7,
+      "pouzivam": 1
+    },
+    {
+      "nazev": "google_gemini",
+      "neznam": 3,
+      "znam": 7,
+      "pouzivam": 5
+    },
+    {
+      "nazev": "claude",
+      "neznam": 11,
+      "znam": 2,
+      "pouzivam": 1
+    },
+    {
+      "nazev": "cursor",
+      "neznam": 13,
+      "znam": 0,
+      "pouzivam": 0
+    },
+    {
+      "nazev": "gamma",
+      "neznam": 13,
+      "znam": 1,
+      "pouzivam": 0
+    },
+    {
+      "nazev": "relevance",
+      "neznam": 13,
+      "znam": 0,
+      "pouzivam": 0
+    },
+    {
+      "nazev": "heygen",
+      "neznam": 13,
+      "znam": 1,
+      "pouzivam": 0
+    },
+    {
+      "nazev": "elevenlabs",
+      "neznam": 13,
+      "znam": 0,
+      "pouzivam": 0
+    },
+    {
+      "nazev": "relay",
+      "neznam": 14,
+      "znam": 0,
+      "pouzivam": 0
+    },
+    {
+      "nazev": "microsoft_power_automate",
+      "neznam": 13,
+      "znam": 0,
+      "pouzivam": 0
+    },
+    {
+      "nazev": "canva",
+      "neznam": 10,
+      "znam": 2,
+      "pouzivam": 2
+    }
+  ]
+}

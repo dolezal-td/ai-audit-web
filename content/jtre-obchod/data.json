@@ -1,0 +1,488 @@
+{
+  "klient": "jtre-obchod",
+  "pocet_respondentov": 9,
+  "tym": {
+    "index_umim": 4.08,
+    "index_chci": 6.07,
+    "prehlcenost": 5.67,
+    "prescasy": 5.78,
+    "strach_z_ai": 3.38,
+    "pocet_lidi": 9,
+    "benchmark": {
+      "index_umim": {
+        "hodnota": 3.9,
+        "rozdil": 0.18
+      },
+      "index_chci": {
+        "hodnota": 5.83,
+        "rozdil": 0.24
+      },
+      "prehlcenost": {
+        "hodnota": 5.6,
+        "rozdil": 0.07
+      },
+      "prescasy": {
+        "hodnota": 4.9,
+        "rozdil": 0.88
+      },
+      "strach_z_ai": {
+        "hodnota": 4.1,
+        "rozdil": -0.72
+      }
+    }
+  },
+  "benchmark": {
+    "index_umim": 3.9,
+    "index_chci": 5.83,
+    "index_rozptylu": 1,
+    "prehlcenost": 5.6,
+    "prescasy": 4.9,
+    "strach_z_ai": 4.1
+  },
+  "lide": [
+    {
+      "jmeno": "Filip Schroll",
+      "kategorie": "Management",
+      "tym": "obchod",
+      "rozhovor": false,
+      "index_umim": 5.89,
+      "index_chci": 7.5,
+      "znalosti": 6.79,
+      "schopnosti": 5.0,
+      "zkouseni": 7.67,
+      "spravnost_odpovedi": 6,
+      "znam_nastroje": 7,
+      "pouzivam_nastroje": 5,
+      "platim_nastroje": 1,
+      "bavi_prace": 8.0,
+      "prehlcenost": 8.0,
+      "prescasy": 7.0,
+      "strach_z_ai": 3.0,
+      "experimentovani_mimo_praci": 8.0,
+      "sebehodnoceni": 7.0,
+      "role": "Manažer",
+      "delka_ve_firme": 3.0,
+      "zodpovednosti": "sales a příprava projektů"
+    },
+    {
+      "jmeno": "Václav Bouček",
+      "kategorie": "Obchod",
+      "tym": "obchod",
+      "rozhovor": true,
+      "index_umim": 2.68,
+      "index_chci": 5.1,
+      "znalosti": 5.36,
+      "schopnosti": 0.0,
+      "zkouseni": 3.0,
+      "spravnost_odpovedi": 6,
+      "znam_nastroje": 3,
+      "pouzivam_nastroje": 0,
+      "platim_nastroje": 0,
+      "bavi_prace": 9.0,
+      "prehlcenost": 3.0,
+      "prescasy": 6.0,
+      "strach_z_ai": null,
+      "experimentovani_mimo_praci": 2.0,
+      "sebehodnoceni": 2.0,
+      "role": "Obchodník",
+      "delka_ve_firme": 9.0,
+      "zodpovednosti": "obchod, leasing, prodeje projektů"
+    },
+    {
+      "jmeno": "Jaroslav Semorád",
+      "kategorie": "Obchod",
+      "tym": "obchod",
+      "rozhovor": false,
+      "index_umim": 4.18,
+      "index_chci": 6.3,
+      "znalosti": 5.36,
+      "schopnosti": 3.0,
+      "zkouseni": 6.0,
+      "spravnost_odpovedi": 4,
+      "znam_nastroje": 7,
+      "pouzivam_nastroje": 4,
+      "platim_nastroje": 0,
+      "bavi_prace": 8.0,
+      "prehlcenost": 7.0,
+      "prescasy": 9.0,
+      "strach_z_ai": 3.0,
+      "experimentovani_mimo_praci": 7.0,
+      "sebehodnoceni": 7.0,
+      "role": "Obchodník",
+      "delka_ve_firme": 2.0,
+      "zodpovednosti": "prodej bytů a péče o klienty a veškerá agenda/administrativa s tím spojená"
+    },
+    {
+      "jmeno": "Hana Čunderlíková",
+      "kategorie": "Obchod",
+      "tym": "obchod",
+      "rozhovor": false,
+      "index_umim": 3.68,
+      "index_chci": 5.4,
+      "znalosti": 5.36,
+      "schopnosti": 2.0,
+      "zkouseni": 5.0,
+      "spravnost_odpovedi": 5,
+      "znam_nastroje": 5,
+      "pouzivam_nastroje": 2,
+      "platim_nastroje": 0,
+      "bavi_prace": 8.0,
+      "prehlcenost": 8.0,
+      "prescasy": 7.0,
+      "strach_z_ai": 3.0,
+      "experimentovani_mimo_praci": 6.0,
+      "sebehodnoceni": 4.0,
+      "role": "Obchodník",
+      "delka_ve_firme": 2.0,
+      "zodpovednosti": "zdárný prodej bytů"
+    },
+    {
+      "jmeno": "Tomáš Lepka",
+      "kategorie": "",
+      "tym": "obchod",
+      "rozhovor": false,
+      "index_umim": 2.11,
+      "index_chci": 4.3,
+      "znalosti": 3.21,
+      "schopnosti": 1.0,
+      "zkouseni": 3.0,
+      "spravnost_odpovedi": 3,
+      "znam_nastroje": 3,
+      "pouzivam_nastroje": 1,
+      "platim_nastroje": 0,
+      "bavi_prace": 5.0,
+      "prehlcenost": 3.0,
+      "prescasy": 3.0,
+      "strach_z_ai": 3.0,
+      "experimentovani_mimo_praci": 3.0,
+      "sebehodnoceni": 3.0,
+      "role": "",
+      "delka_ve_firme": 2.0,
+      "zodpovednosti": ""
+    },
+    {
+      "jmeno": "Marko Pašalić",
+      "kategorie": "Projekt",
+      "tym": "obchod",
+      "rozhovor": true,
+      "index_umim": 7.29,
+      "index_chci": 8.6,
+      "znalosti": 8.57,
+      "schopnosti": 6.0,
+      "zkouseni": 9.0,
+      "spravnost_odpovedi": 6,
+      "znam_nastroje": 12,
+      "pouzivam_nastroje": 5,
+      "platim_nastroje": 2,
+      "bavi_prace": 7.0,
+      "prehlcenost": 7.0,
+      "prescasy": 9.0,
+      "strach_z_ai": 1.0,
+      "experimentovani_mimo_praci": 9.0,
+      "sebehodnoceni": 6.0,
+      "role": "Projekťák",
+      "delka_ve_firme": 1277.0,
+      "zodpovednosti": "Jsem nyní zodpovědný na chod IT."
+    },
+    {
+      "jmeno": "Monika Veselá",
+      "kategorie": "Marketing",
+      "tym": "obchod",
+      "rozhovor": true,
+      "index_umim": 2.96,
+      "index_chci": 6.6,
+      "znalosti": 3.93,
+      "schopnosti": 2.0,
+      "zkouseni": 5.67,
+      "spravnost_odpovedi": 3,
+      "znam_nastroje": 5,
+      "pouzivam_nastroje": 2,
+      "platim_nastroje": 0,
+      "bavi_prace": 6.0,
+      "prehlcenost": 4.0,
+      "prescasy": 3.0,
+      "strach_z_ai": 6.0,
+      "experimentovani_mimo_praci": 4.0,
+      "sebehodnoceni": 6.0,
+      "role": "Marketér",
+      "delka_ve_firme": 0.0,
+      "zodpovednosti": "externí komunikaci"
+    },
+    {
+      "jmeno": "Libor Pokorný",
+      "kategorie": "Management",
+      "tym": "obchod",
+      "rozhovor": true,
+      "index_umim": 4.75,
+      "index_chci": 6.9,
+      "znalosti": 7.5,
+      "schopnosti": 2.0,
+      "zkouseni": 5.67,
+      "spravnost_odpovedi": 6,
+      "znam_nastroje": 9,
+      "pouzivam_nastroje": 2,
+      "platim_nastroje": 0,
+      "bavi_prace": 8.0,
+      "prehlcenost": 4.0,
+      "prescasy": 4.0,
+      "strach_z_ai": 5.0,
+      "experimentovani_mimo_praci": 4.0,
+      "sebehodnoceni": 7.0,
+      "role": "Manažer",
+      "delka_ve_firme": 2.0,
+      "zodpovednosti": "Za marketingovou strategii společnosti a projektů a také za realizaci marketingových kampaní s cílem zvyšovat povědomí o společnosti, projektech a především za vytváření příležitostí pro obchodníky pro prodej"
+    },
+    {
+      "jmeno": "Daniel Melzer",
+      "kategorie": "Obchod",
+      "tym": "obchod",
+      "rozhovor": false,
+      "index_umim": 3.18,
+      "index_chci": 3.9,
+      "znalosti": 5.36,
+      "schopnosti": 1.0,
+      "zkouseni": 3.33,
+      "spravnost_odpovedi": 5,
+      "znam_nastroje": 5,
+      "pouzivam_nastroje": 1,
+      "platim_nastroje": 0,
+      "bavi_prace": 8.0,
+      "prehlcenost": 7.0,
+      "prescasy": 4.0,
+      "strach_z_ai": 3.0,
+      "experimentovani_mimo_praci": 7.0,
+      "sebehodnoceni": 7.0,
+      "role": "Obchodník",
+      "delka_ve_firme": 10.0,
+      "zodpovednosti": "obchod, leasing, business development, market research"
+    }
+  ],
+  "cinnosti": [
+    {
+      "nazev": "psaní_mailů",
+      "prumer": 3.89,
+      "distribuce": {
+        "denne": 8,
+        "tyden": 1,
+        "mesic": 0,
+        "mene": 0
+      }
+    },
+    {
+      "nazev": "psaní_chatových_zpráv",
+      "prumer": 3.33,
+      "distribuce": {
+        "denne": 4,
+        "tyden": 4,
+        "mesic": 1,
+        "mene": 0
+      }
+    },
+    {
+      "nazev": "vyhodnocování_dat",
+      "prumer": 2.44,
+      "distribuce": {
+        "denne": 1,
+        "tyden": 2,
+        "mesic": 6,
+        "mene": 0
+      }
+    },
+    {
+      "nazev": "příprava_prezentací",
+      "prumer": 1.44,
+      "distribuce": {
+        "denne": 0,
+        "tyden": 0,
+        "mesic": 4,
+        "mene": 5
+      }
+    },
+    {
+      "nazev": "dohledávání_informací_v_interních_materiálech",
+      "prumer": 2.78,
+      "distribuce": {
+        "denne": 1,
+        "tyden": 5,
+        "mesic": 3,
+        "mene": 0
+      }
+    },
+    {
+      "nazev": "monitoring_veřejných_zdrojů",
+      "prumer": 2.11,
+      "distribuce": {
+        "denne": 0,
+        "tyden": 3,
+        "mesic": 4,
+        "mene": 2
+      }
+    },
+    {
+      "nazev": "analýza_souborů",
+      "prumer": 2.11,
+      "distribuce": {
+        "denne": 0,
+        "tyden": 3,
+        "mesic": 5,
+        "mene": 0
+      }
+    },
+    {
+      "nazev": "extrakce_informací_z_dokumentů",
+      "prumer": 1.44,
+      "distribuce": {
+        "denne": 0,
+        "tyden": 0,
+        "mesic": 4,
+        "mene": 5
+      }
+    },
+    {
+      "nazev": "psaní_marketingových_textů",
+      "prumer": 2.0,
+      "distribuce": {
+        "denne": 2,
+        "tyden": 1,
+        "mesic": 1,
+        "mene": 5
+      }
+    },
+    {
+      "nazev": "projektové_řízení",
+      "prumer": 2.22,
+      "distribuce": {
+        "denne": 1,
+        "tyden": 4,
+        "mesic": 1,
+        "mene": 2
+      }
+    },
+    {
+      "nazev": "porady",
+      "prumer": 2.56,
+      "distribuce": {
+        "denne": 0,
+        "tyden": 6,
+        "mesic": 2,
+        "mene": 1
+      }
+    },
+    {
+      "nazev": "pohovory_s_kandidáty",
+      "prumer": 2.0,
+      "distribuce": {
+        "denne": 1,
+        "tyden": 3,
+        "mesic": 0,
+        "mene": 5
+      }
+    },
+    {
+      "nazev": "služební_cesty",
+      "prumer": 1.22,
+      "distribuce": {
+        "denne": 0,
+        "tyden": 0,
+        "mesic": 2,
+        "mene": 7
+      }
+    },
+    {
+      "nazev": "překlady",
+      "prumer": 1.56,
+      "distribuce": {
+        "denne": 0,
+        "tyden": 1,
+        "mesic": 3,
+        "mene": 5
+      }
+    }
+  ],
+  "nastroje": [
+    {
+      "nazev": "chatgpt",
+      "neznam": 0,
+      "znam": 1,
+      "pouzivam": 8
+    },
+    {
+      "nazev": "microsoft_copilot",
+      "neznam": 0,
+      "znam": 4,
+      "pouzivam": 5
+    },
+    {
+      "nazev": "perplexity",
+      "neznam": 4,
+      "znam": 5,
+      "pouzivam": 0
+    },
+    {
+      "nazev": "notebooklm",
+      "neznam": 4,
+      "znam": 4,
+      "pouzivam": 1
+    },
+    {
+      "nazev": "google_gemini",
+      "neznam": 1,
+      "znam": 5,
+      "pouzivam": 3
+    },
+    {
+      "nazev": "claude",
+      "neznam": 6,
+      "znam": 3,
+      "pouzivam": 0
+    },
+    {
+      "nazev": "cursor",
+      "neznam": 8,
+      "znam": 1,
+      "pouzivam": 0
+    },
+    {
+      "nazev": "gamma",
+      "neznam": 7,
+      "znam": 2,
+      "pouzivam": 0
+    },
+    {
+      "nazev": "relevance",
+      "neznam": 7,
+      "znam": 0,
+      "pouzivam": 0
+    },
+    {
+      "nazev": "heygen",
+      "neznam": 9,
+      "znam": 0,
+      "pouzivam": 0
+    },
+    {
+      "nazev": "elevenlabs",
+      "neznam": 6,
+      "znam": 3,
+      "pouzivam": 0
+    },
+    {
+      "nazev": "relay",
+      "neznam": 8,
+      "znam": 1,
+      "pouzivam": 0
+    },
+    {
+      "nazev": "microsoft_power_automate",
+      "neznam": 5,
+      "znam": 3,
+      "pouzivam": 1
+    },
+    {
+      "nazev": "canva",
+      "neznam": 3,
+      "znam": 2,
+      "pouzivam": 4
+    }
+  ]
+}
