@@ -17,8 +17,11 @@ import {
 const COLORS = {
   primary: "#3b82f6",
   primaryFill: "rgba(59, 130, 246, 0.25)",
-  benchmark: "#9ca3af",
-  benchmarkFill: "rgba(156, 163, 175, 0.08)",
+  company: "#ef4444",
+  companyFill: "rgba(239, 68, 68, 0.06)",
+  benchmark: "#1f2937",
+  benchmarkDark: "#e5e7eb",
+  benchmarkFill: "rgba(31, 41, 55, 0.06)",
   grid: "#d1d5db",
   gridDark: "#4b5563",
   text: "#6b7280",
@@ -28,11 +31,13 @@ interface TeamRadarDataPoint {
   metric: string;
   value: number;
   benchmark: number;
+  companyBenchmark?: number;
 }
 
 interface TeamRadarProps {
   data: TeamRadarDataPoint[];
   clientName?: string;
+  companyName?: string;
 }
 
 function CustomTooltip({
@@ -58,7 +63,7 @@ function CustomTooltip({
   );
 }
 
-export function TeamRadar({ data, clientName = "Firma" }: TeamRadarProps) {
+export function TeamRadar({ data, clientName = "Firma", companyName }: TeamRadarProps) {
   const [mounted, setMounted] = useState(false);
   const [isDark, setIsDark] = useState(false);
 
@@ -73,15 +78,18 @@ export function TeamRadar({ data, clientName = "Firma" }: TeamRadarProps) {
     return () => observer.disconnect();
   }, []);
 
+  const hasCompanyBenchmark = data.some((d) => d.companyBenchmark != null);
+
   const chartData = data.map((d) => ({
     metric: d.metric,
     firma: d.value,
+    ...(d.companyBenchmark != null && { firmacelkem: d.companyBenchmark }),
     benchmark: d.benchmark,
   }));
 
   if (!mounted) {
     return (
-      <div className="w-full my-8 h-[380px] md:h-[420px] rounded-xl border bg-fd-card animate-pulse" />
+      <div className="w-full my-8 h-[420px] md:h-[500px] rounded-xl border bg-fd-card animate-pulse" />
     );
   }
 
@@ -90,9 +98,9 @@ export function TeamRadar({ data, clientName = "Firma" }: TeamRadarProps) {
 
   return (
     <div className="w-full my-8">
-      <div className="h-[380px] md:h-[420px]">
+      <div className="h-[420px] md:h-[500px]">
         <ResponsiveContainer width="100%" height="100%">
-          <RadarChart data={chartData} cx="50%" cy="50%" outerRadius="75%">
+          <RadarChart data={chartData} cx="50%" cy="50%" outerRadius="80%">
             <PolarGrid stroke={gridColor} />
             <PolarAngleAxis
               dataKey="metric"
@@ -102,18 +110,27 @@ export function TeamRadar({ data, clientName = "Firma" }: TeamRadarProps) {
               domain={[0, 10]}
               tickCount={6}
               angle={90}
-              tick={{ fill: COLORS.text, fontSize: 11 }}
+              tick={{ fill: COLORS.text, fontSize: 10, opacity: 0.6 }}
               axisLine={false}
             />
             <Radar
               name="Benchmark trhu"
               dataKey="benchmark"
-              stroke={COLORS.benchmark}
-              fill={COLORS.benchmark}
-              fillOpacity={0.08}
-              strokeDasharray="6 3"
-              strokeWidth={2}
+              stroke={isDark ? COLORS.benchmarkDark : COLORS.benchmark}
+              fill={isDark ? COLORS.benchmarkDark : COLORS.benchmark}
+              fillOpacity={0.06}
+              strokeWidth={1.5}
             />
+            {hasCompanyBenchmark && (
+              <Radar
+                name={companyName ?? "Celá firma"}
+                dataKey="firmacelkem"
+                stroke={COLORS.company}
+                fill={COLORS.company}
+                fillOpacity={0.06}
+                strokeWidth={1.5}
+              />
+            )}
             <Radar
               name={clientName}
               dataKey="firma"

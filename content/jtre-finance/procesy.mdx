@@ -1,0 +1,137 @@
+---
+title: Procesy
+description: Procesní úzká místa a příležitosti pro automatizaci
+---
+
+Tato sekce shrnuje **procesní úzká místa**, která vyplynula z rozhovorů se třemi členy finančního oddělení. Nejde o kompletní procesní audit — jde o místa, kde se ztrácí čas a kde automatizace nebo AI může přinést měřitelnou úsporu.
+
+Procesy jsem seřadil podle odhadovaného dopadu — od těch, které zabírají nejvíc času, po ty, které jsou spíš otravné než nákladné.
+
+## 1. Platební cyklus
+
+<Callout type="warning">
+  Odhadovaná ztráta: **2–4 dny měsíčně.** Nejbolestivější proces na oddělení — ruční párování faktur přes čtyři systémy.
+</Callout>
+
+**Jak to funguje dnes.** **Zdeněk Král** spravuje platby za **27 společností**. Proces vypadá takto:
+
+1. Kolegyně ručně zadává faktury do **RealPadu** — otevře fakturu, přepíše údaje
+2. Faktura projde schvalovacím kolečkem (několik lidí)
+3. Král si vyexportuje schválené faktury do **Excelu** a vede tabulku nezaplacených faktur per společnost
+4. Účetní pošlou **svůj Excel** se seznamem neuhrazených faktur
+5. Král otevře obě tabulky vedle sebe a **ručně porovnává** — každou fakturu otevře v RealPadu, zkontroluje schválení, označí řádek žlutě (k platbě) nebo červeně (neschválená)
+6. Označený Excel pošle účetním, ti připraví **platební příkaz** (PDF)
+7. Král zkontroluje částku v PDF oproti Excelu, nahraje příkaz do **banky**
+8. Pan Jíša podepíše platbu v bance, dá zpětnou vazbu přes Teams
+9. Král zapíše datum úhrady zpět do tabulky
+
+**Co je špatně.** Čtyři systémy (RealPad, Excel, e-mail, banka), žádný z nich spolu nemluví. Každá faktura projde rukama minimálně třikrát. Král navíc nemá v RealPadu viditelnost na stav uhrazení — to vidí jen pan Jíša. Proto si vede duplicitní evidenci v Excelu.
+
+**Plánované řešení.** Přechod z RealPadu na **Wflow**, kde by účetní měli přímý přístup. Odpadl by krok 4–6 (posílání Excelů tam a zpět). Král by si vyexportoval sjetinu nezaplacených faktur, porovnal s platebním příkazem a rovnou nahrál do banky.
+
+**Co může AI/automatizace doplnit.** I po přechodu na Wflow zůstane ruční porovnávání. **Power Automate** nebo podobný nástroj by mohl automaticky párovat faktury z Wflow s platebními příkazy a upozornit na nesrovnalosti — místo ručního žlutění řádků.
+
+## 2. Cashflow a úvěrový reporting
+
+<Callout type="warning">
+  Odhadovaná ztráta: **3–5 dní měsíčně** (úvěry měsíčně, cashflow kvartálně).
+</Callout>
+
+**Úvěrové tabulky.** **Lucia Čabajová** měsíčně aktualizuje přehled úvěrů za **cca 20 společností**. Každá má vlastní list v Excelu s parametry dle úvěrové smlouvy. Proces:
+
+- Zkopírovat strukturu z předchozího měsíce
+- Ručně doplnit stav úvěru z výpisu banky nebo internet bankingu
+- Ověřit úrokovou sazbu — u některých společností měsíční, u jiných kvartální, u dalších fixní
+- Vypočítat úrok, zkontrolovat proti bance
+- Výstup poslat účetním jako podklad do účetnictví
+
+„Když je měsíc, kde se nic nového nečerpalo, tak je to za den. Ale když jsou refinancování nebo nové úvěry, zabere to víc."
+
+**Cashflow reporty.** Kvartálně, **18 tabulek** — jedna za každý projekt. Vstupují do nich lidé z různých oddělení (projekťáci náklady, obchodníci výnosy, marketing své položky, finance úroky a finální kontrolu). Čabajová:
+
+- Vytvoří strukturu na další období
+- Koordinuje přes Planner, kdo má co doplnit
+- Finální kontrola a zamčení tabulky
+- Natáhne data do sumární tabulky
+- Zakončí kvartálním meetingem
+
+„Zabere to téměř celý měsíc" — a pak se jede znovu.
+
+**Co může pomoct.** Úvěrové tabulky jsou kandidátem na **šablonu s makry nebo Power Query** — automatické natažení dat z předchozího měsíce, propojení na výpisy. Cashflow by profitoval z **Power BI** — Čabajová sama řekla: „Snad když tady někdy bude Power BI, tak nám to natáhá za mono."
+
+## 3. Archivace a evidence smluv
+
+<Callout type="insight">
+  Odhadovaná ztráta: **1 den týdně** — celý pátek.
+</Callout>
+
+**Jak to funguje dnes.** Král má na starosti zakládání a archivaci dokumentů pro celou firmu. Proces:
+
+1. Projektový manažer přinese papírovou smlouvu na stůl
+2. Pokud nemá scan, Král ji dá recepční na naskenování
+3. Přejmenuje soubor (nikdo neposílá správně pojmenované dokumenty)
+4. Zapíše metadata do **evidence smluv ve Forms/Lists** — společnost, typ dokumentu, datum, strany
+5. Nahraje PDF na **SharePoint** do správné složky
+6. Zkopíruje odkaz z SharePointu a vloží ho do evidence
+7. Fyzický dokument založí do šanonu
+
+„Pár dokumentů tam chybí, nejsou upravená práva, teďka vlastně každý si mohl editovat, jak chce." Evidence je funkční, ale nedokončená — a Král na její dokončení nemá čas, protože ho sežere samotné zakládání.
+
+**Co může pomoct.** Zakládání dokumentů je repetitivní proces s jasnými pravidly — ideální pro automatizaci. **Power Automate** by mohl sledovat nové soubory na SharePointu, automaticky vyplnit metadata (extrakce z názvu souboru nebo obsahu dokumentu přes AI) a vytvořit záznam v evidenci. Ruční by zůstala jen kontrola a fyzické zakládání.
+
+## 4. Správy o propojených osobách
+
+**Jak to funguje dnes.** Jednou ročně (do konce března) Čabajová vypracuje **cca 20 zpráv** — jednu za každou společnost. Každá zpráva obsahuje informace o společnosti, jejích společnících, propojených osobách a smlouvách uzavřených mezi nimi.
+
+Údaje se ověřují na **justici**, doplňují z interních databází a ručně vyplňují do Word dokumentu. „Chtěli jsme, jestli by AI umělo zkontrolovat na justici, jestli jsou ty informace správně. Loni to ještě nešlo."
+
+**Co může pomoct.** Dnes už to jde. AI dokáže:
+- Stáhnout aktuální údaje z justice a obchodního rejstříku
+- Porovnat je s loňskou zprávou a zvýraznit změny
+- Předvyplnit standardní sekce zprávy
+
+Ruční by zůstala kontrola a doplnění interních dat (smlouvy mezi společnostmi). Ale i to by šlo urychlit napojením na evidenci smluv.
+
+## 5. HR administrativa
+
+**Leona Holíková** je na oddělení od června a buduje HR procesy prakticky od nuly — před ní personální oddělení neexistovalo, agenda byla rozptýlená mezi více lidí.
+
+### Nábor
+
+Přehled kandidátů vede v **Excelu** — jména, pozice, datum pohovoru, zpětná vazba, stav. „Mám to jako podklad pro top management — když řeknou, nemáme nabranýho projektovýho manažera za půl roku, ukážu jim, že tady bylo 20 kandidátů." CVčka si tiskne, poznámky píše na papír, po ukončení procesu skartuje (GDPR).
+
+### Onboarding
+
+Chybí **checklist** — co všechno udělat při nástupu, výstupu nebo mateřské. „Chtěla bych si vytvořit nějaký proces, udělat si checklist, co všechno musím." Dnes to drží v hlavě a dohledává z minula.
+
+### Směrnice a prokazatelné seznámení
+
+Když vznikne nová směrnice, potřebuje prokazatelně doložit, že se s ní zaměstnanci seznámili. „Nemyslím, že kliknou na e-mail a potvrdí — někde na SharePointu, ale to nevím, to možná musí udělat ajťáci."
+
+<Callout type="insight">
+  HR procesy jsou dnes v „startovací" fázi — Holíková je buduje sama, bez předchozí dokumentace. Právě proto je tohle ideální moment pro nastavení od začátku správně. Checklist v Planneru, šablony dokumentů v ChatGPT, onboarding workflow v Power Automate — to vše se dá nastavit rychle a ušetří hodiny do budoucna.
+</Callout>
+
+## 6. Datové schránky a korporátní komunikace
+
+Král odesílá datové zprávy za společnosti — ručně vyplňuje údaje z Excelu do datové schránky, stahuje potvrzení, posílá je kolegovi a zakládá do evidence. „Není to zlouhavé, ale je to na denní bázi."
+
+Čabajová komunikuje s bankami ohledně účtů, certifikátů a přístupů. Král zakládá bankovní účty — „zakládáme s bankou účet už dva týdny, urgoval jsem je."
+
+Tyhle procesy nejsou primárním kandidátem na AI — jsou to spíš kroky, které by profitovaly z **lepšího workflow** (šablony, automatické vyplňování formulářů, propojení evidence s datovou schránkou).
+
+## Shrnutí
+
+| Proces | Kdo | Frekvence | Odhad ztráty | Řešení |
+|---|---|---|---|---|
+| **Platební cyklus** | Král | měsíčně | 2–4 dny | Wflow + Power Automate |
+| **Úvěrové tabulky** | Čabajová | měsíčně | 1–2 dny | Excel šablony + Power Query |
+| **Cashflow reporting** | Čabajová + tým | kvartálně | ~měsíc | Power BI |
+| **Archivace smluv** | Král | týdně | 1 den | Power Automate + AI extrakce |
+| **Správy o propojených osobách** | Čabajová | ročně | ~týden | AI + justice API |
+| **HR administrativa** | Holíková | průběžně | hodiny týdně | Planner + šablony + workflow |
+| **Datové schránky** | Král | denně | desítky minut | Šablony, evidence |
+
+<Callout type="positive">
+  Většina procesních problémů na finančním oddělení **nejsou problémy AI** — jsou to problémy **propojení systémů**. RealPad nemluví s bankou, Excel nemluví s RealPadem, SharePoint nemluví s evidencí. AI pomůže s extrakcí dat z dokumentů a generováním šablon, ale největší úsporu přinese automatizace workflow.
+</Callout>

@@ -1,19 +1,24 @@
 import { DocsLayout } from 'fumadocs-ui/layouts/docs';
 import type { ReactNode } from 'react';
 import { jtreFinanceSource } from '@/lib/source';
+import { SidebarSeparator } from '@/components/sidebar-separator';
 
 export default function JtreFinanceLayout({ children }: { children: ReactNode }) {
   return (
     <DocsLayout
       tree={jtreFinanceSource.pageTree}
-      nav={{ title: 'AI Kompas — J&T RE / Finance' }}
+      nav={{ title: 'AI Kompas', url: '/jtre-finance/uvod' }}
+      searchToggle={{ enabled: false }}
       sidebar={{
         banner: (
           <div className="rounded-lg border bg-fd-card p-4 text-sm">
             <p className="font-medium">J&T Real Estate</p>
-            <p className="text-fd-muted-foreground">Finanční oddělení — AI Kompas</p>
+            <p className="text-fd-muted-foreground">Finanční oddělení</p>
           </div>
         ),
+        components: {
+          Separator: SidebarSeparator,
+        },
       }}
     >
       {children}

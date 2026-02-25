@@ -49,6 +49,7 @@ function getCellStyle(
 }
 
 const PRETTY_LABELS: Record<string, string> = {
+  // Činnosti — dlouhé klíče (Kačena)
   psaní_mailů: "Psaní mailů",
   psaní_chatových_zpráv: "Psaní chatových zpráv",
   vyhodnocování_dat_excel_nebo_něco_podobného: "Vyhodnocování dat (Excel, …)",
@@ -64,6 +65,13 @@ const PRETTY_LABELS: Record<string, string> = {
   pohovory_s_kandidáty: "Pohovory s kandidáty",
   služební_cesty: "Služební cesty",
   překlady: "Překlady",
+  // Činnosti — krátké klíče (JTRE)
+  vyhodnocování_dat: "Vyhodnocování dat (Excel, …)",
+  monitoring_veřejných_zdrojů: "Monitoring veřejných zdrojů",
+  analýza_souborů: "Analýza souborů (smlouvy, …)",
+  extrakce_informací_z_dokumentů: "Extrakce informací z dokumentů",
+  projektové_řízení: "Projektové řízení",
+  porady: "Porady",
   chatgpt: "ChatGPT",
   microsoft_copilot: "Microsoft Copilot",
   perplexity: "Perplexity",

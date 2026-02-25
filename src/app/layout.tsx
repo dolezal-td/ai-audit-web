@@ -20,7 +20,24 @@ export default function RootLayout({
   return (
     <html lang="cs" suppressHydrationWarning>
       <body className={inter.className}>
-        <RootProvider>{children}</RootProvider>
+        <RootProvider
+          search={{ enabled: false }}
+          i18n={{
+            locale: 'cs',
+            translations: {
+              toc: 'Na této stránce',
+              search: 'Hledat',
+              searchNoResult: 'Nic nenalezeno',
+              tocNoHeadings: 'Žádné nadpisy',
+              lastUpdate: 'Naposledy aktualizováno',
+              nextPage: 'Další stránka',
+              previousPage: 'Předchozí stránka',
+              chooseTheme: 'Vzhled',
+            },
+          }}
+        >
+          {children}
+        </RootProvider>
       </body>
     </html>
   );
