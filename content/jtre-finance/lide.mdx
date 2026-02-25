@@ -1,0 +1,74 @@
+---
+title: Lidé
+description: Scatter plot Umím × Chci a profily jednotlivců
+---
+
+## Mapa týmu
+
+Každý bod na grafu je jeden člověk. Horizontální osa ukazuje **motivaci** (Index Chci), vertikální **praktické dovednosti** (Index Umím). Přerušované čáry jsou týmový průměr — kdo je napravo a nahoře, je nad průměrem.
+
+<ScatterPlotChart
+  teamAvgUmim={3.96}
+  teamAvgChci={5.89}
+  data={[
+    { jmeno: "Leona Holíková", kategorie: "HR", index_umim: 1.93, index_chci: 4.5 },
+    { jmeno: "Ivana Bendová", kategorie: "Support", index_umim: 0.89, index_chci: 3.8 },
+    { jmeno: "Jan Ascherl", kategorie: "AML", index_umim: 4.0, index_chci: 9.2 },
+    { jmeno: "Lucia Čabajová", kategorie: "Finance", index_umim: 3.86, index_chci: 4.3 },
+    { jmeno: "František Jíša", kategorie: "Management", index_umim: 6.93, index_chci: 7.4 },
+    { jmeno: "Duc Minh Hoang", kategorie: "Analytik", index_umim: 5.0, index_chci: 5.3 },
+    { jmeno: "Iveta Polášíková", kategorie: "Support", index_umim: 3.14, index_chci: 6.5 },
+    { jmeno: "Geis Kaltounová", kategorie: "Analytik", index_umim: 7.11, index_chci: 8.4 },
+    { jmeno: "Zdeněk Král", kategorie: "Controlling", index_umim: 5.11, index_chci: 7.3 },
+    { jmeno: "Dominika Langová", kategorie: "Support", index_umim: 1.61, index_chci: 2.2 },
+  ]}
+/>
+
+<Callout type="insight">
+  Tým se dělí na tři jasné skupiny: **pokročilá trojice** vpravo nahoře (Kaltounová, Jíša, Král), **motivovaný střed** (Ascherl, Polášíková, Hoang) a **začátečníci** vlevo dole (Bendová, Langová, Holíková). Zajímavou výjimkou je **Čabajová** — slušné znalosti, ale v dotazníku nízká motivace, kterou rozhovor nepotvrdil.
+</Callout>
+
+## Profily
+
+| Jméno | Role | Umím | Chci | Znalosti | Schopnosti | Zkoušení | Strach |
+|-------|------|------|------|----------|------------|----------|--------|
+| **Geis Kaltounová** | Analytik | **7,1** | **8,4** | 8,2 | 6,0 | 8,0 | 5,0 |
+| **František Jíša** | Management | **6,9** | **7,4** | 7,9 | 6,0 | 7,7 | 6,0 |
+| **Zdeněk Král** | Controlling | **5,1** | **7,3** | 8,2 | 2,0 | 7,3 | 7,0 |
+| Duc Minh Hoang | Analytik | 5,0 | 5,3 | 5,0 | 5,0 | 4,7 | 3,0 |
+| Jan Ascherl | AML | 4,0 | **9,2** | 5,0 | 3,0 | 8,3 | 1,0 |
+| Lucia Čabajová | Finance | 3,9 | 4,3 | 5,7 | 2,0 | 3,3 | 4,0 |
+| Iveta Polášíková | Support | 3,1 | 6,5 | 4,3 | 2,0 | 5,3 | 4,0 |
+| Leona Holíková | HR | 1,9 | 4,5 | 2,9 | 1,0 | 4,0 | 5,0 |
+| Dominika Langová | Support | 1,6 | 2,2 | 3,2 | 0,0 | 1,3 | **9,0** |
+| Ivana Bendová | Support | 0,9 | 3,8 | 1,8 | 0,0 | 2,0 | 5,0 |
+
+## Ambasadoři
+
+<Callout type="positive">
+  Tři lidé mají potenciál táhnout AI adopci za celé oddělení — a každý z jiného úhlu.
+</Callout>
+
+**Geis Kaltounová** (Umím **7,1**, Chci **8,4**) — nejpokročilejší osoba v týmu. Zná **13 AI nástrojů**, **4** aktivně používá, **2** si platí. Jako analytička pracuje s daty denně a dokáže ostatním ukázat, jak AI reálně pomáhá v reportingu.
+
+**František Jíša** (Umím **6,9**, Chci **7,4**) — manažer se **7letou zkušeností** ve firmě. Vysoké znalosti plus manažerská pozice — přesně ten člověk, který může AI prosadit nejen prakticky, ale i strategicky. Experimentuje mimo práci (**10/10**).
+
+**Jan Ascherl** (Umím **4,0**, Chci **9,2**) — nejvyšší motivace v celém oddělení. Zná **10 nástrojů**, aktivně experimentuje (**8/10**), nemá žádný strach z AI (**1,0**). Znalostmi zatím nepředběhl zbytek týmu, ale jeho nadšení a chuť zkoušet jsou nakažlivé.
+
+## Postřehy z rozhovorů
+
+S třemi členy týmu jsem vedl individuální **45minutové rozhovory**:
+
+**Zdeněk Král** (Controlling) — Technicky nejzdatnější z dotazovaných. Už dnes používá interní ChatGPT k extrakci dat z dokumentů. Jeho hlavní bolest: **2 dny měsíčně** strávené ručním párováním faktur mezi RealPadem, Excelem a bankou. Sám aktivně hledá cesty, jak to zautomatizovat.
+
+**Lucia Čabajová** (Finance) — **15 let ve firmě**, hluboká znalost procesů. Její motivace v dotazníku (**4,3**) neodráží to, co jsem viděl při rozhovoru — aktivně se zajímá o automatizaci svých Excel reportů (cashflow, úvěrové tabulky). Nepotřebuje další teorii, potřebuje ukázku konkrétního řešení.
+
+**Leona Holíková** (HR) — Na oddělení nová, používá ChatGPT pro inspiraci při psaní textů. Největší potenciál vidí v automatizaci onboardingu a správy dokumentů. Její vysoká přehlcenost (**9,0**) pravděpodobně souvisí se zapracováním, ne s objemem práce.
+
+## Rizikové profily
+
+<Callout type="warning">
+  **Dominika Langová** (Umím **1,6**, Chci **2,2**, Strach **9,0**) — jediná osoba, kde se potkává nízká motivace s vysokým strachem. Uvádí nejnižší spokojenost s prací (**3/10**). Individuální rozhovor a praktická ukázka AI přímo na jejích úkolech by pomohly víc než jakékoliv skupinové školení.
+</Callout>
+
+**Ivana Bendová** (Umím **0,9**, Chci **3,8**) má nejnižší znalosti v týmu a nulové praktické zkušenosti. Na rozdíl od Langové ale nemá extrémní strach (**5,0**) a její motivace je mírná. Stačí začít od úplných základů — ukázat jí ChatGPT na jejích reálných úkolech.
