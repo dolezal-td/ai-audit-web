@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
 // Client slugs that require PIN authentication
-const PROTECTED_CLIENTS = ["kacena"];
+const PROTECTED_CLIENTS: string[] = [];
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
