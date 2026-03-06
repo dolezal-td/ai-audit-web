@@ -25,7 +25,7 @@ Procesy jsem seřadil podle odhadovaného dopadu — od těch, které zabírají
 8. Pan Jíša podepíše platbu v bance, dá zpětnou vazbu přes Teams
 9. Král zapíše datum úhrady zpět do tabulky
 
-**Co je špatně.** Čtyři systémy (RealPad, Excel, e-mail, banka), žádný z nich spolu nemluví. Každá faktura projde rukama minimálně třikrát. Král navíc nemá v RealPadu viditelnost na stav uhrazení — to vidí jen pan Jíša. Proto si vede duplicitní evidenci v Excelu.
+**Co je špatně.** Čtyři systémy (RealPad, Excel, e-mail, banka), žádný z nich spolu nemluví. Každá faktura projde rukama minimálně třikrát. Král navíc nemá v RealPadu viditelnost na stav uhrazení — to vidí jen pan Jíša. Proto si vede duplicitní evidenci v Excelu. Kritickým úzkým hrdlem je to, že i po digitální evidenci musí Zdeněk „najít šanon a fyzicky do něj dokument založit”. Bez zrušení fyzické archivace bude efektivita AI vždy limitována manuální manipulací.
 
 **Plánované řešení.** Přechod z RealPadu na **Wflow**, kde by účetní měli přímý přístup. Odpadl by krok 4–6 (posílání Excelů tam a zpět). Král by si vyexportoval sjetinu nezaplacených faktur, porovnal s platebním příkazem a rovnou nahrál do banky.
 
@@ -57,7 +57,7 @@ Procesy jsem seřadil podle odhadovaného dopadu — od těch, které zabírají
 
 „Zabere to téměř celý měsíc" — a pak se jede znovu.
 
-**Co může pomoct.** Úvěrové tabulky jsou kandidátem na **šablonu s makry nebo Power Query** — automatické natažení dat z předchozího měsíce, propojení na výpisy. Cashflow by profitoval z **Power BI** — Čabajová sama řekla: „Snad když tady někdy bude Power BI, tak nám to natáhá za mono."
+**Co může pomoct.** Úvěrové tabulky jsou kandidátem na **šablonu s makry nebo Power Query** — automatické natažení dat z předchozího měsíce, propojení na výpisy. Cashflow by profitoval z **Power BI** — Čabajová sama řekla: „Snad když tady někdy bude Power BI, tak nám to natáhá za mono." Pro úspěšné nasazení Copilota je nezbytná „standardizace vstupů“. Lucia uvádí, že modely jsou dnes tvořeny „projekt od projektu“, což znemožňuje plošnou automatizaci bez předchozí unifikace struktury dat.
 
 ## 3. Archivace a evidence smluv
 
@@ -77,7 +77,7 @@ Procesy jsem seřadil podle odhadovaného dopadu — od těch, které zabírají
 
 „Pár dokumentů tam chybí, nejsou upravená práva, teďka vlastně každý si mohl editovat, jak chce." Evidence je funkční, ale nedokončená — a Král na její dokončení nemá čas, protože ho sežere samotné zakládání.
 
-**Co může pomoct.** Zakládání dokumentů je repetitivní proces s jasnými pravidly — ideální pro automatizaci. **Power Automate** by mohl sledovat nové soubory na SharePointu, automaticky vyplnit metadata (extrakce z názvu souboru nebo obsahu dokumentu přes AI) a vytvořit záznam v evidenci. Ruční by zůstala jen kontrola a fyzické zakládání.
+**Co může pomoct.** Zde je největší prostor pro Power Automate AI Builder, který by měl nahradit ruční přepisování metadat do Forms/Lists, jež Zdeněk provádí na denní bázi. Zakládání dokumentů je repetitivní proces s jasnými pravidly — ideální pro automatizaci. **Power Automate** by mohl sledovat nové soubory na SharePointu, automaticky vyplnit metadata (extrakce z názvu souboru nebo obsahu dokumentu přes AI) a vytvořit záznam v evidenci. Ruční by zůstala jen kontrola. Nad potřebou fyzického zakládání je potřeba se zamyslet.
 
 ## 4. Správy o propojených osobách
 
@@ -98,7 +98,7 @@ Ruční by zůstala kontrola a doplnění interních dat (smlouvy mezi společno
 
 ### Nábor
 
-Přehled kandidátů vede v **Excelu** — jména, pozice, datum pohovoru, zpětná vazba, stav. „Mám to jako podklad pro top management — když řeknou, nemáme nabranýho projektovýho manažera za půl roku, ukážu jim, že tady bylo 20 kandidátů." CVčka si tiskne, poznámky píše na papír, po ukončení procesu skartuje (GDPR).
+Přehled kandidátů vede v **Excelu** — jména, pozice, datum pohovoru, zpětná vazba, stav. „Mám to jako podklad pro top management — když řeknou, nemáme nabranýho projektovýho manažera za půl roku, ukážu jim, že tady bylo 20 kandidátů." CVčka si tiskne, poznámky píše na papír, po ukončení procesu skartuje (GDPR). Současný proces psaní poznámek o kandidátech na papír a jejich následná skartace představuje GDPR riziko. Digitalizace checklistů v Planneru toto riziko eliminuje a zrychlí onboarding.
 
 ### Onboarding
 
@@ -120,6 +120,10 @@ Král odesílá datové zprávy za společnosti — ručně vyplňuje údaje z E
 
 Tyhle procesy nejsou primárním kandidátem na AI — jsou to spíš kroky, které by profitovaly z **lepšího workflow** (šablony, automatické vyplňování formulářů, propojení evidence s datovou schránkou).
 
+## 7. Monitoring AML a legislativy
+
+**Jan Ascherl** denně ručně sleduje českou, EU a mezinárodní AML legislativu a soudní rozhodnutí. Jde o vysoce kvalifikovanou rešeršní činnost, která je primárním cílem pro automatizaci pomocí AI agentů.
+
 ## Shrnutí
 
 | Proces | Kdo | Frekvence | Odhad ztráty | Řešení |
@@ -131,7 +135,10 @@ Tyhle procesy nejsou primárním kandidátem na AI — jsou to spíš kroky, kte
 | **Správy o propojených osobách** | Čabajová | ročně | ~týden | AI + justice API |
 | **HR administrativa** | Holíková | průběžně | hodiny týdně | Planner + šablony + workflow |
 | **Datové schránky** | Král | denně | desítky minut | Šablony, evidence |
+| **Monitoring AML a legislativy** | Ascherl | denně | rešeršní činnost | AI agenti |
 
 <Callout type="positive">
   Většina procesních problémů na finančním oddělení **nejsou problémy AI** — jsou to problémy **propojení systémů**. RealPad nemluví s bankou, Excel nemluví s RealPadem, SharePoint nemluví s evidencí. AI pomůže s extrakcí dat z dokumentů a generováním šablon, ale největší úsporu přinese automatizace workflow.
 </Callout>
+
+
