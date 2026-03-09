@@ -18,8 +18,8 @@ export const ACCESS: AccessEntry[] = [
 ];
 
 export const REPORTS: Record<string, { title: string; subtitle: string }> = {
-  "jtre-finance": { title: "J&T Real Estate", subtitle: "Finanční oddělení" },
-  "jtre-obchod": { title: "J&T Real Estate", subtitle: "Obchodní oddělení" },
+  "jtre-finance": { title: "JTRE", subtitle: "Finanční oddělení" },
+  "jtre-obchod": { title: "JTRE", subtitle: "Obchodní oddělení" },
 };
 
 export const PROTECTED_REPORTS = [...new Set(ACCESS.flatMap((a) => a.reports))];
