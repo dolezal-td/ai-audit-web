@@ -17,8 +17,8 @@ export default async function JtreFinanceLayout({ children }: { children: ReactN
     <DocsLayout
       tree={jtreFinanceSource.pageTree}
       nav={{
-        title: <NavTitle showHome={reports.length > 1} />,
-        url: reports.length > 1 ? '/' : '/jtre-finance/uvod',
+        title: <NavTitle showHome={reports.length > 1} reportSlug="jtre-finance" />,
+        url: '/jtre-finance/uvod',
       }}
       searchToggle={{ enabled: false }}
       sidebar={{
