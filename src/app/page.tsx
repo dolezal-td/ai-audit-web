@@ -11,11 +11,12 @@ export default async function HomePage() {
 
   if (!session) redirect("/auth");
 
-  if (session.reports.length === 1) {
-    redirect(`/${session.reports[0]}/uvod`);
-  }
-
   const availableReports = session.reports.filter((r) => r in REPORTS);
+  const activeReports = availableReports.filter((r) => !REPORTS[r].disabled);
+
+  if (activeReports.length === 1 && activeReports.length === availableReports.length) {
+    redirect(`/${activeReports[0]}/uvod`);
+  }
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-6 py-16">
@@ -52,6 +53,48 @@ export default async function HomePage() {
         <div className="grid gap-5">
           {availableReports.map((slug) => {
             const report = REPORTS[slug];
+
+            if (report.disabled) {
+              return (
+                <div
+                  key={slug}
+                  className="relative overflow-hidden rounded-2xl border-2 p-8 cursor-not-allowed opacity-50"
+                  style={{
+                    backgroundColor: "var(--color-fd-card)",
+                    borderColor: "var(--ak-warm-300)",
+                  }}
+                >
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p
+                        className="text-2xl font-bold tracking-tight mb-1"
+                        style={{
+                          fontFamily: "var(--font-display), 'Inter', sans-serif",
+                          color: "var(--ak-warm-500)",
+                        }}
+                      >
+                        {report.title}
+                      </p>
+                      <p
+                        className="text-base"
+                        style={{ color: "var(--ak-warm-500)" }}
+                      >
+                        {report.subtitle}
+                      </p>
+                      {report.disabledMessage && (
+                        <p
+                          className="text-sm mt-2 italic"
+                          style={{ color: "var(--ak-warm-400)" }}
+                        >
+                          {report.disabledMessage}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              );
+            }
+
             return (
               <Link
                 key={slug}
@@ -112,7 +155,15 @@ export default async function HomePage() {
           className="text-center text-xs mt-12"
           style={{ color: "var(--ak-warm-500)" }}
         >
-          AI Pro Smrtelníky
+          <a
+            href="https://www.linkedin.com/in/dolezaltd"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:underline"
+            style={{ color: "var(--ak-warm-500)" }}
+          >
+            Tomáš D. Doležal – AI pro Smrtelníky
+          </a>
         </p>
       </div>
     </div>
