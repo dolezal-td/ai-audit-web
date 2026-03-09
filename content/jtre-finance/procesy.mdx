@@ -3,14 +3,41 @@ title: Procesy
 description: Procesní úzká místa a příležitosti pro automatizaci
 ---
 
-Tato sekce shrnuje **procesní úzká místa**, která vyplynula z rozhovorů se třemi členy finančního oddělení. Nejde o kompletní procesní audit — jde o místa, kde se ztrácí čas a kde automatizace nebo AI může přinést měřitelnou úsporu.
+Tato sekce shrnuje **procesní úzká místa**, která vyplynula z rozhovorů se třemi členy finančního oddělení — **Zdeňkem Králem**, **Luciou Čabajovou** a **Leonou Holíkovou**. Nejde o kompletní procesní audit. Jde o místa, kde se ztrácí čas a kde AI nebo automatizace přinese měřitelnou úsporu.
 
-Procesy jsem seřadil podle odhadovaného dopadu — od těch, které zabírají nejvíc času, po ty, které jsou spíš otravné než nákladné.
+Procesy jsem analyzoval optikou **schopností** (capabilities) — co přesně AI umí převzít — a seřadil podle kombinace dopadu a náročnosti zavedení.
+
+## Kde začít — impact a effort
+
+<Callout type="insight">
+  Ne všechno, co bolí nejvíc, se řeší nejsnáz. Matice níže ukazuje čtyři kvadranty — a ke každému jasnou akci: co se dá vyřešit hned na workshopu, co vyžaduje hackathon nebo samostatný projekt, co si vyřešíte s konkrétním člověkem a co teď nemá smysl řešit.
+</Callout>
+
+| | **Snazší zavést** | **Náročnější zavést** |
+|---|---|---|
+| **Velký dopad** | **Nalejvárna (workshop)** | **Hackathon / vertikála** |
+| | Psaní e-mailů — drafty, sumarizace vláken (10/10 denně) | Porovnávání dat — faktury, sazby, cashflow (Král 2–4 dny/měs) |
+| | Čtení a orientace v Excelu — cizí tabulky, exporty | Sumarizace dat — 18 cashflow → sumář (Čabajová ~měsíc/kvartál) |
+| | Úprava Excelu — šablony, nové období, vzorce (Čabajová) | Schvalovací procesy — faktury, platby, docházka |
+| | Rešerše — justice, zákoník práce, legislativa (Čabajová, Holíková) | Automatizace měsíčních rutin — platební cyklus, úvěrové tabulky |
+| | Dohledávání v interních materiálech — smlouvy, SharePoint | |
+| **Menší dopad** | **Individuální práce** | **Neřešit (zatím)** |
+| | Komunikace s externími stranami — formulace, překlady | Evidence smluv — systémová změna SharePointu (Král) |
+| | Extrakce z dokumentů — VDR, smlouvy (Král) | Tvorba dokumentů — správy o propojených osobách, směrnice |
+| | Tvorba dokumentů — checklisty, směrnice (Holíková) | |
+
+**Jak to číst:**
+- **Nalejvárna** — quick wins, které si účastníci odnesou rovnou z workshopu. Naučí se to za odpoledne a hned druhý den to použijí.
+- **Hackathon / vertikála** — vysoký dopad, ale vyžaduje přípravu dat, propojení systémů nebo změnu procesu. Ideální kandidáti na celodenní hackathon s IT podporou, případně na samostatný projekt.
+- **Individuální práce** — menší dopad na oddělení, ale velký pro konkrétního člověka. Řeší se 1:1 s danou osobou.
+- **Neřešit** — vysoká pracnost při nízkém dopadu. V současné fázi nemá smysl investovat čas.
+
+---
 
 ## 1. Platební cyklus
 
 <Callout type="warning">
-  Odhadovaná ztráta: **2–4 dny měsíčně.** Nejbolestivější proces na oddělení — ruční párování faktur přes čtyři systémy.
+  **Capability: Porovnávání dat** · Odhadovaná ztráta: **2–4 dny měsíčně.** Nejbolestivější proces na oddělení — ruční párování faktur přes čtyři systémy.
 </Callout>
 
 **Jak to funguje dnes.** **Zdeněk Král** spravuje platby za **27 společností**. Proces vypadá takto:
@@ -25,29 +52,47 @@ Procesy jsem seřadil podle odhadovaného dopadu — od těch, které zabírají
 8. Pan Jíša podepíše platbu v bance, dá zpětnou vazbu přes Teams
 9. Král zapíše datum úhrady zpět do tabulky
 
-**Co je špatně.** Čtyři systémy (RealPad, Excel, e-mail, banka), žádný z nich spolu nemluví. Každá faktura projde rukama minimálně třikrát. Král navíc nemá v RealPadu viditelnost na stav uhrazení — to vidí jen pan Jíša. Proto si vede duplicitní evidenci v Excelu. Kritickým úzkým hrdlem je to, že i po digitální evidenci musí Zdeněk „najít šanon a fyzicky do něj dokument založit”. Bez zrušení fyzické archivace bude efektivita AI vždy limitována manuální manipulací.
+*„Dva dny. Každý měsíc dva dny... je to nadlouho a strašně nechce se tam udělat chyba."*
 
-**Plánované řešení.** Přechod z RealPadu na **Wflow**, kde by účetní měli přímý přístup. Odpadl by krok 4–6 (posílání Excelů tam a zpět). Král by si vyexportoval sjetinu nezaplacených faktur, porovnal s platebním příkazem a rovnou nahrál do banky.
+**Co je špatně.** Čtyři systémy (RealPad, Excel, e-mail, banka), žádný z nich spolu nemluví. Každá faktura projde rukama minimálně třikrát. Král navíc nemá v RealPadu viditelnost na stav uhrazení — to vidí jen pan Jíša. Proto si vede duplicitní evidenci v Excelu. Kritickým úzkým hrdlem je, že i po digitální evidenci musí Zdeněk „najít šanon a fyzicky do něj dokument založit" — bez zrušení fyzické archivace bude efektivita vždy limitována manuální manipulací.
 
-**Co může AI/automatizace doplnit.** I po přechodu na Wflow zůstane ruční porovnávání. **Power Automate** nebo podobný nástroj by mohl automaticky párovat faktury z Wflow s platebními příkazy a upozornit na nesrovnalosti — místo ručního žlutění řádků.
+**Plánované řešení.** Přechod z RealPadu na **Wflow**, kde by účetní měli přímý přístup. Odpadl by krok 4–6 (posílání Excelů tam a zpět).
+
+**Co může AI/automatizace doplnit.** I po přechodu na Wflow zůstane ruční porovnávání. Doporučuji tři vrstvy:
+
+- **Cursor** — ideální nástroj na porovnávání dvou Excelů. Král nahraje oba soubory, Cursor najde nesrovnalosti, zvýrazní chybějící faktury, označí neschválené. Místo dvou dnů ručního žlutění řádků — minuty.
+- **Power Automate** — automatické párování faktur z Wflow s platebními příkazy, upozornění na nesrovnalosti. Místo ručního žlutění řádků dostane Král hotový přehled výjimek.
+- **Copilot v Excelu** — pro ad hoc dotazy nad exporty: „Které faktury za společnost X jsou schválené, ale nezaplacené?" Místo ručního filtrování.
+
+---
 
 ## 2. Cashflow a úvěrový reporting
 
 <Callout type="warning">
-  Odhadovaná ztráta: **3–5 dní měsíčně** (úvěry měsíčně, cashflow kvartálně).
+  **Capability: Úprava Excelu + Porovnávání dat** · Odhadovaná ztráta: **3–5 dní měsíčně** (úvěry měsíčně, cashflow kvartálně).
 </Callout>
 
-**Úvěrové tabulky.** **Lucia Čabajová** měsíčně aktualizuje přehled úvěrů za **cca 20 společností**. Každá má vlastní list v Excelu s parametry dle úvěrové smlouvy. Proces:
+### Úvěrové tabulky
+
+**Lucia Čabajová** měsíčně aktualizuje přehled úvěrů za **cca 20 společností**. Každá má vlastní list v Excelu s parametry dle úvěrové smlouvy:
 
 - Zkopírovat strukturu z předchozího měsíce
 - Ručně doplnit stav úvěru z výpisu banky nebo internet bankingu
-- Ověřit úrokovou sazbu — u některých společností měsíční, u jiných kvartální, u dalších fixní
+- Ověřit úrokovou sazbu — u některých měsíční, u jiných kvartální, u dalších fixní
 - Vypočítat úrok, zkontrolovat proti bance
 - Výstup poslat účetním jako podklad do účetnictví
 
-„Když je měsíc, kde se nic nového nečerpalo, tak je to za den. Ale když jsou refinancování nebo nové úvěry, zabere to víc."
+*„Nevím, jestli AI by dokázala v Excelu nějak zautomatizovat, že by mi přidala nový rok."*
 
-**Cashflow reporty.** Kvartálně, **18 tabulek** — jedna za každý projekt. Vstupují do nich lidé z různých oddělení (projekťáci náklady, obchodníci výnosy, marketing své položky, finance úroky a finální kontrolu). Čabajová:
+**Co může pomoct.** Copilot v Excelu dokáže právě tohle — „Přidej nový měsíc, zkopíruj strukturu z prosince, doplň sazbu 4,2 %." Ale důležitější je standardizace vstupů. Lucia sama říká, že modely jsou dnes tvořeny „projekt od projektu", což znemožňuje plošnou automatizaci bez předchozí unifikace struktury dat. Doporučení:
+
+- **Krátkodobě: Cursor** — „Přidej nový měsíc, zkopíruj strukturu z prosince, doplň sazbu 4,2 %." Cursor zvládne i složitější úpravy — přestrukturování tabulky, přidání nových společností, kontrolu vzorců napříč listy.
+- **Krátkodobě: Copilot v Excelu** — šablonování přímo v Excelu, pivot tabulky, rychlé dotazy nad daty
+- **Střednědobě: Power Query** — automatické natažení dat z předchozího měsíce, propojení na bankovní výpisy
+
+### Cashflow reporty
+
+Kvartálně, **18 tabulek** — jedna za každý projekt. Vstupy od 4 oddělení (projekťáci náklady, obchodníci výnosy, marketing, finance). Čabajová:
 
 - Vytvoří strukturu na další období
 - Koordinuje přes Planner, kdo má co doplnit
@@ -55,17 +100,26 @@ Procesy jsem seřadil podle odhadovaného dopadu — od těch, které zabírají
 - Natáhne data do sumární tabulky
 - Zakončí kvartálním meetingem
 
-„Zabere to téměř celý měsíc" — a pak se jede znovu.
+*„Zabere to téměř celý měsíc."*
 
-**Co může pomoct.** Úvěrové tabulky jsou kandidátem na **šablonu s makry nebo Power Query** — automatické natažení dat z předchozího měsíce, propojení na výpisy. Cashflow by profitoval z **Power BI** — Čabajová sama řekla: „Snad když tady někdy bude Power BI, tak nám to natáhá za mono." Pro úspěšné nasazení Copilota je nezbytná „standardizace vstupů“. Lucia uvádí, že modely jsou dnes tvořeny „projekt od projektu“, což znemožňuje plošnou automatizaci bez předchozí unifikace struktury dat.
+*„Snad když tady někdy bude Power BI, tak nám to natáhá za mono."*
+
+**Doporučení.** Cashflow je systémový problém — 18 samostatných souborů se sumární tabulkou je inherentně křehké. Power BI by pomohl s vizualizací, ale jádro problému je v tom, že data žijí v 18 Excelech místo v jednom zdroji. Doporučuji:
+
+- **Krátkodobě: Cursor** — nahrát všech 18 cashflow tabulek, ptát se: „Které projekty mají záporné cashflow v Q3?", „Porovnej výnosy Q2 vs. Q3 napříč projekty", „Najdi nesrovnalosti mezi vstupy od obchodníků a finální tabulkou." Cursor zvládne pracovat s více soubory najednou.
+- **Krátkodobě: Copilot v Excelu** — sumarizace, kontrola konzistence v rámci jedné tabulky
+- **Střednědobě: Power BI** — napojení na SharePoint, automatická agregace
+- **NotebookLM** — nahrát cashflow tabulky + zápisy z kvartálních meetingů jako zdroje. Ideální pro manažerský pohled přirozeným jazykem.
+
+---
 
 ## 3. Archivace a evidence smluv
 
 <Callout type="insight">
-  Odhadovaná ztráta: **1 den týdně** — celý pátek.
+  **Capability: Evidence a archivace + Extrakce z dokumentů** · Odhadovaná ztráta: **1 den týdně** — celý pátek.
 </Callout>
 
-**Jak to funguje dnes.** Král má na starosti zakládání a archivaci dokumentů pro celou firmu. Proces:
+**Jak to funguje dnes.** Král má na starosti zakládání a archivaci dokumentů pro celou firmu:
 
 1. Projektový manažer přinese papírovou smlouvu na stůl
 2. Pokud nemá scan, Král ji dá recepční na naskenování
@@ -75,70 +129,118 @@ Procesy jsem seřadil podle odhadovaného dopadu — od těch, které zabírají
 6. Zkopíruje odkaz z SharePointu a vloží ho do evidence
 7. Fyzický dokument založí do šanonu
 
-„Pár dokumentů tam chybí, nejsou upravená práva, teďka vlastně každý si mohl editovat, jak chce." Evidence je funkční, ale nedokončená — a Král na její dokončení nemá čas, protože ho sežere samotné zakládání.
+*„Občas se k tomu ani v pátek nedostanu."*
 
-**Co může pomoct.** Zde je největší prostor pro Power Automate AI Builder, který by měl nahradit ruční přepisování metadat do Forms/Lists, jež Zdeněk provádí na denní bázi. Zakládání dokumentů je repetitivní proces s jasnými pravidly — ideální pro automatizaci. **Power Automate** by mohl sledovat nové soubory na SharePointu, automaticky vyplnit metadata (extrakce z názvu souboru nebo obsahu dokumentu přes AI) a vytvořit záznam v evidenci. Ruční by zůstala jen kontrola. Nad potřebou fyzického zakládání je potřeba se zamyslet.
+*„Pár dokumentů tam chybí, nejsou upravená práva, teďka vlastně každý si mohl editovat, jak chce."*
+
+Evidence je funkční, ale nedokončená — a Král na její dokončení nemá čas, protože ho sežere samotné zakládání.
+
+**Doporučení.** Tady je největší prostor pro **Power Automate + AI Builder**. Zakládání dokumentů je repetitivní proces s jasnými pravidly — ideální pro automatizaci:
+
+- **Cursor** — extrakce metadat z dokumentů (typ smlouvy, strany, datum, částka). Král nasype PDF do Cursoru, ten vytáhne klíčové údaje a předvyplní záznam pro evidenci. Funguje i na starší skeny.
+- **Power Automate** — sleduje nové soubory na SharePointu, automaticky vytvoří záznam v evidenci
+- **AI Builder** — extrakce metadat přímo v rámci M365 ekosystému. Alternativa k Cursoru pro automatizovaný pipeline.
+- **Copilot** — pro dotazování nad evidencí: „Které smlouvy s dodavatelem X expirují do konce roku?"
+
+Fyzické šanony jsou separátní problém. Dokud je regulatorní požadavek na fyzickou archivaci, bude Král vždy potřebovat část pátku na zakládání. Ale digitální část procesu (kroky 3–6) jde zautomatizovat téměř kompletně.
+
+---
 
 ## 4. Správy o propojených osobách
 
-**Jak to funguje dnes.** Jednou ročně (do konce března) Čabajová vypracuje **cca 20 zpráv** — jednu za každou společnost. Každá zpráva obsahuje informace o společnosti, jejích společnících, propojených osobách a smlouvách uzavřených mezi nimi.
+<Callout type="insight">
+  **Capability: Rešerše + Tvorba dokumentů** · Frekvence: ročně (do konce března). Objem: **cca 20 zpráv**.
+</Callout>
 
-Údaje se ověřují na **justici**, doplňují z interních databází a ručně vyplňují do Word dokumentu. „Chtěli jsme, jestli by AI umělo zkontrolovat na justici, jestli jsou ty informace správně. Loni to ještě nešlo."
+**Jak to funguje dnes.** Čabajová vypracuje jednu zprávu za každou společnost — obsahuje informace o společnících, propojených osobách a smlouvách uzavřených mezi nimi. Údaje ověřuje na **justice.cz**, doplňuje z interních databází a ručně vyplňuje do Wordu.
 
-**Co může pomoct.** Dnes už to jde. AI dokáže:
-- Stáhnout aktuální údaje z justice a obchodního rejstříku
-- Porovnat je s loňskou zprávou a zvýraznit změny
-- Předvyplnit standardní sekce zprávy
+*„Chtěli jsme, jestli by AI umělo zkontrolovat na justici, jestli jsou ty informace správně. Loni to ještě nešlo."*
 
-Ruční by zůstala kontrola a doplnění interních dat (smlouvy mezi společnostmi). Ale i to by šlo urychlit napojením na evidenci smluv.
+**Dnes to jde.** Doporučení:
+
+- **Cursor** — ideální nástroj na tento typ práce. Nahrát loňskou zprávu + aktuální data z justice → Cursor porovná, zvýrazní změny, předvyplní novou zprávu. Zvládne i dohledání na justice.cz a obchodním rejstříku. U 20 zpráv ročně je úspora v řádu dnů.
+- **NotebookLM** — nahrát loňských 20 zpráv jako zdroje. „Jaké změny nastaly u společnosti X oproti loňsku?" — bez ručního porovnávání dokumentů.
+- **Copilot ve Wordu** — předvyplnění standardních sekcí zprávy z šablony. Ruční zůstane kontrola a doplnění interních dat (smlouvy mezi společnostmi).
+
+---
 
 ## 5. HR administrativa
 
-**Leona Holíková** je na oddělení od června a buduje HR procesy prakticky od nuly — před ní personální oddělení neexistovalo, agenda byla rozptýlená mezi více lidí.
+<Callout type="insight">
+  **Capability: Tvorba dokumentů + Rešerše** · Holíková buduje HR procesy od nuly — před ní personální oddělení neexistovalo.
+</Callout>
 
 ### Nábor
 
-Přehled kandidátů vede v **Excelu** — jména, pozice, datum pohovoru, zpětná vazba, stav. „Mám to jako podklad pro top management — když řeknou, nemáme nabranýho projektovýho manažera za půl roku, ukážu jim, že tady bylo 20 kandidátů." CVčka si tiskne, poznámky píše na papír, po ukončení procesu skartuje (GDPR). Současný proces psaní poznámek o kandidátech na papír a jejich následná skartace představuje GDPR riziko. Digitalizace checklistů v Planneru toto riziko eliminuje a zrychlí onboarding.
+Přehled kandidátů vede v **Excelu** — jména, pozice, datum pohovoru, zpětná vazba, stav. CVčka si tiskne, poznámky píše na papír, po ukončení procesu skartuje (GDPR).
+
+*„Začala jsem si dělat takovou tabulku Excelovou."*
+
+Současný proces psaní poznámek na papír a jejich následná skartace představuje GDPR riziko i ztrátu informací. Doporučení:
+
+- **Planner** — digitální checklist náboru (fáze procesu, deadline, zodpovědnost)
+- **Cursor** — generování job descriptions, screeningových otázek, evaluačních kritérií. Holíková už používá ChatGPT — Cursor jí umožní pracovat přímo s dokumenty (CV kandidátů, zpětné vazby z pohovorů) a generovat strukturované výstupy.
 
 ### Onboarding
 
-Chybí **checklist** — co všechno udělat při nástupu, výstupu nebo mateřské. „Chtěla bych si vytvořit nějaký proces, udělat si checklist, co všechno musím." Dnes to drží v hlavě a dohledává z minula.
+Chybí **checklist** — co udělat při nástupu, výstupu nebo mateřské.
+
+*„Chtěla bych si vytvořit nějaký proces, udělat si checklist, co všechno musím."*
+
+- **Planner / Lists** — master checklist, automaticky se zkopíruje pro každého nového zaměstnance
+- **Power Automate** — workflow: nástup spustí sekvenci úkolů (IT účty, přístupy, školení, smlouvy)
 
 ### Směrnice a prokazatelné seznámení
 
-Když vznikne nová směrnice, potřebuje prokazatelně doložit, že se s ní zaměstnanci seznámili. „Nemyslím, že kliknou na e-mail a potvrdí — někde na SharePointu, ale to nevím, to možná musí udělat ajťáci."
+Když vznikne nová směrnice, potřebuje prokazatelně doložit seznámení zaměstnanců.
 
-<Callout type="insight">
-  HR procesy jsou dnes v „startovací" fázi — Holíková je buduje sama, bez předchozí dokumentace. Právě proto je tohle ideální moment pro nastavení od začátku správně. Checklist v Planneru, šablony dokumentů v ChatGPT, onboarding workflow v Power Automate — to vše se dá nastavit rychle a ušetří hodiny do budoucna.
+- **Cursor** — drafty směrnic, checklistů a HR dokumentů. Holíková zadá osnovu, Cursor vygeneruje kompletní dokument včetně formátování. Může i porovnat s existujícími směrnicemi jiných firem.
+- **Copilot ve Wordu** — alternativa pro práci přímo v Word dokumentu, bez přepínání mezi nástroji.
+- **SharePoint + Power Automate** — automatický formulář „Potvrzuji, že jsem se seznámil/a", záznam v Lists. Splní regulatorní požadavek.
+
+<Callout type="positive">
+  HR procesy jsou dnes v startovací fázi — a to je paradoxně výhoda. Holíková je nastavuje od nuly, takže může rovnou využít moderní nástroje. Planner na checklisty, ChatGPT na dokumenty, Power Automate na workflow — to vše se dá nastavit v řádu dnů, ne týdnů.
 </Callout>
+
+---
 
 ## 6. Datové schránky a korporátní komunikace
 
-Král odesílá datové zprávy za společnosti — ručně vyplňuje údaje z Excelu do datové schránky, stahuje potvrzení, posílá je kolegovi a zakládá do evidence. „Není to zlouhavé, ale je to na denní bázi."
+**Capability: Evidence a rutinní workflow** · Frekvence: denně.
 
-Čabajová komunikuje s bankami ohledně účtů, certifikátů a přístupů. Král zakládá bankovní účty — „zakládáme s bankou účet už dva týdny, urgoval jsem je."
+Král odesílá datové zprávy za společnosti — ručně vyplňuje údaje z Excelu do datové schránky, stahuje potvrzení, posílá kolegovi a zakládá do evidence. *„Není to zlouhavé, ale je to na denní bázi."*
 
-Tyhle procesy nejsou primárním kandidátem na AI — jsou to spíš kroky, které by profitovaly z **lepšího workflow** (šablony, automatické vyplňování formulářů, propojení evidence s datovou schránkou).
+Čabajová komunikuje s bankami ohledně účtů, certifikátů a přístupů. Král zakládá bankovní účty — *„zakládáme s bankou účet už dva týdny, urgoval jsem je."*
+
+Tyhle procesy nejsou primárním kandidátem na AI — profitovaly by z **lepšího workflow** (šablony, automatické vyplňování formulářů, propojení evidence s datovou schránkou). Až bude evidence smluv zautomatizována (bod 3), odpadne i část ruční práce tady.
+
+---
 
 ## 7. Monitoring AML a legislativy
 
-**Jan Ascherl** denně ručně sleduje českou, EU a mezinárodní AML legislativu a soudní rozhodnutí. Jde o vysoce kvalifikovanou rešeršní činnost, která je primárním cílem pro automatizaci pomocí AI agentů.
+**Capability: Rešerše** · Frekvence: denně.
+
+**Jan Ascherl** denně ručně sleduje českou, EU a mezinárodní AML legislativu a soudní rozhodnutí. Jde o vysoce kvalifikovanou rešeršní činnost, kde AI přináší největší hodnotu:
+
+- **Cursor** — denní rešerše legislativy, sumarizace nových předpisů, porovnání s aktuálními interními směrnicemi. Ascherl nahraje relevantní dokumenty a Cursor identifikuje, co se změnilo a jaké to má dopady na jednotlivé společnosti.
+- **NotebookLM** — nahrát klíčové předpisy jako zdroje, ptát se přirozeným jazykem na implikace pro konkrétní společnosti. Ideální jako „vždy aktuální právní knihovna".
+- **Copilot ve Wordu** — drafty interních upozornění a compliance reportů
+
+---
 
 ## Shrnutí
 
-| Proces | Kdo | Frekvence | Odhad ztráty | Řešení |
-|---|---|---|---|---|
-| **Platební cyklus** | Král | měsíčně | 2–4 dny | Wflow + Power Automate |
-| **Úvěrové tabulky** | Čabajová | měsíčně | 1–2 dny | Excel šablony + Power Query |
-| **Cashflow reporting** | Čabajová + tým | kvartálně | ~měsíc | Power BI |
-| **Archivace smluv** | Král | týdně | 1 den | Power Automate + AI extrakce |
-| **Správy o propojených osobách** | Čabajová | ročně | ~týden | AI + justice API |
-| **HR administrativa** | Holíková | průběžně | hodiny týdně | Planner + šablony + workflow |
-| **Datové schránky** | Král | denně | desítky minut | Šablony, evidence |
-| **Monitoring AML a legislativy** | Ascherl | denně | rešeršní činnost | AI agenti |
+| Proces | Kdo | Frekvence | Odhad ztráty | Capability | Doporučené nástroje |
+|---|---|---|---|---|---|
+| **Platební cyklus** | Král | měsíčně | 2–4 dny | Porovnávání dat | Cursor + Wflow + Power Automate |
+| **Úvěrové tabulky** | Čabajová | měsíčně | 1–2 dny | Úprava Excelu | Cursor + Copilot Excel + Power Query |
+| **Cashflow reporting** | Čabajová + tým | kvartálně | ~měsíc | Sumarizace dat | Cursor + Power BI + NotebookLM |
+| **Archivace smluv** | Král | týdně | 1 den | Extrakce + Evidence | Cursor + Power Automate |
+| **Správy o propojených osobách** | Čabajová | ročně | ~týden | Rešerše + Dokumenty | Cursor + NotebookLM |
+| **HR administrativa** | Holíková | průběžně | hodiny týdně | Dokumenty + Rešerše | Cursor + Planner + Copilot Word |
+| **Datové schránky** | Král | denně | desítky minut | Rutinní workflow | Šablony, Power Automate |
+| **AML monitoring** | Ascherl | denně | rešeršní činnost | Rešerše | Cursor + NotebookLM |
 
 <Callout type="positive">
-  Většina procesních problémů na finančním oddělení **nejsou problémy AI** — jsou to problémy **propojení systémů**. RealPad nemluví s bankou, Excel nemluví s RealPadem, SharePoint nemluví s evidencí. AI pomůže s extrakcí dat z dokumentů a generováním šablon, ale největší úsporu přinese automatizace workflow.
+  Většina procesních problémů na finančním oddělení **nejsou problémy AI** — jsou to problémy **propojení systémů**. RealPad nemluví s bankou, Excel nemluví s RealPadem, SharePoint nemluví s evidencí. **Cursor** pomůže tam, kde jde o práci s dokumenty, rešerše a porovnávání dat — a zvládne to hned, bez čekání na systémové změny. Pro propojení systémů bude klíčový **Power Automate**.
 </Callout>
-
-
