@@ -22,6 +22,13 @@ export default async function HomePage() {
       <div className="w-full max-w-2xl">
         {/* Header */}
         <div className="text-center mb-12">
+          <img
+            src="/logo.png"
+            alt=""
+            width={64}
+            height={64}
+            className="mx-auto mb-5 rounded-xl"
+          />
           <h1
             className="text-5xl font-bold tracking-tight mb-3"
             style={{

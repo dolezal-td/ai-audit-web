@@ -90,6 +90,13 @@ function PinForm() {
     <div className="min-h-screen flex flex-col items-center justify-center px-4">
       <div className="relative w-full max-w-md">
         <div className="text-center mb-10">
+          <img
+            src="/logo.png"
+            alt=""
+            width={56}
+            height={56}
+            className="mx-auto mb-4 rounded-xl"
+          />
           <h1
             className="text-4xl font-bold tracking-tight mb-2"
             style={{

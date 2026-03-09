@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 interface NavTitleProps {
@@ -11,6 +12,13 @@ export function NavTitle({ showHome }: NavTitleProps) {
 
   return (
     <span className="inline-flex items-center gap-2">
+      <Image
+        src="/logo.png"
+        alt=""
+        width={24}
+        height={24}
+        className="rounded-md"
+      />
       AI Kompas
       {showHome && (
         <span
