@@ -303,3 +303,160 @@ footer a {
 .animate-fade-in {
   animation: ak-fade-in 150ms ease-out forwards;
 }
+
+/* ══════════════════════════════════════════
+   Print page — layout
+   ══════════════════════════════════════════ */
+
+.print-page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: white;
+}
+
+.print-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  margin-bottom: 2rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--ak-warm-300);
+  background: var(--ak-warm-50);
+}
+
+.print-btn:hover {
+  opacity: 0.9;
+}
+
+.print-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid var(--ak-warm-300);
+}
+
+.print-section {
+  margin-bottom: 2rem;
+}
+
+.print-section > h1 {
+  font-size: 2rem !important;
+  margin-top: 2.5rem !important;
+  margin-bottom: 0.25rem !important;
+  padding-top: 1.5rem !important;
+  border-top: 2px solid var(--ak-warm-300) !important;
+}
+
+.print-section:first-of-type > h1 {
+  border-top: none !important;
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+.print-description {
+  font-size: 1.1rem !important;
+  color: var(--ak-warm-600) !important;
+  margin-bottom: 1.5rem !important;
+}
+
+.print-footer {
+  text-align: center;
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--ak-warm-300);
+}
+
+/* ── Print media ── */
+@media print {
+  /* Force light mode colors */
+  :root {
+    --ak-warm-50: #FFFCF8 !important;
+    --ak-warm-100: #FFF8F0 !important;
+    --ak-warm-200: #FFEFDF !important;
+    --ak-warm-300: #F5E0C8 !important;
+    --ak-warm-400: #D9C4A8 !important;
+    --ak-warm-500: #B8A080 !important;
+    --ak-warm-600: #8A7560 !important;
+    --ak-warm-700: #6B5A48 !important;
+    --ak-warm-800: #4A3D30 !important;
+    --ak-warm-900: #2D2520 !important;
+    --ak-primary: #1C60FF !important;
+    --color-fd-card: #ffffff !important;
+    --color-fd-background: #ffffff !important;
+  }
+
+  body {
+    background: white !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .print-page {
+    max-width: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  /* Hide UI elements */
+  .print-topbar {
+    display: none !important;
+  }
+
+  /* Page setup */
+  @page {
+    size: A4;
+    margin: 15mm 18mm;
+  }
+
+  /* Avoid breaking inside charts, tables, cards, callouts */
+  .print-section table,
+  .print-section svg,
+  .print-section .not-prose,
+  .print-section .recharts-wrapper,
+  .print-section [class*="grid"],
+  .print-section [class*="callout"],
+  .print-section [class*="overflow-x"] {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Keep headings with their content */
+  .print-section h1,
+  .print-section h2,
+  .print-section h3,
+  .print-section h4 {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  /* Remove shadows, unnecessary borders */
+  * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  /* Hide interactive elements */
+  [data-radix-popper-content-wrapper],
+  [role="tooltip"] {
+    display: none !important;
+  }
+
+  /* Ensure SVG charts are visible */
+  svg {
+    overflow: visible !important;
+  }
+
+  /* Remove overflow scrolling */
+  .overflow-x-auto {
+    overflow: visible !important;
+  }
+
+  /* Sticky columns in tables — disable for print */
+  .sticky {
+    position: static !important;
+  }
+}

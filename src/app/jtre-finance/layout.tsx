@@ -5,6 +5,7 @@ import { jtreFinanceSource } from '@/lib/source';
 import { SidebarSeparator } from '@/components/sidebar-separator';
 import { ReportSwitcher } from '@/components/report-switcher';
 import { NavTitle } from '@/components/nav-title';
+import { SidebarPdfLink } from '@/components/sidebar-pdf-link';
 import { decodeSession } from '@/lib/auth';
 
 export default async function JtreFinanceLayout({ children }: { children: ReactNode }) {
@@ -24,6 +25,9 @@ export default async function JtreFinanceLayout({ children }: { children: ReactN
       sidebar={{
         banner: (
           <ReportSwitcher currentReport="jtre-finance" reports={reports} />
+        ),
+        footer: (
+          <SidebarPdfLink reportSlug="jtre-finance" />
         ),
         components: {
           Separator: SidebarSeparator,

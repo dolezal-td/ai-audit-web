@@ -86,6 +86,8 @@ const PRETTY_LABELS: Record<string, string> = {
   relay: "Relay",
   microsoft_power_automate: "Microsoft Power Automate",
   canva: "Canva",
+  cursor: "Cursor",
+  relevance: "Relevance AI",
 };
 
 function prettify(label: string): string {

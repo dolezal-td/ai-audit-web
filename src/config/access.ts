@@ -6,13 +6,13 @@ export interface AccessEntry {
 
 export const ACCESS: AccessEntry[] = [
   {
-    pin: "876200",
+    pin: "129469",
     name: "František Jíša",
     reports: ["jtre-finance", "jtre-obchod"],
   },
   {
-    pin: "341500",
-    name: "Leonie Holíková",
+    pin: "110668",
+    name: "Leona Holíková",
     reports: ["jtre-finance"],
   },
 ];

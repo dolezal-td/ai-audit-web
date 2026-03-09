@@ -10,9 +10,13 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  const report = PROTECTED_REPORTS.find(
-    (r) => pathname.startsWith(`/${r}/`) || pathname === `/${r}`,
-  );
+  // Match /print/[slug] routes too
+  const printMatch = pathname.match(/^\/print\/(.+)$/);
+  const report = printMatch
+    ? PROTECTED_REPORTS.find((r) => r === printMatch[1])
+    : PROTECTED_REPORTS.find(
+        (r) => pathname.startsWith(`/${r}/`) || pathname === `/${r}`,
+      );
 
   const isHomepage = pathname === "/";
 

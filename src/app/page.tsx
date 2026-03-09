@@ -62,14 +62,8 @@ export default async function HomePage() {
                   borderColor: "var(--ak-warm-300)",
                 }}
               >
-                {/* Decorative accent bar */}
-                <div
-                  className="absolute left-0 top-0 bottom-0 w-1.5 transition-all duration-200 group-hover:w-2"
-                  style={{ backgroundColor: "var(--ak-primary)" }}
-                />
-
                 <div className="flex items-center justify-between">
-                  <div className="pl-4">
+                  <div>
                     <p
                       className="text-2xl font-bold tracking-tight mb-1"
                       style={{
