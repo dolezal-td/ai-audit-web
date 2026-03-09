@@ -11,6 +11,7 @@ import {
   Cell,
   ReferenceLine,
   ReferenceDot,
+  Customized,
 } from "recharts";
 
 const GROUP_COLORS: Record<string, string> = {
@@ -19,7 +20,6 @@ const GROUP_COLORS: Record<string, string> = {
   default: "#8A7560",
 };
 
-// Mapování kategorií na skupiny
 const CATEGORY_TO_GROUP: Record<string, string> = {
   Management: "Finance",
   Analytik: "Finance",
@@ -56,6 +56,89 @@ interface ScatterPlotProps {
 }
 
 const DOT_RADIUS = 10;
+const HOVER_RADIUS = 22;
+
+interface HoverInfo {
+  index: number;
+  x: number;
+  y: number;
+}
+
+/**
+ * Tečky renderované přes Customized — stabilní React keys,
+ * takže DOM elementy přežívají re-rendery a CSS transitions fungují.
+ */
+function DotsOverlay(props: {
+  // Injected by Recharts Customized
+  xAxisMap?: Record<string, any>;
+  yAxisMap?: Record<string, any>;
+  // Our props
+  personData: PersonData[];
+  visibleSet: Set<number>;
+  hoverInfo: HoverInfo | null;
+  onHoverChange: (info: HoverInfo | null) => void;
+  getColor: (p: PersonData) => string;
+}) {
+  const {
+    xAxisMap,
+    yAxisMap,
+    personData,
+    visibleSet,
+    hoverInfo,
+    onHoverChange,
+    getColor,
+  } = props;
+
+  if (!xAxisMap || !yAxisMap) return null;
+  const xAxis = Object.values(xAxisMap)[0] as any;
+  const yAxis = Object.values(yAxisMap)[0] as any;
+  if (!xAxis?.scale || !yAxis?.scale) return null;
+
+  return (
+    <g>
+      {personData.map((person, i) => {
+        const cx = xAxis.scale(person.index_chci);
+        const cy = yAxis.scale(person.index_umim);
+        const isVisible = visibleSet.has(i);
+        const isHovered = hoverInfo?.index === i;
+
+        return (
+          <g key={person.jmeno}>
+            {/* Neviditelná hover zóna */}
+            <circle
+              cx={cx}
+              cy={cy}
+              r={HOVER_RADIUS}
+              fill="transparent"
+              onMouseEnter={() => {
+                if (isVisible) onHoverChange({ index: i, x: cx, y: cy });
+              }}
+              onMouseLeave={() => onHoverChange(null)}
+              style={{
+                cursor: isVisible ? "pointer" : "default",
+                pointerEvents: isVisible ? "auto" : "none",
+              }}
+            />
+            {/* Viditelná tečka */}
+            <circle
+              cx={cx}
+              cy={cy}
+              r={isHovered ? DOT_RADIUS + 2 : DOT_RADIUS}
+              fill={getColor(person)}
+              stroke="#fff"
+              strokeWidth={2}
+              style={{
+                opacity: isVisible ? 1 : 0,
+                transition: "opacity 400ms ease",
+                pointerEvents: "none",
+              }}
+            />
+          </g>
+        );
+      })}
+    </g>
+  );
+}
 
 export function ScatterPlotChart({
   data,
@@ -66,12 +149,10 @@ export function ScatterPlotChart({
   groups: customGroups,
 }: ScatterPlotProps) {
   const [mounted, setMounted] = useState(false);
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [tooltipPos, setTooltipPos] = useState<{
-    x: number;
-    y: number;
-  } | null>(null);
+  const [hoverInfo, setHoverInfo] = useState<HoverInfo | null>(null);
+  // Uchováme poslední hover info pro fade-out (aby tooltip zůstal v DOM během transition)
+  const lastHoverRef = useRef<HoverInfo | null>(null);
+  if (hoverInfo) lastHoverRef.current = hoverInfo;
 
   const groupNames = useMemo(() => {
     if (customGroups) return Object.keys(customGroups);
@@ -83,7 +164,6 @@ export function ScatterPlotChart({
     () => new Set(groupNames)
   );
 
-  // Stabilní set pro visibility — odděleně od dat
   const visibleSet = useMemo(() => {
     const set = new Set<number>();
     data.forEach((d, i) => {
@@ -137,45 +217,10 @@ export function ScatterPlotChart({
         }
         return GROUP_COLORS.default;
       }
-      const group = getGroup(person.kategorie);
-      return GROUP_COLORS[group] || GROUP_COLORS.default;
+      return GROUP_COLORS[getGroup(person.kategorie)] || GROUP_COLORS.default;
     },
     [customGroups]
   );
-
-  const handleDotMouseEnter = useCallback(
-    (index: number, e: React.MouseEvent) => {
-      if (!visibleSet.has(index)) return;
-      setHoveredIndex(index);
-      if (containerRef.current) {
-        const rect = containerRef.current.getBoundingClientRect();
-        setTooltipPos({
-          x: e.clientX - rect.left,
-          y: e.clientY - rect.top,
-        });
-      }
-    },
-    [visibleSet]
-  );
-
-  const handleDotMouseMove = useCallback(
-    (e: React.MouseEvent) => {
-      if (hoveredIndex === null) return;
-      if (containerRef.current) {
-        const rect = containerRef.current.getBoundingClientRect();
-        setTooltipPos({
-          x: e.clientX - rect.left,
-          y: e.clientY - rect.top,
-        });
-      }
-    },
-    [hoveredIndex]
-  );
-
-  const handleDotMouseLeave = useCallback(() => {
-    setHoveredIndex(null);
-    setTooltipPos(null);
-  }, []);
 
   if (!mounted) {
     return (
@@ -183,7 +228,9 @@ export function ScatterPlotChart({
     );
   }
 
-  const hoveredPerson = hoveredIndex !== null ? data[hoveredIndex] : null;
+  // Tooltip content: aktuální hover nebo poslední (pro fade-out)
+  const displayInfo = hoverInfo || lastHoverRef.current;
+  const displayPerson = displayInfo ? data[displayInfo.index] : null;
 
   return (
     <div className="w-full my-8">
@@ -227,8 +274,7 @@ export function ScatterPlotChart({
 
       <div
         className="h-[400px] md:h-[450px] relative"
-        ref={containerRef}
-        onMouseMove={handleDotMouseMove}
+        onMouseLeave={() => setHoverInfo(null)}
       >
         <ResponsiveContainer width="100%" height="100%">
           <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 10 }}>
@@ -321,86 +367,51 @@ export function ScatterPlotChart({
                 }}
               />
             )}
-            <Scatter
-              data={data}
-              fill="#1C60FF"
-              isAnimationActive={false}
-              // @ts-expect-error recharts typing issue with custom shape
-              shape={(props: {
-                cx: number;
-                cy: number;
-                payload: PersonData;
-                index: number;
-              }) => {
-                const { cx, cy, payload, index } = props;
-                const isVisible = visibleSet.has(index);
-                const isHovered = hoveredIndex === index;
-                const color = getPersonColor(payload);
-                return (
-                  <g>
-                    {/* Hover zóna */}
-                    <circle
-                      cx={cx}
-                      cy={cy}
-                      r={20}
-                      fill="transparent"
-                      onMouseEnter={(e) => handleDotMouseEnter(index, e)}
-                      onMouseLeave={handleDotMouseLeave}
-                      style={{
-                        cursor: isVisible ? "pointer" : "default",
-                        pointerEvents: isVisible ? "auto" : "none",
-                      }}
-                    />
-                    {/* Tečka */}
-                    <circle
-                      cx={cx}
-                      cy={cy}
-                      r={isHovered ? DOT_RADIUS + 2 : DOT_RADIUS}
-                      fill={color}
-                      stroke="#fff"
-                      strokeWidth={2}
-                      style={{
-                        opacity: isVisible ? 1 : 0,
-                        transition: "opacity 400ms ease",
-                        pointerEvents: "none",
-                      }}
-                    />
-                  </g>
-                );
-              }}
-            >
-              {data.map((_, index) => (
-                <Cell key={index} fill="transparent" />
+            {/* Neviditelný Scatter — zajistí inicializaci os/scales */}
+            <Scatter data={data} fill="transparent" isAnimationActive={false}>
+              {data.map((_, i) => (
+                <Cell key={i} fill="transparent" stroke="transparent" />
               ))}
             </Scatter>
+            {/* Vlastní tečky se stabilními React keys */}
+            <Customized
+              component={
+                <DotsOverlay
+                  personData={data}
+                  visibleSet={visibleSet}
+                  hoverInfo={hoverInfo}
+                  onHoverChange={setHoverInfo}
+                  getColor={getPersonColor}
+                />
+              }
+            />
           </ScatterChart>
         </ResponsiveContainer>
 
-        {/* HTML tooltip — mimo SVG, vždy navrchu */}
+        {/* HTML tooltip — mimo SVG, vždy navrchu, fade in/out */}
         <div
-          className="pointer-events-none absolute top-0 left-0 z-10"
+          className="pointer-events-none absolute z-10"
           style={{
-            transform: tooltipPos
-              ? `translate(${tooltipPos.x + 16}px, ${tooltipPos.y - 40}px)`
-              : undefined,
-            opacity: hoveredPerson ? 1 : 0,
-            transition: "opacity 150ms ease",
+            left: displayInfo ? displayInfo.x + DOT_RADIUS + 12 : 0,
+            top: displayInfo ? displayInfo.y - 30 : 0,
+            opacity: hoverInfo ? 1 : 0,
+            transition: "opacity 200ms ease",
           }}
         >
-          {hoveredPerson && (
+          {displayPerson && (
             <div className="rounded-lg border bg-fd-card px-3 py-2 text-sm shadow-md whitespace-nowrap">
-              <p className="font-semibold">{hoveredPerson.jmeno}</p>
+              <p className="font-semibold">{displayPerson.jmeno}</p>
               <p className="text-fd-muted-foreground text-xs">
-                {hoveredPerson.kategorie}
+                {displayPerson.kategorie}
               </p>
               <div className="mt-1 space-y-0.5">
                 <p>
                   Umím:{" "}
-                  <strong>{hoveredPerson.index_umim.toFixed(2)}</strong>
+                  <strong>{displayPerson.index_umim.toFixed(2)}</strong>
                 </p>
                 <p>
                   Chci:{" "}
-                  <strong>{hoveredPerson.index_chci.toFixed(1)}</strong>
+                  <strong>{displayPerson.index_chci.toFixed(1)}</strong>
                 </p>
               </div>
             </div>

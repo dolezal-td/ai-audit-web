@@ -87,26 +87,31 @@ function PinForm() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-slate-50 via-blue-50/30 to-slate-100 dark:from-slate-950 dark:via-blue-950/20 dark:to-slate-900 px-4">
-      <div className="pointer-events-none fixed inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 h-80 w-80 rounded-full bg-blue-400/10 blur-3xl" />
-        <div className="absolute -bottom-40 -left-40 h-80 w-80 rounded-full bg-indigo-400/10 blur-3xl" />
-      </div>
-
+    <div className="min-h-screen flex flex-col items-center justify-center px-4">
       <div className="relative w-full max-w-md">
         <div className="text-center mb-10">
           <h1
-            className="text-3xl font-bold tracking-tight mb-2"
-            style={{ fontFamily: "var(--font-playfair), Georgia, serif" }}
+            className="text-4xl font-bold tracking-tight mb-2"
+            style={{
+              fontFamily: "var(--font-display), 'Inter', sans-serif",
+              color: "var(--ak-primary)",
+              letterSpacing: "-0.03em",
+            }}
           >
             AI Kompas
           </h1>
-          <p className="text-sm text-slate-500 dark:text-slate-400">
+          <p style={{ color: "var(--ak-warm-600)", fontSize: "0.95rem" }}>
             Zadejte přístupový kód k vašemu reportu
           </p>
         </div>
 
-        <div className="bg-white/80 dark:bg-slate-800/60 backdrop-blur-xl rounded-2xl border border-slate-200/60 dark:border-slate-700/60 shadow-xl shadow-slate-200/40 dark:shadow-black/20 p-8">
+        <div
+          className="rounded-2xl border-2 p-8"
+          style={{
+            backgroundColor: "var(--color-fd-card)",
+            borderColor: "var(--ak-warm-300)",
+          }}
+        >
           <div className="flex gap-3 justify-center mb-6">
             {digits.map((digit, i) => (
               <input
@@ -123,20 +128,34 @@ function PinForm() {
                 onPaste={i === 0 ? handlePaste : undefined}
                 disabled={loading}
                 className="w-13 h-15 text-center text-2xl font-bold rounded-xl
-                           bg-slate-50 dark:bg-slate-900/50
-                           border-2 border-slate-200 dark:border-slate-600
-                           focus:border-blue-500 dark:focus:border-blue-400
-                           focus:ring-4 focus:ring-blue-500/10 dark:focus:ring-blue-400/10
-                           focus:outline-none transition-all duration-150
-                           disabled:opacity-40 disabled:cursor-not-allowed
-                           text-slate-900 dark:text-slate-100"
+                           border-2 focus:outline-none transition-all duration-150
+                           disabled:opacity-40 disabled:cursor-not-allowed"
+                style={{
+                  backgroundColor: "var(--ak-warm-100)",
+                  borderColor: "var(--ak-warm-300)",
+                  color: "var(--ak-warm-900)",
+                }}
+                onFocus={(e) => {
+                  e.currentTarget.style.borderColor = "var(--ak-primary)";
+                  e.currentTarget.style.boxShadow = "0 0 0 3px var(--ak-primary-fill)";
+                }}
+                onBlur={(e) => {
+                  e.currentTarget.style.borderColor = "var(--ak-warm-300)";
+                  e.currentTarget.style.boxShadow = "none";
+                }}
                 aria-label={`Číslice ${i + 1}`}
               />
             ))}
           </div>
 
           {error && (
-            <div className="flex items-center gap-2 justify-center text-sm text-red-600 dark:text-red-400 mb-4 bg-red-50 dark:bg-red-950/30 rounded-lg py-2 px-3">
+            <div
+              className="flex items-center gap-2 justify-center text-sm mb-4 rounded-lg py-2 px-3"
+              style={{
+                color: "var(--ak-negative)",
+                backgroundColor: "rgba(239, 68, 68, 0.08)",
+              }}
+            >
               <svg
                 className="w-4 h-4 shrink-0"
                 fill="none"
@@ -155,7 +174,10 @@ function PinForm() {
           )}
 
           {loading && (
-            <div className="flex items-center gap-2 justify-center text-sm text-slate-500 dark:text-slate-400">
+            <div
+              className="flex items-center gap-2 justify-center text-sm"
+              style={{ color: "var(--ak-warm-600)" }}
+            >
               <svg
                 className="w-4 h-4 animate-spin"
                 fill="none"
@@ -180,13 +202,19 @@ function PinForm() {
           )}
 
           {!loading && !error && (
-            <p className="text-center text-xs text-slate-400 dark:text-slate-500">
+            <p
+              className="text-center text-xs"
+              style={{ color: "var(--ak-warm-500)" }}
+            >
               6místný kód obdržíte od autora auditu
             </p>
           )}
         </div>
 
-        <p className="text-center text-xs text-slate-400 dark:text-slate-500 mt-8">
+        <p
+          className="text-center text-xs mt-8"
+          style={{ color: "var(--ak-warm-500)" }}
+        >
           AI Pro Smrtelníky
         </p>
       </div>
@@ -198,8 +226,11 @@ export default function AuthPage() {
   return (
     <Suspense
       fallback={
-        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-blue-50/30 to-slate-100 dark:from-slate-950 dark:via-blue-950/20 dark:to-slate-900">
-          <div className="w-4 h-4 rounded-full bg-blue-500 animate-pulse" />
+        <div className="min-h-screen flex items-center justify-center">
+          <div
+            className="w-4 h-4 rounded-full animate-pulse"
+            style={{ backgroundColor: "var(--ak-primary)" }}
+          />
         </div>
       }
     >
