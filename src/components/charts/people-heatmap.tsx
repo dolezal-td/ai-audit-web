@@ -248,12 +248,12 @@ export function PeopleHeatmap({
   }
 
   if (!mounted) {
-    return <div className="w-full my-8 h-64 animate-pulse rounded-lg bg-fd-muted" />;
+    return <div className="w-full h-64 animate-pulse bg-fd-muted" />;
   }
 
   return (
     <Tooltip.Provider delayDuration={200}>
-      <div className="w-full my-8 overflow-x-auto rounded-lg border border-fd-border">
+      <div className="w-full overflow-x-auto">
         <table className="w-full text-sm border-collapse">
           {/* Header */}
           <thead>

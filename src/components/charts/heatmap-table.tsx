@@ -32,18 +32,18 @@ function getCellStyle(
   }
 
   if (scheme === "green-red") {
-    // Higher intensity = darker/more saturated
+    // Higher intensity = darker/more saturated (warm brown tone)
     const alpha = 0.08 + intensity * 0.55;
     return {
-      backgroundColor: `rgba(51, 65, 85, ${alpha})`,
+      backgroundColor: `rgba(107, 90, 72, ${alpha})`,
       color: intensity > 0.5 ? "#ffffff" : "inherit",
     };
   }
 
-  // Default blue scheme
+  // Default blue scheme (warm brown tone)
   const alpha = 0.08 + intensity * 0.55;
   return {
-    backgroundColor: `rgba(51, 65, 85, ${alpha})`,
+    backgroundColor: `rgba(107, 90, 72, ${alpha})`,
     color: intensity > 0.5 ? "#ffffff" : "inherit",
   };
 }

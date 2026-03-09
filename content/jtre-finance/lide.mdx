@@ -5,18 +5,16 @@ description: Scatter plot Umím × Chci a profily jednotlivců
 
 ## Mapa týmu
 
-Každý bod na grafu je jeden člověk. Horizontální osa ukazuje **motivaci** (Index Chci), vertikální **praktické dovednosti** (Index Umím). Přerušované čáry jsou týmový průměr – kdo je napravo a nahoře, je nad průměrem.
+Každý bod na grafu je jeden člověk. Horizontální osa ukazuje **motivaci** (Index Chci), vertikální **praktické dovednosti** (Index Umím). Přerušované čáry ukazují benchmark trhu, kosočtverec průměr celého JTRE.
 
 <ScatterPlotChart
-  teamAvgUmim={3.96}
-  teamAvgChci={5.89}
   companyAvgUmim={3.53}
   companyAvgChci={5.20}
   benchmarkUmim={3.9}
   benchmarkChci={5.83}
   groups={{
     "Finance": ["Management", "Analytik", "Controlling", "Finance"],
-    "HR + Support": ["HR", "Support", "AML"],
+    "HR + Support": ["HR", "Support"],
   }}
   data={[
     { jmeno: "Leona Holíková", kategorie: "HR", index_umim: 1.93, index_chci: 4.5 },

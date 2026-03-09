@@ -15,6 +15,7 @@ import { ToolsHeatmap } from '@/components/charts/tools-heatmap';
 import { MetricCards } from '@/components/ui/metric-cards';
 import { Callout } from '@/components/ui/callout';
 import { PeopleHeatmap } from '@/components/charts/people-heatmap';
+import { Mermaid } from '@/components/ui/mermaid';
 
 export default async function Page(props: {
   params: Promise<{ slug?: string[] }>;
@@ -42,6 +43,7 @@ export default async function Page(props: {
           MetricCards,
           Callout,
           PeopleHeatmap,
+          Mermaid,
         }} />
       </DocsBody>
     </DocsPage>

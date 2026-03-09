@@ -1,20 +1,29 @@
 import { DocsLayout } from 'fumadocs-ui/layouts/docs';
 import type { ReactNode } from 'react';
+import { cookies } from 'next/headers';
 import { jtreFinanceSource } from '@/lib/source';
 import { SidebarSeparator } from '@/components/sidebar-separator';
+import { ReportSwitcher } from '@/components/report-switcher';
+import { NavTitle } from '@/components/nav-title';
+import { decodeSession } from '@/lib/auth';
 
-export default function JtreFinanceLayout({ children }: { children: ReactNode }) {
+export default async function JtreFinanceLayout({ children }: { children: ReactNode }) {
+  const cookieStore = await cookies();
+  const sessionCookie = cookieStore.get('pin-session');
+  const session = sessionCookie ? decodeSession(sessionCookie.value) : null;
+  const reports = session?.reports ?? [];
+
   return (
     <DocsLayout
       tree={jtreFinanceSource.pageTree}
-      nav={{ title: 'AI Kompas', url: '/jtre-finance/uvod' }}
+      nav={{
+        title: <NavTitle showHome={reports.length > 1} />,
+        url: reports.length > 1 ? '/' : '/jtre-finance/uvod',
+      }}
       searchToggle={{ enabled: false }}
       sidebar={{
         banner: (
-          <div className="rounded-lg border bg-fd-card p-4 text-sm">
-            <p className="font-medium">J&T Real Estate</p>
-            <p className="text-fd-muted-foreground">Finanční oddělení</p>
-          </div>
+          <ReportSwitcher currentReport="jtre-finance" reports={reports} />
         ),
         components: {
           Separator: SidebarSeparator,

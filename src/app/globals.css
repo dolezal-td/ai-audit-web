@@ -8,37 +8,298 @@
   }
 }
 
-/* AI Kompas — design tokens */
+/* ══════════════════════════════════════════
+   AI Kompas — Design System
+   Font: Space Grotesk (headings) + Inter (body)
+   Palette: #1C60FF / #3F8CFF / #FFEFDF / #D0BBEB
+   Philosophy: warm everywhere, blue accents, no cold grays
+   ══════════════════════════════════════════ */
+
 :root {
-  --ak-primary: #3b82f6;
-  --ak-primary-fill: rgba(59, 130, 246, 0.25);
-  --ak-benchmark: #9ca3af;
-  --ak-benchmark-fill: rgba(156, 163, 175, 0.08);
+  /* Brand */
+  --ak-primary: #1C60FF;
+  --ak-primary-light: #3F8CFF;
+  --ak-primary-fill: rgba(28, 96, 255, 0.10);
+  --ak-primary-fill-strong: rgba(28, 96, 255, 0.20);
+  --ak-purple: #D0BBEB;
+  --ak-purple-fill: rgba(208, 187, 235, 0.25);
+
+  /* Warm scale (replaces ALL grays) */
+  --ak-warm-50: #FFFCF8;
+  --ak-warm-100: #FFF8F0;
+  --ak-warm-200: #FFEFDF;
+  --ak-warm-300: #F5E0C8;
+  --ak-warm-400: #D9C4A8;
+  --ak-warm-500: #B8A080;
+  --ak-warm-600: #8A7560;
+  --ak-warm-700: #6B5A48;
+  --ak-warm-800: #4A3D30;
+  --ak-warm-900: #2D2520;
+
+  /* Semantic (warm-based) */
+  --ak-benchmark: var(--ak-warm-500);
+  --ak-benchmark-fill: rgba(184, 160, 128, 0.10);
   --ak-positive: #22c55e;
   --ak-warning: #eab308;
   --ak-negative: #ef4444;
-  --ak-grid: #e5e7eb;
+  --ak-grid: var(--ak-warm-300);
   --ak-tooltip-bg: #ffffff;
-  --ak-tooltip-border: #e5e7eb;
+  --ak-tooltip-border: var(--ak-warm-300);
+
+  /* Fumadocs primary */
+  --color-fd-primary: #1C60FF;
+
+  /* Override Fumadocs neutral grays with warm tones */
+  --color-fd-border: var(--ak-warm-300);
+  --color-fd-muted: var(--ak-warm-100);
+  --color-fd-muted-foreground: var(--ak-warm-600);
+  --color-fd-accent: var(--ak-warm-200);
+  --color-fd-accent-foreground: var(--ak-warm-900);
+  --color-fd-background: var(--ak-warm-50);
+  --color-fd-card: #ffffff;
 }
 
 .dark {
-  --ak-grid: #374151;
-  --ak-tooltip-bg: #1f2937;
-  --ak-tooltip-border: #374151;
+  --ak-warm-50: #141210;
+  --ak-warm-100: #1a1612;
+  --ak-warm-200: #252017;
+  --ak-warm-300: #3a3228;
+  --ak-warm-400: #5a4e3e;
+  --ak-warm-500: #8a7b68;
+  --ak-warm-600: #b8a88e;
+  --ak-warm-700: #d4c4a8;
+  --ak-warm-800: #e8dcc8;
+  --ak-warm-900: #f5f0e8;
+  --ak-grid: var(--ak-warm-300);
+  --ak-tooltip-bg: var(--ak-warm-200);
+  --ak-tooltip-border: var(--ak-warm-300);
+  --ak-primary-fill: rgba(63, 140, 255, 0.15);
+  --ak-primary-fill-strong: rgba(63, 140, 255, 0.25);
+  --ak-purple-fill: rgba(208, 187, 235, 0.12);
+  --color-fd-border: var(--ak-warm-300);
+  --color-fd-muted: var(--ak-warm-200);
+  --color-fd-muted-foreground: var(--ak-warm-500);
+  --color-fd-accent: var(--ak-warm-200);
+  --color-fd-accent-foreground: var(--ak-warm-900);
+  --color-fd-background: var(--ak-warm-50);
+  --color-fd-card: var(--ak-warm-100);
 }
 
-/* PeopleHeatmap — copy feedback animation */
+/* ── Warm background ── */
+body {
+  background-color: var(--ak-warm-100) !important;
+}
+
+/* Sidebar — warm white, warm border */
+aside[class*="sidebar"],
+[id="nd-sidebar"] {
+  background-color: var(--ak-warm-50) !important;
+  border-color: var(--ak-warm-300) !important;
+}
+
+/* ── Layout: wider content ── */
+
+article[class*="max-w-[900px]"] {
+  max-width: 1100px !important;
+}
+
+/* ── Typography ── */
+
+/* Base text — warm-tinted, not pure gray */
+.prose.flex-1 {
+  font-size: 1.2rem !important;
+  line-height: 1.78 !important;
+  color: var(--ak-warm-700) !important;
+}
+
+/* All headings: Space Grotesk + BLUE */
+article > h1,
+.prose :where(h1, h2, h3, h4):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
+  font-family: var(--font-display), 'Inter', sans-serif !important;
+  color: var(--ak-primary) !important;
+}
+
+/* Heading anchors inherit blue — must beat ALL link rules */
+.prose h1 > a,
+.prose h2 > a,
+.prose h3 > a,
+.prose h4 > a,
+.prose h1 > a.peer,
+.prose h2 > a.peer,
+.prose h3 > a.peer,
+.prose h4 > a.peer {
+  color: var(--ak-primary) !important;
+  text-decoration: none !important;
+}
+
+/* H1 — big, bold */
+article > h1 {
+  font-size: 2.75rem !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.03em !important;
+  line-height: 1.1 !important;
+  margin-bottom: 0.25rem !important;
+  color: var(--ak-primary) !important;
+}
+
+/* Description under H1 */
+article > h1 + p {
+  font-size: 1.15rem !important;
+  color: var(--ak-warm-600) !important;
+  margin-bottom: 2rem !important;
+}
+
+/* H2 — section break with warm divider */
+.prose :where(h2):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
+  font-size: 1.65rem !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em !important;
+  line-height: 1.3 !important;
+  margin-top: 3rem !important;
+  margin-bottom: 1rem !important;
+  padding-top: 1.5rem !important;
+  border-top: 2px solid var(--ak-warm-300) !important;
+}
+
+/* First H2 or H2 after <hr> — no border (avoid double line) */
+.prose > h2:first-child,
+.prose > :first-child:is(h2),
+.prose > hr + h2 {
+  border-top: none !important;
+  padding-top: 0 !important;
+}
+
+/* H3 */
+.prose :where(h3):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
+  font-size: 1.3rem !important;
+  font-weight: 600 !important;
+  line-height: 1.4 !important;
+  margin-top: 2.25rem !important;
+  margin-bottom: 0.75rem !important;
+}
+
+/* H4 */
+.prose :where(h4):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+  margin-top: 1.75rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+/* Paragraphs */
+.prose :where(p):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
+  margin-top: 0 !important;
+  margin-bottom: 1.25rem !important;
+}
+
+/* Lists */
+.prose :where(ul, ol):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
+  margin-top: 0.5rem !important;
+  margin-bottom: 1.5rem !important;
+}
+
+/* Strong — darker warm for emphasis */
+.prose :where(strong):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
+  color: var(--ak-warm-900) !important;
+}
+
+/* Links — brand blue */
+.prose :where(a):not(:where([class~='not-prose'], [class~='not-prose'] *)):not(:where(h1, h2, h3, h4) a) {
+  color: var(--ak-primary) !important;
+  text-decoration-color: var(--ak-primary-fill-strong) !important;
+}
+.prose :where(a):not(:where([class~='not-prose'], [class~='not-prose'] *)):hover {
+  text-decoration-color: var(--ak-primary) !important;
+}
+
+/* ── Tables — warm tones ── */
+.prose :where(table):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
+  margin-top: 1rem !important;
+  margin-bottom: 1.5rem !important;
+  font-size: 1rem !important;
+  border-color: var(--ak-warm-300) !important;
+}
+
+.prose :where(th):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
+  background-color: var(--ak-warm-200) !important;
+  border-color: var(--ak-warm-300) !important;
+  color: var(--ak-warm-800) !important;
+}
+
+.prose :where(td):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
+  border-color: var(--ak-warm-300) !important;
+}
+
+/* ── TOC — warm tones ── */
+aside h3,
+[class*="toc"] h3 {
+  color: var(--ak-warm-600) !important;
+}
+
+[class*="toc"] a {
+  color: var(--ak-warm-500) !important;
+}
+
+[class*="toc"] a:hover {
+  color: var(--ak-warm-800) !important;
+}
+
+/* TOC active — brand blue */
+[data-active="true"][href^="#"] {
+  color: var(--ak-primary) !important;
+}
+
+/* ── Sidebar — warm everything ── */
+[data-nd-sidebar] a[data-active="true"],
+[id="nd-sidebar"] a[data-active="true"] {
+  color: var(--ak-primary) !important;
+  background-color: var(--ak-primary-fill) !important;
+}
+
+[data-nd-sidebar] a,
+[id="nd-sidebar"] a {
+  color: var(--ak-warm-700) !important;
+}
+
+[data-nd-sidebar] a:hover,
+[id="nd-sidebar"] a:hover {
+  color: var(--ak-warm-900) !important;
+}
+
+/* Sidebar section labels */
+[data-nd-sidebar] p,
+[id="nd-sidebar"] p {
+  color: var(--ak-warm-500) !important;
+}
+
+/* Sidebar brand name */
+[data-nd-sidebar] [class*="font-medium"],
+[id="nd-sidebar"] [class*="font-medium"] {
+  color: var(--ak-warm-900) !important;
+}
+
+#nd-sidebar p ~ a[data-active],
+#nd-sidebar-mobile p ~ a[data-active] {
+  padding-inline-start: calc(4 * var(--spacing)) !important;
+}
+
+/* ── Top banner (scroll progress) — warm ── */
+banner,
+[class*="banner"] {
+  border-color: var(--ak-warm-300) !important;
+}
+
+/* ── Footer nav (next/prev page) — warm ── */
+a[class*="footer"],
+footer a {
+  border-color: var(--ak-warm-300) !important;
+}
+
+/* ── Animations ── */
 @keyframes ak-fade-in {
   from { opacity: 0; transform: scale(0.8); }
   to { opacity: 1; transform: scale(1); }
 }
 .animate-fade-in {
   animation: ak-fade-in 150ms ease-out forwards;
-}
-
-/* Sidebar — odsazení položek pod sekcemi */
-#nd-sidebar p ~ a[data-active],
-#nd-sidebar-mobile p ~ a[data-active] {
-  padding-inline-start: calc(4 * var(--spacing)) !important;
 }

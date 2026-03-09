@@ -1,11 +1,10 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
+import { findByPin, encodeSession } from "@/lib/auth";
 
-// Rate limiting: track attempts per IP
 const attempts = new Map<string, { count: number; resetAt: number }>();
-
 const MAX_ATTEMPTS = 5;
-const WINDOW_MS = 15 * 60 * 1000; // 15 minutes
+const WINDOW_MS = 15 * 60 * 1000;
 
 function getClientIp(request: NextRequest): string {
   return (
@@ -32,12 +31,6 @@ function checkRateLimit(ip: string): { allowed: boolean; remaining: number } {
   return { allowed: true, remaining: MAX_ATTEMPTS - record.count };
 }
 
-// PIN configuration: AUTH_PIN_[CLIENT] environment variable
-function getPin(client: string): string | undefined {
-  const envKey = `AUTH_PIN_${client.toUpperCase()}`;
-  return process.env[envKey];
-}
-
 export async function POST(request: NextRequest) {
   const ip = getClientIp(request);
   const rateLimit = checkRateLimit(ip);
@@ -49,48 +42,44 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  let body: { client?: string; pin?: string };
+  let body: { pin?: string };
   try {
     body = await request.json();
   } catch {
     return NextResponse.json({ error: "Neplatný požadavek" }, { status: 400 });
   }
 
-  const { client, pin } = body;
+  const { pin } = body;
 
-  if (!client || !pin || !/^\d{6}$/.test(pin)) {
+  if (!pin || !/^\d{6}$/.test(pin)) {
     return NextResponse.json(
       { error: "Zadejte 6místný PIN" },
       { status: 400 },
     );
   }
 
-  const expectedPin = getPin(client);
-  if (!expectedPin) {
+  const entry = findByPin(pin);
+  if (!entry) {
     return NextResponse.json(
-      { error: "Neplatný klient" },
-      { status: 404 },
-    );
-  }
-
-  if (pin !== expectedPin) {
-    return NextResponse.json(
-      {
-        error: `Nesprávný PIN. Zbývá ${rateLimit.remaining} pokusů.`,
-      },
+      { error: `Nesprávný PIN. Zbývá ${rateLimit.remaining} pokusů.` },
       { status: 401 },
     );
   }
 
-  // Success: clear rate limit and set cookie
   attempts.delete(ip);
 
-  const response = NextResponse.json({ ok: true });
-  response.cookies.set(`pin-${client}`, "authenticated", {
+  const session = encodeSession({ name: entry.name, reports: entry.reports });
+  const response = NextResponse.json({
+    ok: true,
+    name: entry.name,
+    reports: entry.reports,
+  });
+
+  response.cookies.set("pin-session", session, {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
     sameSite: "lax",
-    maxAge: 30 * 24 * 60 * 60, // 30 days
+    maxAge: 30 * 24 * 60 * 60,
     path: "/",
   });
 

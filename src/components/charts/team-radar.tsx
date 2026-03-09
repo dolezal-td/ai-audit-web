@@ -15,16 +15,16 @@ import {
 // Recharts uses SVG attributes, not CSS styles — CSS variables
 // don't resolve in SVG attributes. Use hex values directly.
 const COLORS = {
-  primary: "#3b82f6",
-  primaryFill: "rgba(59, 130, 246, 0.25)",
+  primary: "#1C60FF",
+  primaryFill: "rgba(28, 96, 255, 0.25)",
   company: "#ef4444",
   companyFill: "rgba(239, 68, 68, 0.06)",
-  benchmark: "#1f2937",
-  benchmarkDark: "#e5e7eb",
-  benchmarkFill: "rgba(31, 41, 55, 0.06)",
-  grid: "#d1d5db",
-  gridDark: "#4b5563",
-  text: "#6b7280",
+  benchmark: "#4A3D30",
+  benchmarkDark: "#e8dcc8",
+  benchmarkFill: "rgba(74, 61, 48, 0.06)",
+  grid: "#F5E0C8",
+  gridDark: "#3a3228",
+  text: "#8A7560",
 };
 
 interface TeamRadarDataPoint {

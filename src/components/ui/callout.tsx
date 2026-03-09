@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 
-type CalloutType = "insight" | "warning" | "positive";
+type CalloutType = "insight" | "warning" | "positive" | "purple";
 
 interface CalloutProps {
   type?: CalloutType;
@@ -11,9 +11,9 @@ interface CalloutProps {
 const config: Record<CalloutType, { icon: string; bg: string; border: string; text: string }> = {
   insight: {
     icon: "💡",
-    bg: "bg-blue-50 dark:bg-blue-950/30",
-    border: "border-blue-200 dark:border-blue-900",
-    text: "text-blue-900 dark:text-blue-200",
+    bg: "bg-[var(--ak-primary-fill)]",
+    border: "border-[var(--ak-primary-light)]",
+    text: "text-[color-mix(in_oklab,var(--color-fd-foreground)_90%,var(--ak-primary))]",
   },
   warning: {
     icon: "⚠️",
@@ -27,6 +27,12 @@ const config: Record<CalloutType, { icon: string; bg: string; border: string; te
     border: "border-green-200 dark:border-green-900",
     text: "text-green-900 dark:text-green-200",
   },
+  purple: {
+    icon: "🔮",
+    bg: "bg-[var(--ak-purple-fill)]",
+    border: "border-[var(--ak-purple)]",
+    text: "text-[color-mix(in_oklab,var(--color-fd-foreground)_85%,#7c3aed)]",
+  },
 };
 
 export function Callout({ type = "insight", title, children }: CalloutProps) {
@@ -39,9 +45,9 @@ export function Callout({ type = "insight", title, children }: CalloutProps) {
       </span>
       <div className="min-w-0">
         {title && (
-          <p className="font-semibold text-sm mb-1.5">{title}</p>
+          <p className="font-semibold text-base mb-1.5">{title}</p>
         )}
-        <div className="text-sm leading-relaxed [&>p]:m-0">{children}</div>
+        <div className="text-base leading-relaxed [&>p]:m-0">{children}</div>
       </div>
     </div>
   );
