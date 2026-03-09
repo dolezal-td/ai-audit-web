@@ -1,18 +1,13 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import {
-  ScatterChart,
-  Scatter,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  ResponsiveContainer,
-  Cell,
-  ReferenceLine,
-  ReferenceDot,
-  Customized,
-} from "recharts";
+
+// === Konfigurace ===
+const MARGIN = { top: 20, right: 25, bottom: 40, left: 50 };
+const DOMAIN_MAX = 10;
+const TICKS = [0, 2, 4, 6, 8, 10];
+const DOT_RADIUS = 10;
+const HOVER_RADIUS = 22;
 
 const GROUP_COLORS: Record<string, string> = {
   Finance: "#6B8A9E",
@@ -55,89 +50,10 @@ interface ScatterPlotProps {
   groups?: Record<string, string[]>;
 }
 
-const DOT_RADIUS = 10;
-const HOVER_RADIUS = 22;
-
 interface HoverInfo {
   index: number;
   x: number;
   y: number;
-}
-
-/**
- * Tečky renderované přes Customized — stabilní React keys,
- * takže DOM elementy přežívají re-rendery a CSS transitions fungují.
- */
-function DotsOverlay(props: {
-  // Injected by Recharts Customized
-  xAxisMap?: Record<string, any>;
-  yAxisMap?: Record<string, any>;
-  // Our props
-  personData: PersonData[];
-  visibleSet: Set<number>;
-  hoverInfo: HoverInfo | null;
-  onHoverChange: (info: HoverInfo | null) => void;
-  getColor: (p: PersonData) => string;
-}) {
-  const {
-    xAxisMap,
-    yAxisMap,
-    personData,
-    visibleSet,
-    hoverInfo,
-    onHoverChange,
-    getColor,
-  } = props;
-
-  if (!xAxisMap || !yAxisMap) return null;
-  const xAxis = Object.values(xAxisMap)[0] as any;
-  const yAxis = Object.values(yAxisMap)[0] as any;
-  if (!xAxis?.scale || !yAxis?.scale) return null;
-
-  return (
-    <g>
-      {personData.map((person, i) => {
-        const cx = xAxis.scale(person.index_chci);
-        const cy = yAxis.scale(person.index_umim);
-        const isVisible = visibleSet.has(i);
-        const isHovered = hoverInfo?.index === i;
-
-        return (
-          <g key={person.jmeno}>
-            {/* Neviditelná hover zóna */}
-            <circle
-              cx={cx}
-              cy={cy}
-              r={HOVER_RADIUS}
-              fill="transparent"
-              onMouseEnter={() => {
-                if (isVisible) onHoverChange({ index: i, x: cx, y: cy });
-              }}
-              onMouseLeave={() => onHoverChange(null)}
-              style={{
-                cursor: isVisible ? "pointer" : "default",
-                pointerEvents: isVisible ? "auto" : "none",
-              }}
-            />
-            {/* Viditelná tečka */}
-            <circle
-              cx={cx}
-              cy={cy}
-              r={isHovered ? DOT_RADIUS + 2 : DOT_RADIUS}
-              fill={getColor(person)}
-              stroke="#fff"
-              strokeWidth={2}
-              style={{
-                opacity: isVisible ? 1 : 0,
-                transition: "opacity 400ms ease",
-                pointerEvents: "none",
-              }}
-            />
-          </g>
-        );
-      })}
-    </g>
-  );
 }
 
 export function ScatterPlotChart({
@@ -148,12 +64,37 @@ export function ScatterPlotChart({
   benchmarkChci,
   groups: customGroups,
 }: ScatterPlotProps) {
-  const [mounted, setMounted] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [size, setSize] = useState({ width: 0, height: 0 });
   const [hoverInfo, setHoverInfo] = useState<HoverInfo | null>(null);
-  // Uchováme poslední hover info pro fade-out (aby tooltip zůstal v DOM během transition)
   const lastHoverRef = useRef<HoverInfo | null>(null);
   if (hoverInfo) lastHoverRef.current = hoverInfo;
 
+  // Responsive sizing
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const observer = new ResizeObserver((entries) => {
+      const { width, height } = entries[0].contentRect;
+      setSize({ width, height });
+    });
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  // Scales
+  const plotW = size.width - MARGIN.left - MARGIN.right;
+  const plotH = size.height - MARGIN.top - MARGIN.bottom;
+  const xScale = useCallback(
+    (v: number) => MARGIN.left + (v / DOMAIN_MAX) * plotW,
+    [plotW]
+  );
+  const yScale = useCallback(
+    (v: number) => MARGIN.top + ((DOMAIN_MAX - v) / DOMAIN_MAX) * plotH,
+    [plotH]
+  );
+
+  // Skupiny
   const groupNames = useMemo(() => {
     if (customGroups) return Object.keys(customGroups);
     const names = new Set(data.map((d) => getGroup(d.kategorie)));
@@ -163,6 +104,10 @@ export function ScatterPlotChart({
   const [activeGroups, setActiveGroups] = useState<Set<string>>(
     () => new Set(groupNames)
   );
+
+  useEffect(() => {
+    setActiveGroups(new Set(groupNames));
+  }, [groupNames]);
 
   const visibleSet = useMemo(() => {
     const set = new Set<number>();
@@ -180,14 +125,6 @@ export function ScatterPlotChart({
     });
     return set;
   }, [data, activeGroups, customGroups]);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  useEffect(() => {
-    setActiveGroups(new Set(groupNames));
-  }, [groupNames]);
 
   const allActive = activeGroups.size === groupNames.length;
 
@@ -222,15 +159,9 @@ export function ScatterPlotChart({
     [customGroups]
   );
 
-  if (!mounted) {
-    return (
-      <div className="w-full my-8 h-[400px] md:h-[450px] rounded-xl border bg-fd-card animate-pulse" />
-    );
-  }
-
-  // Tooltip content: aktuální hover nebo poslední (pro fade-out)
   const displayInfo = hoverInfo || lastHoverRef.current;
   const displayPerson = displayInfo ? data[displayInfo.index] : null;
+  const ready = size.width > 0 && size.height > 0;
 
   return (
     <div className="w-full my-8">
@@ -273,122 +204,199 @@ export function ScatterPlotChart({
       </div>
 
       <div
+        ref={containerRef}
         className="h-[400px] md:h-[450px] relative"
         onMouseLeave={() => setHoverInfo(null)}
       >
-        <ResponsiveContainer width="100%" height="100%">
-          <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 10 }}>
-            <CartesianGrid strokeDasharray="4 4" stroke="#F5E0C8" />
-            <XAxis
-              type="number"
-              dataKey="index_chci"
-              name="Chci"
-              domain={[0, 10]}
-              tickCount={6}
-              label={{
-                value: "Index Chci (1–10)",
-                position: "insideBottom",
-                offset: -10,
-                style: { fontSize: 13, fill: "#8A7560" },
-              }}
-              tick={{ fontSize: 12, fill: "#8A7560" }}
-            />
-            <YAxis
-              type="number"
-              dataKey="index_umim"
-              name="Umím"
-              domain={[0, 10]}
-              tickCount={6}
-              label={{
-                value: "Index Umím (1–10)",
-                angle: -90,
-                position: "insideLeft",
-                offset: 5,
-                style: { fontSize: 13, fill: "#8A7560" },
-              }}
-              tick={{ fontSize: 12, fill: "#8A7560" }}
-            />
-            {/* Benchmark trhu */}
-            {benchmarkUmim && (
-              <ReferenceLine
-                y={benchmarkUmim}
-                stroke="#D4C4A8"
-                strokeDasharray="4 4"
-                label={{
-                  value: `Trh ${benchmarkUmim.toFixed(1)}`,
-                  position: "right",
-                  style: { fontSize: 10, fill: "#D4C4A8" },
-                }}
-              />
-            )}
-            {benchmarkChci && (
-              <ReferenceLine
-                x={benchmarkChci}
-                stroke="#D4C4A8"
-                strokeDasharray="4 4"
-                label={{
-                  value: `Trh ${benchmarkChci.toFixed(1)}`,
-                  position: "top",
-                  style: { fontSize: 10, fill: "#D4C4A8" },
-                }}
-              />
-            )}
-            {/* Průměr JTRE — kosočtverec */}
-            {companyAvgUmim && companyAvgChci && (
-              <ReferenceDot
-                x={companyAvgChci}
-                y={companyAvgUmim}
-                r={0}
-                fill="transparent"
-                stroke="transparent"
-                shape={(props: { cx?: number; cy?: number }) => {
-                  const { cx = 0, cy = 0 } = props;
-                  const s = 9;
-                  return (
-                    <g>
-                      <polygon
-                        points={`${cx},${cy - s} ${cx + s},${cy} ${cx},${cy + s} ${cx - s},${cy}`}
-                        fill="#C4956A"
-                        stroke="#fff"
-                        strokeWidth={2}
-                      />
-                      <text
-                        x={cx}
-                        y={cy - s - 6}
-                        textAnchor="middle"
-                        fontSize={11}
-                        fill="#C4956A"
-                        fontWeight={600}
-                      >
-                        JTRE
-                      </text>
-                    </g>
-                  );
-                }}
-              />
-            )}
-            {/* Neviditelný Scatter — zajistí inicializaci os/scales */}
-            <Scatter data={data} fill="transparent" isAnimationActive={false}>
-              {data.map((_, i) => (
-                <Cell key={i} fill="transparent" stroke="transparent" />
-              ))}
-            </Scatter>
-            {/* Vlastní tečky se stabilními React keys */}
-            <Customized
-              component={
-                <DotsOverlay
-                  personData={data}
-                  visibleSet={visibleSet}
-                  hoverInfo={hoverInfo}
-                  onHoverChange={setHoverInfo}
-                  getColor={getPersonColor}
+        {ready && (
+          <svg
+            width={size.width}
+            height={size.height}
+            className="absolute inset-0"
+          >
+            {/* Grid čáry */}
+            {TICKS.map((v) => (
+              <g key={`grid-${v}`}>
+                {/* Vertikální */}
+                <line
+                  x1={xScale(v)}
+                  y1={MARGIN.top}
+                  x2={xScale(v)}
+                  y2={yScale(0)}
+                  stroke="#F5E0C8"
+                  strokeDasharray="4 4"
                 />
-              }
-            />
-          </ScatterChart>
-        </ResponsiveContainer>
+                {/* Horizontální */}
+                <line
+                  x1={MARGIN.left}
+                  y1={yScale(v)}
+                  x2={xScale(DOMAIN_MAX)}
+                  y2={yScale(v)}
+                  stroke="#F5E0C8"
+                  strokeDasharray="4 4"
+                />
+                {/* X tick labels */}
+                <text
+                  x={xScale(v)}
+                  y={yScale(0) + 18}
+                  textAnchor="middle"
+                  fontSize={12}
+                  fill="#8A7560"
+                >
+                  {v}
+                </text>
+                {/* Y tick labels */}
+                <text
+                  x={MARGIN.left - 10}
+                  y={yScale(v) + 4}
+                  textAnchor="end"
+                  fontSize={12}
+                  fill="#8A7560"
+                >
+                  {v}
+                </text>
+              </g>
+            ))}
 
-        {/* HTML tooltip — mimo SVG, vždy navrchu, fade in/out */}
+            {/* Axis labels */}
+            <text
+              x={MARGIN.left + plotW / 2}
+              y={size.height - 4}
+              textAnchor="middle"
+              fontSize={13}
+              fill="#8A7560"
+            >
+              Index Chci (1–10)
+            </text>
+            <text
+              x={14}
+              y={MARGIN.top + plotH / 2}
+              textAnchor="middle"
+              fontSize={13}
+              fill="#8A7560"
+              transform={`rotate(-90, 14, ${MARGIN.top + plotH / 2})`}
+            >
+              Index Umím (1–10)
+            </text>
+
+            {/* Benchmark trhu — reference lines */}
+            {benchmarkUmim != null && (
+              <>
+                <line
+                  x1={MARGIN.left}
+                  y1={yScale(benchmarkUmim)}
+                  x2={xScale(DOMAIN_MAX)}
+                  y2={yScale(benchmarkUmim)}
+                  stroke="#D4C4A8"
+                  strokeDasharray="4 4"
+                />
+                <text
+                  x={xScale(DOMAIN_MAX) - 4}
+                  y={yScale(benchmarkUmim) - 6}
+                  textAnchor="end"
+                  fontSize={10}
+                  fill="#D4C4A8"
+                >
+                  Trh {benchmarkUmim.toFixed(1)}
+                </text>
+              </>
+            )}
+            {benchmarkChci != null && (
+              <>
+                <line
+                  x1={xScale(benchmarkChci)}
+                  y1={MARGIN.top}
+                  x2={xScale(benchmarkChci)}
+                  y2={yScale(0)}
+                  stroke="#D4C4A8"
+                  strokeDasharray="4 4"
+                />
+                <text
+                  x={xScale(benchmarkChci) + 4}
+                  y={MARGIN.top + 12}
+                  textAnchor="start"
+                  fontSize={10}
+                  fill="#D4C4A8"
+                >
+                  Trh {benchmarkChci.toFixed(1)}
+                </text>
+              </>
+            )}
+
+            {/* Průměr JTRE — kosočtverec */}
+            {companyAvgUmim != null && companyAvgChci != null && (() => {
+              const cx = xScale(companyAvgChci);
+              const cy = yScale(companyAvgUmim);
+              const s = 9;
+              return (
+                <g>
+                  <polygon
+                    points={`${cx},${cy - s} ${cx + s},${cy} ${cx},${cy + s} ${cx - s},${cy}`}
+                    fill="#C4956A"
+                    stroke="#fff"
+                    strokeWidth={2}
+                  />
+                  <text
+                    x={cx}
+                    y={cy - s - 6}
+                    textAnchor="middle"
+                    fontSize={11}
+                    fill="#C4956A"
+                    fontWeight={600}
+                  >
+                    JTRE
+                  </text>
+                </g>
+              );
+            })()}
+
+            {/* === TEČKY — stabilní key, CSS transitions fungují === */}
+            {data.map((person, i) => {
+              const cx = xScale(person.index_chci);
+              const cy = yScale(person.index_umim);
+              const isVisible = visibleSet.has(i);
+              const isHovered = hoverInfo?.index === i;
+              const color = getPersonColor(person);
+
+              return (
+                <g key={person.jmeno}>
+                  {/* Hover zóna — neviditelná, větší */}
+                  <circle
+                    cx={cx}
+                    cy={cy}
+                    r={HOVER_RADIUS}
+                    fill="transparent"
+                    onMouseEnter={() => {
+                      if (isVisible)
+                        setHoverInfo({ index: i, x: cx, y: cy });
+                    }}
+                    onMouseLeave={() => setHoverInfo(null)}
+                    style={{
+                      cursor: isVisible ? "pointer" : "default",
+                      pointerEvents: isVisible ? "auto" : "none",
+                    }}
+                  />
+                  {/* Viditelná tečka */}
+                  <circle
+                    cx={cx}
+                    cy={cy}
+                    r={isHovered ? DOT_RADIUS + 2 : DOT_RADIUS}
+                    fill={color}
+                    stroke="#fff"
+                    strokeWidth={2}
+                    style={{
+                      opacity: isVisible ? 1 : 0,
+                      transition: "opacity 400ms ease",
+                      pointerEvents: "none",
+                    }}
+                  />
+                </g>
+              );
+            })}
+          </svg>
+        )}
+
+        {/* HTML tooltip — vždy v DOM, fade in/out */}
         <div
           className="pointer-events-none absolute z-10"
           style={{
@@ -421,7 +429,7 @@ export function ScatterPlotChart({
 
       {/* Legenda */}
       <div className="flex flex-wrap gap-4 justify-center mt-4 text-xs text-fd-muted-foreground">
-        {companyAvgUmim && companyAvgChci && (
+        {companyAvgUmim != null && companyAvgChci != null && (
           <div className="flex items-center gap-1.5">
             <svg width="14" height="14" viewBox="0 0 14 14">
               <polygon
@@ -434,7 +442,7 @@ export function ScatterPlotChart({
             <span>Průměr JTRE</span>
           </div>
         )}
-        {(benchmarkUmim || benchmarkChci) && (
+        {(benchmarkUmim != null || benchmarkChci != null) && (
           <div className="flex items-center gap-1.5">
             <div
               className="w-6 border-t-2 border-dashed"
