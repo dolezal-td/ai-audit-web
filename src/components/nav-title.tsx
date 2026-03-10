@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { ArrowLeft, Home } from "lucide-react";
 
 interface NavTitleProps {
@@ -10,11 +10,18 @@ interface NavTitleProps {
 }
 
 export function NavTitle({ showHome, reportSlug }: NavTitleProps) {
+  const router = useRouter();
+
   return (
     <span className="inline-flex items-center gap-2">
       {showHome && (
-        <Link
-          href="/"
+        <button
+          type="button"
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            router.push("/");
+          }}
           className="inline-flex items-center justify-center w-7 h-7 rounded-md text-fd-muted-foreground hover:text-fd-foreground hover:bg-fd-accent transition-colors"
           title="Přehled reportů"
         >
@@ -26,12 +33,9 @@ export function NavTitle({ showHome, reportSlug }: NavTitleProps) {
               className="absolute -left-1.5 top-1/2 -translate-y-1/2"
             />
           </span>
-        </Link>
+        </button>
       )}
-      <Link
-        href={`/${reportSlug}/uvod`}
-        className="inline-flex items-center gap-2 hover:opacity-80 transition-opacity"
-      >
+      <span className="inline-flex items-center gap-2">
         <Image
           src="/logo.png"
           alt=""
@@ -40,7 +44,7 @@ export function NavTitle({ showHome, reportSlug }: NavTitleProps) {
           className="rounded-md"
         />
         AI Kompas
-      </Link>
+      </span>
     </span>
   );
 }

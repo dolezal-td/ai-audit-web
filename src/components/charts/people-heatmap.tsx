@@ -254,7 +254,7 @@ export function PeopleHeatmap({
   return (
     <Tooltip.Provider delayDuration={200}>
       <div className="w-full overflow-x-auto">
-        <table className="w-full text-sm border-collapse">
+        <table className="w-full text-sm" style={{ borderCollapse: "separate", borderSpacing: 0, overflow: "visible" }}>
           {/* Header */}
           <thead>
             <tr className="bg-fd-muted/50">

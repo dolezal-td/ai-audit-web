@@ -230,6 +230,29 @@ article > h1 + p {
   border-color: var(--ak-warm-300) !important;
 }
 
+/* ── Sticky first column for MDX tables ── */
+.mdx-sticky-table tr > th:first-child,
+.mdx-sticky-table tr > td:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  white-space: nowrap;
+}
+
+.mdx-sticky-table tr > th:first-child {
+  background-color: var(--ak-warm-200);
+}
+
+.mdx-sticky-table tr > td:first-child {
+  background-color: var(--color-fd-background);
+}
+
+/* Subtle shadow on first column to indicate more content */
+.mdx-sticky-table tr > th:first-child,
+.mdx-sticky-table tr > td:first-child {
+  box-shadow: 2px 0 4px -2px rgba(0, 0, 0, 0.06);
+}
+
 /* ── TOC — warm tones ── */
 aside h3,
 [class*="toc"] h3 {

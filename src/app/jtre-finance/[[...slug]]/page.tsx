@@ -16,6 +16,7 @@ import { MetricCards } from '@/components/ui/metric-cards';
 import { Callout } from '@/components/ui/callout';
 import { PeopleHeatmap } from '@/components/charts/people-heatmap';
 import { Mermaid } from '@/components/ui/mermaid';
+import { MdxTable, MdxTh, MdxTd } from '@/components/ui/mdx-table';
 
 export default async function Page(props: {
   params: Promise<{ slug?: string[] }>;
@@ -35,6 +36,9 @@ export default async function Page(props: {
       <DocsBody>
         <MDX components={{
           ...defaultMdxComponents,
+          table: MdxTable,
+          th: MdxTh,
+          td: MdxTd,
           TeamRadar,
           ScatterPlotChart,
           HeatmapTable,

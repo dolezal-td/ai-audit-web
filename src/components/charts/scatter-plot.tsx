@@ -164,7 +164,7 @@ export function ScatterPlotChart({
   const ready = size.width > 0 && size.height > 0;
 
   return (
-    <div className="w-full my-8">
+    <div className="w-full my-8 min-w-0 overflow-hidden">
       {/* Filtrování skupin */}
       <div className="flex flex-wrap items-center gap-3 mb-4">
         {groupNames.map((group) => {

@@ -1,13 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   RadarChart,
   Radar,
   PolarGrid,
   PolarAngleAxis,
   PolarRadiusAxis,
-  ResponsiveContainer,
   Tooltip,
   Legend,
 } from "recharts";
@@ -66,6 +65,8 @@ function CustomTooltip({
 export function TeamRadar({ data, clientName = "Firma", companyName }: TeamRadarProps) {
   const [mounted, setMounted] = useState(false);
   const [isDark, setIsDark] = useState(false);
+  const [size, setSize] = useState({ width: 0, height: 0 });
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setMounted(true);
@@ -77,6 +78,22 @@ export function TeamRadar({ data, clientName = "Firma", companyName }: TeamRadar
     observer.observe(html, { attributes: true, attributeFilter: ["class"] });
     return () => observer.disconnect();
   }, []);
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const ro = new ResizeObserver((entries) => {
+      const entry = entries[0];
+      if (entry) {
+        const { width, height } = entry.contentRect;
+        if (width > 0 && height > 0) {
+          setSize({ width, height });
+        }
+      }
+    });
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, [mounted]);
 
   const hasCompanyBenchmark = data.some((d) => d.companyBenchmark != null);
 
@@ -96,11 +113,13 @@ export function TeamRadar({ data, clientName = "Firma", companyName }: TeamRadar
   const gridColor = isDark ? COLORS.gridDark : COLORS.grid;
   const textColor = isDark ? "#d1d5db" : "#374151";
 
+  const ready = size.width > 0 && size.height > 0;
+
   return (
-    <div className="w-full my-8">
-      <div className="h-[420px] md:h-[500px]">
-        <ResponsiveContainer width="100%" height="100%">
-          <RadarChart data={chartData} cx="50%" cy="50%" outerRadius="80%">
+    <div className="w-full my-8 min-w-0 overflow-hidden">
+      <div ref={containerRef} className="h-[420px] md:h-[500px] w-full min-w-0">
+        {ready && (
+          <RadarChart data={chartData} width={size.width} height={size.height} cx="50%" cy="50%" outerRadius="80%">
             <PolarGrid stroke={gridColor} />
             <PolarAngleAxis
               dataKey="metric"
@@ -142,7 +161,7 @@ export function TeamRadar({ data, clientName = "Firma", companyName }: TeamRadar
             <Tooltip content={<CustomTooltip />} />
             <Legend wrapperStyle={{ fontSize: 13, paddingTop: 16 }} />
           </RadarChart>
-        </ResponsiveContainer>
+        )}
       </div>
     </div>
   );

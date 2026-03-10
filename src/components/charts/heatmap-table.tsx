@@ -106,10 +106,10 @@ export function HeatmapTable({
 
   return (
     <div className="w-full my-8 overflow-x-auto">
-      <table className="w-full text-sm border-collapse">
+      <table className="w-full text-sm" style={{ borderCollapse: "separate", borderSpacing: 0, overflow: "visible" }}>
         <thead>
           <tr>
-            <th className="text-left py-2 px-3 font-medium text-fd-muted-foreground w-[200px]" />
+            <th className="sticky left-0 z-10 bg-fd-muted/50 text-left py-2 px-3 font-medium text-fd-muted-foreground min-w-[140px] max-w-[200px]" />
             {columns.map((col) => (
               <th
                 key={col}
@@ -123,7 +123,7 @@ export function HeatmapTable({
         <tbody>
           {rows.map((row) => (
             <tr key={row.label} className="border-t border-fd-border">
-              <td className="py-2.5 px-3 font-medium text-sm">
+              <td className="sticky left-0 z-10 bg-fd-background py-2.5 px-3 font-medium text-sm border-r border-fd-border">
                 {prettify(row.label)}
               </td>
               {row.values.map((val, i) => (

@@ -46,14 +46,15 @@ function MetricTooltip({
   );
 }
 
+const gridColsClass = (count: number) => {
+  if (count === 1) return "grid-cols-1";
+  if (count === 2) return "grid-cols-1 sm:grid-cols-2";
+  return "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3";
+};
+
 export function MetricCards({ data }: MetricCardsProps) {
   return (
-    <div
-      className="grid gap-4 my-8"
-      style={{
-        gridTemplateColumns: `repeat(${Math.min(data.length, 3)}, 1fr)`,
-      }}
-    >
+    <div className={`grid gap-4 my-8 ${gridColsClass(data.length)}`}>
       {data.map((metric) => {
         const diff = metric.value - metric.benchmark;
         const isGood = metric.lowerIsBetter ? diff <= 0 : diff >= 0;
@@ -63,7 +64,7 @@ export function MetricCards({ data }: MetricCardsProps) {
         return (
           <div
             key={metric.title}
-            className="rounded-2xl border bg-fd-card p-6 flex flex-col gap-3 aspect-square justify-between"
+            className="rounded-2xl border bg-fd-card p-6 flex flex-col gap-3 sm:aspect-square justify-between"
           >
             <div className="flex items-start justify-between gap-1">
               <span className="text-sm font-medium text-fd-muted-foreground leading-tight">
