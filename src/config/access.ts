@@ -25,6 +25,11 @@ export const ACCESS: AccessEntry[] = [
     name: "Jiří Knob",
     reports: ["jtre-obchod"],
   },
+  {
+    pin: "379577",
+    name: "Tomáš Doležal",
+    reports: ["jtre-finance", "jtre-obchod", "jtre-projektove-rizeni", "jtre"],
+  },
 ];
 
 export interface ReportEntry {
@@ -32,16 +37,36 @@ export interface ReportEntry {
   subtitle: string;
   disabled?: boolean;
   disabledMessage?: string;
+  color: string;
+  colorLight: string;
 }
 
 export const REPORTS: Record<string, ReportEntry> = {
-  "jtre-finance": { title: "Finanční oddělení", subtitle: "J&T Real Estate" },
-  "jtre-obchod": { title: "Obchodní oddělení", subtitle: "J&T Real Estate" },
+  "jtre-finance": {
+    title: "Finanční oddělení",
+    subtitle: "J&T Real Estate",
+    color: "#1C60FF",
+    colorLight: "rgba(28, 96, 255, 0.08)",
+  },
+  "jtre-obchod": {
+    title: "Obchodní oddělení",
+    subtitle: "J&T Real Estate",
+    color: "#7C3AED",
+    colorLight: "rgba(124, 58, 237, 0.08)",
+  },
+  "jtre-projektove-rizeni": {
+    title: "Projektové řízení",
+    subtitle: "J&T Real Estate",
+    color: "#0891B2",
+    colorLight: "rgba(8, 145, 178, 0.08)",
+  },
   jtre: {
     title: "Souhrnný report",
     subtitle: "J&T Real Estate",
     disabled: true,
     disabledMessage: "Report zatím není dostupný",
+    color: "#D97706",
+    colorLight: "rgba(217, 119, 6, 0.08)",
   },
 };
 

@@ -327,6 +327,19 @@ footer a {
   animation: ak-fade-in 150ms ease-out forwards;
 }
 
+/* ── Homepage tiles — responsive grid ── */
+@media (max-width: 1024px) {
+  .homepage-tiles {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .homepage-tiles {
+    grid-template-columns: 1fr !important;
+  }
+}
+
 /* ══════════════════════════════════════════
    Print page — layout
    ══════════════════════════════════════════ */
