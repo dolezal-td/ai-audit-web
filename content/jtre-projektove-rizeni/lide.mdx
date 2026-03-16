@@ -1,0 +1,109 @@
+---
+title: Lidé
+description: Scatter plot Umím × Chci a profily jednotlivců
+---
+
+## Mapa týmu
+
+Každý bod je jeden člověk. Vodorovná osa měří, co umí (Index Umím); svislá, jak moc chce (Index Chci). Čárkované linie ukazují průměr firmy a benchmark trhu. Najetím myší zobrazíte detail.
+
+<ScatterPlotChart
+  companyAvgUmim={3.53}
+  companyAvgChci={5.20}
+  benchmarkUmim={3.9}
+  benchmarkChci={5.83}
+  groups={{
+    "Management": ["Management"],
+    "Projekt + Support": ["Projekt", "Support"]
+  }}
+  data={[
+    { jmeno: "Daniel Falťan", kategorie: "Management", index_umim: 4.68, index_chci: 7.6 },
+    { jmeno: "Lukáš Levický", kategorie: "Projekt", index_umim: 4.54, index_chci: 3.9 },
+    { jmeno: "Daniel Petrlík", kategorie: "Projekt", index_umim: 4.04, index_chci: 4.5 },
+    { jmeno: "Tomáš Mraček", kategorie: "Projekt", index_umim: 4.04, index_chci: 6.5 },
+    { jmeno: "Václav Sigmund", kategorie: "Management", index_umim: 3.68, index_chci: 1.5 },
+    { jmeno: "Tomáš Pospíšil", kategorie: "Management", index_umim: 3.32, index_chci: 6.2 },
+    { jmeno: "Petr Holan", kategorie: "Management", index_umim: 2.96, index_chci: 5.1 },
+    { jmeno: "Jiří Knob", kategorie: "Management", index_umim: 2.79, index_chci: 3.5 },
+    { jmeno: "Martin Koiš", kategorie: "Management", index_umim: 2.64, index_chci: 5.1 },
+    { jmeno: "Pavel Stáhlík", kategorie: "Management", index_umim: 2.64, index_chci: 5.3 },
+    { jmeno: "Jan Kočí", kategorie: "Management", index_umim: 2.46, index_chci: 2.9 },
+    { jmeno: "Jana Řehořová", kategorie: "Projekt", index_umim: 1.79, index_chci: 2.0 },
+    { jmeno: "Pavel Opatřil", kategorie: "Management", index_umim: 1.43, index_chci: 4.0 },
+    { jmeno: "Roman Gorski", kategorie: "Support", index_umim: 1.43, index_chci: 2.9 },
+    { jmeno: "Radek Spurný", kategorie: "Management", index_umim: 1.43, index_chci: 2.4 }
+  ]}
+/>
+
+<Callout type="insight">
+  Většina týmu se shlukuje v levém dolním kvadrantu – nízké znalosti, nízká až střední motivace. Jen **4 lidé** překračují benchmark trhu v Indexu Umím (**3,9**): Falťan, Levický, Petrlík a Mraček. Všichni čtyři jsou v oddělení méně než 2 roky – přinesli si zkušenosti zvenku.
+</Callout>
+
+## Profily
+
+<PeopleHeatmap
+  columns={[
+    { key: "spravnost_odpovedi", label: "Vědomosti o AI", description: "Počet správných odpovědí v kvízu (0–7).", emphasized: false, lowerIsBetter: false },
+    { key: "znam_nastroje", label: "Znám nástroje", description: "Počet AI nástrojů, které respondent zná (0–13).", emphasized: false, lowerIsBetter: false },
+    { key: "znalosti", label: "Znalosti", description: "Teoretické znalosti o AI – terminologie, koncepty, principy. Škála 0–10.", emphasized: false, lowerIsBetter: false },
+    { key: "platim_nastroje", label: "Platím nástroje", description: "Počet AI nástrojů, za které respondent platí (0–13).", emphasized: false, lowerIsBetter: false },
+    { key: "pouzivam_nastroje", label: "Používám nást.", description: "Počet AI nástrojů, které respondent aktivně používá (0–13).", emphasized: false, lowerIsBetter: false },
+    { key: "schopnosti", label: "Schopnosti", description: "Praktické schopnosti – tvorba promptů, práce s výstupy. Škála 0–10.", emphasized: false, lowerIsBetter: false },
+    { key: "zkouseni", label: "Zkoušení", description: "Míra experimentování s AI nástroji. Škála 0–10.", emphasized: false, lowerIsBetter: false },
+    { key: "bavi_prace", label: "Baví práce", description: "Jak moc respondenta baví jeho práce. Škála 1–10.", emphasized: false, lowerIsBetter: false },
+    { key: "prehlcenost", label: "Přehlcenost", description: "Subjektivní pocit zahlcení prací. Nižší = lepší. Škála 1–10.", emphasized: false, lowerIsBetter: true },
+    { key: "prescasy", label: "Přesčasy", description: "Frekvence práce přesčas. Nižší = lepší. Škála 1–10.", emphasized: false, lowerIsBetter: true },
+    { key: "strach_z_ai", label: "Obavy z AI", description: "Obavy z dopadu AI na vlastní pozici. Nižší = lepší. Škála 1–10.", emphasized: false, lowerIsBetter: true },
+    { key: "index_umim", label: "Index Umím", description: "Souhrnný index znalostí a schopností v AI. Škála 0–10.", emphasized: true, lowerIsBetter: false },
+    { key: "index_chci", label: "Index Chci", description: "Souhrnný index motivace k používání AI. Škála 0–10.", emphasized: true, lowerIsBetter: false }
+  ]}
+  data={[
+    { jmeno: "Daniel Falťan", kategorie: "Management", spravnost_odpovedi: 5, znam_nastroje: 5, znalosti: 5.36, platim_nastroje: 1, pouzivam_nastroje: 3, schopnosti: 4.0, zkouseni: 7.0, bavi_prace: 9.0, prehlcenost: 5.0, prescasy: 5.0, strach_z_ai: 4.0, index_umim: 4.68, index_chci: 7.6 },
+    { jmeno: "Lukáš Levický", kategorie: "Projekt", spravnost_odpovedi: 5, znam_nastroje: 7, znalosti: 6.07, platim_nastroje: 0, pouzivam_nastroje: 5, schopnosti: 3.0, zkouseni: 3.33, bavi_prace: 6.0, prehlcenost: 6.0, prescasy: 5.0, strach_z_ai: 4.0, index_umim: 4.54, index_chci: 3.9 },
+    { jmeno: "Daniel Petrlík", kategorie: "Projekt", spravnost_odpovedi: 5, znam_nastroje: 7, znalosti: 6.07, platim_nastroje: 0, pouzivam_nastroje: 3, schopnosti: 2.0, zkouseni: 4.67, bavi_prace: 5.0, prehlcenost: 7.0, prescasy: 5.0, strach_z_ai: 5.0, index_umim: 4.04, index_chci: 4.5 },
+    { jmeno: "Tomáš Mraček", kategorie: "Projekt", spravnost_odpovedi: 6, znam_nastroje: 5, znalosti: 6.07, platim_nastroje: 0, pouzivam_nastroje: 3, schopnosti: 2.0, zkouseni: 5.0, bavi_prace: 8.0, prehlcenost: 4.0, prescasy: 5.0, strach_z_ai: 3.0, index_umim: 4.04, index_chci: 6.5 },
+    { jmeno: "Václav Sigmund", kategorie: "Management", spravnost_odpovedi: 4, znam_nastroje: 7, znalosti: 5.36, platim_nastroje: 0, pouzivam_nastroje: 3, schopnosti: 2.0, zkouseni: 1.0, bavi_prace: 5.0, prehlcenost: 3.0, prescasy: 3.0, strach_z_ai: 3.0, index_umim: 3.68, index_chci: 1.5 },
+    { jmeno: "Tomáš Pospíšil", kategorie: "Management", spravnost_odpovedi: 5, znam_nastroje: 3, znalosti: 4.64, platim_nastroje: 0, pouzivam_nastroje: 2, schopnosti: 2.0, zkouseni: 6.0, bavi_prace: 8.0, prehlcenost: 8.0, prescasy: 5.0, strach_z_ai: 3.0, index_umim: 3.32, index_chci: 6.2 },
+    { jmeno: "Petr Holan", kategorie: "Management", spravnost_odpovedi: 3, znam_nastroje: 5, znalosti: 3.93, platim_nastroje: 0, pouzivam_nastroje: 2, schopnosti: 2.0, zkouseni: 4.67, bavi_prace: 6.0, prehlcenost: 5.0, prescasy: 8.0, strach_z_ai: 3.0, index_umim: 2.96, index_chci: 5.1 },
+    { jmeno: "Jiří Knob", kategorie: "Management", spravnost_odpovedi: 3, znam_nastroje: 4, znalosti: 3.57, platim_nastroje: 0, pouzivam_nastroje: 2, schopnosti: 2.0, zkouseni: 3.0, bavi_prace: 7.0, prehlcenost: 6.0, prescasy: 6.0, strach_z_ai: 3.0, index_umim: 2.79, index_chci: 3.5 },
+    { jmeno: "Martin Koiš", kategorie: "Management", spravnost_odpovedi: 4, znam_nastroje: 4, znalosti: 4.29, platim_nastroje: 0, pouzivam_nastroje: 1, schopnosti: 1.0, zkouseni: 3.33, bavi_prace: 7.0, prehlcenost: 3.0, prescasy: 3.0, strach_z_ai: 1.0, index_umim: 2.64, index_chci: 5.1 },
+    { jmeno: "Pavel Stáhlík", kategorie: "Management", spravnost_odpovedi: 4, znam_nastroje: 4, znalosti: 4.29, platim_nastroje: 0, pouzivam_nastroje: 1, schopnosti: 1.0, zkouseni: 5.0, bavi_prace: 9.0, prehlcenost: 10.0, prescasy: 9.0, strach_z_ai: 1.0, index_umim: 2.64, index_chci: 5.3 },
+    { jmeno: "Jan Kočí", kategorie: "Management", spravnost_odpovedi: 4, znam_nastroje: 3, znalosti: 3.93, platim_nastroje: 0, pouzivam_nastroje: 1, schopnosti: 1.0, zkouseni: 2.67, bavi_prace: 6.0, prehlcenost: 9.0, prescasy: 9.0, strach_z_ai: 3.0, index_umim: 2.46, index_chci: 2.9 },
+    { jmeno: "Jana Řehořová", kategorie: "Projekt", spravnost_odpovedi: 4, znam_nastroje: 2, znalosti: 3.57, platim_nastroje: 0, pouzivam_nastroje: 0, schopnosti: 0.0, zkouseni: 1.0, bavi_prace: 5.0, prehlcenost: 8.0, prescasy: 8.0, strach_z_ai: 3.0, index_umim: 1.79, index_chci: 2.0 },
+    { jmeno: "Pavel Opatřil", kategorie: "Management", spravnost_odpovedi: 3, znam_nastroje: 2, znalosti: 2.86, platim_nastroje: 0, pouzivam_nastroje: 0, schopnosti: 0.0, zkouseni: 3.33, bavi_prace: 5.0, prehlcenost: 5.0, prescasy: 5.0, strach_z_ai: 5.0, index_umim: 1.43, index_chci: 4.0 },
+    { jmeno: "Roman Gorski", kategorie: "Support", spravnost_odpovedi: 4, znam_nastroje: 0, znalosti: 2.86, platim_nastroje: 0, pouzivam_nastroje: 0, schopnosti: 0.0, zkouseni: 1.0, bavi_prace: 5.0, prehlcenost: 2.0, prescasy: 2.0, strach_z_ai: 5.0, index_umim: 1.43, index_chci: 2.9 },
+    { jmeno: "Radek Spurný", kategorie: "Management", spravnost_odpovedi: 4, znam_nastroje: 0, znalosti: 2.86, platim_nastroje: 0, pouzivam_nastroje: 0, schopnosti: 0.0, zkouseni: 1.67, bavi_prace: 6.0, prehlcenost: 10.0, prescasy: 8.0, strach_z_ai: 1.0, index_umim: 1.43, index_chci: 2.4 }
+  ]}
+/>
+
+## Potenciální ambasadoři
+
+<Callout type="positive">
+  V oddělení jsou tři lidé s motivací výrazně nad průměrem a reálnými zkušenostmi s AI. Pokud dostanou roli ambasadorů, mohou sloužit jako most mezi školením a každodenní praxí celého týmu.
+</Callout>
+
+**Daniel Falťan** – Umím **4,7**, Chci **7,6**. Jediný v oddělení, kdo platí za AI nástroj. Používá Copilot, OneNote, Planner, zkoušel AI na přepisy zápisů z kontrolních dnů. Ve firmě rok, ale už je technologicky nejpokročilejší člen týmu. Při rozhovoru popsal konkrétní scénáře: automatizace cashflow posunů, extrakce dat z více Excelů, AI asistence při přípravě smluv.
+
+**Tomáš Mraček** – Umím **4,0**, Chci **6,5**. Nejlepší výsledek ve znalostním kvízu (**6/7**). Zkoušel NotebookLM na porovnávání technických zpráv. Při rozhovoru identifikoval jako největší příležitost automatické ukládání a třídění e-mailových příloh. Ve firmě krátce, přináší čerstvý pohled.
+
+**Tomáš Pospíšil** – Umím **3,3**, Chci **6,2**. Vedoucí realizací, rok a půl ve firmě. Používá AI na telefonu pro „nástřel myšlenek" – ověřuje si technické hypotézy. Přehlcenost **8,0** ale omezuje čas na experimentování. Pokud dostane nástroje šité na míru kontrole dokumentace, jeho motivace se okamžitě projeví.
+
+## Postřehy z rozhovorů
+
+**Jiří Knob** (19 let ve firmě, řídí 15 PM) – otevřeně hledá využití AI, ale zatím nenašel cestu: *„snažím se najít, k čemu to v práci využít, zatím to úplně nemám."* Testoval AI přepisy porad, výsledek byl nepoužitelný – AI generovala úkoly, které tým nepotřeboval. Na druhou stranu ocenil, že kolega nechal AI vypsat podmínky ze 80 stanovisek – *„fantastický, skvělej pomocník."*
+
+**Pavel Stáhlík** – opatrný k bezpečnosti dat, ale otevřený: *„jsem tomu určitě nakloněnej a otevřenej."* Zkoušel ChatGPT na analýzu stanovisek, funguje. Ocenil by nástroj, který z desítek smluv vytáhne závazky a prováže je s kalendářem.
+
+**Petr Holan** – nejkonkrétnější představu o využití AI: párování tabulek (klientské změny → stavba), extrakce podmínek ze 150+ vyjádření, kontrola fakturace. *„Kdybych byl schopen zadat nějaký mustr, chci kontrolovat tohle, a ono mi to vytáhne data – to bude skvělý."*
+
+**Jan Kočí** – frustrovaný z toho, že ChatGPT halucinuje u technických norem a odkazuje na neplatné vyhlášky: *„demotivuje mě to dál některé věci řešit."* Přitom přesně popsal procesy, kde by AI pomohla: analýza cashflow variant, srovnání nabídek z různých formátů, sumarizace stavebních rozhodnutí.
+
+## Rizikové profily
+
+<Callout type="warning">
+  **Radek Spurný** – Umím **1,4**, Chci **2,4**, přehlcenost **10,0**, přesčasy **8,0**. Nezná žádný AI nástroj, žádný nepoužívá. Přitom strach z AI jen **1,0** – není to odpor, je to přetížení. Tento člověk potřebuje nejdřív ulevit od zátěže, teprve potom vzdělávat.
+</Callout>
+
+**Jana Řehořová** – Umím **1,8**, Chci **2,0**. Nejdelší praxe ve firmě (17 let), nulové praktické schopnosti, žádný nástroj nepoužívá. Při rozhovoru ale řekla: *„nebráním se tomu, protože vlastně nevím, co mi ten nástroj může všechno nabídnout."* Klíčem je ukázat jí konkrétní úsporu na cashflow aktualizaci – procesu, který sama označila za největší bolest.
+
+**Roman Gorski** – Umím **1,4**, Chci **2,9**, strach **5,0**. Nezná žádný AI nástroj. Bez rozhovoru chybí hlubší kontext, ale kombinace nejvyššího strachu a nejnižších znalostí vyžaduje individuální přístup při školení.

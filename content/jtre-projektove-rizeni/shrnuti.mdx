@@ -1,0 +1,85 @@
+---
+title: Shrnutí a další kroky
+description: Závěrečné shrnutí auditu a konkrétní roadmapa implementace
+---
+
+## Kde jste dnes
+
+**Co vás odlišuje:**
+- Nejnižší strach z AI v celém JTRE (**3,1** oproti firemnímu průměru **3,7**) – tým nemá odpor
+- **10 z 15 lidí** prošlo hloubkovým rozhovorem – výjimečně detailní mapa procesů
+- Jasný ambasador (**Falťan**) s reálnými zkušenostmi a vysokou motivací
+- Konkrétní bolesti, které AI řeší: cashflow, stanoviska, nabídky
+- Silný vedoucí (**Knob**), který aktivně hledá využití a má autoritu tým posunout
+
+**Co vás brzdí:**
+- Index Umím **2,9** – celý bod pod průměrem trhu, nejslabší oddělení JTRE
+- Praktické schopnosti **1,5 z 10** – šest lidí na nule
+- Přehlcenost **6,1** a přesčasy **5,7** – tým nemá čas na experimentování „navíc"
+- Nejasná pravidla práce s AI – lidé nevědí, co kam smí nahrát
+
+## Prioritní automatizace
+
+### Quick wins (týdny)
+
+1. **Nastavit pravidla práce s ChatGPT Business** – jasný interní dokument: co je bezpečné nahrávat, co ne. Odstraní nejistotu, kterou popisují Holan, Stáhlík i Kočí. Náklad: 0 Kč, čas: 2 hodiny.
+
+2. **Extrakce podmínek ze stanovisek přes ChatGPT** – Stáhlík to už úspěšně vyzkoušel na jednom dokumentu. Rozšířit na všechna stanoviska per projekt. Každý PM si vytvoří projektový chat s nahranými vyjádřeními. Úspora: hodiny per projektová fáze.
+
+3. **Šablona pro normalizaci nabídek** – standardizovaný Excel s pokyny pro dodavatele + ChatGPT prompt pro extrakci dat z nestandardních nabídek. Úspora: **1–2 hodiny per tender**.
+
+4. **NotebookLM workshop pro ambasadory** – 2hodinový úvod. Nahrát cashflow dokumentaci a technické zprávy. Výsledky sdílet s týmem jako ukázku možností.
+
+5. **Power Automate flow pro přenos klientských změn** – Holanův use case: automatická synchronizace tabulky A → tabulka B. Úspora: 15–30 minut týdně + eliminace rizika zapomenutí.
+
+### Střednědobé projekty (měsíce)
+
+1. **Automatizace cashflow harmonogramů** – vyžaduje analýzu struktury stávajících tabulek, návrh maker nebo VBA skriptů pro automatický posun nákladů při změně harmonogramu. Doporučuji externí konzultaci s Excel specialistou. Úspora: **týden práce per osoba za kvartál**.
+
+2. **Microsoft 365 Copilot pilot** – 5 licencí pro klíčové PM na 3 měsíce. Měřitelné metriky: čas na zpracování e-mailů, příprava zápisů, práce s Excelem. Po pilotu rozhodnutí o rozšíření.
+
+### Dlouhodobé (kvartály)
+
+1. **Projektový knowledge base** – centrální úložiště s AI vyhledáváním napříč dokumentací, smlouvami a zápisy. Propojení se SharePointem. Řeší problém, který popsali Mraček i Koiš: *„hledání v tom, co tam uložil někdo jiný, je časově náročné."*
+
+2. **Revize SharePoint struktury a workflow** – řeší problémy se synchronizací, pomalým přístupem a nekompatibilitou s PDF editorem, které zmiňuje celý tým.
+
+## Co bych nedoporučoval
+
+1. **Plošné školení „co je AI"** – tým nepotřebuje teorii. Potřebuje ukázat, kde konkrétně AI ušetří čas na jejich úkolech. Obecné přednášky motivaci nezvednou.
+
+2. **Nucení do Planneru bez školení** – Koiš i Knob popisují frustraci z Teams/Planner: úkoly chodí bez kontextu, notifikace nikomu nepomáhají. Než další nástroj, vyladit ten stávající.
+
+3. **AI přepisy porad jako náhrada zápisů** – Knob to testoval měsíc a půl, nefunguje. Zápisy z kontrolních dnů nejsou přepis diskuze, ale politicky formulovaná instrukce. AI přepis může sloužit jako podpůrný zdroj, ne jako náhrada.
+
+## 4 rozhodnutí, která potřebuji od vás
+
+<Callout type="insight">
+  Bez těchto rozhodnutí se vzdělávací plán nepohne. Nejde o velké investice – jde o jasné ano/ne, které odblokuje další kroky.
+</Callout>
+
+1. **Licence ChatGPT Business pro celý tým** – měsíční náklad cca **9 000 Kč**. Bez této licence lidé nevědí, jestli mohou nahrávat firemní dokumenty, a AI zůstane „chytřejší Google". S ní se okamžitě otevřou scénáře extrakce podmínek, přípravy smluv a normalizace nabídek.
+
+2. **5 licencí Microsoft 365 Copilot na pilot** – měsíční náklad cca **3 750 Kč**. Pro Falťana, Mračka, Pospíšila, Holana a Stáhlíka. Tři měsíce, pak vyhodnocení. Copilot se integruje přímo do nástrojů, které tým denně používá.
+
+3. **Jmenování 3 ambasadorů** – Falťan, Mraček, Pospíšil. Formální role s alokací **2 hodiny týdně** na testování nástrojů a sdílení know-how. Bez formálního jmenování to zůstane na dobrovolnosti a vyšumí.
+
+4. **Komunikace vedení k týmu** – krátká zpráva od vedení, že AI adopce je priorita, že existují pravidla bezpečnosti a že experimentování je žádoucí. Řehořová, Kočí i Koiš čekají na signál shora. Bez něj se nepohnou.
+
+## Doporučený postup
+
+<Callout type="positive">
+  Oddělení projektového řízení má specifickou výhodu: nízký strach a konkrétní procesy, kde AI přínos je okamžitě měřitelný. Nemusíte nikoho přesvědčovat – stačí ukázat, že cashflow aktualizace místo týdne trvá dva dny.
+</Callout>
+
+| Krok | Co | Kdy |
+|---|---|---|
+| 1 | Nastavit pravidla práce s AI + licence ChatGPT Business | Týden 1 |
+| 2 | AI Nalejvárna – celodenní bootcamp | Měsíc 1 |
+| 3 | Spustit Copilot pilot (5 osob) | Měsíc 1 |
+| 4 | AI Hackathon – týmové projekty na reálných datech | Měsíc 2 |
+| 5 | Debrief + jmenování ambasadorů | Měsíc 3 |
+| 6 | Specializované workshopy (Excel + dokumenty) | Měsíc 3–4 |
+| 7 | Přeměření + rozhodnutí o škálování | Měsíc 6 |
+
+Tým nemá odpor, má mezeru. A mezery se dají zaplnit. Doporučuji začít rychle – čím dřív lidé uvidí, že AI jim šetří hodiny na cashflow a smlouvách, tím dřív se motivace zvedne sama. Nemusíte čekat na dokonalý plán; stačí začít s tím, co je po ruce.

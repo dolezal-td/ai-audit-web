@@ -6,6 +6,8 @@ import { SidebarSeparator } from '@/components/sidebar-separator';
 import { ReportSwitcher } from '@/components/report-switcher';
 import { NavTitle } from '@/components/nav-title';
 import { SidebarPdfLink } from '@/components/sidebar-pdf-link';
+import { LogoutButton } from '@/components/logout-button';
+import { SidebarThemeToggle } from '@/components/sidebar-theme-toggle';
 import { decodeSession } from '@/lib/auth';
 
 export default async function JtreObchodLayout({ children }: { children: ReactNode }) {
@@ -22,12 +24,17 @@ export default async function JtreObchodLayout({ children }: { children: ReactNo
         url: '/jtre-obchod/uvod',
       }}
       searchToggle={{ enabled: false }}
+      themeSwitch={{ enabled: false }}
       sidebar={{
         banner: (
           <ReportSwitcher currentReport="jtre-obchod" reports={reports} />
         ),
         footer: (
-          <SidebarPdfLink reportSlug="jtre-obchod" />
+          <div className="flex items-center gap-1">
+            <SidebarPdfLink reportSlug="jtre-obchod" />
+            <SidebarThemeToggle />
+            <LogoutButton variant="icon" />
+          </div>
         ),
         components: {
           Separator: SidebarSeparator,

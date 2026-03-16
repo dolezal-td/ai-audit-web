@@ -1,0 +1,100 @@
+---
+title: Procesy
+description: Procesní úzká místa a příležitosti pro automatizaci
+---
+
+Tato stránka vychází primárně z **10 hloubkových rozhovorů**. Nejde o kompletní procesní audit celé firmy, ale o mapu míst, kde se dnes tráví čas zbytečně a kde AI nebo automatizace může přinést okamžitou úlevu.
+
+## Přehled procesů
+
+| Proces | Kdo | Frekvence | Odhad ztráty | Doporučené nástroje |
+|---|---|---|---|---|
+| Aktualizace cashflow a harmonogramů | Řehořová, Kočí, Koiš, Falťan + další | Kvartálně + průběžně | 1 týden / osoba / kvartál | Excel makra, Power Automate |
+| Extrakce podmínek ze smluv a stanovisek | Stáhlík, Holan, Knob | Per projektová fáze | Dny per fáze | ChatGPT Business, NotebookLM |
+| Normalizace nabídek z výběrových řízení | Kočí, Petrlík, Mraček | 10+ tenderů per projekt | 1–2 dny per tender | ChatGPT + Excel šablona |
+| Přenos dat mezi tabulkami | Holan, Falťan | Týdně | 15–30 min týdně | Power Automate |
+| Zápisy z kontrolních dnů | Falťan, Petrlík, Mraček + další | Týdně | 35–60 min per zápis | Omezeně AI; spíš šablony |
+| Ověřování technických norem | Petrlík, Kočí, Knob | Průběžně | Hodiny per dotaz | RAG nad nahranými normami |
+
+<Callout type="positive">
+  Většina identifikovaných problémů není o AI, ale o automatizaci Excelu a lepší práci s dokumenty. AI řeší tu druhou vrstvu – analýzu smluv, extrakci dat, rešerše. Obojí se doplňuje.
+</Callout>
+
+## Kde začít – impact a effort
+
+<Callout type="insight">
+  Matice ukazuje, kde investovaný čas přinese největší návratnost. „Snazší" znamená, že řešení existuje a dá se nasadit rychle. „Náročnější" vyžaduje přípravu, nastavení nebo nákup licence.
+</Callout>
+
+|  | **Velký dopad** | **Menší dopad** |
+|---|---|---|
+| **Snazší** | Extrakce podmínek ze smluv (ChatGPT) · Normalizace nabídek (ChatGPT + šablona) | Přenos dat mezi tabulkami (Power Automate) · Šablony zápisů |
+| **Náročnější** | Automatizace cashflow harmonogramů (Excel makra + konzultace) | RAG nad technickými normami · AI přepisy porad |
+
+**Nalejvárna** (snazší + velký dopad) – extrakce podmínek a normalizace nabídek. Stačí školení na promptování a ukázka workflow. **Hackathon** (náročnější + velký dopad) – cashflow automatizace vyžaduje analýzu struktury tabulek a naprogramování maker. **Individuální** (snazší + menší dopad) – Power Automate na propojení tabulek, šablony zápisů. **Odložit** – RAG nad normami je technicky zajímavý, ale vyžaduje vlastní infrastrukturu a normy nejsou volně dostupné.
+
+## 1. Aktualizace cashflow a harmonogramů
+
+<Callout type="warning">
+  Odhadovaná ztráta: **1 týden na osobu za kvartál**. Při 15 lidech, kteří se na procesu podílejí, jde o **20+ člověkodní ročně**.
+</Callout>
+
+**Jak to funguje dnes:** Každý projekt má rozsáhlou Excel tabulku s harmonogramem a náklady. Harmonogram je řada barevných políček – když se projekt posune o měsíc, **Kočí** ručně přesouvá políčka a přebarvuje buňky: *„úpravou tohohle dokumentu strávím hodinu přeposouvání několika políček, protože když posunu jedno, tak ten vláček je potřeba přeposouvat taky."*
+
+Náklady jsou provázané s harmonogramem v dalších listech. Když se posune harmonogram, musí se ručně posunout i náklady. **Řehořová**: *„to přesouvání v tom čase je vždycky docela složité, protože se to musí vzít položka po položce."* Celý proces zabere **2 dny** i s kontrolou.
+
+**Falťan** popsal totéž: *„když si posuneme start projektu, musím ručně posunout náklady, protože všechny jsou vázané na ten harmonogram."* Navíc má na starost 7 sekcí projektu – každá má vlastní cashflow Excel.
+
+**Co je špatně:** Chybí provázání harmonogramu s náklady. Excelové tabulky nemají makra ani formule pro automatický posun. Každá změna vyžaduje ruční zásah ve více listech současně.
+
+**Co může automatizace doplnit:** Excel makra nebo VBA skripty, které při změně data zahájení automaticky posunou celý řetězec. Power Automate pro notifikaci, když někdo změní harmonogram. Dlouhodobě zvážit přechod na MS Project nebo specializovaný nástroj.
+
+## 2. Extrakce podmínek ze smluv a stanovisek
+
+<Callout type="insight">
+  Tento proces je pro AI jako stvořený – rozsáhlé textové dokumenty, ze kterých je potřeba vytáhnout konkrétní podmínky a závazky.
+</Callout>
+
+**Jak to funguje dnes:** Na každém projektu existuje **100–150 vyjádření a smluv** od dotčených orgánů – hygiena, hasiči, správci sítí, město. Každé má specifické podmínky a termíny. **Holan** to popisuje: *„z každé vyjadřovačky by měly být nějaké požadavky – kdy vyzvat úřad na kontrolu, kdy uzavřít navazující smlouvu."*
+
+**Stáhlík** procházení stanovisek zkusil přes ChatGPT: *„nahrál jsem tam PDF, zadal jsem, co od něj očekávám, a vypsal mi závazky – to funguje."* Ale zatím to nedotáhl na všechna stanoviska najednou.
+
+**Holan** si podmínky ručně přepisuje do Excelu a do Outlooku si dává připomínky. Představa je jasná: *„kdybych to mohl nasypat do nástroje, který by mi z toho vyzobal podmínky, udělal přehledný seznam a naházel to do kalendáře – to by byla ocenitelná věc."*
+
+**Co je špatně:** Ruční procházení desítek dokumentů, některé jsou skeny (ne strojově čitelný text). Chybí centrální evidence podmínek a termínů.
+
+**Co může AI doplnit:** ChatGPT Business nebo Claude pro extrakci podmínek z textových PDF. OCR pro skenované dokumenty. NotebookLM pro analýzu více dokumentů najednou. Výstup do strukturované tabulky s termíny, které se propojí s kalendářem.
+
+## 3. Normalizace nabídek z výběrových řízení
+
+**Jak to funguje dnes:** Při tenderu osloví 3–5 dodavatelů. Každý pošle nabídku v jiném formátu – někdo v Excelu, někdo v PDF, někdo ve Wordu. **Kočí**: *„čtyři dodavatelé pošlou nabídky ve čtyřech různých formátech a je potřeba z toho udělat ucelené zhrnutí, kde jsou technické parametry a cenové srovnání."*
+
+**Petrlík** má na to jednoduché Excelové tabulky bez jednotné šablony: *„nemáme jednotnou šablonu, protože jinak posuzujeme nabídku na výtahy a jinak na sanitární zařízení."*
+
+**Co je špatně:** Manuální přepisování dat z různých formátů do srovnávací tabulky. Chybí standardizovaný formát poptávky, který by vynutil jednotný formát odpovědí.
+
+**Co může AI doplnit:** ChatGPT pro extrakci klíčových parametrů z nabídek v libovolném formátu a jejich převod do jednotné struktury. Standardizovaná Excel šablona pro zadání tenderu, která omezí variabilitu odpovědí.
+
+## 4. Přenos dat mezi tabulkami
+
+**Jak to funguje dnes:** **Holan** má tabulku klientských změn, kterou vyplňuje příkazník. Z této tabulky musí ručně přenést vybrané sloupce do druhé tabulky pro stavbu – bez citlivých údajů klientů. Kontroluje to jednou týdně; ideálně by to mělo probíhat v reálném čase.
+
+**Falťan** popisuje obdobný problém: z cashflow jednotlivých projektů vytahuje data do souhrnných prezentací. *„Otevřu sedm Excelů, klikám se tam a ručně přenáším čísla."*
+
+**Co může automatizace doplnit:** Power Automate flow, který sleduje změny v jedné tabulce a automaticky aktualizuje druhou. Nebo Excel Power Query pro automatické načítání dat z více zdrojů.
+
+## 5. Zápisy z kontrolních dnů
+
+**Jak to funguje dnes:** Každý týden probíhá kontrolní den s projektanty a architekty. Zápis se píše ručně ve Wordu, bodově, s úkoly a termíny. **Falťan**: *„editujeme to v průběhu, pak 35 minut na opravu, uložení do PDF a odeslání."*
+
+Tým zkoušel AI přepisy: **Knob** testoval měsíc a půl, výsledek byl nepoužitelný: *„generovalo to haldu nesmyslů a dávalo úkoly, které nepotřebujeme."* Důvod: zápis není přepis diskuze, ale politicky formulovaná instrukce. *„Půl hodiny se diskutuje a výsledek je jedna věta: bereme variantu 3."*
+
+**Co může AI doplnit:** Omezeně. AI přepis může sloužit jako podklad pro dohledání, co přesně zaznělo, ale samotný zápis musí formulovat člověk. Šablony a standardizovaná struktura zápisů mohou ušetřit čas víc než AI.
+
+## 6. Ověřování technických norem a legislativy
+
+**Jak to funguje dnes:** **Petrlík** používá Copilot k dohledání čísla normy, ale AI nedokáže citovat konkrétní článek – *„nemá přístup, nedostane se k dané normě."* **Kočí** testoval ChatGPT na stavební vyhlášky: *„odkazuje se na vyhlášky, které neplatí, protože si nedohledá, že vyhláška je na tři roky nahrazená jinou."*
+
+**Knob** měl stejnou zkušenost s invalidním WC: *„fantastický elaborát, ale celý screening byl z neplatné vyhlášky."*
+
+**Co může AI doplnit:** Vlastní knowledge base (RAG) s nahranými platnými normami a vyhláškami. Sponzorovaný přístup k normám + nahrání do ChatGPT projektů nebo NotebookLM. Vyžaduje počáteční přípravu, ale pak dramaticky zrychlí ověřování.

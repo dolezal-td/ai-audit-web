@@ -1,4 +1,4 @@
-import { jtreFinance, jtreObchod } from '@/.source/server';
+import { jtreFinance, jtreObchod, jtreProjektoveRizeni } from '@/.source/server';
 import { loader } from 'fumadocs-core/source';
 
 export const jtreFinanceSource = loader({
@@ -9,4 +9,9 @@ export const jtreFinanceSource = loader({
 export const jtreObchodSource = loader({
   source: jtreObchod.toFumadocsSource(),
   baseUrl: '/jtre-obchod',
+});
+
+export const jtreProjektoveRizeniSource = loader({
+  source: jtreProjektoveRizeni.toFumadocsSource(),
+  baseUrl: '/jtre-projektove-rizeni',
 });

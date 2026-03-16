@@ -1,0 +1,107 @@
+---
+title: Práce a nástroje
+description: Charakter práce a používané AI nástroje oddělení projektového řízení
+---
+
+## Charakter práce
+
+Heatmapa ukazuje, jak často tým vykonává jednotlivé činnosti. Čím tmavší barva, tím víc lidí danou činnost dělá s danou frekvencí.
+
+<ActivityHeatmap
+  totalRespondents={15}
+  data={[
+    { nazev: "psaní_mailů", distribuce: { denne: 15, tyden: 0, mesic: 0, mene: 0 } },
+    { nazev: "projektové_řízení", distribuce: { denne: 8, tyden: 5, mesic: 1, mene: 1 } },
+    { nazev: "vyhodnocování_dat", distribuce: { denne: 8, tyden: 4, mesic: 1, mene: 2 } },
+    { nazev: "dohledávání_informací_v_interních_materiálech", distribuce: { denne: 7, tyden: 3, mesic: 4, mene: 1 } },
+    { nazev: "analýza_souborů", distribuce: { denne: 5, tyden: 8, mesic: 2, mene: 0 } },
+    { nazev: "psaní_chatových_zpráv", distribuce: { denne: 3, tyden: 6, mesic: 3, mene: 3 } },
+    { nazev: "porady", distribuce: { denne: 3, tyden: 9, mesic: 1, mene: 1 } },
+    { nazev: "monitoring_veřejných_zdrojů", distribuce: { denne: 2, tyden: 6, mesic: 6, mene: 1 } },
+    { nazev: "pohovory_s_kandidáty", distribuce: { denne: 0, tyden: 5, mesic: 2, mene: 8 } },
+    { nazev: "extrakce_informací_z_dokumentů", distribuce: { denne: 0, tyden: 5, mesic: 3, mene: 6 } },
+    { nazev: "příprava_prezentací", distribuce: { denne: 0, tyden: 0, mesic: 4, mene: 10 } },
+    { nazev: "překlady", distribuce: { denne: 0, tyden: 1, mesic: 1, mene: 13 } },
+    { nazev: "služební_cesty", distribuce: { denne: 0, tyden: 0, mesic: 3, mene: 12 } },
+    { nazev: "psaní_marketingových_textů", distribuce: { denne: 0, tyden: 0, mesic: 2, mene: 13 } }
+  ]}
+/>
+
+<Callout type="insight">
+  Oddělení projektového řízení je komunikačně-analytické: **100 % týmu** píše e-maily denně, přes polovinu denně řídí projekty a vyhodnocuje data. Na rozdíl od finančního oddělení je tu minimální repetitivní datová práce – dominují jednání, koordinace a kontrola dokumentace.
+</Callout>
+
+### Co říkají čísla
+
+**E-maily** jsou absolutní dominanta – všech **15 lidí** je píše denně. Z rozhovorů vyplývá, že e-mail slouží nejen ke komunikaci, ale i jako archiv rozhodnutí, řetězec schvalování a zpětně dohledatelná stopa. **Knob** monitoruje zhruba polovinu e-mailů svých 15 podřízených: *„čtu třeba 50 % mailů, abych měl představu a abych případně do toho zasáhnul."*
+
+**Projektové řízení a vyhodnocování dat** – obojí denně u 8 z 15 lidí. V praxi to znamená práci s cashflow tabulkami, harmonogramy, srovnáváním nabídek. **Kočí** popisuje typický případ: *„čtyři dodavatelé pošlou nabídky ve čtyřech různých formátech a je potřeba z toho udělat ucelené zhrnutí."*
+
+**Dohledávání v interních materiálech** – denně u 7 lidí. Většinou jde o procházení SharePointu, hledání starších verzí dokumentace, vyhledávání ve smlouvách. **Mraček** identifikoval jako bolest: *„hledání i na tom vlastním datovém uložišti, zejména pokud jsem to tam neukládal já, je někdy časově náročné."*
+
+**Analýza souborů** – denně 5, týdně 8. To je kontrola PDF výkresů, porovnávání verzí dokumentace, ověřování zapracování připomínek. Tato činnost zabírá v některých týdnech až **80 % pracovního času** (Koiš).
+
+### Kde se tráví čas zbytečně
+
+Z rozhovorů vyplynuly tři opakující se vzorce:
+
+Ruční přesouvání dat v Excel harmonogramech – *„úpravou cashflow dokumentu strávím hodinu přeposouvání několika políček, protože když posunu jedno, tak se rozhodí celé formátování"* (Kočí). Každý kvartál, každý projekt, každý projektový manažer.
+
+Přepisování dat mezi tabulkami – **Holan** ručně kopíruje klientské změny z jedné tabulky do druhé pro stavbu: *„jednou týdně kontroluji a přepisuji, zabere to 15 minut čistého přepisování, ale přitom kontroluji i obsah."* **Falťan** popisuje totéž: vytahování dat z jednotlivých cashflow do souhrnných prezentací.
+
+Procházení PDF dokumentace bez možnosti efektivního vyhledávání – projektoví manažeři denně otvírají desítky PDF výkresů. **Koiš**: *„SharePoint nedokáže otevřít PDF v editoru, musím to vždy nejdřív stáhnout a otevřít v aplikaci."*
+
+<Callout type="warning">
+  Samotné cashflow aktualizace zabírají odhadem **1 týden na osobu za kvartál**. Při 15 lidech, kteří se na nich částečně podílejí, to je řádově **20+ člověkodní ročně** jen na jednom procesu.
+</Callout>
+
+## Používané AI nástroje
+
+<ToolsHeatmap
+  totalRespondents={15}
+  data={[
+    { nazev: "chatgpt", pouzivam: 9, znam: 4, neznam: 2 },
+    { nazev: "microsoft_copilot", pouzivam: 6, znam: 6, neznam: 2 },
+    { nazev: "google_gemini", pouzivam: 5, znam: 7, neznam: 3 },
+    { nazev: "perplexity", pouzivam: 2, znam: 2, neznam: 10 },
+    { nazev: "canva", pouzivam: 2, znam: 2, neznam: 10 },
+    { nazev: "notebooklm", pouzivam: 1, znam: 7, neznam: 6 },
+    { nazev: "claude", pouzivam: 1, znam: 2, neznam: 11 },
+    { nazev: "cursor", pouzivam: 0, znam: 0, neznam: 13 },
+    { nazev: "gamma", pouzivam: 0, znam: 1, neznam: 13 },
+    { nazev: "relevance", pouzivam: 0, znam: 0, neznam: 13 },
+    { nazev: "heygen", pouzivam: 0, znam: 1, neznam: 13 },
+    { nazev: "elevenlabs", pouzivam: 0, znam: 0, neznam: 13 },
+    { nazev: "relay", pouzivam: 0, znam: 0, neznam: 14 },
+    { nazev: "microsoft_power_automate", pouzivam: 0, znam: 0, neznam: 13 }
+  ]}
+/>
+
+**ChatGPT** je jasný lídr – **9 z 15** ho aktivně používá. Firma má placenou verzi, ale z rozhovorů vyplývá, že většina lidí ho používá jako vyhledávač. **Kočí**: *„v zásadě to zatím používám jako takový trochu chytřejší Google."*
+
+**Microsoft Copilot** je na druhém místě (**6 uživatelů**), ale bez placené licence. **Petrlík** ho používá k dohledávání čísel norem: *„používám to k tomu, aby mi dohledal, kterou normu mám použít na tu danou věc."* Hlubší využití blokuje absence licence.
+
+**NotebookLM** zná **7 lidí**, ale používá ho jen **1**. Přitom právě tento nástroj by mohl pomoci s analýzou rozsáhlé dokumentace – jedním z hlavních problémů oddělení.
+
+### Jak se dnes AI používá
+
+**Falťan** – nejpokročilejší uživatel. Zkoušel AI na přepisy zápisů z kontrolních dnů v angličtině. Používá Copilot na přípravu osnov a prezentací. *„Základní osnovu to dokáže bez problému nahodit."*
+
+**Stáhlík** – nahrál do ChatGPT PDF stanoviska a nechal z nich vytáhnout závazky: *„funguje, zadal jsem mu přes prompt, co od něj očekávám, a vypsal mi z toho závazky."* Chce to rozšířit na všechna stanoviska a smlouvy najednou.
+
+**Holan** – minulý týden nechal AI připravit oficiální právní výzvu. Výsledek překvapil: *„právník se nad tím nestrávil dvě a půl hodiny, ale patnáct minut."*
+
+**Knob** – testoval AI přepisy porad měsíc a půl, výsledek nepoužitelný pro jejich styl práce. Ale ocenil extrakci podmínek ze stanovisek, kterou udělal kolega.
+
+### Co chybí
+
+| Nástroj | Potenciál pro oddělení | Aktuální stav |
+|---|---|---|
+| **Microsoft 365 Copilot** | Sumarizace e-mailů, příprava zápisů, práce s Excelem | Nemají licenci – používají jen free verzi |
+| **NotebookLM** | Analýza rozsáhlé dokumentace, porovnávání technických zpráv | 7 lidí zná, 1 používá |
+| **Power Automate** | Automatizace přenosů dat mezi tabulkami, notifikace | Nikdo nezná |
+| **Perplexity** | Rešerše s citacemi – legislativa, normy, trh | 10 lidí nezná |
+
+<Callout type="insight">
+  Tým používá ChatGPT jako vyhledávač a Copilot bez licence. Přitom jejich největší bolesti – analýza smluv, cashflow automatizace, extrakce dat z PDF – řeší nástroje, které buď neznají (Power Automate, NotebookLM), nebo nemají v placené verzi (Copilot).
+</Callout>

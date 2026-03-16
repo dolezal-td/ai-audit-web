@@ -12,4 +12,8 @@ export const jtreObchod = defineDocs({
   dir: 'content/jtre-obchod',
 });
 
+export const jtreProjektoveRizeni = defineDocs({
+  dir: 'content/jtre-projektove-rizeni',
+});
+
 export default defineConfig();
