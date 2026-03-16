@@ -3,121 +3,134 @@ title: Procesy
 description: Procesní úzká místa a příležitosti pro automatizaci
 ---
 
-Na základě rozhovorů se **4 členy oddělení** (Bouček, Pašalić, Veselá, Pokorný) jsem identifikoval klíčové procesy, ve kterých AI nebo automatizace může přinést měřitelnou úsporu. Nejde o kompletní procesní audit – jde o rychlý scan nejbolestivějších míst.
+Na základě rozhovorů se **4 členy oddělení** (V. Bouček, M. Pašalić, M. Veselá, L. Pokorný) jsem identifikoval klíčové procesy, ve kterých AI nebo automatizace může přinést měřitelnou úsporu. Nejde o kompletní procesní audit – jde o cílený pohled na nejbolestivější místa v každodenní práci.
 
 ## Přehled procesů
 
-| Proces | Kdo | Frekvence | Odhad ztráty | Doporučené nástroje |
+| Proces | Kdo | Frekvence | Odhad ztráty | Doporučení |
 |---|---|---|---|---|
-| Správa smluv a dokumentů | Bouček, obchodníci | Denně | 3–5 h/týden | Copilot, NotebookLM |
-| IT podpora a helpdesk | Pašalić | Denně | 2–4 h/den | Power Automate, Copilot |
-| Přepisy a sumarizace schůzek | Pašalić, Pokorný | Týdně | 1–2 h/schůzka | Copilot, Teams AI |
-| Marketing a content creation | Pokorný, Veselá | Týdně | 2–3 h/týden | ChatGPT, Perplexity |
-| Klientský proces a CRM | Obchodníci, Veselá | Průběžně | Systémový problém | CRM řešení + AI nadstavba |
-| Budgeting a reporting | Pokorný | Měsíčně | 1–2 dny/měsíc | Copilot pro Excel, Power BI |
+| Smlouvy a dokumenty | V. Bouček, obchodníci | Denně | 3–5 h/týden per osoba | Copilot ve Wordu, ChatGPT Business |
+| IT helpdesk a infrastruktura | M. Pašalić | Denně | 2–4 h/den | Power Automate, interní KB |
+| Zpracování schůzek | M. Pašalić, L. Pokorný | Týdně | 1–2 h/schůzka | Copilot v Teams |
+| Lead generation a klientský proces | Obchodníci, M. Veselá, L. Pokorný | Průběžně | Systémový problém | Rozhodnutí o CRM |
+| Marketingový budget a reporting | L. Pokorný | Měsíčně | 1–2 dny/měsíc | Copilot pro Excel |
+| PR, monitoring a content | M. Veselá, L. Pokorný | Denně/týdně | 2–3 h/týden | ChatGPT Business |
 
 <Callout type="positive">
-  Většina problémů v tomto oddělení není o AI, ale o systémech a procesech. Chybí CRM, chybí úkolovník, chybí struktura v SharePointu. AI může některé z nich obejít nebo zmírnit, ale skutečné řešení vyžaduje systémové rozhodnutí.
+  Většina problémů v tomto oddělení není o AI. Chybí CRM, chybí centrální úkolovník, chybí jasná struktura v SharePointu. AI může některé z nich zmírnit, ale skutečné řešení vyžaduje systémové rozhodnutí vedení.
 </Callout>
 
 ## Kde začít – impact a effort
 
 |  | **Snazší** (nastavení, školení) | **Náročnější** (systém, integrace) |
 |---|---|---|
-| **Velký dopad** | Copilot pro e-maily a schůzky; ChatGPT pro smlouvy a research | CRM pro klientský proces; Power Automate pro IT helpdesk |
-| **Menší dopad** | NotebookLM pro analýzu dokumentů; Perplexity pro monitoring | Power BI pro reporting; automatizace budgetingu |
+| **Velký dopad** | Copilot pro e-maily, schůzky a dokumenty; ChatGPT Business pro smlouvy | CRM řešení pro klientský proces; Power Automate pro IT |
+| **Menší dopad** | NotebookLM pro analýzu smluv a interních materiálů | Copilot pro Excel / reporting |
 
-**Nalejvárna (levý horní kvadrant):** Copilot a ChatGPT pro každodenní práci – e-maily, sumarizace, drafty smluv. Okamžitý přínos, nízký effort.
+**Nalejvárna (levý horní):** Copilot a ChatGPT Business pro každodenní práci obchodníků – drafty e-mailů, sumarizace schůzek, pomoc se smlouvami. Okamžitý přínos, nízký effort.
 
-**Hackathon (pravý horní kvadrant):** CRM a automatizace IT helpdesku. Vysoký dopad, ale vyžaduje přípravu a rozhodnutí vedení.
+**Hackathon (pravý horní):** CRM a automatizace IT helpdesku. Vysoký dopad, ale vyžaduje přípravu a rozhodnutí vedení.
 
-**Individuální (levý dolní):** NotebookLM a Perplexity pro specifické role (Veselá, Pokorný). Nízký effort, ale užší dopad.
+**Individuální (levý dolní):** NotebookLM pro specifické situace – analýza referenčních smluv, práce s interními dokumenty. Zdarma, snadno nasaditelné.
 
-**Neřešit teď (pravý dolní):** Power BI reporting – užitečný, ale ne urgentní.
+**Odložit (pravý dolní):** Reporting v Power BI – užitečný, ale L. Pokorný to zatím zvládá v Excelu.
 
-## 1. Správa smluv a dokumentů
-
-<Callout type="insight">
-  **Capability:** zpracování dokumentů, extrakce informací, komentování | **Odhad ztráty:** 3–5 hodin týdně per obchodník
-</Callout>
-
-**Jak to funguje dnes:** **Bouček** dostane nebo vytvoří kostru smlouvy ve Wordu. Pošle ji právníkům, ti ji nadraftují. Bouček přečte, zkontroluje obchodní podmínky, přidá přílohy. Pošle protistraně. Protistrana komentuje, vrátí. Další iterace. Po dohodě se smlouva tiskne, parafuje a v některých případech fyzicky posílá na Slovensko k podpisu.
-
-*„Nadefinuji právníkům, co požaduju. Po nich to znamená přečíst, jestli to napsali tak, jak jsme chtěli my obchodně."*
-
-**Co je špatně:** Celý proces probíhá přes e-mail s přílohami. Verzování je ruční – Bouček si složkuje e-maily do Outlooku. Žádný centrální přehled, v jaké fázi která smlouva je. Komentáře k PDF dělá v externím editoru (PDF-XChange), nikoli ve sdíleném prostředí.
-
-**Co může AI doplnit:**
-- **Copilot ve Wordu** – sumarizace změn mezi verzemi smlouvy, kontrola konzistence obchodních podmínek
-- **NotebookLM** – nahrání referenčních smluv a rychlé dotazování: „Jaké podmínky jsme dali v podobném případě u projektu X?"
-- **ChatGPT** – drafty doprovodných e-mailů, překlad klíčových pasáží (smlouvy mají slovenské protistrany)
-
-## 2. IT podpora a helpdesk
+## 1. Smlouvy a dokumenty
 
 <Callout type="insight">
-  **Capability:** automatizace požadavků, knowledge base | **Odhad ztráty:** 2–4 hodiny denně (Pašalić)
+  **Odhad ztráty:** 3–5 hodin týdně per obchodník. Každá smlouva projde 3–5 iteracemi, z nichž každá znamená: otevřít Word, přečíst, okomentovat, uložit, poslat e-mailem.
 </Callout>
 
-**Jak to funguje dnes:** **Pašalić** je jediný IT kontakt v oddělení. Kolegům nefunguje SharePoint, OneDrive, Outlook – řeší to osobně, přebíháním mezi stoly. Oficiální kanál je Jira helpdesk, ale většina komunikace probíhá přes iMessage a telefon. Do Jiry se požadavky zadávají zpětně.
+**Jak to funguje dnes:** **V. Bouček** pracuje s nájemními, developerskými a agenskými smlouvami. Buď vytvoří kostru sám, nebo nadefinuje požadavky externím právníkům: *„Nadefinuji právníkům, co požaduju. Po nich to znamená přečíst, jestli to napsali tak, jak jsme chtěli my obchodně."* Pak začíná kolotoč – Bouček zkontroluje, vrátí, právníci opraví, pošle protistraně, ta komentuje, vrátí. Někdy je v procesu víc oddělení najednou: *„U některých záležitostí tu smlouvu komentuje víc lidí z různého pohledu – já obchod a právní, někdo z pohledu financování."*
 
-*„Nejvíc času mi zabírají denní problémy. Někomu nefunguje SharePoint, někomu OneDrive, někomu Outlook."*
+Veškerá komunikace probíhá přes e-mail s přílohami. V. Bouček si e-maily třídí do složek po projektech v Outlooku. Komentáře k PDF plánům od architektů dělá v PDF-XChange Editoru – zakresluje, píše poznámky, posílá zpět. Některé smlouvy se tisknou a fyzicky posílají na Slovensko k podpisu představenstvem.
 
-**Co je špatně:** Pašalić je úzké hrdlo. Řeší všechno od resetování hesel po strategii oprávnění v SharePointu. Nemá dokumentaci – instrukční videa tvoří, ale kolegové je nehledají.
+Sám říká, že by potřeboval lépe ovládat Word: *„Potřeboval bych se donaučit formátování, číslování, vkládání. S normálním Wordem umím fungovat, ale asi jsou funkce, co neznám a ušetřily by mi čas."*
 
-**Plánované řešení:** Migrace do cloudu, virtuální desktopy, předefinované role s automatickými oprávněními v SharePointu.
+**Co je špatně:** Žádné verzování dokumentů – verze se rozlišují podle data e-mailu. Žádný centrální přehled, v jaké fázi která smlouva je. Komentáře od různých oddělení přicházejí nekoordinovaně. V. Bouček nemá systém, jak zjistit, jestli kolega už svou část dokončil: *„Přemýšlím, jestli máme nějaký úkolovník… asi tak, že mi kolega řekne, že už udělal."*
 
-**Co může AI/automatizace doplnit:**
-- **Power Automate** – automatické přiřazení požadavků z Jiry, notifikace, eskalace
-- **Interní knowledge base s AI** – FAQ na běžné problémy (OneDrive plný, SharePoint nefunguje), přístupná všem zaměstnancům
-- **Copilot v Teams** – kolegové se zeptají chatbota místo Pašalića na rutinní problémy
+**Co doporučuji:**
+- **Copilot ve Wordu** – sumarizace změn mezi verzemi smlouvy, kontrola konzistence obchodních podmínek, pomoc s formátováním (přesně to, co V. Bouček potřebuje)
+- **ChatGPT Business** – drafty doprovodných e-mailů ke smlouvám, překlad klíčových pasáží (slovenské protistrany), přeformulování právnických pasáží do srozumitelné řeči
+- **NotebookLM** (zdarma) – nahrání referenčních smluv z SharePointu a rychlé dotazování: „Jaké podmínky jsme dali u podobného nájemního vztahu na projektu Prosecpoint?"
 
-## 3. Přepisy a sumarizace schůzek
+## 2. IT helpdesk a infrastruktura
 
 <Callout type="insight">
-  **Capability:** transkripce, sumarizace, extrakce úkolů | **Odhad ztráty:** 1–2 hodiny per schůzka
+  **Odhad ztráty:** 2–4 hodiny denně. M. Pašalić je jediný IT kontakt v oddělení a řeší všechno od nefunkčního OneDrivu po strategii oprávnění v SharePointu.
 </Callout>
 
-**Jak to funguje dnes:** Firma nahrává interní schůzky v Teams. **Pašalić** si stahuje přepisy ve Wordu a ručně je nahrává do ChatGPT a Gemini. **Pokorný** si píše poznámky do papírového bloku a pak je ručně přepisuje do e-mailů. Většina týmu nemá žádný systém pro zápisy.
+**Jak to funguje dnes:** **M. Pašalić** ráno otevře Outlook, zkontroluje monitoring a požadavky od kolegů, přepne do RealPadu na schvalování faktur, pak se ponoří do denních IT problémů. *„Nejvíc času mi zabírají denní problémy. Někomu nefunguje SharePoint, někomu OneDrive, někomu Outlook."* Oficiální kanál je Jira helpdesk, ale většina komunikace probíhá přes iMessage a telefon. Do Jiry zadává požadavky zpětně, aby byla evidence.
 
-*„Já si to potřebuji zapsat rukou. Napsaný na ten papír mi to tam zůstává, pak si chodím dávat fajfky."* – Pokorný
+Paralelně řeší strategický projekt: migraci ze starého file serveru do SharePointu Online a plánování virtuálních desktopů. Chce předefinovat oprávnění na základě pracovních pozic – aby nový člověk na pozici „projektový manažer Brno" automaticky dostal přístupy do správných složek. Dnes to řeší ručně.
 
-**Co je špatně:** Manuální přepisování, žádné sdílené zápisy, žádné sledování úkolů ze schůzek. Informace zůstávají v hlavách a na papírech.
+Tvoří instrukční videa v Microsoft Clip (jak používat Outlook, jak funguje sdílený kalendář dovolených), ale kolegové je aktivně nevyhledávají. Zavedl sdílený kalendář dovolených místo papírové nástěnky v kuchyňce.
 
-**Co může AI doplnit:**
-- **Copilot v Teams** (placená verze) – automatická sumarizace, extrakce úkolů, přiřazení zodpovědností
-- **Loop** – sdílené zápisy s úkoly. Pokorný a Pašalić už Loop zkoušejí, adopce je ale pomalá
+Blokuje ho HR portál (KS portál), který běží na stejném serveru jako file server – dokud se nevyřeší migrace HR portálu, nemůže se zbavit fyzického serveru a jít plně do cloudu.
 
-## 4. Marketing a content creation
+**Co doporučuji:**
+- **Power Automate** – automatizace přiřazení požadavků z Jiry, notifikace, eskalace. Uvolní M. Pašalićovi 1–2 hodiny denně
+- **Interní knowledge base** – FAQ na běžné IT problémy (OneDrive plný, SharePoint nefunguje, jak nastavit VPN) přístupná všem zaměstnancům. Kolegové si najdou odpověď sami místo toho, aby chodili za M. Pašalićem
+- **Copilot v Teams** – rutinní dotazy kolegů může řešit chatbot; M. Pašalić se soustředí na strategické projekty
 
-**Jak to funguje dnes:** **Pokorný** tvoří marketingové texty, slogany, e-mailingové kampaně (MailChimp). Používá ChatGPT pro brainstorming a první drafty. **Veselá** monitoruje média, píše tiskové zprávy, buduje vztahy s novináři. ChatGPT používá pro research a drafty, ale výstupům nedůvěřuje.
+## 3. Zpracování schůzek
 
-*„Dneska, třeba když bych si chtěl nahodit další článek na blog, řeknu ChatGPT: potřebuju sepsat článek o tom, jak jsme na stavbě udělali progres."* – Pokorný
+<Callout type="insight">
+  **Odhad ztráty:** 1–2 hodiny per schůzka na zpracování. Firma nahrává schůzky v Teams, ale zpracování je plně manuální.
+</Callout>
 
-*„Kecá. Píše hloupý texty, prvoplánový. Hrozně rychle poznáte, že to psala AI."* – Veselá
+**Jak to funguje dnes:** Dva úplně odlišné přístupy v jednom oddělení.
 
-**Co může AI doplnit:**
-- **Perplexity** pro Veselou – research s ověřenými zdroji, monitoring konkurence bez halucinací
-- **NotebookLM** – nahrání interních materiálů (brand manuál, minulé kampaně) a generování textů v konzistentním tónu
-- **ChatGPT s Custom GPTs** – trénovaní asistenti na tone of voice značky JTRE
+**M. Pašalić** – technicky nejdál. Stáhne přepis schůzky z Teams ve Wordu, ručně ho nahraje do ChatGPT a do Gemini, porovná výstupy. *„Porovnávám, přijde mi, že ChatGPT ty přepisy dělá líp, víc detailnější."* Tvoří si vlastní roboty v Prompt Makeru pro zpracování přepisů. Systém funguje, ale je pracný – každá schůzka znamená stáhnout, nahrát, zpracovat.
 
-## 5. Klientský proces a CRM
+**L. Pokorný** – píše si poznámky do papírového bloku a pak z nich čerpá do e-mailů. *„Já si to potřebuji zapsat rukou. Napsaný na ten papír mi to tam zůstává, pak si chodím dávat fajfky."* Digitální zápisy ze schůzek nedělá, informace sdílí ústně nebo e-mailem.
 
-**Jak to funguje dnes:** Firma používá **RealPad** jako centrální systém pro prodej bytů. Obchodníci tam vidí poptávky, ceny se propíšou na weby (SReality apod.). Ale RealPad neumí segmentovat klienty, filtrovat podle zájmu, sledovat historii komunikace ani měřit konverze.
+Ostatní členové týmu nemají žádný systém. Informace ze schůzek zůstávají v hlavách, na papírech, v nestrukturovaných e-mailech.
 
-*„Není to o tom, že bych dokázala jednoduše filtrovat, po jaký byty je největší zájem, kolikrát s tím člověkem mluvili. Data musím vytahovat do Excelu a řadit to tam, což je úplná halůz."* – Veselá
+**Co doporučuji:**
+- **Copilot v Teams** (placená verze) – automatická sumarizace, extrakce úkolů, přiřazení zodpovědností. Nahradí M. Pašalićovi celý manuální workflow se stahováním a nahráváním přepisů
+- **Loop** – sdílené zápisy s úkoly. L. Pokorný a M. Pašalić už Loop zkoušejí; úkolem je rozšířit adopci na zbytek týmu
 
-**Co je špatně:** RealPad je spíš evidence bytů než CRM. Klientská cesta (od poptávky po předání klíčů, typicky 3 roky) není nikde zmapovaná. Obchodníci nemají přehled o stavu komunikace s klientem. Customer experience se řeší ad hoc.
+## 4. Lead generation a klientský proces
 
-**Co může AI/automatizace doplnit:**
-- Toto není primárně AI problém – potřebujete **rozhodnutí o CRM** (rozšíření RealPadu nebo nasazení jiného systému)
+<Callout type="warning">
+  Toto není AI problém. Toto je systémový problém, který vyžaduje rozhodnutí vedení. Popisuji ho, protože na něj nezávisle narazili M. Veselá i L. Pokorný – a bez jeho vyřešení se marketing s obchodem nepropojí.
+</Callout>
+
+**Jak to funguje dnes:** Firma používá **RealPad** jako centrální systém pro prodej bytů. Obchodníci tam vidí poptávky, ceny se propíšou na weby (SReality apod.). L. Pokorný z RealPadu importuje leady do MailChimpu pro e-mailing.
+
+Na novou etapu Nového Rohanu už mají přes **1 100 leadů** plus **2 500 z minulosti**. L. Pokorný řešil, jak z toho vybrat ty relevantní – připravil dotazník přes Microsoft Forms, segmentoval na ~250 aktivních zájemců. Obchodníci pak s nimi mohou pracovat dál.
+
+**M. Veselá** identifikuje stejný problém z jiného úhlu – buduje customer experience a brand strategii, ale nemá jak mluvit ke klientům cíleně: *„Není to o tom, že bych dokázala jednoduše filtrovat, po jaké byty je největší zájem, kolikrát s tím člověkem mluvili. Data musím vytahovat do Excelu a řadit to tam, což je úplná halůz."*
+
+Klientská cesta od poptávky po předání klíčů trvá typicky **3 roky**. M. Veselá upozorňuje, že komunikace s klientem v tomto období není systematická – řeší se ad hoc, až když „to hoří".
+
+**Co doporučuji:**
+- **Rozhodnutí o CRM** – rozšířit RealPad o CRM funkce, nebo nasadit jiný systém? M. Veselá a L. Pokorný mohou připravit požadavky
 - AI nadstavba dává smysl až nad funkčním CRM: automatické follow-upy, personalizované e-maily klientům, predikce konverze
+- Do té doby: L. Pokorný může využít ChatGPT Business k lepší segmentaci a personalizaci e-mailingových kampaní v MailChimpu
 
-## 6. Budgeting a reporting
+## 5. Marketingový budget a reporting
 
-**Jak to funguje dnes:** **Pokorný** spravuje marketingový budget v Excelu – rozpad po projektech, kapitolách (příprava, kampaň, ongoing), měsících. Reálné náklady se stahují z ERP přes kontingenční tabulky, ale alokaci a plánování dělá ručně na základě zkušenosti a intuice.
+**Jak to funguje dnes:** **L. Pokorný** spravuje marketingový budget v Excelu – rozpad po projektech a kapitolách (příprava, kampaň, ongoing), měsíční alokace. Reálné náklady se stahují z ERP přes kontingenční tabulky, které připravuje finanční oddělení. Alokaci a plánování dělá ručně na základě zkušenosti.
 
 *„Chtěl bych, aby za mě dělal ty tabulky. Když pracuji s těmihle dodavatelemi a vím, co to stojí, tak mám představu – ale přenést to do Excelu je pro mě přemáhání."*
 
-**Co může AI doplnit:**
-- **Copilot pro Excel** – automatické doplňování vzorců, vizualizace trendů, generování reportů z dat
-- **Power BI** – dashboard nad marketingovým budgetem s napojením na ERP (střednědobý projekt)
+Je to pro něj „pověstná žába" – musí si to blokovat v kalendáři, aby to vůbec udělal. Přitom říká, že v tom rozpočtu vidí zrcadlo svých kampaní, takže úplně automatizovat to nechce.
+
+**Co doporučuji:**
+- **Copilot pro Excel** – pomůže s formátováním, vzorci, vizualizací trendů. Ne nahradit L. Pokorného, ale zbavit ho mechanické práce
+- Power BI zatím není nutný – Copilot pro Excel pokryje aktuální potřebu
+
+## 6. PR, monitoring médií a content
+
+**Jak to funguje dnes:** **M. Veselá** je tisková mluvčí – monitoruje média, buduje vztahy s novináři (osobní schůzky, ne digitální), píše tiskové zprávy ve Wordu, komentuje grafické návrhy v Adobe Readeru. ChatGPT používá pro prvotní research a drafty, ale nedůvěřuje kvalitě: *„Kecá. Píše hloupý texty, prvoplánový. Hrozně rychle poznáte, že to psala AI."*
+
+**L. Pokorný** tvoří marketingové texty, slogany, e-mailingové kampaně. ChatGPT používá pro brainstorming: *„Dřív si člověk šel s někým o tom popovídat. Dneska ten brainstorm dělám s ChatGPT."* Monitoring médií řeší přes Newton Media (má integrovanou AI). Při hledání nových agentur se zeptal ChatGPT na doporučení – a vypadly z toho použitelné tipy.
+
+Oba pracují na brand strategii JTRE – M. Veselá z pozice PR, L. Pokorný z pozice marketingu. M. Veselá mapuje klientskou cestu v Loopu, L. Pokorný řeší grafickou identitu nových projektů s agenturami.
+
+**Co doporučuji:**
+- **ChatGPT Business** s Custom GPTs – trénovaný asistent na tone of voice značky JTRE. M. Veselá potřebuje nástroj, který píše v jejím stylu, ne „hloupé prvoplánové texty". Custom GPT s nahranými příklady minulých tiskových zpráv a brand manuálu to může vyřešit
+- **NotebookLM** – M. Veselá může nahrát studie a reporty a ptát se na konkrétní informace bez rizika halucinací. Řeší její hlavní problém: nedůvěru k AI, která si vymýšlí
+- Pro L. Pokorného: ChatGPT Business pro brainstorming a content zůstává nejlepší volba – už to tak dělá, potřebuje jen firemní verzi místo osobní
