@@ -15,6 +15,16 @@ export const ACCESS: AccessEntry[] = [
     name: "Leona Holíková",
     reports: ["jtre-finance"],
   },
+  {
+    pin: "240391",
+    name: "Monika Veselá",
+    reports: ["jtre-obchod"],
+  },
+  {
+    pin: "180575",
+    name: "Jiří Knob",
+    reports: ["jtre-obchod"],
+  },
 ];
 
 export interface ReportEntry {

@@ -1,7 +1,7 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { decodeSession } from "@/lib/auth";
-import { jtreFinanceSource } from "@/lib/source";
+import { jtreFinanceSource, jtreObchodSource } from "@/lib/source";
 import defaultMdxComponents from "fumadocs-ui/mdx";
 import { TeamRadar } from "@/components/charts/team-radar";
 import { ScatterPlotChart } from "@/components/charts/scatter-plot";
@@ -27,11 +27,22 @@ const PAGE_ORDER: Record<string, string[]> = {
     "vzdelavaci-plan",
     "shrnuti",
   ],
+  "jtre-obchod": [
+    "uvod",
+    "tym",
+    "lide",
+    "prace-a-nastroje",
+    "procesy",
+    "licence",
+    "vzdelavaci-plan",
+    "shrnuti",
+  ],
 };
 
 // Map slug to source
 function getSource(slug: string) {
   if (slug === "jtre-finance") return jtreFinanceSource;
+  if (slug === "jtre-obchod") return jtreObchodSource;
   return null;
 }
 

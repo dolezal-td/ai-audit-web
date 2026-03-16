@@ -1,0 +1,103 @@
+---
+title: Lidé
+description: Scatter plot Umím × Chci a profily jednotlivců
+---
+
+## Mapa týmu
+
+Graf ukazuje každého člena týmu podle dvou os: **Umím** (horizontální) a **Chci** (vertikální). Čím víc vpravo, tím vyšší znalosti; čím výš, tím vyšší motivace. Svislá a vodorovná čára ukazují průměr trhu.
+
+<ScatterPlotChart
+  companyAvgUmim={3.5}
+  companyAvgChci={5.2}
+  benchmarkUmim={3.9}
+  benchmarkChci={5.83}
+  groups={{
+    "Obchod": ["Obchod", "Management"],
+    "Marketing + IT": ["Marketing", "Projekt", ""]
+  }}
+  data={[
+    { jmeno: "Filip Schroll", kategorie: "Management", index_umim: 5.89, index_chci: 7.5 },
+    { jmeno: "Marko Pašalić", kategorie: "Projekt", index_umim: 7.29, index_chci: 8.6 },
+    { jmeno: "Libor Pokorný", kategorie: "Management", index_umim: 4.75, index_chci: 6.9 },
+    { jmeno: "Jaroslav Semorád", kategorie: "Obchod", index_umim: 4.18, index_chci: 6.3 },
+    { jmeno: "Hana Čunderlíková", kategorie: "Obchod", index_umim: 3.68, index_chci: 5.4 },
+    { jmeno: "Daniel Melzer", kategorie: "Obchod", index_umim: 3.18, index_chci: 3.9 },
+    { jmeno: "Monika Veselá", kategorie: "Marketing", index_umim: 2.96, index_chci: 6.6 },
+    { jmeno: "Václav Bouček", kategorie: "Obchod", index_umim: 2.68, index_chci: 5.1 },
+    { jmeno: "Tomáš Lepka", kategorie: "", index_umim: 2.11, index_chci: 4.3 }
+  ]}
+/>
+
+<Callout type="insight">
+  Tým se rozděluje do tří jasných skupin. **Pašalić** a **Schroll** vpravo nahoře – pokročilí uživatelé s vysokou motivací. **Semorád**, **Čunderlíková**, **Pokorný** a **Veselá** uprostřed – znalosti kolem průměru, motivace nad ním. **Bouček**, **Lepka** a **Melzer** vlevo dole – nízké znalosti, nižší motivace.
+</Callout>
+
+## Profily
+
+<PeopleHeatmap
+  columns={[
+    { key: "spravnost_odpovedi", label: "Vědomosti o AI", description: "Počet správných odpovědí v kvízu (0–7).", emphasized: false, lowerIsBetter: false },
+    { key: "znam_nastroje", label: "Znám nástroje", description: "Kolik AI nástrojů respondent zná (0–14).", emphasized: false, lowerIsBetter: false },
+    { key: "znalosti", label: "Znalosti", description: "Teoretické znalosti o AI, škála 0–10.", emphasized: false, lowerIsBetter: false },
+    { key: "platim_nastroje", label: "Platím nástroje", description: "Kolik AI nástrojů si respondent platí (0–14).", emphasized: false, lowerIsBetter: false },
+    { key: "pouzivam_nastroje", label: "Používám nást.", description: "Kolik AI nástrojů aktivně používá (0–14).", emphasized: false, lowerIsBetter: false },
+    { key: "schopnosti", label: "Schopnosti", description: "Praktické schopnosti práce s AI, škála 0–10.", emphasized: false, lowerIsBetter: false },
+    { key: "zkouseni", label: "Zkoušení", description: "Míra experimentování s AI nástroji, škála 0–10.", emphasized: false, lowerIsBetter: false },
+    { key: "bavi_prace", label: "Baví práce", description: "Jak moc respondenta baví jeho práce, škála 1–10.", emphasized: false, lowerIsBetter: false },
+    { key: "prehlcenost", label: "Přehlcenost", description: "Subjektivní pocit zahlcení prací, škála 1–10.", emphasized: false, lowerIsBetter: true },
+    { key: "prescasy", label: "Přesčasy", description: "Frekvence práce přesčas, škála 1–10.", emphasized: false, lowerIsBetter: true },
+    { key: "strach_z_ai", label: "Obavy z AI", description: "Obavy z dopadu AI na vlastní pozici, škála 1–10.", emphasized: false, lowerIsBetter: true },
+    { key: "index_umim", label: "Index Umím", description: "Kombinace znalostí, schopností a zkoušení, škála 0–10.", emphasized: true, lowerIsBetter: false },
+    { key: "index_chci", label: "Index Chci", description: "Motivace k používání AI, škála 0–10.", emphasized: true, lowerIsBetter: false }
+  ]}
+  data={[
+    { jmeno: "Marko Pašalić", kategorie: "Projekt", spravnost_odpovedi: 6, znam_nastroje: 12, znalosti: 8.57, platim_nastroje: 2, pouzivam_nastroje: 5, schopnosti: 6.0, zkouseni: 9.0, bavi_prace: 7.0, prehlcenost: 7.0, prescasy: 9.0, strach_z_ai: 1.0, index_umim: 7.29, index_chci: 8.6 },
+    { jmeno: "Filip Schroll", kategorie: "Management", spravnost_odpovedi: 6, znam_nastroje: 7, znalosti: 6.79, platim_nastroje: 1, pouzivam_nastroje: 5, schopnosti: 5.0, zkouseni: 7.67, bavi_prace: 8.0, prehlcenost: 8.0, prescasy: 7.0, strach_z_ai: 3.0, index_umim: 5.89, index_chci: 7.5 },
+    { jmeno: "Libor Pokorný", kategorie: "Management", spravnost_odpovedi: 6, znam_nastroje: 9, znalosti: 7.5, platim_nastroje: 0, pouzivam_nastroje: 2, schopnosti: 2.0, zkouseni: 5.67, bavi_prace: 8.0, prehlcenost: 4.0, prescasy: 4.0, strach_z_ai: 5.0, index_umim: 4.75, index_chci: 6.9 },
+    { jmeno: "Jaroslav Semorád", kategorie: "Obchod", spravnost_odpovedi: 4, znam_nastroje: 7, znalosti: 5.36, platim_nastroje: 0, pouzivam_nastroje: 4, schopnosti: 3.0, zkouseni: 6.0, bavi_prace: 8.0, prehlcenost: 7.0, prescasy: 9.0, strach_z_ai: 3.0, index_umim: 4.18, index_chci: 6.3 },
+    { jmeno: "Hana Čunderlíková", kategorie: "Obchod", spravnost_odpovedi: 5, znam_nastroje: 5, znalosti: 5.36, platim_nastroje: 0, pouzivam_nastroje: 2, schopnosti: 2.0, zkouseni: 5.0, bavi_prace: 8.0, prehlcenost: 8.0, prescasy: 7.0, strach_z_ai: 3.0, index_umim: 3.68, index_chci: 5.4 },
+    { jmeno: "Daniel Melzer", kategorie: "Obchod", spravnost_odpovedi: 5, znam_nastroje: 5, znalosti: 5.36, platim_nastroje: 0, pouzivam_nastroje: 1, schopnosti: 1.0, zkouseni: 3.33, bavi_prace: 8.0, prehlcenost: 7.0, prescasy: 4.0, strach_z_ai: 3.0, index_umim: 3.18, index_chci: 3.9 },
+    { jmeno: "Monika Veselá", kategorie: "Marketing", spravnost_odpovedi: 3, znam_nastroje: 5, znalosti: 3.93, platim_nastroje: 0, pouzivam_nastroje: 2, schopnosti: 2.0, zkouseni: 5.67, bavi_prace: 6.0, prehlcenost: 4.0, prescasy: 3.0, strach_z_ai: 6.0, index_umim: 2.96, index_chci: 6.6 },
+    { jmeno: "Václav Bouček", kategorie: "Obchod", spravnost_odpovedi: 6, znam_nastroje: 3, znalosti: 5.36, platim_nastroje: 0, pouzivam_nastroje: 0, schopnosti: 0.0, zkouseni: 3.0, bavi_prace: 9.0, prehlcenost: 3.0, prescasy: 6.0, strach_z_ai: null, index_umim: 2.68, index_chci: 5.1 },
+    { jmeno: "Tomáš Lepka", kategorie: "", spravnost_odpovedi: 3, znam_nastroje: 3, znalosti: 3.21, platim_nastroje: 0, pouzivam_nastroje: 1, schopnosti: 1.0, zkouseni: 3.0, bavi_prace: 5.0, prehlcenost: 3.0, prescasy: 3.0, strach_z_ai: 3.0, index_umim: 2.11, index_chci: 4.3 }
+  ]}
+/>
+
+## Potenciální ambasadoři
+
+<Callout type="positive">
+  Dva lidé v oddělení mají předpoklady stát se interními mentory. Oba kombinují vysoké znalosti s motivací a ochotou sdílet – to je základ, na kterém se dá stavět.
+</Callout>
+
+### Marko Pašalić – technologický lídr
+
+Umím **7,3**, Chci **8,6**, strach z AI **1,0**. Nejpokročilejší AI uživatel v celém JTRE. Zná **12 nástrojů**, **5 aktivně používá**, **2 si platí**. Při rozhovoru ukázal propracovaný systém: přepisy schůzek z Teams nahrává do ChatGPT i Gemini, porovnává výstupy, tvoří si vlastní roboty přes Prompt Maker. Zajímá se o NotebookLM, Perplexity a Cursor.
+
+Jeho hlavní práce (IT infrastruktura, migrace do cloudu, SharePoint) je sice mimo obchod, ale jeho znalost AI nástrojů a ochota pomáhat kolegům z něj dělá přirozeného ambasadora pro celé oddělení.
+
+### Filip Schroll – manažerský tahoun
+
+Umím **5,9**, Chci **7,5**, strach z AI **3,0**. Manažer obchodu, který sám experimentuje (zkoušení **7,7**). Zná **7 nástrojů**, **5 používá**, **1 si platí**. Vysoké přehlcenost (**8,0**) a přesčasy (**7,0**) ukazují, že z automatizace by profitoval okamžitě.
+
+Jako manažer týmu může AI adopci podpořit nejen vlastním příkladem, ale i tím, že dá obchodníkům prostor a důvod AI vyzkoušet.
+
+## Postřehy z rozhovorů
+
+**Václav Bouček** – obchodník s 9letou praxí ve firmě. Denně řeší smlouvy, nájemní vztahy, komunikaci s právníky. AI zatím téměř nepoužívá, ale není to odmítáním: *„Nejsem proti, ale potřeboval bych proškolení od A do Z. Furt je něco důležitějšího a toho času je furt míň."* Práce probíhá výhradně v Outlooku, Wordu a PDF editoru. Sám říká, že by potřeboval lépe ovládat i Word.
+
+**Marko Pašalić** – řeší denní IT problémy, migraci do cloudu, oprávnění v SharePointu. Při rozhovoru ukázal, jak systematicky pracuje s přepisy schůzek: *„Z přepisů normálně si otevřu rekapitulaci, stáhnu si přepis a nahrávám ho do ChatGPT i Gemini. Porovnávám, přijde mi, že ChatGPT ty přepisy dělá líp."* Chce Copilot Premium, ale čeká na dokončení migrace do cloudu.
+
+**Monika Veselá** – tisková mluvčí, ve firmě krátce. Používá ChatGPT pro monitoring konkurence a drafty textů, ale má jasné výhrady: *„Kecá. Seremně tím, že kecá a já ji musím opravovat. Píše hloupý texty, prvoplánový."* Její obavy jsou profesní, ne technofobní. Zajímá se o nástroje s ověřenými zdroji.
+
+**Libor Pokorný** – marketing manažer, 12 let v oboru. Používá ChatGPT pro brainstorming, idea making a přípravu textů na sociální sítě. Sám říká: *„Dřív si člověk šel s někým o tom popovídat. Dneska ten brainstorm dělám s ChatGPT."* Největší bolest: Excel tabulky a budgeting. *„Chtěl bych, aby za mě dělal ty tabulky. To je pro mě největší přemáhání se."*
+
+## Rizikové profily
+
+<Callout type="warning">
+  **Tomáš Lepka** má nejnižší Index Umím v oddělení (**2,1**) i nejnižší motivaci po Melzerovi (**4,3**). V dotazníku neuvedl ani roli, ani zodpovědnosti. Při vzdělávání bude potřebovat individuální přístup a konkrétní ukázky na jeho vlastních úkolech.
+</Callout>
+
+**Daniel Melzer** – Umím **3,2**, Chci **3,9**. Obchodník s 10letou praxí (leasing, business development, market research). Sebehodnocení **7,0** je výrazně vyšší než skutečné znalosti. Nebrání se AI, ale nemá urgenci měnit zaběhnutý způsob práce. Klíčem bude ukázat mu, jak AI pomůže konkrétně v jeho oblasti – market research a analýza konkurence.
+
+**Václav Bouček** – Umím **2,7**, praktické schopnosti **0,0**. Nepoužívá žádný AI nástroj. Na druhou stranu: motivace **5,1** a strach neuvedl (pravděpodobně nízký). Otevřeně říká, že chce školení. Potřebuje strukturovaný úvod, ne volné experimentování.

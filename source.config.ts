@@ -8,4 +8,8 @@ export const jtreFinance = defineDocs({
   dir: 'content/jtre-finance',
 });
 
+export const jtreObchod = defineDocs({
+  dir: 'content/jtre-obchod',
+});
+
 export default defineConfig();
