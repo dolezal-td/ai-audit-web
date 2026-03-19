@@ -1,7 +1,9 @@
 import { RootProvider } from 'fumadocs-ui/provider/next';
 import { Analytics } from '@vercel/analytics/next';
+import { cookies } from 'next/headers';
 import type { Metadata } from 'next';
 import { Inter, Space_Grotesk } from 'next/font/google';
+import { decodeSession } from '@/lib/auth';
 import './globals.css';
 
 const inter = Inter({
@@ -19,11 +21,17 @@ export const metadata: Metadata = {
   description: 'AI audit report',
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const cookieStore = await cookies();
+  const sessionCookie = cookieStore.get('pin-session');
+  const isAdmin = sessionCookie
+    ? decodeSession(sessionCookie.value)?.name === 'Tomáš Doležal'
+    : false;
+
   return (
     <html lang="cs" suppressHydrationWarning>
       <body className={`${inter.variable} ${spaceGrotesk.variable} ${inter.className}`}>
@@ -45,7 +53,7 @@ export default function RootLayout({
         >
           {children}
         </RootProvider>
-        <Analytics />
+        {!isAdmin && <Analytics />}
       </body>
     </html>
   );
