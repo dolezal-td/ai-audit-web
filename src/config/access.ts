@@ -26,6 +26,11 @@ export const ACCESS: AccessEntry[] = [
     reports: ["jtre-obchod"],
   },
   {
+    pin: "993379",
+    name: "Obchodní oddělení JTRE",
+    reports: ["jtre-obchod"],
+  },
+  {
     pin: "379577",
     name: "Tomáš Doležal",
     reports: ["jtre-finance", "jtre-obchod", "jtre-projektove-rizeni", "jtre"],

@@ -23,14 +23,9 @@ export function SidebarThemeToggle() {
         <Tooltip.Trigger asChild>
           <button
             onClick={() => setTheme(isDark ? "light" : "dark")}
-            className="flex items-center justify-center w-8 h-8 rounded-lg transition-colors hover:bg-[var(--ak-warm-200)] cursor-pointer"
-            style={{ color: "var(--ak-warm-600)" }}
+            className="ak-icon-btn"
           >
-            {isDark ? (
-              <Sun className="w-4 h-4" />
-            ) : (
-              <Moon className="w-4 h-4" />
-            )}
+            {isDark ? <Sun /> : <Moon />}
           </button>
         </Tooltip.Trigger>
         <Tooltip.Portal>

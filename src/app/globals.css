@@ -97,6 +97,39 @@ aside[class*="sidebar"],
   border-color: var(--ak-warm-300) !important;
 }
 
+/* Unified icon button style */
+.ak-icon-btn {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 2rem !important;
+  height: 2rem !important;
+  border-radius: 0.5rem !important;
+  color: var(--ak-warm-500) !important;
+  cursor: pointer !important;
+  transition: color 150ms, background-color 150ms !important;
+}
+.ak-icon-btn:hover {
+  color: var(--ak-warm-700) !important;
+  background-color: var(--ak-warm-200) !important;
+}
+.ak-icon-btn svg {
+  width: 1rem !important;
+  height: 1rem !important;
+}
+
+/* Fumadocs sidebar collapse trigger — match ak-icon-btn */
+[id="nd-sidebar"] button.text-fd-muted-foreground,
+header button.text-fd-muted-foreground {
+  color: var(--ak-warm-500) !important;
+  cursor: pointer !important;
+}
+[id="nd-sidebar"] button.text-fd-muted-foreground:hover,
+header button.text-fd-muted-foreground:hover {
+  color: var(--ak-warm-700) !important;
+  background-color: var(--ak-warm-200) !important;
+}
+
 /* ── Layout: wider content ── */
 
 article[class*="max-w-[900px]"] {
@@ -287,6 +320,15 @@ aside h3,
 [data-nd-sidebar] a:hover,
 [id="nd-sidebar"] a:hover {
   color: var(--ak-warm-900) !important;
+}
+
+/* Sidebar footer — remove Fumadocs border-t */
+[id="nd-sidebar"] .border-t,
+[data-nd-sidebar] .border-t,
+#nd-sidebar .border-t,
+#nd-sidebar-mobile .border-t {
+  border-top-style: none !important;
+  border-top-width: 0 !important;
 }
 
 /* Sidebar section labels */

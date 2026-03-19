@@ -16,10 +16,9 @@ export function SidebarPdfLink({ reportSlug }: SidebarPdfLinkProps) {
             href={`/print/${reportSlug}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center w-8 h-8 rounded-lg transition-colors hover:bg-[var(--ak-warm-200)]"
-            style={{ color: "var(--ak-warm-600)" }}
+            className="ak-icon-btn"
           >
-            <FileDown className="w-4 h-4" />
+            <FileDown />
           </a>
         </Tooltip.Trigger>
         <Tooltip.Portal>

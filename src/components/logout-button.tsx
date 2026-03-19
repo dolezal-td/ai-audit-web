@@ -21,12 +21,8 @@ export function LogoutButton({ variant = "text" }: LogoutButtonProps) {
       <Tooltip.Provider delayDuration={200}>
         <Tooltip.Root>
           <Tooltip.Trigger asChild>
-            <button
-              onClick={handleLogout}
-              className="flex items-center justify-center w-8 h-8 rounded-lg transition-colors hover:bg-[var(--ak-warm-200)] cursor-pointer"
-              style={{ color: "var(--ak-warm-600)" }}
-            >
-              <LogOut className="w-4 h-4" />
+            <button onClick={handleLogout} className="ak-icon-btn">
+              <LogOut />
             </button>
           </Tooltip.Trigger>
           <Tooltip.Portal>

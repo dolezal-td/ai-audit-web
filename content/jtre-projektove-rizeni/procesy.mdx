@@ -98,3 +98,38 @@ Tým zkoušel AI přepisy: **Knob** testoval měsíc a půl, výsledek byl nepou
 **Knob** měl stejnou zkušenost s invalidním WC: *„fantastický elaborát, ale celý screening byl z neplatné vyhlášky."*
 
 **Co může AI doplnit:** Vlastní knowledge base (RAG) s nahranými platnými normami a vyhláškami. Sponzorovaný přístup k normám + nahrání do ChatGPT projektů nebo NotebookLM. Vyžaduje počáteční přípravu, ale pak dramaticky zrychlí ověřování.
+
+## Systémové bariéry
+
+Kromě konkrétních procesů k automatizaci existují dvě strukturální bariéry, které blokují jakoukoliv AI adopci v oddělení. Nejde o procesy, ale o předpoklady – bez jejich vyřešení jsou školení i nástroje zbytečné.
+
+### Nejasná pravidla práce s AI a firemními daty
+
+<Callout type="warning">
+  Tohle je blocker číslo jedna. Lidé radši AI nepoužijí vůbec, než aby riskovali únik citlivých dat.
+</Callout>
+
+**Holan**: *„Smlouvy mají rodná čísla, e-maily, telefony, čísla účtů, částky – a já nevím, jestli to do toho jazykového modelu vůbec můžu poslat."*
+
+**Stáhlík** preventivně maže jména a názvy firem, i když ví, že u placeného ChatGPT by to problém být neměl: *„spíš je to taková vrozená opatrnost."*
+
+**Kočí** ví, že firemní data nemá sypat mimo placený ChatGPT, ale kde je hranice, mu nikdo neřekl. **Holan** to shrnul nejlíp: *„Nevím, s čím mám pracovat a jaké jsou okrajové podmínky pro mě."*
+
+**Důsledek:** Tým má k dispozici placený ChatGPT, ale nikdo ho naplno nevyužívá, protože chybí jasný rámec. Stáhlík úspěšně vyzkoušel extrakci podmínek ze stanoviska, Holan nechal AI připravit právní výzvu – ale oba to dělali s pocitem, že možná překračují neviditelnou hranici.
+
+**Řešení:** Interní jednastránkový dokument s jasnými pravidly:
+- Co je bezpečné nahrávat do placeného ChatGPT (anonymizované smlouvy, technické zprávy, stanoviska bez osobních údajů)
+- Co nahrávat nesmíte nikam (rodná čísla, čísla účtů, nezveřejněné obchodní podmínky)
+- Jak anonymizovat – jednoduché pravidlo: nahradit jména, IČ a čísla účtů zástupnými symboly
+
+**Náklad: 0 Kč. Čas: 2 hodiny. Bez tohoto dokumentu jsou všechna školení zbytečná.**
+
+### Fragmentovaný task management
+
+**Jak to funguje dnes:** Každý si vede úkoly jinak. **Mraček** píše do papírového bloku – *„zkoušel jsem software, vrátil jsem se k bloku."* **Petrlík** má OneNote bez termínů a připomínek – *„musím se tam podívat sám, nic mi to nepřipomíná."* **Řehořová** si úkoly sdílí ústně s kolegou. **Koiš** používá Outlook kalendář.
+
+**Planner** testují, ale výsledky jsou smíšené. **Knob** ho po měsíci zahodil: *„naprostý nesmysl – vychrlilo to 15 úkolů, které nikdo nepotřeboval."* **Koiš** zjistil, že splnění úkolu nenotifikuje následovníka – *„mysleli jsme, že když odkliknu úkol, tak ten další dostane upozornění. Zjistili jsme, že to tam není."* **Stáhlík**: *„Teams a Planner je spíš komplikace – další médium, které musím sledovat."*
+
+**Důsledek:** Žádný jednotný přehled úkolů napříč projekty. Úkoly se ztrácejí mezi papírem, OneNote, Outlookem a Plannerem. Závislosti mezi lidmi se řeší ústně – a když je někdo na dovolené, může se ztratit kontext.
+
+**Řešení:** Než přidávat další nástroj, sjednotit workflow na tom, co tým už používá a čemu věří. OneNote pro sdílené projektové poznámky funguje (Knob, Mraček, Pospíšil ho pochválili). Planner má smysl pro dlouhodobé úkoly s horizontem měsíce+ (Knob to přesně popsal). Pro denní operativu nechat osobní preferenci – papír je legitimní systém, pokud funguje.
