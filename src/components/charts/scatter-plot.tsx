@@ -9,9 +9,11 @@ const TICKS = [0, 2, 4, 6, 8, 10];
 const DOT_RADIUS = 10;
 const HOVER_RADIUS = 22;
 
-const GROUP_COLORS: Record<string, string> = {
+const DEFAULT_GROUP_COLORS: Record<string, string> = {
   Finance: "#6B8A9E",
   "HR + Support": "#C27D5F",
+  Obchod: "#7C3AED",
+  "Marketing + IT": "#0891B2",
   default: "#8A7560",
 };
 
@@ -48,6 +50,7 @@ interface ScatterPlotProps {
   benchmarkUmim?: number;
   benchmarkChci?: number;
   groups?: Record<string, string[]>;
+  groupColors?: Record<string, string>;
 }
 
 interface HoverInfo {
@@ -63,7 +66,12 @@ export function ScatterPlotChart({
   benchmarkUmim,
   benchmarkChci,
   groups: customGroups,
+  groupColors: customGroupColors,
 }: ScatterPlotProps) {
+  const GROUP_COLORS = useMemo(
+    () => ({ ...DEFAULT_GROUP_COLORS, ...customGroupColors }),
+    [customGroupColors],
+  );
   const containerRef = useRef<HTMLDivElement>(null);
   const [size, setSize] = useState({ width: 0, height: 0 });
   const [hoverInfo, setHoverInfo] = useState<HoverInfo | null>(null);
@@ -156,7 +164,7 @@ export function ScatterPlotChart({
       }
       return GROUP_COLORS[getGroup(person.kategorie)] || GROUP_COLORS.default;
     },
-    [customGroups]
+    [customGroups, GROUP_COLORS]
   );
 
   const displayInfo = hoverInfo || lastHoverRef.current;
