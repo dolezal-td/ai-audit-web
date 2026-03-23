@@ -1,0 +1,131 @@
+---
+title: Lidé
+description: Scatter plot Umím × Chci a profily jednotlivců
+---
+
+## Mapa týmu
+
+Každý bod na grafu je jeden člověk. Horizontální osa ukazuje **motivaci** (Index Chci), vertikální **praktické dovednosti** (Index Umím). Přerušované čáry ukazují benchmark trhu.
+
+<ScatterPlotChart
+  benchmarkUmim={3.9}
+  benchmarkChci={5.83}
+  groups={{
+    "Vedení": ["Vedení"],
+    "Speciální pedagogové": ["Speciální pedagog"],
+    "Kancelář + HR": ["Kancelář + HR"],
+  }}
+  groupColors={{
+    "Vedení": "#2563EB",
+    "Speciální pedagogové": "#059669",
+    "Kancelář + HR": "#EA580C",
+  }}
+  data={[
+    { jmeno: "Michelle Muchová", kategorie: "Kancelář + HR", index_umim: 6.64, index_chci: 8.0 },
+    { jmeno: "Veronika Vajdiaková", kategorie: "Kancelář + HR", index_umim: 6.63, index_chci: 8.3 },
+    { jmeno: "Karel Krucký", kategorie: "Vedení", index_umim: 6.38, index_chci: 6.9 },
+    { jmeno: "Aneta Marinkovič", kategorie: "Vedení", index_umim: 6.0, index_chci: 7.6 },
+    { jmeno: "Kateřina Weiserová", kategorie: "Speciální pedagog", index_umim: 5.7, index_chci: 2.9 },
+    { jmeno: "Michaela Týblová", kategorie: "Kancelář + HR", index_umim: 5.68, index_chci: 7.4 },
+    { jmeno: "Daniela Kovaříková", kategorie: "Speciální pedagog", index_umim: 4.86, index_chci: 6.5 },
+    { jmeno: "Monika Miňovská", kategorie: "Vedení", index_umim: 4.32, index_chci: 6.0 },
+    { jmeno: "Ilona Jará Svobodová", kategorie: "Speciální pedagog", index_umim: 4.3, index_chci: 6.4 },
+    { jmeno: "Kateřina Junková", kategorie: "Kancelář + HR", index_umim: 4.0, index_chci: 7.5 },
+    { jmeno: "Michaela Krucká", kategorie: "Kancelář + HR", index_umim: 3.64, index_chci: 6.3 },
+    { jmeno: "Daniela Petřeková", kategorie: "Speciální pedagog", index_umim: 3.63, index_chci: 6.0 },
+    { jmeno: "Petra Pospíšilová", kategorie: "Kancelář + HR", index_umim: 3.23, index_chci: 7.0 },
+    { jmeno: "Markéta Nováková", kategorie: "Speciální pedagog", index_umim: 3.2, index_chci: 6.5 },
+    { jmeno: "Jana Kosecová", kategorie: "Vedení", index_umim: 2.88, index_chci: 6.6 },
+    { jmeno: "Pavla Dušková", kategorie: "Speciální pedagog", index_umim: 2.58, index_chci: 5.0 },
+  ]}
+/>
+
+<Callout type="insight">
+  Tým se dělí na dvě skupiny: **pokročilá šestice** nad benchmarkem (Muchová, Vajdiaková, Krucký, Marinkovič, Weiserová, Týblová) a **širší střed** s vysokou motivací, ale zatím nižšími dovednostmi. Zajímavá výjimka: **K. Weiserová** – vysoké Umím (**5,7**), ale nejnižší Chci (**2,9**) v celém týmu. Není odmítavá; je přetížená.
+</Callout>
+
+## Profily
+
+<PeopleHeatmap
+  columns={[
+    { key: "spravnost_odpovedi", label: "Vědomosti o AI", description: "Počet správných odpovědí v kvízu (0–7). Zahrnuje 2 otevřené otázky a 5 pravda/nepravda tvrzení o AI." },
+    { key: "znam_nastroje", label: "Znám nástroje", description: "Počet AI nástrojů, které respondent zná nebo aktivně používá (0–14)." },
+    { key: "znalosti", label: "Znalosti", description: "Průměr správnosti odpovědí a povědomí o nástrojích, normalizovaný na škálu 0–10." },
+    { key: "platim_nastroje", label: "Platím nástroje", description: "Kolik AI nástrojů si respondent platí ze svého. 0 = žádný, 1 = jeden, 2 = více." },
+    { key: "pouzivam_nastroje", label: "Používám nást.", description: "Počet AI nástrojů, které respondent aktivně používá (0–14)." },
+    { key: "schopnosti", label: "Schopnosti", description: "Kompozit z platby za nástroje a aktivního používání (log. škálování). Škála 0–10." },
+    { key: "zkouseni", label: "Zkoušení", description: "Průměr tří ukazatelů: experimentování v práci, pomoc kolegům a ukazování inovací na poradách. Škála 1–10." },
+    { key: "bavi_prace", label: "Baví práce", description: "Jak moc respondenta baví jeho práce v současné podobě. Škála 1–10." },
+    { key: "prehlcenost", label: "Přehlcenost", lowerIsBetter: true, description: "Jak často se respondent cítí přehlcený informacemi a úkoly. Škála 1–10, nižší = lepší." },
+    { key: "prescasy", label: "Přesčasy", lowerIsBetter: true, description: "Jak často respondent pracuje přesčas. Škála 1–10, nižší = lepší." },
+    { key: "strach_z_ai", label: "Obavy z AI", lowerIsBetter: true, description: "Jak moc se respondent bojí, že mu AI může vzít práci. Škála 1–10, nižší = lepší." },
+    { key: "index_umim", label: "Index Umím", emphasized: true, description: "Hlavní ukazatel AI kompetencí. Průměr Znalostí a Schopností. Škála 0–10." },
+    { key: "index_chci", label: "Index Chci", emphasized: true, description: "Motivace k AI adopci. Základ ze Zkoušení + korekce za radost z práce, obavy a přehlcenost. Škála 1–10." },
+  ]}
+  data={[
+    { jmeno: "Michelle Muchová", kategorie: "Kancelář + HR", spravnost_odpovedi: 5, znam_nastroje: 14, znalosti: 8.57, platim_nastroje: 0, pouzivam_nastroje: 4, schopnosti: 3.0, zkouseni: 7.33, bavi_prace: 9.0, prehlcenost: 3.0, prescasy: 1.0, strach_z_ai: 3.0, index_umim: 6.64, index_chci: 8.0 },
+    { jmeno: "Veronika Vajdiaková", kategorie: "Kancelář + HR", spravnost_odpovedi: 4, znam_nastroje: 8, znalosti: 5.71, platim_nastroje: 1, pouzivam_nastroje: 3, schopnosti: 4.0, zkouseni: 7.0, bavi_prace: 10.0, prehlcenost: 2.0, prescasy: 2.0, strach_z_ai: 2.0, index_umim: 6.63, index_chci: 8.3 },
+    { jmeno: "Karel Krucký", kategorie: "Vedení", spravnost_odpovedi: 5, znam_nastroje: 10, znalosti: 7.14, platim_nastroje: 2, pouzivam_nastroje: 6, schopnosti: 6.0, zkouseni: 8.0, bavi_prace: 5.0, prehlcenost: 9.0, prescasy: 9.0, strach_z_ai: 1.0, index_umim: 6.38, index_chci: 6.9 },
+    { jmeno: "Aneta Marinkovič", kategorie: "Vedení", spravnost_odpovedi: 4, znam_nastroje: 9, znalosti: 6.07, platim_nastroje: 1, pouzivam_nastroje: 4, schopnosti: 4.0, zkouseni: 7.33, bavi_prace: 9.0, prehlcenost: 7.0, prescasy: 7.0, strach_z_ai: 2.0, index_umim: 6.0, index_chci: 7.6 },
+    { jmeno: "Kateřina Weiserová", kategorie: "Speciální pedagog", spravnost_odpovedi: 4, znam_nastroje: 5, znalosti: 4.64, platim_nastroje: 1, pouzivam_nastroje: 3, schopnosti: 4.0, zkouseni: 1.67, bavi_prace: 7.0, prehlcenost: 5.0, prescasy: 8.0, strach_z_ai: 2.0, index_umim: 5.7, index_chci: 2.9 },
+    { jmeno: "Michaela Týblová", kategorie: "Kancelář + HR", spravnost_odpovedi: 4, znam_nastroje: 9, znalosti: 6.07, platim_nastroje: 1, pouzivam_nastroje: 5, schopnosti: 5.0, zkouseni: 7.0, bavi_prace: 9.0, prehlcenost: 8.0, prescasy: 7.0, strach_z_ai: 1.0, index_umim: 5.68, index_chci: 7.4 },
+    { jmeno: "Daniela Kovaříková", kategorie: "Speciální pedagog", spravnost_odpovedi: 5, znam_nastroje: 3, znalosti: 4.64, platim_nastroje: 2, pouzivam_nastroje: 3, schopnosti: 6.0, zkouseni: 6.33, bavi_prace: 8.0, prehlcenost: 7.0, prescasy: 5.0, strach_z_ai: 1.0, index_umim: 4.86, index_chci: 6.5 },
+    { jmeno: "Monika Miňovská", kategorie: "Vedení", spravnost_odpovedi: 7, znam_nastroje: 4, znalosti: 6.43, platim_nastroje: 1, pouzivam_nastroje: 4, schopnosti: 4.0, zkouseni: 5.33, bavi_prace: 10.0, prehlcenost: 7.0, prescasy: 7.0, strach_z_ai: 2.0, index_umim: 4.32, index_chci: 6.0 },
+    { jmeno: "Ilona Jará Svobodová", kategorie: "Speciální pedagog", spravnost_odpovedi: 6, znam_nastroje: 5, znalosti: 6.07, platim_nastroje: 0, pouzivam_nastroje: 3, schopnosti: 2.0, zkouseni: 6.33, bavi_prace: 9.0, prehlcenost: 9.0, prescasy: 8.0, strach_z_ai: 5.0, index_umim: 4.3, index_chci: 6.4 },
+    { jmeno: "Kateřina Junková", kategorie: "Kancelář + HR", spravnost_odpovedi: 6, znam_nastroje: 6, znalosti: 6.43, platim_nastroje: 0, pouzivam_nastroje: 2, schopnosti: 2.0, zkouseni: 6.33, bavi_prace: 9.0, prehlcenost: 2.0, prescasy: 2.0, strach_z_ai: 2.0, index_umim: 4.0, index_chci: 7.5 },
+    { jmeno: "Michaela Krucká", kategorie: "Kancelář + HR", spravnost_odpovedi: 4, znam_nastroje: 7, znalosti: 5.36, platim_nastroje: 0, pouzivam_nastroje: 2, schopnosti: 2.0, zkouseni: 5.33, bavi_prace: 7.0, prehlcenost: 3.0, prescasy: 3.0, strach_z_ai: 2.0, index_umim: 3.64, index_chci: 6.3 },
+    { jmeno: "Daniela Petřeková", kategorie: "Speciální pedagog", spravnost_odpovedi: 5, znam_nastroje: 6, znalosti: 5.71, platim_nastroje: 0, pouzivam_nastroje: 4, schopnosti: 3.0, zkouseni: 5.67, bavi_prace: 6.0, prehlcenost: 6.0, prescasy: 6.0, strach_z_ai: 2.0, index_umim: 3.63, index_chci: 6.0 },
+    { jmeno: "Petra Pospíšilová", kategorie: "Kancelář + HR", spravnost_odpovedi: 2, znam_nastroje: 3, znalosti: 2.5, platim_nastroje: 0, pouzivam_nastroje: 2, schopnosti: 2.0, zkouseni: 6.67, bavi_prace: 10.0, prehlcenost: 10.0, prescasy: 10.0, strach_z_ai: 2.0, index_umim: 3.23, index_chci: 7.0 },
+    { jmeno: "Markéta Nováková", kategorie: "Speciální pedagog", spravnost_odpovedi: 5, znam_nastroje: 4, znalosti: 5.0, platim_nastroje: 0, pouzivam_nastroje: 3, schopnosti: 2.0, zkouseni: 6.33, bavi_prace: 7.0, prehlcenost: 7.0, prescasy: 5.0, strach_z_ai: 1.0, index_umim: 3.2, index_chci: 6.5 },
+    { jmeno: "Jana Kosecová", kategorie: "Vedení", spravnost_odpovedi: 6, znam_nastroje: 9, znalosti: 7.5, platim_nastroje: 0, pouzivam_nastroje: 3, schopnosti: 2.0, zkouseni: 6.0, bavi_prace: 8.0, prehlcenost: 7.0, prescasy: 7.0, strach_z_ai: 2.0, index_umim: 2.88, index_chci: 6.6 },
+    { jmeno: "Pavla Dušková", kategorie: "Speciální pedagog", spravnost_odpovedi: 2, znam_nastroje: 3, znalosti: 2.5, platim_nastroje: 0, pouzivam_nastroje: 2, schopnosti: 2.0, zkouseni: 3.0, bavi_prace: 10.0, prehlcenost: 2.0, prescasy: 1.0, strach_z_ai: 2.0, index_umim: 2.58, index_chci: 5.0 },
+  ]}
+  previousData={[
+    { jmeno: "Aneta Marinkovič", spravnost_odpovedi: 4, znam_nastroje: 4, znalosti: 4.29, platim_nastroje: 1, pouzivam_nastroje: 3, schopnosti: 4.0, zkouseni: 7.67, strach_z_ai: 2.0, index_umim: 4.14, index_chci: 7.4 },
+    { jmeno: "Jana Kosecová", spravnost_odpovedi: 4, znam_nastroje: 5, znalosti: 4.64, platim_nastroje: 0, pouzivam_nastroje: 1, schopnosti: 1.0, zkouseni: 7.0, strach_z_ai: 1.0, index_umim: 2.82, index_chci: 7.3 },
+    { jmeno: "Karel Krucký", spravnost_odpovedi: 6, znam_nastroje: 7, znalosti: 6.79, platim_nastroje: 2, pouzivam_nastroje: 4, schopnosti: 6.0, zkouseni: 6.33, strach_z_ai: 1.0, index_umim: 6.39, index_chci: 6.7 },
+    { jmeno: "Michaela Týblová", spravnost_odpovedi: 3, znam_nastroje: 5, znalosti: 3.93, platim_nastroje: 1, pouzivam_nastroje: 2, schopnosti: 4.0, zkouseni: 9.0, strach_z_ai: 1.0, index_umim: 3.96, index_chci: 8.7 },
+  ]}
+/>
+
+## Potenciální ambasadoři
+
+<Callout type="positive">
+  Čtyři lidé mohou táhnout AI adopci – a každý z jiného úhlu. Zřizovatel, který sám kóduje. Koordinátorka, která učí učitele. Asistentka, která zná víc nástrojů než kdokoli jiný. A HR specialistka s nakažlivým nadšením.
+</Callout>
+
+**Karel Krucký** (Umím **6,4**, Chci **6,9**) – zřizovatel škol a nejzkušenější uživatel AI v organizaci. Používá **6 nástrojů** aktivně, **2** si platí, pracuje s Cursorem na automatizacích. Sám říká: *„Snažím se už o to pět let, aby mě nepotřebovali."* AI je pro něj cesta, jak předat rutinní práci a věnovat se lidem.
+
+**Aneta Marinkovič** (Umím **6,0**, Chci **7,6**) – vedoucí školního poradenského pracoviště, koordinuje speciální pedagogy napříč školami. Už dnes používá TLDV pro zápisy z porad, NotebookLM pro legislativu a projekty v ChatGPT pro páteční oběžníky. Aktivně šíří AI mezi učitele: *„Ukazovala jsem jim, jak se z toho dělá podcast – byly z toho natřený."*
+
+**Michelle Muchová** (Umím **6,6**, Chci **8,0**) – zná **14 AI nástrojů** (nejvíc v celém týmu), experimentuje mimo práci (**10/10**). Jako kancelářská podpora má přehled o procesech napříč organizací, což z ní dělá ideální osobu pro identifikaci dalších příležitostí.
+
+**Veronika Vajdiaková** (Umím **6,6**, Chci **8,3**) – nejvyšší motivace v týmu, práce ji baví (**10/10**), ve firmě rok. Její praktické dovednosti (**8,4**) jsou nejvyšší ze všech, přestože teoretické znalosti jsou průměrné. Typický profil člověka, který se učí děláním.
+
+## Postřehy z rozhovorů
+
+Se **7 členy týmu** proběhly individuální **45minutové rozhovory**.
+
+**Aneta Marinkovič** (vedoucí spec. ped.) – nejvíc pokročilá z dotazovaných v práci s AI. Používá TLDV pro automatické zápisy z porad, ChatGPT projekty pro oběžníky, NotebookLM pro legislativu. Hlavní bolest: **150 individuálních vzdělávacích plánů**, které se kontrolují ručně. Už s Tomášem testovala automatizovanou kontrolu – zjistili, že problém není v AI, ale v tom, že učitelé nedodržují pravidla vyplňování. Letos pravidla přepracovali.
+
+**Daniela Kovaříková** (speciální pedagožka) – vedoucí pracoviště. Používá ChatGPT pro přepisování emailů a pátečních oběžníků, Canvu pro materiály. Hlavní problém: **150 karet konzultací** kontrolovaných měsíčně, dokument po dokumentu. Když najde chybu, okomentuje, učitel „opraví", ona musí znovu zkontrolovat. *„Někteří učitele jsou takoví experti, že nám tam dají sice vyřešeno, ale nic se tam nezmění."*
+
+**Jana Kosecová** (vedoucí RSO) – vedoucí v Karlovarském kraji, nově i vedoucí studijního oddělení. Používá ChatGPT k formátování zápisů z porad. Úkoly si eviduje přes hvězdičky v Gmailu a papírky. Při rozhovoru otevřená novým možnostem, ale praktické zkušenosti jsou zatím minimální (Index Umím **2,9**, praxe **1,0**).
+
+**Kateřina Junková** (RSO) – studijní referentka, ve škole od ledna. Zdědila chaotický Google Disk s duplicitními složkami. V létě bude ručně vyplňovat **60 přijímacích formulářů**. Má dvě tabulky žáků, které nekorespondují a potřebují sloučit. Absolvovala Nalejvárnu a ví, kde by AI pomohla.
+
+**Kateřina Weiserová** (speciální pedagožka) – 8 let ve firmě, **70 žáků** napříč **7 zařízeními**. Hodně cestuje, hodně administrativy. IVP dokumenty kontroluje desítky. Nízká motivace v dotazníku (**2,9**) neodráží odpor k AI, ale kapacitní vyčerpanost.
+
+**Pavla Dušková** (speciální pedagožka) – terénní, ve firmě **2 týdny**. Teprve se orientuje v systémech, nemá co automatizovat. Ale má pozitivní přístup a ráda se učí.
+
+**Petra Pospíšilová** (kancelář) – účetní, pracuje s VFLOW, Pohodou, e-dokladem a Excelem denně. Hlavní problém: **dodací listy** vznikají ručním kopírováním položek z faktur do Excelu. Má **7 emailových schránek**. Přehlcenost a přesčasy na maximu (**10/10**). Používá ChatGPT a Gemini pro formulaci emailů a vyhledávání.
+
+## Rizikové profily
+
+<Callout type="warning">
+  V Euroinstitutu nejsou klasické rizikové profily – nikdo nemá kombinaci nízkých znalostí, nízké motivace a vysokého strachu. Nejbližší pozornosti vyžaduje **K. Weiserová**, ale z důvodu kapacity, ne odmítání AI.
+</Callout>
+
+**Kateřina Weiserová** (Umím **5,7**, Chci **2,9**) – nejnižší motivace v týmu, ale vysoké znalosti. Problém není v přístupu k AI. Weiserová objíždí 7 zařízení, stará se o 70 žáků a letos jí přibyla administrativa. Na další „novinku" nemá kapacitu. Řešení: ukázat jí konkrétní úsporu na procesech, které ji reálně trápí (kontrola IVP, cestování).
+
+**Pavla Dušková** (Umím **2,6**, Chci **5,0**) – ve firmě 2 týdny, orientuje se. Nízké znalosti jsou přirozené; motivace je průměrná. Potřebuje čas na zaběhnutí, ne speciální přístup.
