@@ -1,0 +1,41 @@
+---
+title: Test komponenty
+description: Executive Summary komponenty
+---
+
+## TeamMapChart – Tým vs. trh
+
+<TeamMapChart
+  teamName="Finance"
+  teamUmim={3.96}
+  teamChci={5.89}
+  teamRozptyl={1.19}
+  benchmarkUmim={3.9}
+  benchmarkChci={5.83}
+  benchmarkRozptyl={1.0}
+  individuals={[
+    { jmeno: "Leona Holíková", kategorie: "HR", index_umim: 3.10, index_chci: 4.9 },
+    { jmeno: "Ivana Bendová", kategorie: "Support", index_umim: 0.93, index_chci: 5.5 },
+    { jmeno: "Jan Ascherl", kategorie: "AML", index_umim: 1.86, index_chci: 6.9 },
+    { jmeno: "Lucia Čabajová", kategorie: "Finance", index_umim: 2.64, index_chci: 6.1 },
+    { jmeno: "František Jíša", kategorie: "Management", index_umim: 7.14, index_chci: 6.1 },
+    { jmeno: "Duc Minh Hoang", kategorie: "Analytik", index_umim: 5.36, index_chci: 7.4 },
+    { jmeno: "Iveta Polášíková", kategorie: "Support", index_umim: 2.64, index_chci: 5.6 },
+    { jmeno: "Geis Kaltounová", kategorie: "Analytik", index_umim: 5.00, index_chci: 4.8 },
+    { jmeno: "Zdeněk Král", kategorie: "Controlling", index_umim: 4.64, index_chci: 6.8 },
+    { jmeno: "Dominika Langová", kategorie: "Support", index_umim: 2.29, index_chci: 4.8 }
+  ]}
+/>
+
+## ProcessMatrix – Impact/Effort
+
+<ProcessMatrix
+  processes={[
+    { name: "Ruční reporty v Excelu", impact: 5, effort: 2, lossDays: 45, lossKc: 315000, who: "Celý tým", frequency: "Denně", tools: "ChatGPT + Python scripty" },
+    { name: "Kopírování dat mezi systémy", impact: 4, effort: 3, lossDays: 30, lossKc: 210000, who: "3 lidé", frequency: "Denně", tools: "Make.com / n8n" },
+    { name: "Ruční kontrola faktur", impact: 3, effort: 1, lossDays: 20, lossKc: 140000, who: "Lucia, Ivana", frequency: "Týdně", tools: "Rossum / Mindee" },
+    { name: "Příprava prezentací pro board", impact: 4, effort: 4, lossDays: 15, lossKc: 105000, who: "František, Zdeněk", frequency: "Měsíčně", tools: "Gamma / Beautiful.ai" },
+    { name: "Manuální onboarding dokumentace", impact: 2, effort: 2, lossDays: 8, lossKc: 56000, who: "Leona", frequency: "Kvartálně", tools: "Notion AI" }
+  ]}
+  licenseCostYearly={180000}
+/>
