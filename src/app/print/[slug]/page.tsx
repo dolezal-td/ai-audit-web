@@ -7,6 +7,7 @@ import { TeamRadar } from "@/components/charts/team-radar";
 import { ScatterPlotChart } from "@/components/charts/scatter-plot";
 import { HeatmapTable } from "@/components/charts/heatmap-table";
 import { ActivityHeatmap } from "@/components/charts/activity-heatmap";
+import { ActivityBubbleChart } from "@/components/charts/activity-bubble-chart";
 import { ToolsHeatmap } from "@/components/charts/tools-heatmap";
 import { MetricCards } from "@/components/ui/metric-cards";
 import { Callout } from "@/components/ui/callout";
@@ -52,6 +53,7 @@ const mdxComponents = {
   ScatterPlotChart,
   HeatmapTable,
   ActivityHeatmap,
+  ActivityBubbleChart,
   ToolsHeatmap,
   MetricCards,
   Callout,
