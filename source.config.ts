@@ -16,4 +16,8 @@ export const jtreProjektoveRizeni = defineDocs({
   dir: 'content/jtre-projektove-rizeni',
 });
 
+export const euroinstitut = defineDocs({
+  dir: 'content/euroinstitut',
+});
+
 export default defineConfig();

@@ -18,6 +18,9 @@ import { Callout } from '@/components/ui/callout';
 import { PeopleHeatmap } from '@/components/charts/people-heatmap';
 import { Mermaid } from '@/components/ui/mermaid';
 import { MdxTable, MdxTh, MdxTd } from '@/components/ui/mdx-table';
+import { TeamMapChart } from '@/components/charts/team-map-chart';
+import { ProcessMatrix } from '@/components/charts/process-matrix';
+import { RoadmapTimeline } from '@/components/ui/roadmap-timeline';
 
 export default async function Page(props: {
   params: Promise<{ slug?: string[] }>;
@@ -50,6 +53,9 @@ export default async function Page(props: {
           Callout,
           PeopleHeatmap,
           Mermaid,
+          TeamMapChart,
+          ProcessMatrix,
+          RoadmapTimeline,
         }} />
       </DocsBody>
     </DocsPage>

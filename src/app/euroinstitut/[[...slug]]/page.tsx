@@ -1,4 +1,4 @@
-import { jtreProjektoveRizeniSource } from '@/lib/source';
+import { euroinstitutSource } from '@/lib/source';
 import {
   DocsPage,
   DocsBody,
@@ -18,17 +18,14 @@ import { Callout } from '@/components/ui/callout';
 import { PeopleHeatmap } from '@/components/charts/people-heatmap';
 import { Mermaid } from '@/components/ui/mermaid';
 import { MdxTable, MdxTh, MdxTd } from '@/components/ui/mdx-table';
-import { TeamMapChart } from '@/components/charts/team-map-chart';
-import { ProcessMatrix } from '@/components/charts/process-matrix';
-import { RoadmapTimeline } from '@/components/ui/roadmap-timeline';
 
 export default async function Page(props: {
   params: Promise<{ slug?: string[] }>;
 }) {
   const params = await props.params;
-  if (!params.slug) redirect('/jtre-projektove-rizeni/uvod');
+  if (!params.slug) redirect('/euroinstitut/uvod');
 
-  const page = jtreProjektoveRizeniSource.getPage(params.slug);
+  const page = euroinstitutSource.getPage(params.slug);
   if (!page) notFound();
 
   const MDX = page.data.body;
@@ -53,9 +50,6 @@ export default async function Page(props: {
           Callout,
           PeopleHeatmap,
           Mermaid,
-          TeamMapChart,
-          ProcessMatrix,
-          RoadmapTimeline,
         }} />
       </DocsBody>
     </DocsPage>
@@ -63,14 +57,14 @@ export default async function Page(props: {
 }
 
 export async function generateStaticParams() {
-  return jtreProjektoveRizeniSource.generateParams();
+  return euroinstitutSource.generateParams();
 }
 
 export async function generateMetadata(props: {
   params: Promise<{ slug?: string[] }>;
 }) {
   const params = await props.params;
-  const page = jtreProjektoveRizeniSource.getPage(params.slug);
+  const page = euroinstitutSource.getPage(params.slug);
   if (!page) notFound();
 
   return {

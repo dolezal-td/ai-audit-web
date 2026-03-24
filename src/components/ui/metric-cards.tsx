@@ -9,10 +9,21 @@ interface MetricData {
   benchmark: number;
   description?: string;
   lowerIsBetter?: boolean;
+  maxValue?: number;
+  color?: string;
 }
 
 interface MetricCardsProps {
   data: MetricData[];
+}
+
+function hexToRgb(hex: string) {
+  const h = hex.replace("#", "");
+  return {
+    r: parseInt(h.substring(0, 2), 16),
+    g: parseInt(h.substring(2, 4), 16),
+    b: parseInt(h.substring(4, 6), 16),
+  };
 }
 
 function MetricTooltip({
@@ -58,16 +69,26 @@ export function MetricCards({ data }: MetricCardsProps) {
       {data.map((metric) => {
         const diff = metric.value - metric.benchmark;
         const isGood = metric.lowerIsBetter ? diff <= 0 : diff >= 0;
-        const pct = Math.min((metric.value / 10) * 100, 100);
-        const benchmarkPct = Math.min((metric.benchmark / 10) * 100, 100);
+        const scale = metric.maxValue ?? 10;
+        const pct = Math.min((metric.value / scale) * 100, 100);
+        const benchmarkPct = Math.min((metric.benchmark / scale) * 100, 100);
+        const color = metric.color;
+        const rgb = color ? hexToRgb(color) : null;
 
         return (
           <div
             key={metric.title}
             className="rounded-2xl border bg-fd-card p-6 flex flex-col gap-3 sm:aspect-square justify-between"
+            style={color ? {
+              borderColor: `rgba(${rgb!.r}, ${rgb!.g}, ${rgb!.b}, 0.25)`,
+              backgroundColor: `rgba(${rgb!.r}, ${rgb!.g}, ${rgb!.b}, 0.04)`,
+            } : undefined}
           >
             <div className="flex items-start justify-between gap-1">
-              <span className="text-sm font-medium text-fd-muted-foreground leading-tight">
+              <span
+                className="text-sm font-medium leading-tight"
+                style={color ? { color } : undefined}
+              >
                 {metric.title}
               </span>
               {metric.description && (
@@ -84,12 +105,19 @@ export function MetricCards({ data }: MetricCardsProps) {
             </span>
 
             <div className="flex flex-col gap-2">
-              <div className="relative h-2.5 rounded-full bg-fd-muted">
+              <div
+                className="relative h-2.5 rounded-full"
+                style={{
+                  backgroundColor: color
+                    ? `rgba(${rgb!.r}, ${rgb!.g}, ${rgb!.b}, 0.12)`
+                    : undefined,
+                }}
+              >
                 <div
                   className="absolute h-full rounded-full transition-all"
                   style={{
                     width: `${pct}%`,
-                    backgroundColor: "var(--ak-primary)",
+                    backgroundColor: color || "var(--ak-primary)",
                   }}
                 />
                 <div

@@ -173,8 +173,8 @@ export function ScatterPlotChart({
 
   return (
     <div className="w-full my-8 min-w-0 overflow-hidden">
-      {/* Filtrování skupin */}
-      <div className="flex flex-wrap items-center gap-3 mb-4">
+      {/* Filtrování skupin — skrýt při jedné skupině */}
+      {groupNames.length > 1 && <div className="flex flex-wrap items-center gap-3 mb-4">
         {groupNames.map((group) => {
           const isActive = activeGroups.has(group);
           const color = GROUP_COLORS[group] || GROUP_COLORS.default;
@@ -209,7 +209,7 @@ export function ScatterPlotChart({
             Zobrazit vše
           </button>
         )}
-      </div>
+      </div>}
 
       <div
         ref={containerRef}
@@ -417,9 +417,11 @@ export function ScatterPlotChart({
           {displayPerson && (
             <div className="rounded-lg border bg-fd-card px-3 py-2 text-sm shadow-md whitespace-nowrap">
               <p className="font-semibold">{displayPerson.jmeno}</p>
-              <p className="text-fd-muted-foreground text-xs">
-                {displayPerson.kategorie}
-              </p>
+              {groupNames.length > 1 && (
+                <p className="text-fd-muted-foreground text-xs">
+                  {displayPerson.kategorie}
+                </p>
+              )}
               <div className="mt-1 space-y-0.5">
                 <p>
                   Umím:{" "}
