@@ -179,7 +179,7 @@ export function TeamMapChart({
     const m: { title: string; value: number; benchmark: number; description?: string; lowerIsBetter?: boolean; color?: string; maxValue?: number }[] = [
       { title: "Index Umím", value: teamUmim, benchmark: benchmarkUmim, description: "Kombinace znalostí, praktických schopností a míry zkoušení AI nástrojů. Škála 0–10.", color: "#2563EB" },
       { title: "Index Chci", value: teamChci, benchmark: benchmarkChci, description: "Motivace k používání AI – ochota experimentovat, zájem o vzdělávání. Škála 0–10.", color: "#EA580C" },
-      { title: "Index rozptylu", value: teamRozptyl, benchmark: benchmarkRozptyl, description: "Jak moc je tým nejednotný. 1 = jako trh, >1 = rozházenější, <1 = jednotnější.", lowerIsBetter: true, color: "#059669" },
+      { title: "Index rozptylu", value: teamRozptyl, benchmark: benchmarkRozptyl, description: "Jak moc je tým nejednotný. 1 = jako trh, >1 = rozházenější, <1 = jednotnější.", lowerIsBetter: true, color: "#059669", maxValue: 2 },
     ];
     if (prehlcenost != null && benchmarkPrehlcenost != null) {
       m.push({ title: "Přehlcenost", value: prehlcenost, benchmark: benchmarkPrehlcenost, description: "Subjektivní pocit zahlcení prací. Nižší = lepší. Škála 1–10.", lowerIsBetter: true, color: "#991B1B" });
