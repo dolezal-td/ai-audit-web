@@ -21,6 +21,7 @@ import { MdxTable, MdxTh, MdxTd } from '@/components/ui/mdx-table';
 import { TeamMapChart } from '@/components/charts/team-map-chart';
 import { ProcessMatrix } from '@/components/charts/process-matrix';
 import { RoadmapTimeline } from '@/components/ui/roadmap-timeline';
+import { InfoModal } from '@/components/ui/info-modal';
 
 export default async function Page(props: {
   params: Promise<{ slug?: string[] }>;
@@ -32,11 +33,12 @@ export default async function Page(props: {
   if (!page) notFound();
 
   const MDX = page.data.body;
+  const isUvod = params.slug?.[0] === 'uvod';
 
   return (
     <DocsPage toc={page.data.toc} full={page.data.full}>
-      <DocsTitle>{page.data.title}</DocsTitle>
-      <DocsDescription>{page.data.description}</DocsDescription>
+      {!isUvod && <DocsTitle>{page.data.title}</DocsTitle>}
+      {!isUvod && <DocsDescription>{page.data.description}</DocsDescription>}
       <DocsBody>
         <MDX components={{
           ...defaultMdxComponents,
@@ -56,6 +58,7 @@ export default async function Page(props: {
           TeamMapChart,
           ProcessMatrix,
           RoadmapTimeline,
+          InfoModal,
         }} />
       </DocsBody>
     </DocsPage>

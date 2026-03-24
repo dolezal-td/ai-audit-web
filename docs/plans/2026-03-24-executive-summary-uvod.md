@@ -1,3 +1,160 @@
+# Executive Summary – nový úvod pro JTRE Projektové řízení
+
+> **For Claude:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task.
+
+**Goal:** Přepsat `uvod.mdx` pro JTRE Projektové řízení na executive summary – vizuální dashboard pro předávací schůzku s Knobem.
+
+**Architecture:** Nový `uvod.mdx` využívá existující komponenty (TeamMapChart, ProcessMatrix, RoadmapTimeline) + novou modální komponentu pro skrytý obsah. Starý úvod zůstane v git historii. Feature branch se mergne do main.
+
+**Tech Stack:** MDX, React komponenty (TeamMapChart, ProcessMatrix, RoadmapTimeline), nová Modal komponenta (Radix Dialog), Tailwind CSS
+
+---
+
+## Prerekvizita: Git – záloha a merge
+
+### Task 0: Commitnout uncommitted změny a mergovat feature branch
+
+**Files:**
+- Modify: `web/content/jtre-projektove-rizeni/*.mdx` (staged)
+- Modify: `web/content/jtre-*/data.json` (staged)
+
+**Step 1: Commitnout uncommitted práci na feature branchi**
+
+```bash
+cd /Users/tomasdolezal/Developer/ai-audit/web
+git add content/jtre-projektove-rizeni/ content/jtre-finance/data.json content/jtre-obchod/data.json content/jtre/data.json
+git commit -m "WIP: rozpracovaný obsah projektové řízení + data.json updates"
+```
+
+**Step 2: Mergovat feature branch do main**
+
+```bash
+git checkout main
+git merge feature/executive-summary --no-ff -m "Merge feature/executive-summary: komponenty TeamMapChart, ProcessMatrix, RoadmapTimeline + Euroinstitut report"
+```
+
+Expected: merge proběhne bez konfliktů (feature branch je ahead of main).
+
+**Step 3: Ověřit, že build projde**
+
+```bash
+npm run build
+```
+
+Expected: build PASS, žádné errory.
+
+**Step 4: Vytvořit pracovní branch pro nový úvod**
+
+```bash
+git checkout -b feature/executive-summary-uvod
+```
+
+---
+
+## Task 1: Modal komponenta
+
+**Files:**
+- Create: `web/src/components/ui/info-modal.tsx`
+
+**Proč:** Perex potřebuje 2 modální tlačítka (navigace v reportu, metodika měření) – dnes žádná modal komponenta neexistuje.
+
+**Step 1: Vytvořit komponentu**
+
+```tsx
+// web/src/components/ui/info-modal.tsx
+"use client";
+
+import { useState } from "react";
+
+interface InfoModalProps {
+  trigger: string;
+  title: string;
+  children: React.ReactNode;
+}
+
+export function InfoModal({ trigger, title, children }: InfoModalProps) {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <>
+      <button
+        onClick={() => setOpen(true)}
+        className="inline-flex items-center gap-1.5 rounded-md border border-fd-border bg-fd-card px-3 py-1.5 text-sm font-medium text-fd-foreground hover:bg-fd-accent transition-colors cursor-pointer"
+      >
+        {trigger}
+      </button>
+
+      {open && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4"
+          onClick={() => setOpen(false)}
+        >
+          <div className="fixed inset-0 bg-black/50" />
+          <div
+            className="relative z-10 w-full max-w-2xl max-h-[80vh] overflow-y-auto rounded-xl border border-fd-border bg-fd-card p-6 shadow-xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-lg font-semibold">{title}</h3>
+              <button
+                onClick={() => setOpen(false)}
+                className="text-fd-muted-foreground hover:text-fd-foreground text-xl leading-none cursor-pointer"
+              >
+                ✕
+              </button>
+            </div>
+            <div className="prose prose-sm dark:prose-invert max-w-none">
+              {children}
+            </div>
+          </div>
+        </div>
+      )}
+    </>
+  );
+}
+```
+
+**Step 2: Registrovat v page.tsx**
+
+V `web/src/app/jtre-projektove-rizeni/[[...slug]]/page.tsx` přidat:
+
+```tsx
+import { InfoModal } from '@/components/ui/info-modal';
+```
+
+A do `components` objektu v MDX:
+
+```tsx
+InfoModal,
+```
+
+**Step 3: Ověřit build**
+
+```bash
+npm run build
+```
+
+Expected: PASS
+
+**Step 4: Commit**
+
+```bash
+git add src/components/ui/info-modal.tsx src/app/jtre-projektove-rizeni/\[\[...slug\]\]/page.tsx
+git commit -m "Nová komponenta InfoModal pro skrytý obsah v perexu"
+```
+
+---
+
+## Task 2: Nový uvod.mdx
+
+**Files:**
+- Modify: `web/content/jtre-projektove-rizeni/uvod.mdx` (kompletní přepis)
+
+**Step 1: Přepsat uvod.mdx**
+
+Kompletní nový obsah:
+
+```mdx
 ---
 title: Přehled
 description: Executive summary AI auditu pro oddělení projektového řízení JTRE
@@ -86,7 +243,7 @@ Provedl jsem AI audit oddělení projektového řízení firmy JTRE – **15 res
 
 </div>
 
-<Callout type="insight">
+<Callout type="info">
   Audiopřehled se připravuje. Brzy zde bude k dispozici shrnutí celého reportu ve formě krátkého audio záznamu.
 </Callout>
 
@@ -150,14 +307,11 @@ Provedl jsem AI audit oddělení projektového řízení firmy JTRE – **15 res
 | | Přenos dat mezi tabulkami – Power Automate (Holan, Falťan) | AI zápisy z kontrolních dnů – Knob testoval měsíc, nefunguje pro jejich styl |
 | | Benchmark konkurence – AI rešerše pro Kočího | SharePoint optimalizace – IT záležitost mimo scope |
 
-<InfoModal trigger="Jak číst matici" title="Vysvětlivky ke kvadrantům">
-  <ul>
-    <li><strong>Nalejvárna</strong> – quick wins, které si účastníci odnesou rovnou z workshopu. Společný vzorec: vezměte PDF, které už máte v ruce, a nechte AI ho přečíst.</li>
-    <li><strong>Hackathon</strong> – vysoký dopad, ale vyžaduje přípravu. Cashflow automatizace má největší měřitelnou úsporu; systém stavu projektů řeší kořenovou příčinu většiny problémů oddělení.</li>
-    <li><strong>Individuální práce</strong> – menší dopad na oddělení, ale velký pro konkrétního člověka.</li>
-    <li><strong>Neřešit</strong> – vysoká pracnost při nízkém dopadu, nebo už ověřeno, že nefunguje.</li>
-  </ul>
-</InfoModal>
+**Jak to číst:**
+- **Nalejvárna** – quick wins, které si účastníci odnesou rovnou z workshopu. Společný vzorec: vezměte PDF, které už máte v ruce, a nechte AI ho přečíst.
+- **Hackathon** – vysoký dopad, ale vyžaduje přípravu. Cashflow automatizace má největší měřitelnou úsporu; systém stavu projektů řeší kořenovou příčinu většiny problémů oddělení.
+- **Individuální práce** – menší dopad na oddělení, ale velký pro konkrétního člověka.
+- **Neřešit** – vysoká pracnost při nízkém dopadu, nebo už ověřeno, že nefunguje.
 
 ## Co děláme a kdy
 
@@ -221,11 +375,11 @@ Provedl jsem AI audit oddělení projektového řízení firmy JTRE – **15 res
   Bez těchto tří věcí se nepohneme. Nejde o velké investice – jde o jasné signály, které odblokují další kroky.
 </Callout>
 
-**1. Licence a přístupy – připravené před Nalejvárnou.** ChatGPT Business pro celý tým (~9 000 Kč/měsíc), 5 licencí Microsoft 365 Copilot pro klíčové PM (~3 750 Kč/měsíc). Všichni přihlášení, funkční účty. Bez toho je workshop jen přednáška.
+**1. Otevřenou mysl.** AI se za poslední rok dramaticky posunula. Zkušenosti, které tým má – halucinace u norem, nesmyslné přepisy porad – vycházejí z doby, kdy AI uměla méně, nebo ze situací, kdy nedostala potřebný kontext. Dnes umí pracovat s vašimi dokumenty, číst PDF výkresy a z 80 stanovisek vytáhnout podmínky za minuty. Prosím, dejte jí druhou šanci.
 
-**2. Čas.** Přehlcenost oddělení je 6,1 – nad průměrem trhu. Kočí a Stáhlík reportují přesčasy 9 z 10. Nalejvárna musí být pracovní den, ne extra zátěž. Ambasadoři potřebují alokaci 2 hodiny týdně. Pokud tým nedostane prostor, nic se nezmění.
+**2. Licence a přístupy – připravené před Nalejvárnou.** ChatGPT Business pro celý tým (~9 000 Kč/měsíc), 5 licencí Microsoft 365 Copilot pro klíčové PM (~3 750 Kč/měsíc). Všichni přihlášení, funkční účty. Bez toho je workshop jen přednáška.
 
-**3. Otevřenou mysl.** AI se za poslední rok dramaticky posunula. Zkušenosti, které tým má – halucinace u norem, nesmyslné přepisy porad – vycházejí z doby, kdy AI uměla méně, nebo ze situací, kdy nedostala potřebný kontext. Dnes umí pracovat s vašimi dokumenty, číst PDF výkresy a z 80 stanovisek vytáhnout podmínky za minuty. Prosím, dejte jí druhou šanci.
+**3. Čas.** Přehlcenost oddělení je 6,1 – nad průměrem trhu. Kočí a Stáhlík reportují přesčasy 9 z 10. Nalejvárna musí být pracovní den, ne extra zátěž. Ambasadoři potřebují alokaci 2 hodiny týdně. Pokud tým nedostane prostor, nic se nezmění.
 
 {/* === EXPERIMENTÁLNÍ SEKCE – ProcessMatrix pro budoucí použití === */}
 
@@ -241,3 +395,106 @@ Provedl jsem AI audit oddělení projektového řízení firmy JTRE – **15 res
   licenseCostYearly={153000}
 />
 */}
+```
+
+**Step 2: Ověřit build**
+
+```bash
+npm run build
+```
+
+Expected: PASS
+
+**Step 3: Ověřit vizuálně**
+
+```bash
+npm run dev
+```
+
+Otevřít `localhost:3000/jtre-projektove-rizeni/uvod` a zkontrolovat:
+- [ ] Hero nadpis se zobrazuje správně
+- [ ] Modální tlačítka fungují (klik → overlay → obsah → zavření)
+- [ ] 5 bodů s velkými číslicemi
+- [ ] Audio placeholder callout
+- [ ] TeamMapChart se 3 taby
+- [ ] Kvadrantová tabulka procesů
+- [ ] RoadmapTimeline
+- [ ] Sekce „Co potřebuju od vás"
+- [ ] ProcessMatrix je zakomentovaná (neviditelná)
+
+**Step 4: Commit**
+
+```bash
+git add content/jtre-projektove-rizeni/uvod.mdx
+git commit -m "Executive summary: nový úvod pro projektové řízení"
+```
+
+---
+
+## Task 3: Aktualizace meta.json
+
+**Files:**
+- Modify: `web/content/jtre-projektove-rizeni/meta.json`
+
+**Step 1: Změnit title první stránky**
+
+V `meta.json` změnit label první stránky z „Úvod" na „Přehled" (pokud je tam explicitně).
+
+**Step 2: Ověřit sidebar**
+
+```bash
+npm run dev
+```
+
+Zkontrolovat, že sidebar ukazuje „Přehled" místo „Úvod".
+
+**Step 3: Commit**
+
+```bash
+git add content/jtre-projektove-rizeni/meta.json
+git commit -m "Sidebar: přejmenování Úvod → Přehled"
+```
+
+---
+
+## Task 4: Odstranění testovací stránky
+
+**Files:**
+- Delete: `web/content/jtre-finance/test-components.mdx`
+
+**Step 1: Smazat testovací stránku**
+
+Testovací stránka `test-components.mdx` v jtre-finance už není potřeba – komponenty jsou v produkčním použití.
+
+```bash
+rm web/content/jtre-finance/test-components.mdx
+```
+
+**Step 2: Ověřit build**
+
+```bash
+npm run build
+```
+
+Expected: PASS
+
+**Step 3: Commit**
+
+```bash
+git add -A content/jtre-finance/test-components.mdx
+git commit -m "Smazána testovací stránka pro executive summary komponenty"
+```
+
+---
+
+## Souhrn tasků
+
+| # | Task | Odhad |
+|---|---|---|
+| 0 | Git: commit + merge + nová branch | 5 min |
+| 1 | Modal komponenta | 10 min |
+| 2 | Nový uvod.mdx (kompletní obsah) | 5 min |
+| 3 | meta.json update | 2 min |
+| 4 | Smazání test-components.mdx | 2 min |
+
+Celkem: ~25 min implementace + vizuální kontrola.
