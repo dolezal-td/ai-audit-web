@@ -5,17 +5,23 @@ import { useState } from "react";
 interface InfoModalProps {
   trigger: string;
   title: string;
+  variant?: "primary" | "secondary";
   children: React.ReactNode;
 }
 
-export function InfoModal({ trigger, title, children }: InfoModalProps) {
+const variantClasses = {
+  primary: "bg-fd-primary text-fd-primary-foreground hover:bg-fd-primary/90 active:bg-fd-primary/80 shadow-sm",
+  secondary: "bg-fd-secondary text-fd-secondary-foreground hover:bg-fd-secondary/80 active:bg-fd-secondary/70 border border-fd-border",
+};
+
+export function InfoModal({ trigger, title, variant = "primary", children }: InfoModalProps) {
   const [open, setOpen] = useState(false);
 
   return (
     <>
       <button
         onClick={() => setOpen(true)}
-        className="inline-flex items-center gap-2 rounded-lg bg-fd-primary/10 px-4 py-2.5 text-sm font-semibold text-fd-primary hover:bg-fd-primary/20 active:bg-fd-primary/25 transition-colors cursor-pointer shadow-sm border border-fd-primary/20"
+        className={`inline-flex items-center gap-2 rounded-lg px-4 py-2.5 text-sm font-semibold transition-colors cursor-pointer ${variantClasses[variant]}`}
       >
         {trigger}
       </button>

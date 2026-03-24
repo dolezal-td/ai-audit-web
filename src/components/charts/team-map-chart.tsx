@@ -49,6 +49,16 @@ interface MetricDef {
   benchmark: number;
   description?: string;
   lowerIsBetter?: boolean;
+  color?: string;
+}
+
+function hexToRgb(hex: string) {
+  const h = hex.replace("#", "");
+  return {
+    r: parseInt(h.substring(0, 2), 16),
+    g: parseInt(h.substring(2, 4), 16),
+    b: parseInt(h.substring(4, 6), 16),
+  };
 }
 
 interface TeamMapChartProps {
@@ -119,16 +129,27 @@ function MetricTile({
   benchmark,
   description,
   lowerIsBetter,
+  color,
 }: MetricDef) {
   const diff = value - benchmark;
   const isGood = lowerIsBetter ? diff <= 0 : diff >= 0;
   const pct = Math.min((value / 10) * 100, 100);
   const benchmarkPct = Math.min((benchmark / 10) * 100, 100);
+  const rgb = color ? hexToRgb(color) : null;
 
   return (
-    <div className="rounded-2xl border bg-fd-card p-6 flex flex-col gap-3 sm:aspect-square justify-between">
+    <div
+      className="rounded-2xl border bg-fd-card p-6 flex flex-col gap-3 sm:aspect-square justify-between"
+      style={color ? {
+        borderColor: `rgba(${rgb!.r}, ${rgb!.g}, ${rgb!.b}, 0.25)`,
+        backgroundColor: `rgba(${rgb!.r}, ${rgb!.g}, ${rgb!.b}, 0.04)`,
+      } : undefined}
+    >
       <div className="flex items-start justify-between gap-1">
-        <span className="text-sm font-medium text-fd-muted-foreground leading-tight">
+        <span
+          className="text-sm font-medium leading-tight"
+          style={color ? { color } : { color: "var(--color-fd-muted-foreground)" }}
+        >
           {title}
         </span>
         {description && (
@@ -145,12 +166,19 @@ function MetricTile({
       </span>
 
       <div className="flex flex-col gap-2">
-        <div className="relative h-2.5 rounded-full bg-fd-muted">
+        <div
+          className="relative h-2.5 rounded-full"
+          style={{
+            backgroundColor: color
+              ? `rgba(${rgb!.r}, ${rgb!.g}, ${rgb!.b}, 0.12)`
+              : undefined,
+          }}
+        >
           <div
             className="absolute h-full rounded-full transition-all"
             style={{
               width: `${pct}%`,
-              backgroundColor: "var(--ak-primary)",
+              backgroundColor: color || "var(--ak-primary)",
             }}
           />
           <div
@@ -285,18 +313,18 @@ export function TeamMapChart({
   // Metriky — vždy viditelné
   const metrics: MetricDef[] = useMemo(() => {
     const m: MetricDef[] = [
-      { title: "Index Umím", value: teamUmim, benchmark: benchmarkUmim, description: "Kombinace znalostí, praktických schopností a míry zkoušení AI nástrojů. Škála 0–10." },
-      { title: "Index Chci", value: teamChci, benchmark: benchmarkChci, description: "Motivace k používání AI – ochota experimentovat, zájem o vzdělávání. Škála 0–10." },
-      { title: "Index rozptylu", value: teamRozptyl, benchmark: benchmarkRozptyl, description: "Jak moc je tým nejednotný. 1 = jako trh, >1 = rozházenější, <1 = jednotnější.", lowerIsBetter: true },
+      { title: "Index Umím", value: teamUmim, benchmark: benchmarkUmim, description: "Kombinace znalostí, praktických schopností a míry zkoušení AI nástrojů. Škála 0–10.", color: "#2563EB" },
+      { title: "Index Chci", value: teamChci, benchmark: benchmarkChci, description: "Motivace k používání AI – ochota experimentovat, zájem o vzdělávání. Škála 0–10.", color: "#EA580C" },
+      { title: "Index rozptylu", value: teamRozptyl, benchmark: benchmarkRozptyl, description: "Jak moc je tým nejednotný. 1 = jako trh, >1 = rozházenější, <1 = jednotnější.", lowerIsBetter: true, color: "#059669" },
     ];
     if (prehlcenost != null && benchmarkPrehlcenost != null) {
-      m.push({ title: "Přehlcenost", value: prehlcenost, benchmark: benchmarkPrehlcenost, description: "Subjektivní pocit zahlcení prací. Nižší = lepší. Škála 1–10.", lowerIsBetter: true });
+      m.push({ title: "Přehlcenost", value: prehlcenost, benchmark: benchmarkPrehlcenost, description: "Subjektivní pocit zahlcení prací. Nižší = lepší. Škála 1–10.", lowerIsBetter: true, color: "#991B1B" });
     }
     if (prescasy != null && benchmarkPrescasy != null) {
-      m.push({ title: "Přesčasy", value: prescasy, benchmark: benchmarkPrescasy, description: "Frekvence práce přesčas. Nižší = lepší. Škála 1–10.", lowerIsBetter: true });
+      m.push({ title: "Přesčasy", value: prescasy, benchmark: benchmarkPrescasy, description: "Frekvence práce přesčas. Nižší = lepší. Škála 1–10.", lowerIsBetter: true, color: "#6B7280" });
     }
     if (strachZAi != null && benchmarkStrachZAi != null) {
-      m.push({ title: "Strach z AI", value: strachZAi, benchmark: benchmarkStrachZAi, description: "Obavy z dopadu AI na vlastní pozici. Nižší = lepší. Škála 1–10.", lowerIsBetter: true });
+      m.push({ title: "Strach z AI", value: strachZAi, benchmark: benchmarkStrachZAi, description: "Obavy z dopadu AI na vlastní pozici. Nižší = lepší. Škála 1–10.", lowerIsBetter: true, color: "#DC2626" });
     }
     return m;
   }, [teamUmim, teamChci, teamRozptyl, benchmarkUmim, benchmarkChci, benchmarkRozptyl, prehlcenost, benchmarkPrehlcenost, prescasy, benchmarkPrescasy, strachZAi, benchmarkStrachZAi]);
