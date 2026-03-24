@@ -36,7 +36,7 @@ Verzování podle [Semantic Versioning](https://semver.org/).
 - PIN přístupy pro Euroinstitut (Krucký)
 - Knob odlišený jako "Vedení" (oranžová barva) na scatter plotech
 
-## [2.2.2] - 2026-03-22
+## [2.2.2] - 2026-03-23
 
 ### Přidáno
 - Executive summary prototyp: TeamMapChart, ProcessMatrix, RoadmapTimeline
@@ -46,7 +46,7 @@ Verzování podle [Semantic Versioning](https://semver.org/).
 ### Změněno
 - ScatterPlot: skrytí filtru při jedné skupině
 
-## [2.2.1] - 2026-03-21
+## [2.2.1] - 2026-03-20
 
 ### Přidáno
 - Vercel Web Analytics (s vyloučením admin návštěv)
@@ -54,7 +54,7 @@ Verzování podle [Semantic Versioning](https://semver.org/).
 - Barevné odlišení týmů na scatter plotu
 - ActivityBubbleChart komponenta
 
-## [2.2.0] - 2026-03-20
+## [2.2.0] - 2026-03-19
 
 ### Přidáno
 - Report JTRE Obchod (8 stránek, 9 respondentů)
@@ -67,7 +67,7 @@ Verzování podle [Semantic Versioning](https://semver.org/).
 - Compliance opravy licencí (ChatGPT Business, ne Plus)
 - Zjemnění formulací v reportech
 
-## [2.1.2] - 2026-03-18
+## [2.1.2] - 2026-03-16
 
 ### Přidáno
 - Report JTRE Obchod: routing, MDX stránky, PINy (první verze)
@@ -77,7 +77,7 @@ Verzování podle [Semantic Versioning](https://semver.org/).
 - Licence: Antigravity fallback + zelené zvýraznění nejlepšího týmu
 - Fix: padající stránka licence (neexistující Callout typ)
 
-## [2.1.1] - 2026-03-15
+## [2.1.1] - 2026-03-10
 
 ### Přidáno
 - Audiopřehled JTRE Finance (m4a)
@@ -87,7 +87,7 @@ Verzování podle [Semantic Versioning](https://semver.org/).
 ### Opraveno
 - Mobilní opravy: radar chart ResizeObserver, sticky tabulky, MetricCards responsive grid, hydration fix
 
-## [2.1.0] - 2026-03-15
+## [2.1.0] - 2026-03-09
 
 ### Přidáno
 - PIN autentizace s multi-report přístupem
@@ -103,7 +103,7 @@ Verzování podle [Semantic Versioning](https://semver.org/).
 - Scatter-plot vylepšení (tooltips, interaktivita)
 - JTRE Finance: obsahové úpravy, přímější tón, kratší texty
 
-## [2.0.1] - 2026-03-10
+## [2.0.1] - 2026-03-09
 
 ### Změněno
 - Obsahový review JTRE Finance: přepracování procesů, doplnění Cursoru
@@ -114,7 +114,7 @@ Verzování podle [Semantic Versioning](https://semver.org/).
 - PeopleHeatmap: info tooltips, kontrast, delta, popisky
 - Typografie: mezery před tečkami, chybějící mezera za čárkou
 
-## [2.0.0] - 2026-03-01
+## [2.0.0] - 2026-02-25
 
 ### Přidáno
 - Next.js 16 platforma s Fumadocs (App Router, MDX routing)
