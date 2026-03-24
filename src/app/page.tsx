@@ -123,14 +123,16 @@ export default async function HomePage() {
               <div className="flex flex-col flex-1 p-6 sm:p-8">
                 {/* Header */}
                 <div className="mb-6">
-                  <p
-                    className="text-sm font-medium uppercase tracking-wider mb-2"
-                    style={{
-                      color: isDisabled ? "var(--ak-warm-400)" : report.color,
-                    }}
-                  >
-                    {report.subtitle}
-                  </p>
+                  {report.subtitle && (
+                    <p
+                      className="text-sm font-medium uppercase tracking-wider mb-2"
+                      style={{
+                        color: isDisabled ? "var(--ak-warm-400)" : report.color,
+                      }}
+                    >
+                      {report.subtitle}
+                    </p>
+                  )}
                   <h2
                     className="text-xl sm:text-2xl font-bold tracking-tight"
                     style={{

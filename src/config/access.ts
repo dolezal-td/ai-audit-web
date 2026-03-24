@@ -31,6 +31,11 @@ export const ACCESS: AccessEntry[] = [
     reports: ["jtre-obchod"],
   },
   {
+    pin: "160783",
+    name: "Karel Krucký",
+    reports: ["euroinstitut"],
+  },
+  {
     pin: "379577",
     name: "Tomáš Doležal",
     reports: ["jtre-finance", "jtre-obchod", "jtre-projektove-rizeni", "jtre", "euroinstitut"],
@@ -75,7 +80,7 @@ export const REPORTS: Record<string, ReportEntry> = {
   },
   euroinstitut: {
     title: "Euroinstitut",
-    subtitle: "Euroinstitut",
+    subtitle: "",
     color: "#059669",
     colorLight: "rgba(5, 150, 105, 0.08)",
   },

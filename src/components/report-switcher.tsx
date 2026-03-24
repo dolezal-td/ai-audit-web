@@ -44,7 +44,7 @@ export function ReportSwitcher({
         <div className="flex items-center justify-between">
           <div>
             <p className="font-medium">{current.title}</p>
-            <p className="text-fd-muted-foreground">{current.subtitle}</p>
+            {current.subtitle && <p className="text-fd-muted-foreground">{current.subtitle}</p>}
           </div>
           {hasMultiple && (
             <svg
@@ -79,7 +79,7 @@ export function ReportSwitcher({
                   className="block p-4 text-sm hover:bg-fd-accent transition-colors first:rounded-t-lg last:rounded-b-lg"
                 >
                   <p className="font-medium">{report.title}</p>
-                  <p className="text-fd-muted-foreground">{report.subtitle}</p>
+                  {report.subtitle && <p className="text-fd-muted-foreground">{report.subtitle}</p>}
                 </Link>
               );
             })}
