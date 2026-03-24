@@ -15,7 +15,7 @@ export function InfoModal({ trigger, title, children }: InfoModalProps) {
     <>
       <button
         onClick={() => setOpen(true)}
-        className="inline-flex items-center gap-1.5 rounded-md border border-fd-border bg-fd-card px-3 py-1.5 text-sm font-medium text-fd-foreground hover:bg-fd-accent transition-colors cursor-pointer"
+        className="inline-flex items-center gap-2 rounded-lg bg-fd-primary/10 px-4 py-2.5 text-sm font-semibold text-fd-primary hover:bg-fd-primary/20 active:bg-fd-primary/25 transition-colors cursor-pointer shadow-sm border border-fd-primary/20"
       >
         {trigger}
       </button>
