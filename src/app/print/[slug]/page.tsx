@@ -1,7 +1,15 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
+import { readFileSync } from "fs";
+import { join } from "path";
 import { decodeSession } from "@/lib/auth";
-import { jtreFinanceSource, jtreObchodSource } from "@/lib/source";
+import {
+  jtreFinanceSource,
+  jtreObchodSource,
+  jtreProjektoveRizeniSource,
+  euroinstitutSource,
+  demoSource,
+} from "@/lib/source";
 import defaultMdxComponents from "fumadocs-ui/mdx";
 import { TeamRadar } from "@/components/charts/team-radar";
 import { ScatterPlotChart } from "@/components/charts/scatter-plot";
@@ -13,38 +21,35 @@ import { MetricCards } from "@/components/ui/metric-cards";
 import { Callout } from "@/components/ui/callout";
 import { PeopleHeatmap } from "@/components/charts/people-heatmap";
 import { Mermaid } from "@/components/ui/mermaid";
+import { TeamMapChart } from "@/components/charts/team-map-chart";
+import { ProcessMatrix } from "@/components/charts/process-matrix";
+import { RoadmapTimeline } from "@/components/ui/roadmap-timeline";
+import { InfoModal } from "@/components/ui/info-modal";
 import { PrintWrapper } from "@/components/print-wrapper";
 import { REPORTS } from "@/config/access";
 
-// Page order matching meta.json (without separators)
-const PAGE_ORDER: Record<string, string[]> = {
-  "jtre-finance": [
-    "uvod",
-    "tym",
-    "lide",
-    "prace-a-nastroje",
-    "procesy",
-    "licence",
-    "vzdelavaci-plan",
-    "shrnuti",
-  ],
-  "jtre-obchod": [
-    "uvod",
-    "tym",
-    "lide",
-    "prace-a-nastroje",
-    "procesy",
-    "licence",
-    "vzdelavaci-plan",
-    "shrnuti",
-  ],
+// Map slug to Fumadocs source
+const SOURCES: Record<string, ReturnType<typeof jtreFinanceSource | any>> = {
+  "jtre-finance": jtreFinanceSource,
+  "jtre-obchod": jtreObchodSource,
+  "jtre-projektove-rizeni": jtreProjektoveRizeniSource,
+  euroinstitut: euroinstitutSource,
+  demo: demoSource,
 };
 
-// Map slug to source
 function getSource(slug: string) {
-  if (slug === "jtre-finance") return jtreFinanceSource;
-  if (slug === "jtre-obchod") return jtreObchodSource;
-  return null;
+  return SOURCES[slug] ?? null;
+}
+
+// Parse page order from meta.json (filter out separator strings like "---Foo---")
+function getPageOrder(slug: string): string[] | null {
+  try {
+    const metaPath = join(process.cwd(), "content", slug, "meta.json");
+    const meta = JSON.parse(readFileSync(metaPath, "utf-8"));
+    return (meta.pages as string[]).filter((p) => !p.startsWith("---"));
+  } catch {
+    return null;
+  }
 }
 
 const mdxComponents = {
@@ -59,6 +64,10 @@ const mdxComponents = {
   Callout,
   PeopleHeatmap,
   Mermaid,
+  TeamMapChart,
+  ProcessMatrix,
+  RoadmapTimeline,
+  InfoModal,
 };
 
 export default async function PrintPage(props: {
@@ -76,7 +85,7 @@ export default async function PrintPage(props: {
   }
 
   const source = getSource(slug);
-  const pageOrder = PAGE_ORDER[slug];
+  const pageOrder = getPageOrder(slug);
   if (!source || !pageOrder) redirect("/");
 
   const report = REPORTS[slug];
