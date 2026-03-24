@@ -16,6 +16,17 @@ Verzování podle [Semantic Versioning](https://semver.org/).
 ### Přidáno
 - Demo report s routing a obsahem
 
+## [2.3.1] - 2026-03-24
+
+### Změněno
+- TeamMapChart refaktorován na sdílenou MetricCards komponentu
+- Vizuální polish: výraznější tlačítka, barevné MetricTile, menší tučnost nadpisů
+
+### Opraveno
+- TeamMapChart data za projektové řízení (ne celé JTRE)
+- Index rozptylu škála 0-2
+- Sladění barev na scatter plotech
+
 ## [2.3.0] - 2026-03-24
 
 ### Přidáno
@@ -25,24 +36,56 @@ Verzování podle [Semantic Versioning](https://semver.org/).
 - PIN přístupy pro Euroinstitut (Krucký)
 - Knob odlišený jako "Vedení" (oranžová barva) na scatter plotech
 
+## [2.2.2] - 2026-03-22
+
+### Přidáno
+- Executive summary prototyp: TeamMapChart, ProcessMatrix, RoadmapTimeline
+- Report Euroinstitut: kompletní 8stránkový AI Kompas report
+- MetricCards s barvami + Index rozptylu pro všechny JTRE reporty
+
 ### Změněno
-- TeamMapChart refaktorován na sdílenou MetricCards komponentu
-- Index rozptylu škála 0-2 napříč všemi reporty
-- MetricCards s barevnými kartami
+- ScatterPlot: skrytí filtru při jedné skupině
+
+## [2.2.1] - 2026-03-21
+
+### Přidáno
+- Vercel Web Analytics (s vyloučením admin návštěv)
+- JTRE Obchod: rozšíření impact-effort matice
+- Barevné odlišení týmů na scatter plotu
+- ActivityBubbleChart komponenta
 
 ## [2.2.0] - 2026-03-20
 
 ### Přidáno
 - Report JTRE Obchod (8 stránek, 9 respondentů)
 - Audiopřehledy pro Finance, Obchod a Projektové řízení (m4a)
-- Vercel Web Analytics (s vyloučením admin návštěv)
-- ActivityBubbleChart komponenta
-- Impact-effort matice pro Obchod
-- Barevné odlišení týmů na scatter plotu
+- Logout tlačítko (homepage + sidebar)
+- SidebarThemeToggle (light/dark mode)
+- Homepage: barevné dlaždice s metrikami
+
+### Opraveno
+- Compliance opravy licencí (ChatGPT Business, ne Plus)
+- Zjemnění formulací v reportech
+
+## [2.1.2] - 2026-03-18
+
+### Přidáno
+- Report JTRE Obchod: routing, MDX stránky, PINy (první verze)
+- Homepage redesign: barevné dlaždice s metrikami místo obdélníků
+
+### Opraveno
+- Licence: Antigravity fallback + zelené zvýraznění nejlepšího týmu
+- Fix: padající stránka licence (neexistující Callout typ)
+
+## [2.1.1] - 2026-03-15
+
+### Přidáno
+- Audiopřehled JTRE Finance (m4a)
+- NavTitle s dobou čtení a navigací
+- Access.ts refaktor
 
 ### Opraveno
 - Mobilní opravy: radar chart ResizeObserver, sticky tabulky, MetricCards responsive grid, hydration fix
-- Compliance opravy licencí (ChatGPT Business, ne Plus)
 
 ## [2.1.0] - 2026-03-15
 
@@ -58,8 +101,18 @@ Verzování podle [Semantic Versioning](https://semver.org/).
 
 ### Změněno
 - Scatter-plot vylepšení (tooltips, interaktivita)
-- Em dash nahrazeny en dashem napříč reporty
 - JTRE Finance: obsahové úpravy, přímější tón, kratší texty
+
+## [2.0.1] - 2026-03-10
+
+### Změněno
+- Obsahový review JTRE Finance: přepracování procesů, doplnění Cursoru
+- Em dash nahrazeny en dashem napříč celým reportem
+- Odstranění klienta Kačena (testovací data)
+
+### Opraveno
+- PeopleHeatmap: info tooltips, kontrast, delta, popisky
+- Typografie: mezery před tečkami, chybějící mezera za čárkou
 
 ## [2.0.0] - 2026-03-01
 
@@ -71,8 +124,14 @@ Verzování podle [Semantic Versioning](https://semver.org/).
 - MDX tabulky, NavTitle s dobou čtení
 - Tailwind CSS 4 s custom design systémem
 
-[2.4.0]: https://github.com/dolezal-td/ai-audit-web/compare/v2.3.0...v2.4.0
-[2.3.0]: https://github.com/dolezal-td/ai-audit-web/compare/v2.2.0...v2.3.0
-[2.2.0]: https://github.com/dolezal-td/ai-audit-web/compare/v2.1.0...v2.2.0
-[2.1.0]: https://github.com/dolezal-td/ai-audit-web/compare/v2.0.0...v2.1.0
+[2.4.0]: https://github.com/dolezal-td/ai-audit-web/compare/v2.3.1...v2.4.0
+[2.3.1]: https://github.com/dolezal-td/ai-audit-web/compare/v2.3.0...v2.3.1
+[2.3.0]: https://github.com/dolezal-td/ai-audit-web/compare/v2.2.2...v2.3.0
+[2.2.2]: https://github.com/dolezal-td/ai-audit-web/compare/v2.2.1...v2.2.2
+[2.2.1]: https://github.com/dolezal-td/ai-audit-web/compare/v2.2.0...v2.2.1
+[2.2.0]: https://github.com/dolezal-td/ai-audit-web/compare/v2.1.2...v2.2.0
+[2.1.2]: https://github.com/dolezal-td/ai-audit-web/compare/v2.1.1...v2.1.2
+[2.1.1]: https://github.com/dolezal-td/ai-audit-web/compare/v2.1.0...v2.1.1
+[2.1.0]: https://github.com/dolezal-td/ai-audit-web/compare/v2.0.1...v2.1.0
+[2.0.1]: https://github.com/dolezal-td/ai-audit-web/compare/v2.0.0...v2.0.1
 [2.0.0]: https://github.com/dolezal-td/ai-audit-web/releases/tag/v2.0.0
