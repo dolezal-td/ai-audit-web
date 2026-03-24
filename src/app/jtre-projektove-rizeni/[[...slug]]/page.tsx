@@ -33,11 +33,12 @@ export default async function Page(props: {
   if (!page) notFound();
 
   const MDX = page.data.body;
+  const isUvod = params.slug?.[0] === 'uvod';
 
   return (
     <DocsPage toc={page.data.toc} full={page.data.full}>
-      <DocsTitle>{page.data.title}</DocsTitle>
-      <DocsDescription>{page.data.description}</DocsDescription>
+      {!isUvod && <DocsTitle>{page.data.title}</DocsTitle>}
+      {!isUvod && <DocsDescription>{page.data.description}</DocsDescription>}
       <DocsBody>
         <MDX components={{
           ...defaultMdxComponents,
