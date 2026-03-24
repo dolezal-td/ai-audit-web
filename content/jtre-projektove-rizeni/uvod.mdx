@@ -48,7 +48,7 @@ Provedl jsem AI audit oddělení projektového řízení firmy JTRE – **15 res
   <span className="text-4xl font-black text-fd-primary shrink-0 w-10 text-right">1</span>
   <div>
     <p className="font-semibold text-2xl mt-0 mb-2 leading-tight">ChatGPT používáte jako vyhledávač – ale umí mnohem víc.</p>
-    <p className="text-fd-muted-foreground mt-0">9 z 15 lidí ho zná, ale nikdo nepracuje s kontextem vlastních dokumentů. Stáhlík z něj úspěšně vytáhl závazky ze stanoviska, Holan ušetřil právníkovi 2 hodiny na přípravě výzvy. Tohle je zlomek toho, co je možné.</p>
+    <p className="text-fd-muted-foreground mt-0">9 z 15 ho aktivně používá, ale nikdo nepracuje s kontextem vlastních dokumentů. Stáhlík z něj úspěšně vytáhl závazky ze stanoviska, Holan ušetřil právníkovi 2 hodiny na přípravě výzvy. Tohle je zlomek toho, co je možné.</p>
   </div>
 </div>
 
@@ -64,7 +64,7 @@ Provedl jsem AI audit oddělení projektového řízení firmy JTRE – **15 res
   <span className="text-4xl font-black text-fd-primary shrink-0 w-10 text-right">3</span>
   <div>
     <p className="font-semibold text-2xl mt-0 mb-2 leading-tight">Oddělení je nejslabší v celém JTRE – a výrazně pod trhem.</p>
-    <p className="text-fd-muted-foreground mt-0">Umím 2,9 oproti benchmarku 3,9. Praktické schopnosti 1,5 z 10 – šest lidí na nule. Finance i Obchod jsou na tom lépe. Dobrá zpráva: strach z AI je nejnižší v celé firmě (3,1). Tým nemá odpor, má mezeru.</p>
+    <p className="text-fd-muted-foreground mt-0">Umím 2,7 oproti benchmarku 3,9. Praktické schopnosti 1,5 z 10 – čtyři lidé na nule. Finance i Obchod jsou na tom lépe. Dobrá zpráva: strach z AI je nejnižší v celé firmě (3,1). Tým nemá odpor, má mezeru.</p>
   </div>
 </div>
 
@@ -80,7 +80,7 @@ Provedl jsem AI audit oddělení projektového řízení firmy JTRE – **15 res
   <span className="text-4xl font-black text-fd-primary shrink-0 w-10 text-right">5</span>
   <div>
     <p className="font-semibold text-2xl mt-0 mb-2 leading-tight">Máte ambasadory, kteří to můžou táhnout – ale potřebují strukturu.</p>
-    <p className="text-fd-muted-foreground mt-0">Falťan (Umím 4,7, Chci 7,6) aktivně experimentuje. Mraček nejlíp zvládl kvíz. Pospíšil má motivaci a vliv na realizace. Bez formální role a nástrojů ale jejich energie vyšumí.</p>
+    <p className="text-fd-muted-foreground mt-0">Falťan (Umím 4,7, Chci 8,2) aktivně experimentuje. Mraček nejlíp zvládl kvíz. Pospíšil má motivaci a vliv na realizace. Bez formální role a nástrojů ale jejich energie vyšumí.</p>
   </div>
 </div>
 
@@ -96,9 +96,9 @@ Provedl jsem AI audit oddělení projektového řízení firmy JTRE – **15 res
 
 <TeamMapChart
   teamName="Projektové řízení"
-  teamUmim={2.92}
-  teamChci={4.23}
-  teamRozptyl={0.78}
+  teamUmim={2.66}
+  teamChci={4.51}
+  teamRozptyl={0.94}
   benchmarkUmim={3.9}
   benchmarkChci={5.83}
   benchmarkRozptyl={1.0}
@@ -109,25 +109,25 @@ Provedl jsem AI audit oddělení projektového řízení firmy JTRE – **15 res
   strachZAi={3.13}
   benchmarkStrachZAi={4.1}
   teams={[
-    { name: "Finance", indexUmim: 3.96, indexChci: 5.89, pocetLidi: 10 },
-    { name: "Obchod", indexUmim: 4.08, indexChci: 6.07, pocetLidi: 9 },
-    { name: "Projektové řízení", indexUmim: 2.92, indexChci: 4.23, pocetLidi: 15 }
+    { name: "Finance", indexUmim: 3.96, indexChci: 6.21, pocetLidi: 10 },
+    { name: "Obchod", indexUmim: 4.04, indexChci: 6.36, pocetLidi: 9 },
+    { name: "Projektové řízení", indexUmim: 2.66, indexChci: 4.51, pocetLidi: 15 }
   ]}
   individuals={[
-    { jmeno: "Daniel Falťan", kategorie: "Projektové řízení", index_umim: 4.68, index_chci: 7.6 },
-    { jmeno: "Lukáš Levický", kategorie: "Projektové řízení", index_umim: 4.54, index_chci: 3.9 },
-    { jmeno: "Daniel Petrlík", kategorie: "Projektové řízení", index_umim: 4.04, index_chci: 4.5 },
+    { jmeno: "Daniel Falťan", kategorie: "Projektové řízení", index_umim: 4.68, index_chci: 8.2 },
+    { jmeno: "Lukáš Levický", kategorie: "Projektové řízení", index_umim: 4.54, index_chci: 4.2 },
+    { jmeno: "Daniel Petrlík", kategorie: "Projektové řízení", index_umim: 4.04, index_chci: 4.9 },
     { jmeno: "Tomáš Mraček", kategorie: "Projektové řízení", index_umim: 4.04, index_chci: 6.5 },
-    { jmeno: "Václav Sigmund", kategorie: "Projektové řízení", index_umim: 3.68, index_chci: 1.5 },
-    { jmeno: "Tomáš Pospíšil", kategorie: "Projektové řízení", index_umim: 3.32, index_chci: 6.2 },
-    { jmeno: "Petr Holan", kategorie: "Projektové řízení", index_umim: 2.96, index_chci: 5.1 },
-    { jmeno: "Jiří Knob", kategorie: "Vedení", index_umim: 2.79, index_chci: 3.5 },
-    { jmeno: "Martin Koiš", kategorie: "Projektové řízení", index_umim: 2.64, index_chci: 5.1 },
-    { jmeno: "Pavel Stáhlík", kategorie: "Projektové řízení", index_umim: 2.64, index_chci: 5.3 },
-    { jmeno: "Jan Kočí", kategorie: "Projektové řízení", index_umim: 2.46, index_chci: 2.9 },
-    { jmeno: "Jana Řehořová", kategorie: "Projektové řízení", index_umim: 1.79, index_chci: 2.0 },
-    { jmeno: "Pavel Opatřil", kategorie: "Projektové řízení", index_umim: 1.43, index_chci: 4.0 },
-    { jmeno: "Roman Gorski", kategorie: "Projektové řízení", index_umim: 1.43, index_chci: 2.9 },
+    { jmeno: "Václav Sigmund", kategorie: "Projektové řízení", index_umim: 3.68, index_chci: 2.5 },
+    { jmeno: "Tomáš Pospíšil", kategorie: "Projektové řízení", index_umim: 3.32, index_chci: 6.7 },
+    { jmeno: "Petr Holan", kategorie: "Projektové řízení", index_umim: 2.96, index_chci: 5.6 },
+    { jmeno: "Jiří Knob", kategorie: "Vedení", index_umim: 2.79, index_chci: 4.2 },
+    { jmeno: "Martin Koiš", kategorie: "Projektové řízení", index_umim: 2.64, index_chci: 5.2 },
+    { jmeno: "Pavel Stáhlík", kategorie: "Projektové řízení", index_umim: 2.64, index_chci: 6.0 },
+    { jmeno: "Jan Kočí", kategorie: "Projektové řízení", index_umim: 2.46, index_chci: 3.2 },
+    { jmeno: "Jana Řehořová", kategorie: "Projektové řízení", index_umim: 0.36, index_chci: 1.7 },
+    { jmeno: "Pavel Opatřil", kategorie: "Projektové řízení", index_umim: 0.36, index_chci: 4.0 },
+    { jmeno: "Roman Gorski", kategorie: "Projektové řízení", index_umim: 0.00, index_chci: 2.4 },
     { jmeno: "Radek Spurný", kategorie: "Projektové řízení", index_umim: 1.43, index_chci: 2.4 }
   ]}
 />
