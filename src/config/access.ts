@@ -23,7 +23,7 @@ export const ACCESS: AccessEntry[] = [
   {
     pin: "180575",
     name: "Jiří Knob",
-    reports: ["jtre-obchod", "jtre-projektove-rizeni", "jtre"],
+    reports: ["jtre-projektove-rizeni", "jtre"],
   },
   {
     pin: "993379",
