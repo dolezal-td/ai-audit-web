@@ -1,0 +1,104 @@
+---
+title: Procesy
+description: Procesní úzká místa a příležitosti pro automatizaci
+---
+
+Z rozhovorů se **7 členy týmu** vyplynulo několik procesů, které se opakují, zabírají značný čas a mají potenciál pro zefektivnění. Nejde o kompletní procesní audit – zaměřuji se na místa, kde je úspora nejviditelnější.
+
+## Přehled procesů
+
+| Proces | Kdo | Frekvence | Odhad ztráty | Doporučené řešení |
+|---|---|---|---|---|
+| Kontrola měsíčních reportů | Černá, Horáková | Měsíčně | 15–20 h/měsíc | Google Apps Script + AI kontrola |
+| Kontrola IKP | Černá, Horáková, Fialová | Ročně (září) | 40–60 h/rok | ChatGPT Business projekt |
+| Dodací listy / přefakturace | Říhová + kolega | Měsíčně | 8–12 h/měsíc | Apps Script z účetní systém exportu |
+| Zápisy z porad | Pokorná, Horáková | Týdně | 3–5 h/týden | TLDV nebo Google Meet záznam |
+| Reorganizace Google Disku | Marková, všichni | Průběžně | Nelze vyčíslit | Jednotná struktura + hledání |
+| Přijímací formuláře | Marková | Ročně (léto) | 20–30 h/rok | Sloučení tabulek + mail merge |
+
+<Callout type="positive">
+  Většina problémů Vzdělávacího centra Horizont není o AI, ale o **základní digitální hygieně**: jednotná struktura disku, sloučení duplicitních tabulek, automatické kontroly vyplněnosti. AI pak přidává hodnotu tam, kde jde o porozumění obsahu (kontrola kvality IKP, sumarizace porad).
+</Callout>
+
+## Kde začít – impact a effort
+
+| | **Velký dopad** | **Menší dopad** |
+|---|---|---|
+| **Snazší** | Zápisy z porad (TLDV), sloučení tabulek klientů, šablony emailů | Reorganizace Google Disku |
+| **Náročnější** | Automatická kontrola dokumentů (karty + IKP), přefakturace | Přijímací formuláře (závisí na interním systému) |
+
+**Snazší + velký dopad** → začněte zde. TLDV pro porady je otázka jednoho odpoledne. Sloučení tabulek zvládne AI za hodinu. **Náročnější + velký dopad** → hackathonové projekty. Automatická kontrola dokumentů vyžaduje nastavení pravidel a testování, ale úspora je obrovská.
+
+## 1. Kontrola měsíčních reportů
+
+<Callout type="warning">
+  **150 dokumentů měsíčně**, kontrola 4–5 polí v každém. Odhadovaná ztráta: **15–20 hodin měsíčně** rozprostřených mezi 2 finanční kontrolory.
+</Callout>
+
+**Jak to funguje dnes:** Zaměstnanci vyplňují záznamy konzultací do Google Docs na sdíleném disku. Každý klient má svůj dokument. Na konci měsíce **J. Černá** a **E. Horáková** otevřou každý dokument a zkontrolují: jsou tam datumy, známky, poučení compliance, náplň výuky, pomůcky. Když něco chybí, okomentují. Učitel „opraví" (někdy jen klikne „vyřešeno" bez opravy). Kontrola se opakuje.
+
+*„Někteří zaměstnanci jsou takoví experti, že nám tam dají sice vyřešeno, ale nic se tam nezmění. Takže ta kontrola tam opravdu musí proběhnout znova zpětně,"* popisuje **E. Horáková**.
+
+**Co je špatně:** Ruční otevírání 150 dokumentů. Žádná automatická kontrola vyplněnosti. Opakované kontroly po „opravách".
+
+**Co může automatizace doplnit:**
+- **Google Apps Script** – skript, který projde všechny dokumenty ve složce a zkontroluje přítomnost klíčových polí (datum, známky, compliance). Výstup: tabulka s přehledem, kdo má co doplnit.
+- **ChatGPT Business projekt** – pro kontrolu kvality obsahu (ne jen přítomnosti, ale smysluplnosti zápisu). Nahraje se pravidlo, co má být v dokumentu, a AI zkontroluje shodu.
+
+## 2. Kontrola individuálních klientských plánů
+
+<Callout type="warning">
+  **150 IKP dokumentů** na začátku roku. Každý má 4–8 stran. Kontrolují 3–4 pracovníci finančního oddělení. Odhadovaná ztráta: **40–60 hodin ročně**.
+</Callout>
+
+**Jak to funguje dnes:** Interní systém vygeneruje prázdný IKP formulář. Zaměstnanec ho vyplní na základě doporučení od centrály. Finance a účetnictví zkontroluje: jsou tam správné cíle, odpovídá to doporučení, je tam měřitelnost, správná terminologie. Nedostatky se vrací k opravě.
+
+**J. Černá** už s konzultantem testovala automatizovanou kontrolu. Zjistili, že problém nebyl v AI, ale v tom, že pravidla nebyla jasně definovaná. Letos pravidla přepracovali – základ pro automatizaci je připravený.
+
+**Co může automatizace doplnit:**
+- **ChatGPT Business projekt** s instrukcemi: „Zkontroluj, jestli IKP obsahuje měřitelné cíle, odpovídá doporučení centrály, používá správnou terminologii." Pracovník nahraje dokument, AI vrátí seznam nedostatků.
+- **Dávková kontrola** – po nastavení pravidel lze zpracovat dokumenty ve skupinách (po třídách), ne jeden po jednom.
+
+## 3. Dodací listy a přefakturace
+
+<Callout type="insight">
+  Proces, který vypadá jako účetní rutina, ale zabírá **8–12 hodin měsíčně** a spočívá v ručním opisování položek z jednoho systému do druhého.
+</Callout>
+
+**Jak to funguje dnes:** **L. Říhová** si v účetním systému vyfiltruje faktury za daný měsíc a pobočku. Otevře je jednu po jedné. Protože naskenované faktury nejdou kopírovat, ručně opisuje názvy položek a ceny do Excelu. Excel dopočítá marži a DPH. Výsledek se přenese do e-dokladu jako faktura pro pobočku.
+
+*„Opisuju ‚puzzle dinosauru, 185,93' a tohle dělám se všema položkama ze všech faktur,"* ukazuje Říhová.
+
+**Co je špatně:** Ruční opisování z naskenovaných faktur. Opakování pro každou pobočku každý měsíc.
+
+**Co může automatizace doplnit:**
+- **účetní systém export do CSV** – pokud účetní systém umožňuje export položkového seznamu (ne jen obrázky faktur), celý proces se zredukuje na import do Excelu.
+- **Google Apps Script** – automatická tvorba dodacího listu ze strukturovaných dat. Vyplní šablonu, spočítá marži, vygeneruje PDF.
+
+## 4. Zápisy z porad
+
+**Jak to funguje dnes:** Koordinační porady finančního oddělení probíhají každý pátek online. **E. Horáková** popisuje: kolegyně píše zápis ručně v Google Doc se sdílenou obrazovkou. Z porady se vypisují úkoly, termíny. **A. Pokorná** po poradě vedení sbírá zápisy z jednotlivých poboček a v ChatGPT sjednocuje formátování.
+
+**J. Černá** už testuje TLDV pro automatické zápisy. Narazila na limity free verze a nedotažené nastavení firemního účtu.
+
+**Co může automatizace doplnit:**
+- **TLDV** (nebo alternativa) – automatický přepis a sumarizace online porad. Jeden účet pro organizaci, přístup pro všechny.
+- **NotebookLM** – nahrát přepis z porady, nechat vygenerovat strukturovaný zápis a seznam úkolů per osoba.
+
+## 5. Reorganizace Google Disku
+
+**Jak to funguje dnes:** Každá pobočka má svůj sdílený disk. Struktura se liší. Složky se duplikují. **H. Marková**: *„Něco tam najít je dost složitý. Když si nahoru napíšu IKP, vidím IKP 25, IKP 25-26 zkontrolované, IKP neskontrolované… Je to takový chaos."*
+
+**Co může automatizace doplnit:**
+- **Jednotná šablona struktury** – definovat standardní složky (IKP, Měsíční reporty, Zápisy, Šablony) a replikovat napříč pobočkami.
+- **Google Workspace Admin** – nastavit sdílené disky centrálně, omezit vytváření duplicit.
+- Toto není AI problém; je to problém organizační. Ale jeho vyřešení je prerekvizitou pro efektivní nasazení AI nástrojů.
+
+## 6. Přijímací formuláře
+
+**Jak to funguje dnes:** **H. Marková** vyplňuje přijímací formuláře ručně z dat ve 4 různých tabulkách. V létě přijme **60 klientů**, každý vyžaduje několik formulářů. Informace v tabulkách nekorespondují.
+
+**Co může automatizace doplnit:**
+- **Sloučení tabulek** do jedné master tabulky klientů (AI zvládne identifikovat duplicity a nesrovnalosti).
+- **Mail merge** – z jedné tabulky automaticky vyplnit šablony formulářů. Google Docs + Apps Script, nebo Canva pro vizuálnější dokumenty.
+- Pozn.: Pokud pobočka přejde na nový interní systém (jak Marková naznačila), problém se vyřeší systémově.

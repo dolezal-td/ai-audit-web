@@ -1,0 +1,806 @@
+{
+  "klient": "demo",
+  "pocet_respondentov": 16,
+  "tym": {
+    "index_umim": 4.56,
+    "umim_teorie": 4.39,
+    "index_chci": 7.25,
+    "prehlcenost": 5.88,
+    "prescasy": 5.5,
+    "strach_z_ai": 2.0,
+    "pocet_lidi": 16,
+    "umim_praxe": 4.73,
+    "zkusenost_koncepty": 2.99,
+    "frekvence_ai": 6.31,
+    "index_rozptylu": 0.77,
+    "benchmark": {
+      "index_umim": {
+        "hodnota": 3.9,
+        "rozdil": 0.66
+      },
+      "index_chci": {
+        "hodnota": 5.83,
+        "rozdil": 1.42
+      },
+      "prehlcenost": {
+        "hodnota": 5.6,
+        "rozdil": 0.28
+      },
+      "prescasy": {
+        "hodnota": 4.9,
+        "rozdil": 0.6
+      },
+      "strach_z_ai": {
+        "hodnota": 4.1,
+        "rozdil": -2.1
+      }
+    }
+  },
+  "benchmark": {
+    "index_umim": 3.9,
+    "index_chci": 5.83,
+    "index_rozptylu": 1,
+    "prehlcenost": 5.6,
+    "prescasy": 4.9,
+    "strach_z_ai": 4.1,
+    "std_umim": 1.62,
+    "std_chci": 1.88
+  },
+  "lide": [
+    {
+      "jmeno": "Martin Dvořák",
+      "kategorie": "Vedení",
+      "tym": "",
+      "rozhovor": false,
+      "index_umim": 6.38,
+      "umim_teorie": 6.57,
+      "umim_praxe": 6.2,
+      "index_chci": 8.1,
+      "znalosti": 7.14,
+      "schopnosti": 6.0,
+      "zkouseni": 8.0,
+      "spravnost_odpovedi": 5,
+      "znam_nastroje": 10,
+      "pouzivam_nastroje": 6,
+      "platim_nastroje": 2,
+      "bavi_prace": 5.0,
+      "prehlcenost": 9.0,
+      "prescasy": 9.0,
+      "strach_z_ai": 1.0,
+      "experimentovani_mimo_praci": 10.0,
+      "sebehodnoceni": 6.0,
+      "role": "Jednatel",
+      "delka_ve_firme": 11.0,
+      "zodpovednosti": "Strategické řízení firmy, všechny oblasti",
+      "zkusenost_koncepty": 5.4,
+      "frekvence_ai": 7.0
+    },
+    {
+      "jmeno": "Lucie Procházková",
+      "kategorie": "Provoz a HR",
+      "tym": "",
+      "rozhovor": false,
+      "index_umim": 6.27,
+      "umim_teorie": 4.14,
+      "umim_praxe": 8.4,
+      "index_chci": 9.1,
+      "znalosti": 4.29,
+      "schopnosti": 4.0,
+      "zkouseni": 7.0,
+      "spravnost_odpovedi": 2,
+      "znam_nastroje": 8,
+      "pouzivam_nastroje": 3,
+      "platim_nastroje": 1,
+      "bavi_prace": 10.0,
+      "prehlcenost": 2.0,
+      "prescasy": 2.0,
+      "strach_z_ai": 2.0,
+      "experimentovani_mimo_praci": 8.0,
+      "sebehodnoceni": 8.0,
+      "role": "HR specialistka",
+      "delka_ve_firme": 1.0,
+      "zodpovednosti": "HR procesy, nábor, onboarding",
+      "zkusenost_koncepty": 6.8,
+      "frekvence_ai": 10.0
+    },
+    {
+      "jmeno": "Jana Černá",
+      "kategorie": "Vedení",
+      "tym": "",
+      "rozhovor": false,
+      "index_umim": 6.0,
+      "umim_teorie": 5.04,
+      "umim_praxe": 7.0,
+      "index_chci": 8.4,
+      "znalosti": 6.07,
+      "schopnosti": 4.0,
+      "zkouseni": 7.33,
+      "spravnost_odpovedi": 4,
+      "znam_nastroje": 9,
+      "pouzivam_nastroje": 4,
+      "platim_nastroje": 1,
+      "bavi_prace": 9.0,
+      "prehlcenost": 7.0,
+      "prescasy": 7.0,
+      "strach_z_ai": 2.0,
+      "experimentovani_mimo_praci": 8.0,
+      "sebehodnoceni": 6.0,
+      "role": "Vedoucí oddělení",
+      "delka_ve_firme": 3.0,
+      "zodpovednosti": "Vedení oddělení, koordinace týmů, procesní řízení",
+      "zkusenost_koncepty": 3.9,
+      "frekvence_ai": 10.0
+    },
+    {
+      "jmeno": "Petra Veselá",
+      "kategorie": "Vedení",
+      "tym": "",
+      "rozhovor": false,
+      "index_umim": 3.2,
+      "umim_teorie": 3.5,
+      "umim_praxe": 2.9,
+      "index_chci": 7.3,
+      "znalosti": 5.0,
+      "schopnosti": 2.0,
+      "zkouseni": 6.33,
+      "spravnost_odpovedi": 5,
+      "znam_nastroje": 4,
+      "pouzivam_nastroje": 3,
+      "platim_nastroje": 0,
+      "bavi_prace": 7.0,
+      "prehlcenost": 7.0,
+      "prescasy": 5.0,
+      "strach_z_ai": 1.0,
+      "experimentovani_mimo_praci": 7.0,
+      "sebehodnoceni": 3.0,
+      "role": "Manažerka, podpora",
+      "delka_ve_firme": 2.0,
+      "zodpovednosti": "Vedení části týmu, metodické vedení, organizace práce, dokumentace",
+      "zkusenost_koncepty": 1.8,
+      "frekvence_ai": 4.0
+    },
+    {
+      "jmeno": "Eva Horáková",
+      "kategorie": "Vedení",
+      "tym": "",
+      "rozhovor": false,
+      "index_umim": 4.86,
+      "umim_teorie": 5.32,
+      "umim_praxe": 4.4,
+      "index_chci": 7.5,
+      "znalosti": 4.64,
+      "schopnosti": 6.0,
+      "zkouseni": 6.33,
+      "spravnost_odpovedi": 5,
+      "znam_nastroje": 3,
+      "pouzivam_nastroje": 3,
+      "platim_nastroje": 2,
+      "bavi_prace": 8.0,
+      "prehlcenost": 7.0,
+      "prescasy": 5.0,
+      "strach_z_ai": 1.0,
+      "experimentovani_mimo_praci": 8.0,
+      "sebehodnoceni": 4.0,
+      "role": "Vedoucí týmu",
+      "delka_ve_firme": 2.0,
+      "zodpovednosti": "Vedení týmu, komunikace s vedením, koordinace práce, administrativa, kontrola dokumentace, metodické vedení",
+      "zkusenost_koncepty": 1.8,
+      "frekvence_ai": 7.0
+    },
+    {
+      "jmeno": "Tereza Kopecká",
+      "kategorie": "Finance a účetnictví",
+      "tym": "",
+      "rozhovor": false,
+      "index_umim": 2.58,
+      "umim_teorie": 2.25,
+      "umim_praxe": 2.9,
+      "index_chci": 5.5,
+      "znalosti": 2.5,
+      "schopnosti": 2.0,
+      "zkouseni": 3.0,
+      "spravnost_odpovedi": 2,
+      "znam_nastroje": 3,
+      "pouzivam_nastroje": 2,
+      "platim_nastroje": 0,
+      "bavi_prace": 10.0,
+      "prehlcenost": 2.0,
+      "prescasy": 1.0,
+      "strach_z_ai": 2.0,
+      "experimentovani_mimo_praci": 6.0,
+      "sebehodnoceni": 6.0,
+      "role": "Účetní junior",
+      "delka_ve_firme": 0.0,
+      "zodpovednosti": "Podpora kolegů, základní účetní operace",
+      "zkusenost_koncepty": 1.8,
+      "frekvence_ai": 4.0
+    },
+    {
+      "jmeno": "Barbora Šimková",
+      "kategorie": "Provoz a HR",
+      "tym": "",
+      "rozhovor": false,
+      "index_umim": 5.68,
+      "umim_teorie": 5.54,
+      "umim_praxe": 5.8,
+      "index_chci": 8.1,
+      "znalosti": 6.07,
+      "schopnosti": 5.0,
+      "zkouseni": 7.0,
+      "spravnost_odpovedi": 4,
+      "znam_nastroje": 9,
+      "pouzivam_nastroje": 5,
+      "platim_nastroje": 1,
+      "bavi_prace": 9.0,
+      "prehlcenost": 8.0,
+      "prescasy": 7.0,
+      "strach_z_ai": 1.0,
+      "experimentovani_mimo_praci": 6.0,
+      "sebehodnoceni": 5.0,
+      "role": "HR manažerka",
+      "delka_ve_firme": 1.0,
+      "zodpovednosti": "HR agenda – onboarding, offboarding, výkazy a mzdy, personální dokumentace, péče o zaměstnance",
+      "zkusenost_koncepty": 4.6,
+      "frekvence_ai": 7.0
+    },
+    {
+      "jmeno": "Hana Marková",
+      "kategorie": "Provoz a HR",
+      "tym": "",
+      "rozhovor": false,
+      "index_umim": 4.0,
+      "umim_teorie": 4.21,
+      "umim_praxe": 3.8,
+      "index_chci": 8.3,
+      "znalosti": 6.43,
+      "schopnosti": 2.0,
+      "zkouseni": 6.33,
+      "spravnost_odpovedi": 6,
+      "znam_nastroje": 6,
+      "pouzivam_nastroje": 2,
+      "platim_nastroje": 0,
+      "bavi_prace": 9.0,
+      "prehlcenost": 2.0,
+      "prescasy": 2.0,
+      "strach_z_ai": 2.0,
+      "experimentovani_mimo_praci": 8.0,
+      "sebehodnoceni": 2.0,
+      "role": "Asistentka",
+      "delka_ve_firme": 0.0,
+      "zodpovednosti": "Podpora a administrativa na středočeské pobočce",
+      "zkusenost_koncepty": 3.6,
+      "frekvence_ai": 4.0
+    },
+    {
+      "jmeno": "Alena Pokorná",
+      "kategorie": "Vedení",
+      "tym": "",
+      "rozhovor": false,
+      "index_umim": 2.88,
+      "umim_teorie": 4.75,
+      "umim_praxe": 1.0,
+      "index_chci": 7.0,
+      "znalosti": 7.5,
+      "schopnosti": 2.0,
+      "zkouseni": 6.0,
+      "spravnost_odpovedi": 6,
+      "znam_nastroje": 9,
+      "pouzivam_nastroje": 3,
+      "platim_nastroje": 0,
+      "bavi_prace": 8.0,
+      "prehlcenost": 7.0,
+      "prescasy": 7.0,
+      "strach_z_ai": 2.0,
+      "experimentovani_mimo_praci": 5.0,
+      "sebehodnoceni": 4.0,
+      "role": "Vedoucí pobočky",
+      "delka_ve_firme": 7.0,
+      "zodpovednosti": "Provoz jihočeské pobočky, koordinace poboček, vedení studijního oddělení",
+      "zkusenost_koncepty": -2.5,
+      "frekvence_ai": 2.0
+    },
+    {
+      "jmeno": "Ivana Benešová",
+      "kategorie": "Finance a účetnictví",
+      "tym": "",
+      "rozhovor": false,
+      "index_umim": 3.63,
+      "umim_teorie": 4.36,
+      "umim_praxe": 2.9,
+      "index_chci": 6.5,
+      "znalosti": 5.71,
+      "schopnosti": 3.0,
+      "zkouseni": 5.67,
+      "spravnost_odpovedi": 5,
+      "znam_nastroje": 6,
+      "pouzivam_nastroje": 4,
+      "platim_nastroje": 0,
+      "bavi_prace": 6.0,
+      "prehlcenost": 6.0,
+      "prescasy": 6.0,
+      "strach_z_ai": 2.0,
+      "experimentovani_mimo_praci": 6.0,
+      "sebehodnoceni": 3.0,
+      "role": "Finanční kontrolorka",
+      "delka_ve_firme": 4.0,
+      "zodpovednosti": "Provoz olomoucké pobočky, kontrola procesů, finanční poradenství",
+      "zkusenost_koncepty": 1.8,
+      "frekvence_ai": 4.0
+    },
+    {
+      "jmeno": "Monika Krejčí",
+      "kategorie": "Finance a účetnictví",
+      "tym": "",
+      "rozhovor": false,
+      "index_umim": 3.64,
+      "umim_teorie": 3.68,
+      "umim_praxe": 3.6,
+      "index_chci": 6.9,
+      "znalosti": 5.36,
+      "schopnosti": 2.0,
+      "zkouseni": 5.33,
+      "spravnost_odpovedi": 4,
+      "znam_nastroje": 7,
+      "pouzivam_nastroje": 2,
+      "platim_nastroje": 0,
+      "bavi_prace": 7.0,
+      "prehlcenost": 3.0,
+      "prescasy": 3.0,
+      "strach_z_ai": 2.0,
+      "experimentovani_mimo_praci": 6.0,
+      "sebehodnoceni": 4.0,
+      "role": "Fakturantka",
+      "delka_ve_firme": 20.0,
+      "zodpovednosti": "Fakturace, administrativa, prodej",
+      "zkusenost_koncepty": 3.2,
+      "frekvence_ai": 4.0
+    },
+    {
+      "jmeno": "Lenka Říhová",
+      "kategorie": "Finance a účetnictví",
+      "tym": "",
+      "rozhovor": false,
+      "index_umim": 3.23,
+      "umim_teorie": 2.25,
+      "umim_praxe": 4.2,
+      "index_chci": 7.5,
+      "znalosti": 2.5,
+      "schopnosti": 2.0,
+      "zkouseni": 6.67,
+      "spravnost_odpovedi": 2,
+      "znam_nastroje": 3,
+      "pouzivam_nastroje": 2,
+      "platim_nastroje": 0,
+      "bavi_prace": 10.0,
+      "prehlcenost": 10.0,
+      "prescasy": 10.0,
+      "strach_z_ai": 2.0,
+      "experimentovani_mimo_praci": 6.0,
+      "sebehodnoceni": 3.0,
+      "role": "Účetní",
+      "delka_ve_firme": 2.0,
+      "zodpovednosti": "Účetnictví pro několik poboček, zpracování dokladů",
+      "zkusenost_koncepty": 1.4,
+      "frekvence_ai": 7.0
+    },
+    {
+      "jmeno": "Klára Němcová",
+      "kategorie": "Provoz a HR",
+      "tym": "",
+      "rozhovor": false,
+      "index_umim": 6.64,
+      "umim_teorie": 5.79,
+      "umim_praxe": 7.5,
+      "index_chci": 8.9,
+      "znalosti": 8.57,
+      "schopnosti": 3.0,
+      "zkouseni": 7.33,
+      "spravnost_odpovedi": 5,
+      "znam_nastroje": 14,
+      "pouzivam_nastroje": 4,
+      "platim_nastroje": 0,
+      "bavi_prace": 9.0,
+      "prehlcenost": 3.0,
+      "prescasy": 1.0,
+      "strach_z_ai": 3.0,
+      "experimentovani_mimo_praci": 10.0,
+      "sebehodnoceni": 6.0,
+      "role": "Provozní asistentka",
+      "delka_ve_firme": null,
+      "zodpovednosti": "Kontrola dokladů, správnost dat, podpora pro celý tým, komunikace s dodavateli, objednávky",
+      "zkusenost_koncepty": 5.0,
+      "frekvence_ai": 10.0
+    },
+    {
+      "jmeno": "Dana Urbanová",
+      "kategorie": "Finance a účetnictví",
+      "tym": "",
+      "rozhovor": false,
+      "index_umim": 3.95,
+      "umim_teorie": 3.32,
+      "umim_praxe": 4.6,
+      "index_chci": 6.8,
+      "znalosti": 4.64,
+      "schopnosti": 2.0,
+      "zkouseni": 6.33,
+      "spravnost_odpovedi": 4,
+      "znam_nastroje": 5,
+      "pouzivam_nastroje": 3,
+      "platim_nastroje": 0,
+      "bavi_prace": 9.0,
+      "prehlcenost": 9.0,
+      "prescasy": 8.0,
+      "strach_z_ai": 5.0,
+      "experimentovani_mimo_praci": 8.0,
+      "sebehodnoceni": 8.0,
+      "role": "Finanční analytička",
+      "delka_ve_firme": 3.0,
+      "zodpovednosti": "Finanční kontrola poboček, metodická podpora, reporting, spolupráce s externími auditory",
+      "zkusenost_koncepty": 2.1,
+      "frekvence_ai": 7.0
+    },
+    {
+      "jmeno": "Simona Fialová",
+      "kategorie": "Finance a účetnictví",
+      "tym": "",
+      "rozhovor": false,
+      "index_umim": 5.7,
+      "umim_teorie": 4.32,
+      "umim_praxe": 7.1,
+      "index_chci": 3.3,
+      "znalosti": 4.64,
+      "schopnosti": 4.0,
+      "zkouseni": 1.67,
+      "spravnost_odpovedi": 4,
+      "znam_nastroje": 5,
+      "pouzivam_nastroje": 3,
+      "platim_nastroje": 1,
+      "bavi_prace": 7.0,
+      "prehlcenost": 5.0,
+      "prescasy": 8.0,
+      "strach_z_ai": 2.0,
+      "experimentovani_mimo_praci": 5.0,
+      "sebehodnoceni": 3.0,
+      "role": "Senior účetní",
+      "delka_ve_firme": 8.0,
+      "zodpovednosti": "Senior účetní pro více poboček, metodické vedení, administrativa, kontrola dokumentace",
+      "zkusenost_koncepty": 4.2,
+      "frekvence_ai": 10.0
+    },
+    {
+      "jmeno": "Renata Králová",
+      "kategorie": "Provoz a HR",
+      "tym": "",
+      "rozhovor": false,
+      "index_umim": 4.32,
+      "umim_teorie": 5.21,
+      "umim_praxe": 3.4,
+      "index_chci": 6.8,
+      "znalosti": 6.43,
+      "schopnosti": 4.0,
+      "zkouseni": 5.33,
+      "spravnost_odpovedi": 7,
+      "znam_nastroje": 4,
+      "pouzivam_nastroje": 4,
+      "platim_nastroje": 1,
+      "bavi_prace": 10.0,
+      "prehlcenost": 7.0,
+      "prescasy": 7.0,
+      "strach_z_ai": 2.0,
+      "experimentovani_mimo_praci": 8.0,
+      "sebehodnoceni": 4.0,
+      "role": "Metodička procesů",
+      "delka_ve_firme": 3.0,
+      "zodpovednosti": "Kvalifikace pracovníků, plán vzdělávání, metodické postupy, akreditace",
+      "zkusenost_koncepty": 2.9,
+      "frekvence_ai": 4.0
+    }
+  ],
+  "cinnosti": [
+    {
+      "nazev": "psaní_mailů",
+      "prumer": 4.0,
+      "distribuce": {
+        "denne": 16,
+        "tyden": 0,
+        "mesic": 0,
+        "mene": 0
+      }
+    },
+    {
+      "nazev": "psaní_chatových_zpráv",
+      "prumer": 3.38,
+      "distribuce": {
+        "denne": 11,
+        "tyden": 2,
+        "mesic": 1,
+        "mene": 2
+      }
+    },
+    {
+      "nazev": "vyhodnocování_dat",
+      "prumer": 2.5,
+      "distribuce": {
+        "denne": 3,
+        "tyden": 5,
+        "mesic": 5,
+        "mene": 3
+      }
+    },
+    {
+      "nazev": "příprava_prezentací",
+      "prumer": 1.44,
+      "distribuce": {
+        "denne": 0,
+        "tyden": 2,
+        "mesic": 3,
+        "mene": 11
+      }
+    },
+    {
+      "nazev": "dohledávání_informací_v_interních_materiálech",
+      "prumer": 3.62,
+      "distribuce": {
+        "denne": 11,
+        "tyden": 4,
+        "mesic": 1,
+        "mene": 0
+      }
+    },
+    {
+      "nazev": "monitoring_veřejných_zdrojů",
+      "prumer": 2.25,
+      "distribuce": {
+        "denne": 1,
+        "tyden": 4,
+        "mesic": 9,
+        "mene": 2
+      }
+    },
+    {
+      "nazev": "analýza_souborů",
+      "prumer": 2.12,
+      "distribuce": {
+        "denne": 3,
+        "tyden": 2,
+        "mesic": 5,
+        "mene": 6
+      }
+    },
+    {
+      "nazev": "extrakce_informací_z_dokumentů",
+      "prumer": 2.19,
+      "distribuce": {
+        "denne": 4,
+        "tyden": 3,
+        "mesic": 1,
+        "mene": 8
+      }
+    },
+    {
+      "nazev": "psaní_marketingových_textů",
+      "prumer": 1.44,
+      "distribuce": {
+        "denne": 1,
+        "tyden": 1,
+        "mesic": 2,
+        "mene": 12
+      }
+    },
+    {
+      "nazev": "projektové_řízení",
+      "prumer": 2.69,
+      "distribuce": {
+        "denne": 6,
+        "tyden": 2,
+        "mesic": 5,
+        "mene": 3
+      }
+    },
+    {
+      "nazev": "porady",
+      "prumer": 2.62,
+      "distribuce": {
+        "denne": 1,
+        "tyden": 10,
+        "mesic": 3,
+        "mene": 2
+      }
+    },
+    {
+      "nazev": "pohovory_s_kandidáty",
+      "prumer": 2.06,
+      "distribuce": {
+        "denne": 2,
+        "tyden": 4,
+        "mesic": 3,
+        "mene": 7
+      }
+    },
+    {
+      "nazev": "služební_cesty",
+      "prumer": 2.0,
+      "distribuce": {
+        "denne": 1,
+        "tyden": 4,
+        "mesic": 5,
+        "mene": 6
+      }
+    },
+    {
+      "nazev": "překlady",
+      "prumer": 1.5,
+      "distribuce": {
+        "denne": 2,
+        "tyden": 0,
+        "mesic": 2,
+        "mene": 12
+      }
+    }
+  ],
+  "nastroje": [
+    {
+      "nazev": "chatgpt",
+      "neznam": 0,
+      "znam": 0,
+      "pouzivam": 16
+    },
+    {
+      "nazev": "microsoft_copilot",
+      "neznam": 5,
+      "znam": 9,
+      "pouzivam": 2
+    },
+    {
+      "nazev": "perplexity",
+      "neznam": 7,
+      "znam": 7,
+      "pouzivam": 2
+    },
+    {
+      "nazev": "notebooklm",
+      "neznam": 6,
+      "znam": 2,
+      "pouzivam": 8
+    },
+    {
+      "nazev": "google_gemini",
+      "neznam": 0,
+      "znam": 4,
+      "pouzivam": 12
+    },
+    {
+      "nazev": "claude",
+      "neznam": 8,
+      "znam": 8,
+      "pouzivam": 0
+    },
+    {
+      "nazev": "cursor",
+      "neznam": 8,
+      "znam": 6,
+      "pouzivam": 2
+    },
+    {
+      "nazev": "gamma",
+      "neznam": 15,
+      "znam": 1,
+      "pouzivam": 0
+    },
+    {
+      "nazev": "relevance",
+      "neznam": 15,
+      "znam": 1,
+      "pouzivam": 0
+    },
+    {
+      "nazev": "heygen",
+      "neznam": 15,
+      "znam": 1,
+      "pouzivam": 0
+    },
+    {
+      "nazev": "elevenlabs",
+      "neznam": 15,
+      "znam": 1,
+      "pouzivam": 0
+    },
+    {
+      "nazev": "relay",
+      "neznam": 11,
+      "znam": 5,
+      "pouzivam": 0
+    },
+    {
+      "nazev": "microsoft_power_automate",
+      "neznam": 13,
+      "znam": 3,
+      "pouzivam": 0
+    },
+    {
+      "nazev": "canva",
+      "neznam": 1,
+      "znam": 4,
+      "pouzivam": 11
+    }
+  ],
+  "koncepty": [
+    {
+      "nazev": "hloubkový_výzkum",
+      "prumer": 2.2,
+      "distribuce": {
+        "1": 4,
+        "2": 6,
+        "3": 3,
+        "4": 2,
+        "5": 0
+      }
+    },
+    {
+      "nazev": "vlastní_ai_asistent",
+      "prumer": 2.33,
+      "distribuce": {
+        "1": 3,
+        "2": 7,
+        "3": 3,
+        "4": 1,
+        "5": 1
+      }
+    },
+    {
+      "nazev": "napojení_ai_na_email_a_soubory",
+      "prumer": 2.8,
+      "distribuce": {
+        "1": 0,
+        "2": 5,
+        "3": 8,
+        "4": 2,
+        "5": 0
+      }
+    },
+    {
+      "nazev": "hlasová_komunikace_s_ai",
+      "prumer": 2.87,
+      "distribuce": {
+        "1": 1,
+        "2": 4,
+        "3": 6,
+        "4": 4,
+        "5": 0
+      }
+    },
+    {
+      "nazev": "diktování_místo_psaní",
+      "prumer": 2.79,
+      "distribuce": {
+        "1": 1,
+        "2": 5,
+        "3": 4,
+        "4": 4,
+        "5": 0
+      }
+    },
+    {
+      "nazev": "automatizace",
+      "prumer": 2.13,
+      "distribuce": {
+        "1": 4,
+        "2": 7,
+        "3": 2,
+        "4": 2,
+        "5": 0
+      }
+    },
+    {
+      "nazev": "agentské_systémy",
+      "prumer": 1.27,
+      "distribuce": {
+        "1": 12,
+        "2": 2,
+        "3": 1,
+        "4": 0,
+        "5": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+---
+title: Práce a nástroje
+description: Charakter práce a používané AI nástroje Vzdělávacího centra Horizont
+---
+
+## Charakter práce
+
+Heatmapa ukazuje, jak často tým vykonává jednotlivé činnosti. Čím tmavší barva, tím víc lidí danou činnost dělá denně.
+
+<ActivityHeatmap
+  totalRespondents={16}
+  data={[
+    { nazev: "psaní_mailů", distribuce: { denne: 16, tyden: 0, mesic: 0, mene: 0 } },
+    { nazev: "dohledávání_informací_v_interních_materiálech", distribuce: { denne: 11, tyden: 4, mesic: 1, mene: 0 } },
+    { nazev: "psaní_chatových_zpráv", distribuce: { denne: 11, tyden: 2, mesic: 1, mene: 2 } },
+    { nazev: "projektové_řízení", distribuce: { denne: 6, tyden: 2, mesic: 5, mene: 3 } },
+    { nazev: "porady", distribuce: { denne: 1, tyden: 10, mesic: 3, mene: 2 } },
+    { nazev: "vyhodnocování_dat", distribuce: { denne: 3, tyden: 5, mesic: 5, mene: 3 } },
+    { nazev: "monitoring_veřejných_zdrojů", distribuce: { denne: 1, tyden: 4, mesic: 9, mene: 2 } },
+    { nazev: "extrakce_informací_z_dokumentů", distribuce: { denne: 4, tyden: 3, mesic: 1, mene: 8 } },
+    { nazev: "analýza_souborů", distribuce: { denne: 3, tyden: 2, mesic: 5, mene: 6 } },
+    { nazev: "pohovory_s_kandidáty", distribuce: { denne: 2, tyden: 4, mesic: 3, mene: 7 } },
+    { nazev: "služební_cesty", distribuce: { denne: 1, tyden: 4, mesic: 5, mene: 6 } },
+    { nazev: "překlady", distribuce: { denne: 2, tyden: 0, mesic: 2, mene: 12 } },
+    { nazev: "příprava_prezentací", distribuce: { denne: 0, tyden: 2, mesic: 3, mene: 11 } },
+    { nazev: "psaní_marketingových_textů", distribuce: { denne: 1, tyden: 1, mesic: 2, mene: 12 } },
+  ]}
+/>
+
+<Callout type="insight">
+  Vzdělávací centrum Horizont je organizace postavená na **komunikaci a dokumentech**. Všech 16 lidí píše emaily denně, 11 z 16 denně dohledává informace v interních materiálech. To jsou přesně činnosti, kde AI přináší okamžité úspory: sumarizace, šablony, inteligentní vyhledávání.
+</Callout>
+
+### Co říkají čísla
+
+**Emaily** dominují se skóre **4,0** – absolutní maximum. Celý tým je na nich denně. Z rozhovorů vyplývá, že emailová komunikace je primární kanál: **L. Říhová** obsluhuje **7 schránek**, **E. Horáková** dostává měsíčně desítky potvrzení od zaměstnanců v nestrukturované formě, **A. Pokorná** řeší přes email i úkoly.
+
+**Dohledávání informací** (**3,6**) – 11 z 16 lidí hledá v interních materiálech denně. Problém potvrzuje i **H. Marková**, která zdědila chaotický Google Disk: *„Něco tam najít je dost složitý."* Informace jsou roztříštěné v desítkách sdílených disků bez jednotné struktury.
+
+**Porady** (**2,6**) – 10 z 16 lidí má porady týdně. Koordinační porady finančního oddělení, porady vedení, porady vedení. **J. Černá** moderuje a zároveň zapisuje. **E. Horáková** popisuje, že kolegyně píše zápis ručně přímo při sdílení obrazovky.
+
+**Služební cesty** (**2,0**) – specifické pro Vzdělávací centrum Horizont jako síť poboček. **S. Fialová** najezdí 300 km na jednu cestu do Náchodu a zpět. Cesty zabírají čas, ale jsou nezbytné pro kontakt se klienty a zaměstnanci.
+
+### Kde se tráví čas zbytečně
+
+Tři opakující se vzorce z rozhovorů:
+
+**1. Kontrola dokumentů jedna po jedné.** **150 měsíčních reportů** měsíčně, **150 IKP** na začátku roku. Otevřít, zkontrolovat 4–5 polí, okomentovat chyby, zavřít, otevřít další. *„Někdy to musíme otevírat kontroly, kontroly, kontroly, protože nejsou schopní to opravit,"* říká **E. Horáková**.
+
+**2. Kopírování dat mezi systémy.** **L. Říhová** opisuje položky z faktur v účetním systému do Excelu, pak z Excelu do e-dokladu. **H. Marková** vyplňuje přijímací formuláře ručně z dat ve 4 různých tabulkách, protože informace nekorespondují.
+
+**3. Nestrukturovaná komunikace.** Zaměstnanci posílají potvrzení emailem bez jednotného formátu. Někdo napíše celý email, někdo jen předmět. Filtrovat to nejde, třeba to projít ručně.
+
+<Callout type="warning">
+  Odhadovaná ztráta na kontrole dokumentů: **15–20 hodin měsíčně** jen na měsíční reporty (150 docs × 5–8 minut). Na začátku roku se přidává 150 IKP – další desítky hodin rozprostřené mezi 3–4 finanční kontrolory.
+</Callout>
+
+## Používané AI nástroje
+
+<ToolsHeatmap
+  totalRespondents={16}
+  data={[
+    { nazev: "chatgpt", pouzivam: 16, znam: 0, neznam: 0 },
+    { nazev: "google_gemini", pouzivam: 12, znam: 4, neznam: 0 },
+    { nazev: "canva", pouzivam: 11, znam: 4, neznam: 1 },
+    { nazev: "notebooklm", pouzivam: 8, znam: 2, neznam: 6 },
+    { nazev: "microsoft_copilot", pouzivam: 2, znam: 9, neznam: 5 },
+    { nazev: "perplexity", pouzivam: 2, znam: 7, neznam: 7 },
+    { nazev: "cursor", pouzivam: 2, znam: 6, neznam: 8 },
+    { nazev: "claude", pouzivam: 0, znam: 8, neznam: 8 },
+    { nazev: "relay", pouzivam: 0, znam: 5, neznam: 11 },
+    { nazev: "microsoft_power_automate", pouzivam: 0, znam: 3, neznam: 13 },
+    { nazev: "gamma", pouzivam: 0, znam: 1, neznam: 15 },
+    { nazev: "relevance", pouzivam: 0, znam: 1, neznam: 15 },
+    { nazev: "heygen", pouzivam: 0, znam: 1, neznam: 15 },
+    { nazev: "elevenlabs", pouzivam: 0, znam: 1, neznam: 15 },
+  ]}
+/>
+
+**ChatGPT** je jednoznačný lídr – používá ho **100 %** týmu. To je výjimečné; u většiny firem bývá adopce kolem 50–70 %. **Google Gemini** následuje s **12 z 16** – logicky, protože Vzdělávací centrum Horizont pracuje v Google ekosystému. **Canva** (**11/16**) je hlavní nástroj pro vizuální materiály; využívají ji pracovníci pro přípravu materiálů pro klienty.
+
+**NotebookLM** je překvapivě silný – **8 z 16** ho používá. **J. Černá** ho šíří mezi zaměstnance pro práci s legislativou a interními materiály. **M. Dvořák** ho doporučil **L. Říhové** pro přípravu na zkoušku.
+
+### Jak se dnes AI používá
+
+**J. Černá** – projekt v ChatGPT pro páteční oběžníky (shrnutí týdne pro zaměstnance), AI asistent naučený jejímu stylu odpovídání, NotebookLM se zákony od pana Dvořáka.
+
+**E. Horáková** – ChatGPT na přepisování emailů do profesionálního tónu, Canva na prezentace a materiály pro klienty. Gemini začíná zkoušet.
+
+**A. Pokorná** – ChatGPT na sjednocení formátu zápisů z porad vedení (různá písma, odstavce, formátování od různých poboček).
+
+**L. Říhová** – ChatGPT a Gemini na formulaci pracovních emailů, NotebookLM na ověřování legislativních otázek pro účetnictví.
+
+### Co chybí
+
+| Nástroj | Potenciál pro Vzdělávací centrum Horizont | Aktuální stav |
+|---|---|---|
+| **ChatGPT Business** (projekty) | Sdílené projekty s instrukcemi pro celý tým – kontrola dokumentů, generování IKP | Každý používá osobní účet bez sdílení |
+| **Google Apps Script + AI** | Automatická kontrola vyplněnosti Google Docs, notifikace o chybách | Neexistuje |
+| **TLDV / záznam porad** | Automatické zápisy z online porad místo ručního zapisování | Černá testuje, ostatní ne |
+
+<Callout type="insight">
+  Největší nevyužitý potenciál je v **ChatGPT projektech** sdílených napříč týmem. Dnes každý pracuje ve svém osobním účtu. Firemní licence s projekty by umožnila vytvořit sdílené „asistenty" pro kontrolu dokumentů, generování oběžníků nebo přípravu IKP.
+</Callout>

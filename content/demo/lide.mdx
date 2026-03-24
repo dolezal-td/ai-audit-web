@@ -1,0 +1,145 @@
+---
+title: Lidé
+description: Scatter plot Umím × Chci a profily jednotlivců
+---
+
+## Mapa týmu
+
+Každý bod na grafu je jeden člověk. Horizontální osa ukazuje **motivaci** (Index Chci), vertikální **praktické dovednosti** (Index Umím). Přerušované čáry ukazují benchmark trhu.
+
+<ScatterPlotChart
+  benchmarkUmim={3.9}
+  benchmarkChci={5.83}
+  groups={{
+    "Vedení": ["Vedení"],
+    "Finance a účetnictví": ["Finance a účetnictví"],
+    "Provoz a HR": ["Provoz a HR"],
+  }}
+  groupColors={{
+    "Vedení": "#2563EB",
+    "Finance a účetnictví": "#059669",
+    "Provoz a HR": "#EA580C",
+  }}
+  data={[
+    { jmeno: "Klára Němcová", kategorie: "Provoz a HR", index_umim: 6.64, index_chci: 8.9 },
+    { jmeno: "Lucie Procházková", kategorie: "Provoz a HR", index_umim: 6.27, index_chci: 9.1 },
+    { jmeno: "Martin Dvořák", kategorie: "Vedení", index_umim: 6.38, index_chci: 8.1 },
+    { jmeno: "Jana Černá", kategorie: "Vedení", index_umim: 6.0, index_chci: 8.4 },
+    { jmeno: "Simona Fialová", kategorie: "Finance a účetnictví", index_umim: 5.7, index_chci: 3.3 },
+    { jmeno: "Barbora Šimková", kategorie: "Provoz a HR", index_umim: 5.68, index_chci: 8.1 },
+    { jmeno: "Eva Horáková", kategorie: "Finance a účetnictví", index_umim: 4.86, index_chci: 7.5 },
+    { jmeno: "Renata Králová", kategorie: "Vedení", index_umim: 4.32, index_chci: 6.8 },
+    { jmeno: "Dana Urbanová", kategorie: "Finance a účetnictví", index_umim: 3.95, index_chci: 6.8 },
+    { jmeno: "Hana Marková", kategorie: "Provoz a HR", index_umim: 4.0, index_chci: 8.3 },
+    { jmeno: "Monika Krejčí", kategorie: "Provoz a HR", index_umim: 3.64, index_chci: 6.9 },
+    { jmeno: "Ivana Benešová", kategorie: "Finance a účetnictví", index_umim: 3.63, index_chci: 6.5 },
+    { jmeno: "Lenka Říhová", kategorie: "Provoz a HR", index_umim: 3.23, index_chci: 7.5 },
+    { jmeno: "Petra Veselá", kategorie: "Finance a účetnictví", index_umim: 3.2, index_chci: 7.3 },
+    { jmeno: "Alena Pokorná", kategorie: "Vedení", index_umim: 2.88, index_chci: 7.0 },
+    { jmeno: "Tereza Kopecká", kategorie: "Finance a účetnictví", index_umim: 2.58, index_chci: 5.5 },
+  ]}
+/>
+
+<Callout type="insight">
+  Tým se dělí na dvě skupiny: **pokročilá šestice** nad benchmarkem (Němcová, Procházková, Dvořák, Černá, Fialová, Šimková) a **širší střed** s vysokou motivací, ale zatím nižšími dovednostmi. Zajímavá výjimka: **S. Fialová** – vysoké Umím (**5,7**), ale nejnižší Chci (**3,3**) v celém týmu. Není odmítavá; je přetížená.
+</Callout>
+
+## Profily
+
+<PeopleHeatmap
+  columns={[
+    { key: "spravnost_odpovedi", label: "Vědomosti o AI", description: "Počet správných odpovědí v kvízu (0–7). Zahrnuje 2 otevřené otázky a 5 pravda/nepravda tvrzení o AI." },
+    { key: "znam_nastroje", label: "Znám nástroje", description: "Počet AI nástrojů, které respondent zná nebo aktivně používá (0–14)." },
+    { key: "znalosti", label: "Znalosti", description: "Průměr správnosti odpovědí a povědomí o nástrojích, normalizovaný na škálu 0–10." },
+    { key: "platim_nastroje", label: "Platím nástroje", description: "Kolik AI nástrojů si respondent platí ze svého. 0 = žádný, 1 = jeden, 2 = více." },
+    { key: "pouzivam_nastroje", label: "Používám nást.", description: "Počet AI nástrojů, které respondent aktivně používá (0–14)." },
+    { key: "schopnosti", label: "Schopnosti", description: "Kompozit z platby za nástroje a aktivního používání (log. škálování). Škála 0–10." },
+    { key: "zkouseni", label: "Zkoušení", description: "Průměr tří ukazatelů: experimentování v práci, pomoc kolegům a ukazování inovací na poradách. Škála 1–10." },
+    { key: "bavi_prace", label: "Baví práce", description: "Jak moc respondenta baví jeho práce v současné podobě. Škála 1–10." },
+    { key: "prehlcenost", label: "Přehlcenost", lowerIsBetter: true, description: "Jak často se respondent cítí přehlcený informacemi a úkoly. Škála 1–10, nižší = lepší." },
+    { key: "prescasy", label: "Přesčasy", lowerIsBetter: true, description: "Jak často respondent pracuje přesčas. Škála 1–10, nižší = lepší." },
+    { key: "strach_z_ai", label: "Obavy z AI", lowerIsBetter: true, description: "Jak moc se respondent bojí, že mu AI může vzít práci. Škála 1–10, nižší = lepší." },
+    { key: "index_umim", label: "Index Umím", emphasized: true, description: "Hlavní ukazatel AI kompetencí. Průměr Znalostí a Schopností. Škála 0–10." },
+    { key: "index_chci", label: "Index Chci", emphasized: true, description: "Motivace k AI adopci. Základ ze Zkoušení + korekce za radost z práce, obavy a přehlcenost. Škála 1–10." },
+  ]}
+  data={[
+    { jmeno: "Klára Němcová", kategorie: "Provoz a HR", spravnost_odpovedi: 5, znam_nastroje: 14, znalosti: 8.57, platim_nastroje: 0, pouzivam_nastroje: 4, schopnosti: 3.0, zkouseni: 7.33, bavi_prace: 9.0, prehlcenost: 3.0, prescasy: 1.0, strach_z_ai: 3.0, index_umim: 6.64, index_chci: 8.9 },
+    { jmeno: "Lucie Procházková", kategorie: "Provoz a HR", spravnost_odpovedi: 2, znam_nastroje: 8, znalosti: 4.29, platim_nastroje: 1, pouzivam_nastroje: 3, schopnosti: 4.0, zkouseni: 7.0, bavi_prace: 10.0, prehlcenost: 2.0, prescasy: 2.0, strach_z_ai: 2.0, index_umim: 6.27, index_chci: 9.1 },
+    { jmeno: "Martin Dvořák", kategorie: "Vedení", spravnost_odpovedi: 5, znam_nastroje: 10, znalosti: 7.14, platim_nastroje: 2, pouzivam_nastroje: 6, schopnosti: 6.0, zkouseni: 8.0, bavi_prace: 5.0, prehlcenost: 9.0, prescasy: 9.0, strach_z_ai: 1.0, index_umim: 6.38, index_chci: 8.1 },
+    { jmeno: "Jana Černá", kategorie: "Vedení", spravnost_odpovedi: 4, znam_nastroje: 9, znalosti: 6.07, platim_nastroje: 1, pouzivam_nastroje: 4, schopnosti: 4.0, zkouseni: 7.33, bavi_prace: 9.0, prehlcenost: 7.0, prescasy: 7.0, strach_z_ai: 2.0, index_umim: 6.0, index_chci: 8.4 },
+    { jmeno: "Simona Fialová", kategorie: "Finance a účetnictví", spravnost_odpovedi: 4, znam_nastroje: 5, znalosti: 4.64, platim_nastroje: 1, pouzivam_nastroje: 3, schopnosti: 4.0, zkouseni: 1.67, bavi_prace: 7.0, prehlcenost: 5.0, prescasy: 8.0, strach_z_ai: 2.0, index_umim: 5.7, index_chci: 3.3 },
+    { jmeno: "Barbora Šimková", kategorie: "Provoz a HR", spravnost_odpovedi: 4, znam_nastroje: 9, znalosti: 6.07, platim_nastroje: 1, pouzivam_nastroje: 5, schopnosti: 5.0, zkouseni: 7.0, bavi_prace: 9.0, prehlcenost: 8.0, prescasy: 7.0, strach_z_ai: 1.0, index_umim: 5.68, index_chci: 8.1 },
+    { jmeno: "Eva Horáková", kategorie: "Finance a účetnictví", spravnost_odpovedi: 5, znam_nastroje: 3, znalosti: 4.64, platim_nastroje: 2, pouzivam_nastroje: 3, schopnosti: 6.0, zkouseni: 6.33, bavi_prace: 8.0, prehlcenost: 7.0, prescasy: 5.0, strach_z_ai: 1.0, index_umim: 4.86, index_chci: 7.5 },
+    { jmeno: "Renata Králová", kategorie: "Vedení", spravnost_odpovedi: 7, znam_nastroje: 4, znalosti: 6.43, platim_nastroje: 1, pouzivam_nastroje: 4, schopnosti: 4.0, zkouseni: 5.33, bavi_prace: 10.0, prehlcenost: 7.0, prescasy: 7.0, strach_z_ai: 2.0, index_umim: 4.32, index_chci: 6.8 },
+    { jmeno: "Dana Urbanová", kategorie: "Finance a účetnictví", spravnost_odpovedi: 4, znam_nastroje: 5, znalosti: 4.64, platim_nastroje: 0, pouzivam_nastroje: 3, schopnosti: 2.0, zkouseni: 6.33, bavi_prace: 9.0, prehlcenost: 9.0, prescasy: 8.0, strach_z_ai: 5.0, index_umim: 3.95, index_chci: 6.8 },
+    { jmeno: "Hana Marková", kategorie: "Provoz a HR", spravnost_odpovedi: 6, znam_nastroje: 6, znalosti: 6.43, platim_nastroje: 0, pouzivam_nastroje: 2, schopnosti: 2.0, zkouseni: 6.33, bavi_prace: 9.0, prehlcenost: 2.0, prescasy: 2.0, strach_z_ai: 2.0, index_umim: 4.0, index_chci: 8.3 },
+    { jmeno: "Monika Krejčí", kategorie: "Provoz a HR", spravnost_odpovedi: 4, znam_nastroje: 7, znalosti: 5.36, platim_nastroje: 0, pouzivam_nastroje: 2, schopnosti: 2.0, zkouseni: 5.33, bavi_prace: 7.0, prehlcenost: 3.0, prescasy: 3.0, strach_z_ai: 2.0, index_umim: 3.64, index_chci: 6.9 },
+    { jmeno: "Ivana Benešová", kategorie: "Finance a účetnictví", spravnost_odpovedi: 5, znam_nastroje: 6, znalosti: 5.71, platim_nastroje: 0, pouzivam_nastroje: 4, schopnosti: 3.0, zkouseni: 5.67, bavi_prace: 6.0, prehlcenost: 6.0, prescasy: 6.0, strach_z_ai: 2.0, index_umim: 3.63, index_chci: 6.5 },
+    { jmeno: "Lenka Říhová", kategorie: "Provoz a HR", spravnost_odpovedi: 2, znam_nastroje: 3, znalosti: 2.5, platim_nastroje: 0, pouzivam_nastroje: 2, schopnosti: 2.0, zkouseni: 6.67, bavi_prace: 10.0, prehlcenost: 10.0, prescasy: 10.0, strach_z_ai: 2.0, index_umim: 3.23, index_chci: 7.5 },
+    { jmeno: "Petra Veselá", kategorie: "Finance a účetnictví", spravnost_odpovedi: 5, znam_nastroje: 4, znalosti: 5.0, platim_nastroje: 0, pouzivam_nastroje: 3, schopnosti: 2.0, zkouseni: 6.33, bavi_prace: 7.0, prehlcenost: 7.0, prescasy: 5.0, strach_z_ai: 1.0, index_umim: 3.2, index_chci: 7.3 },
+    { jmeno: "Alena Pokorná", kategorie: "Vedení", spravnost_odpovedi: 6, znam_nastroje: 9, znalosti: 7.5, platim_nastroje: 0, pouzivam_nastroje: 3, schopnosti: 2.0, zkouseni: 6.0, bavi_prace: 8.0, prehlcenost: 7.0, prescasy: 7.0, strach_z_ai: 2.0, index_umim: 2.88, index_chci: 7.0 },
+    { jmeno: "Tereza Kopecká", kategorie: "Finance a účetnictví", spravnost_odpovedi: 2, znam_nastroje: 3, znalosti: 2.5, platim_nastroje: 0, pouzivam_nastroje: 2, schopnosti: 2.0, zkouseni: 3.0, bavi_prace: 10.0, prehlcenost: 2.0, prescasy: 1.0, strach_z_ai: 2.0, index_umim: 2.58, index_chci: 5.5 },
+  ]}
+  previousData={[
+    { jmeno: "Jana Černá", spravnost_odpovedi: 4, znam_nastroje: 4, znalosti: 4.29, platim_nastroje: 1, pouzivam_nastroje: 3, schopnosti: 4.0, zkouseni: 7.67, strach_z_ai: 2.0, index_umim: 4.14, index_chci: 7.4 },
+    { jmeno: "Alena Pokorná", spravnost_odpovedi: 4, znam_nastroje: 5, znalosti: 4.64, platim_nastroje: 0, pouzivam_nastroje: 1, schopnosti: 1.0, zkouseni: 7.0, strach_z_ai: 1.0, index_umim: 2.82, index_chci: 7.3 },
+    { jmeno: "Martin Dvořák", spravnost_odpovedi: 6, znam_nastroje: 7, znalosti: 6.79, platim_nastroje: 2, pouzivam_nastroje: 4, schopnosti: 6.0, zkouseni: 6.33, strach_z_ai: 1.0, index_umim: 6.39, index_chci: 6.7 },
+    { jmeno: "Barbora Šimková", spravnost_odpovedi: 3, znam_nastroje: 5, znalosti: 3.93, platim_nastroje: 1, pouzivam_nastroje: 2, schopnosti: 4.0, zkouseni: 9.0, strach_z_ai: 1.0, index_umim: 3.96, index_chci: 8.7 },
+  ]}
+/>
+
+## Posun od minulého měření
+
+<Callout type="positive">
+  U 4 lidí máme data z měření začátkem roku 2025. Delta šipky v tabulce výše ukazují směr posunu. Největší růst vidíme u lidí, kteří AI aktivně zkoušejí v praxi.
+</Callout>
+
+**Jana Černá** – Umím vzrostlo z **4,1 na 6,0** (+1,9). Největší posun v týmu. Mezi měřeními začala aktivně používat TLDV, ChatGPT projekty a NotebookLM. Důkaz, že praktická práce s AI přináší měřitelné výsledky.
+
+**Barbora Šimková** – Umím z **4,0 na 5,7** (+1,7). Přidala si placený nástroj, začala aktivně experimentovat. Chci mírně kleslo (z **8,7 na 8,1**), což je přirozené – s rostoucími zkušenostmi přichází realističtější pohled.
+
+**Martin Dvořák** – stabilně vysoký (Umím **6,4**). Posun v motivaci z **6,7 na 8,1** – vidí výsledky a chce víc.
+
+**Alena Pokorná** – Umím mírně narostlo (z **2,8 na 2,9**), ale hlavní posun je ve znalosti nástrojů (z **5 na 9**). Ví, co existuje; teď potřebuje praxi.
+
+## Potenciální ambasadoři
+
+<Callout type="positive">
+  Čtyři lidé mohou táhnout AI adopci – a každý z jiného úhlu. Jednatel, který sám kóduje. Koordinátorka, která učí zaměstnance. Asistentka, která zná víc nástrojů než kdokoli jiný. A HR specialistka s nakažlivým nadšením.
+</Callout>
+
+**Martin Dvořák** (Umím **6,4**, Chci **8,1**) – jednatel firmy a nejzkušenější uživatel AI v organizaci. Používá **6 nástrojů** aktivně, **2** si platí, pracuje s Cursorem na automatizacích. Sám říká: *„Snažím se už o to pět let, aby mě nepotřebovali."* AI je pro něj cesta, jak předat rutinní práci a věnovat se lidem.
+
+**Jana Černá** (Umím **6,0**, Chci **8,4**) – vedoucí oddělení, koordinuje finanční kontrolory napříč pobočkami. Už dnes používá TLDV pro zápisy z porad, NotebookLM pro legislativu a projekty v ChatGPT pro páteční oběžníky. Aktivně šíří AI mezi zaměstnance: *„Ukazovala jsem jim, jak se z toho dělá podcast – byly z toho natřený."*
+
+**Klára Němcová** (Umím **6,6**, Chci **8,9**) – zná **14 AI nástrojů** (nejvíc v celém týmu), experimentuje mimo práci (**10/10**). Jako kancelářská podpora má přehled o procesech napříč organizací, což z ní dělá ideální osobu pro identifikaci dalších příležitostí.
+
+**Lucie Procházková** (Umím **6,3**, Chci **9,1**) – nejvyšší motivace v týmu, práce ji baví (**10/10**), ve firmě rok. Její praktické dovednosti (**8,4**) jsou nejvyšší ze všech, přestože teoretické znalosti jsou průměrné. Typický profil člověka, který se učí děláním.
+
+## Postřehy z rozhovorů
+
+Se **7 členy týmu** proběhly individuální **45minutové rozhovory**.
+
+**Jana Černá** (vedoucí spec. ped.) – nejvíc pokročilá z dotazovaných v práci s AI. Používá TLDV pro automatické zápisy z porad, ChatGPT projekty pro oběžníky, NotebookLM pro legislativu. Hlavní bolest: **150 individuálních klientských plánů**, které se kontrolují ručně. Už s konzultantem testovala automatizovanou kontrolu – zjistili, že problém není v AI, ale v tom, že zaměstnanci nedodržují pravidla vyplňování. Letos pravidla přepracovali.
+
+**Eva Horáková** (finanční kontrolorka) – vedoucí pracoviště. Používá ChatGPT pro přepisování emailů a pátečních oběžníků, Canvu pro materiály. Hlavní problém: **150 měsíčních reportů** kontrolovaných měsíčně, dokument po dokumentu. Když najde chybu, okomentuje, zaměstnanec „opraví", ona musí znovu zkontrolovat. *„Někteří zaměstnanci jsou takoví experti, že nám tam dají sice vyřešeno, ale nic se tam nezmění."*
+
+**Alena Pokorná** (vedoucí provozu) – vedoucí v jihočeském kraji, nově i vedoucí provozního oddělení. Používá ChatGPT k formátování zápisů z porad. Úkoly si eviduje přes hvězdičky v Gmailu a papírky. Při rozhovoru otevřená novým možnostem, ale praktické zkušenosti jsou zatím minimální (Index Umím **2,9**, praxe **1,0**).
+
+**Hana Marková** (provoz) – provozní referentka, ve firmě od ledna. Zdědila chaotický Google Disk s duplicitními složkami. V létě bude ručně vyplňovat **60 přijímacích formulářů**. Má dvě tabulky klientů, které nekorespondují a potřebují sloučit. Absolvovala workshop a ví, kde by AI pomohla.
+
+**Simona Fialová** (finanční kontrolorka) – 8 let ve firmě, **70 klientů** napříč **7 zařízeními**. Hodně cestuje, hodně administrativy. IKP dokumenty kontroluje desítky. Nízká motivace v dotazníku (**3,3**) neodráží odpor k AI, ale kapacitní vyčerpanost.
+
+**Tereza Kopecká** (finanční kontrolorka) – terénní, ve firmě **2 týdny**. Teprve se orientuje v systémech, nemá co automatizovat. Ale má pozitivní přístup a ráda se učí.
+
+**Lenka Říhová** (kancelář) – účetní, pracuje s účetní systém, Pohodou, e-dokladem a Excelem denně. Hlavní problém: **dodací listy** vznikají ručním kopírováním položek z faktur do Excelu. Má **7 emailových schránek**. Přehlcenost a přesčasy na maximu (**10/10**). Používá ChatGPT a Gemini pro formulaci emailů a vyhledávání.
+
+## Rizikové profily
+
+<Callout type="warning">
+  V Vzdělávacího centra Horizont nejsou klasické rizikové profily – nikdo nemá kombinaci nízkých znalostí, nízké motivace a vysokého strachu. Nejbližší pozornosti vyžaduje **S. Fialová**, ale z důvodu kapacity, ne odmítání AI.
+</Callout>
+
+**Simona Fialová** (Umím **5,7**, Chci **3,3**) – nejnižší motivace v týmu, ale vysoké znalosti. Problém není v přístupu k AI. Fialová objíždí 7 zařízení, stará se o 70 klientů a letos jí přibyla administrativa. Na další „novinku" nemá kapacitu. Řešení: ukázat jí konkrétní úsporu na procesech, které ji reálně trápí (kontrola IKP, cestování).
+
+**Tereza Kopecká** (Umím **2,6**, Chci **5,5**) – ve firmě 2 týdny, orientuje se. Nízké znalosti jsou přirozené; motivace je průměrná. Potřebuje čas na zaběhnutí, ne speciální přístup.
