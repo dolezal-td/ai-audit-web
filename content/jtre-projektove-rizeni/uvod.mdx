@@ -1,96 +1,240 @@
 ---
-title: Úvod
-description: Shrnutí AI auditu pro oddělení projektového řízení JTRE
+title: Přehled
+description: Executive summary AI auditu pro oddělení projektového řízení JTRE
 ---
 
-Vítejte v interaktivním reportu z AI auditu oddělení projektového řízení. Doba čtení celého reportu je přibližně **20–25 minut**, ale nemusíte ho přečíst najednou.
+# Váš tým a AI: kde jste dnes a co s tím
 
-Report má **8 stránek** rozdělených do dvou částí – analytické a strategické. V menu vlevo se přepínáte mezi stránkami, v menu vpravo vidíte obsah aktuální stránky pro snazší orientaci. Grafy a tabulky jsou interaktivní – najetím myší zobrazíte detaily.
+Provedl jsem AI audit oddělení projektového řízení firmy JTRE – **15 respondentů**, z toho **10 hloubkových rozhovorů** s klíčovými projektovými manažery. Doba čtení celého reportu je přibližně **20–25 minut**, ale nemusíte ho přečíst najednou. Tato stránka shrnuje to nejdůležitější.
 
-Zjišťoval jsem, kde je váš tým dnes se znalostmi a motivací v oblasti AI, kde v každodenních procesech leží největší potenciál pro úsporu času a jaké konkrétní kroky dávají smysl v následujících měsících.
+<div className="flex gap-3 mt-4 mb-8">
+  <InfoModal trigger="Jak číst report" title="Navigace v reportu">
+    <p>Report má <strong>8 stránek</strong> rozdělených do dvou částí – analytické a strategické.</p>
+    <p>V <strong>menu vlevo</strong> se přepínáte mezi stránkami. V <strong>menu vpravo</strong> vidíte obsah aktuální stránky pro snazší orientaci.</p>
+    <p>Grafy a tabulky jsou <strong>interaktivní</strong> – najetím myší zobrazíte detaily.</p>
+    <ul>
+      <li><strong>Přehled</strong> (tato stránka) – shrnutí celého auditu</li>
+      <li><strong>Tým</strong> – metriky oddělení vs. benchmark</li>
+      <li><strong>Lidé</strong> – profily jednotlivců</li>
+      <li><strong>Práce a nástroje</strong> – charakter práce, používané AI nástroje</li>
+      <li><strong>Procesy</strong> – procesní analýza a příležitosti</li>
+      <li><strong>Licence</strong> – doporučené AI nástroje</li>
+      <li><strong>Vzdělávací plán</strong> – 5fázový plán</li>
+      <li><strong>Shrnutí</strong> – rozhodnutí a další kroky</li>
+    </ul>
+  </InfoModal>
 
-## Klíčová čísla na první pohled
+  <InfoModal trigger="Jak probíhalo měření" title="Metodika auditu">
+    <table>
+      <thead>
+        <tr><th></th><th>Dotazník</th><th>Rozhovory</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Kdy</strong></td><td>20.–28. ledna 2026</td><td>6.–18. února 2026</td></tr>
+        <tr><td><strong>Kdo</strong></td><td><strong>15 respondentů</strong> z oddělení projektového řízení</td><td><strong>10 klíčových lidí:</strong> Jan Kočí, Jana Řehořová, Pavel Stáhlík, Martin Koiš, Daniel Falťan, Daniel Petrlík, Petr Holan, Jiří Knob, Tomáš Pospíšil, Tomáš Mraček</td></tr>
+        <tr><td><strong>Co</strong></td><td>Znalostní kvíz, sebehodnocení, postoje k AI, pracovní návyky, používané nástroje</td><td>45minutové individuální rozhovory o zkušenostech, postojích a pracovních procesech</td></tr>
+        <tr><td><strong>Výstup</strong></td><td>Indexy Umím a Chci, srovnání s trhem</td><td>Mapa procesů, bolestivá místa, příležitosti pro automatizaci</td></tr>
+      </tbody>
+    </table>
+    <p>Benchmark v tomto reportu vychází z dat více než <strong>200 respondentů</strong> napříč českými firmami, které prošly stejným auditem. Slouží jako orientační bod – ne jako cíl.</p>
+  </InfoModal>
+</div>
 
-<MetricCards
-  data={[
-    { title: "Index Umím", value: 2.92, benchmark: 3.9, description: "Kombinace znalostí, praktických schopností a míry zkoušení AI nástrojů. Škála 0–10.", lowerIsBetter: false },
-    { title: "Index Chci", value: 4.23, benchmark: 5.83, description: "Motivace k používání AI – ochota experimentovat, zájem o vzdělávání. Škála 0–10.", lowerIsBetter: false },
-    { title: "Strach z AI", value: 3.13, benchmark: 4.1, description: "Obavy z dopadu AI na vlastní pozici. Nižší = lepší. Škála 1–10.", lowerIsBetter: true },
+## Shrnutí v 5 bodech
+
+<div className="space-y-6 my-8">
+
+<div className="flex gap-4">
+  <span className="text-4xl font-black text-fd-primary shrink-0 w-10 text-right">1</span>
+  <div>
+    <p className="font-bold text-lg mt-0 mb-1">ChatGPT používáte jako vyhledávač – ale umí mnohem víc.</p>
+    <p className="text-fd-muted-foreground mt-0">9 z 15 lidí ho zná, ale nikdo nepracuje s kontextem vlastních dokumentů. Stáhlík z něj úspěšně vytáhl závazky ze stanoviska, Holan ušetřil právníkovi 2 hodiny na přípravě výzvy. Tohle je zlomek toho, co je možné.</p>
+  </div>
+</div>
+
+<div className="flex gap-4">
+  <span className="text-4xl font-black text-fd-primary shrink-0 w-10 text-right">2</span>
+  <div>
+    <p className="font-bold text-lg mt-0 mb-1">AI jste zkoušeli, narazili a vyvodili špatné závěry.</p>
+    <p className="text-fd-muted-foreground mt-0">Knob testoval přepisy porad měsíc – nefungovalo. Kočí se ptal na vyhlášky – dostal neplatné. Ale problém nebyl v AI; problém byl v tom, že chatbot nedostal kontext. Dnes stačí nahrát normy do NotebookLM a halucinace zmizí.</p>
+  </div>
+</div>
+
+<div className="flex gap-4">
+  <span className="text-4xl font-black text-fd-primary shrink-0 w-10 text-right">3</span>
+  <div>
+    <p className="font-bold text-lg mt-0 mb-1">Oddělení je nejslabší v celém JTRE – a výrazně pod trhem.</p>
+    <p className="text-fd-muted-foreground mt-0">Umím 2,9 oproti benchmarku 3,9. Praktické schopnosti 1,5 z 10 – šest lidí na nule. Finance i Obchod jsou na tom lépe. Dobrá zpráva: strach z AI je nejnižší v celé firmě (3,1). Tým nemá odpor, má mezeru.</p>
+  </div>
+</div>
+
+<div className="flex gap-4">
+  <span className="text-4xl font-black text-fd-primary shrink-0 w-10 text-right">4</span>
+  <div>
+    <p className="font-bold text-lg mt-0 mb-1">Cashflow, stanoviska a výkresy vás stojí desítky člověkodní ročně.</p>
+    <p className="text-fd-muted-foreground mt-0">Kvartální aktualizace harmonogramů = týden na osobu. Ruční procházení 150 stanovisek. Kontrola výkresů bez AI pre-screeningu. Tři procesy, kde automatizace přináší okamžitou úlevu.</p>
+  </div>
+</div>
+
+<div className="flex gap-4">
+  <span className="text-4xl font-black text-fd-primary shrink-0 w-10 text-right">5</span>
+  <div>
+    <p className="font-bold text-lg mt-0 mb-1">Máte ambasadory, kteří to můžou táhnout – ale potřebují strukturu.</p>
+    <p className="text-fd-muted-foreground mt-0">Falťan (Umím 4,7, Chci 7,6) aktivně experimentuje. Mraček nejlíp zvládl kvíz. Pospíšil má motivaci a vliv na realizace. Bez formální role a nástrojů ale jejich energie vyšumí.</p>
+  </div>
+</div>
+
+</div>
+
+<Callout type="info">
+  Audiopřehled se připravuje. Brzy zde bude k dispozici shrnutí celého reportu ve formě krátkého audio záznamu.
+</Callout>
+
+---
+
+## Mapa týmu
+
+<TeamMapChart
+  teamName="JTRE"
+  teamUmim={3.53}
+  teamChci={5.2}
+  teamRozptyl={1.03}
+  benchmarkUmim={3.9}
+  benchmarkChci={5.83}
+  benchmarkRozptyl={1.0}
+  prehlcenost={5.59}
+  benchmarkPrehlcenost={5.6}
+  prescasy={5.56}
+  benchmarkPrescasy={4.9}
+  strachZAi={3.73}
+  benchmarkStrachZAi={4.1}
+  teams={[
+    { name: "Finance", indexUmim: 3.96, indexChci: 5.89, pocetLidi: 10 },
+    { name: "Obchod", indexUmim: 4.08, indexChci: 6.07, pocetLidi: 9 },
+    { name: "Projektové řízení", indexUmim: 2.92, indexChci: 4.23, pocetLidi: 15 }
+  ]}
+  individuals={[
+    { jmeno: "Daniel Falťan", kategorie: "Management", index_umim: 4.68, index_chci: 7.6 },
+    { jmeno: "Lukáš Levický", kategorie: "Projekt", index_umim: 4.54, index_chci: 3.9 },
+    { jmeno: "Daniel Petrlík", kategorie: "Projekt", index_umim: 4.04, index_chci: 4.5 },
+    { jmeno: "Tomáš Mraček", kategorie: "Projekt", index_umim: 4.04, index_chci: 6.5 },
+    { jmeno: "Václav Sigmund", kategorie: "Management", index_umim: 3.68, index_chci: 1.5 },
+    { jmeno: "Tomáš Pospíšil", kategorie: "Management", index_umim: 3.32, index_chci: 6.2 },
+    { jmeno: "Petr Holan", kategorie: "Management", index_umim: 2.96, index_chci: 5.1 },
+    { jmeno: "Jiří Knob", kategorie: "Management", index_umim: 2.79, index_chci: 3.5 },
+    { jmeno: "Martin Koiš", kategorie: "Management", index_umim: 2.64, index_chci: 5.1 },
+    { jmeno: "Pavel Stáhlík", kategorie: "Management", index_umim: 2.64, index_chci: 5.3 },
+    { jmeno: "Jan Kočí", kategorie: "Management", index_umim: 2.46, index_chci: 2.9 },
+    { jmeno: "Jana Řehořová", kategorie: "Projekt", index_umim: 1.79, index_chci: 2.0 },
+    { jmeno: "Pavel Opatřil", kategorie: "Management", index_umim: 1.43, index_chci: 4.0 },
+    { jmeno: "Roman Gorski", kategorie: "Support", index_umim: 1.43, index_chci: 2.9 },
+    { jmeno: "Radek Spurný", kategorie: "Management", index_umim: 1.43, index_chci: 2.4 }
   ]}
 />
 
-## Shrnutí v 10 bodech
+## Kde začít – impact a effort
 
-1. **Tým AI zkoušel, narazil a vyvodil špatné závěry.** Řada z vás AI testovala a narazila na limity: halucinace u norem, nesmyslné úkoly z přepisů porad, nepřesné odpovědi. Ale tyto zkušenosti pocházejí z doby, kdy AI uměla méně, nebo ze situací, kdy chatbot nedostal potřebný kontext. Dnes AI umí pracovat s vašimi konkrétními dokumenty, číst PDF výkresy a z 80 stanovisek vytáhnout podmínky za minuty. Většina frustrace vychází ze zkušenosti s nástrojem, který dnes vypadá jinak.
+<Callout type="insight">
+  Ne všechno, co bolí nejvíc, se řeší nejsnáz. Matice níže ukazuje čtyři kvadranty – a ke každému jasnou akci: co se dá vyřešit hned na workshopu, co vyžaduje hackathon, co si vyřešíte s konkrétním člověkem a co teď nemá smysl řešit.
+</Callout>
 
-2. **Oddělení je výrazně pod průměrem trhu.** Index Umím **2,9** oproti benchmarku **3,9** – celý bod pod průměrem českých firem. Praktické dovednosti s AI tu téměř neexistují.
+| | **Snazší zavést** | **Náročnější zavést** |
+|---|---|---|
+| **Velký dopad** | **Nalejvárna (workshop)** | **Hackathon** |
+| | Extrakce závazků ze smluv a stanovisek – ChatGPT Business s nahranými PDF (Stáhlík, Holan, Knob) | Automatizace cashflow – posun harmonogramů a nákladů jedním krokem (Řehořová, Kočí, Koiš, Falťan) |
+| | Technické normy v NotebookLM – konec halucinací u vyhlášek a zákonů (Petrlík, Kočí, Knob) | Jednotný systém stavu projektů – návrh platformy na M365 (Knob + celý tým) |
+| | AI pre-screening výkresů a dokumentace v PDF (Pospíšil, Kočí, Řehořová) | |
+| | Právní drafty a výzvy – Holan ušetřil právníkovi 2 hodiny (Holan, Stáhlík) | |
+| | Normalizace nabídek z výběrových řízení (Kočí, Petrlík, Mraček) | |
+| **Menší dopad** | **Individuální práce** | **Neřešit (zatím)** |
+| | Přenos dat mezi tabulkami – Power Automate (Holan, Falťan) | AI zápisy z kontrolních dnů – Knob testoval měsíc, nefunguje pro jejich styl |
+| | Benchmark konkurence – AI rešerše pro Kočího | SharePoint optimalizace – IT záležitost mimo scope |
 
-3. **Motivace je nízká, ale ne nulová.** Index Chci **4,2** z 10. Tým AI neodmítá, ale většina nevidí, kde by ji ve své práci využila. To se dá změnit konkrétními ukázkami.
+**Jak to číst:**
+- **Nalejvárna** – quick wins, které si účastníci odnesou rovnou z workshopu. Společný vzorec: vezměte PDF, které už máte v ruce, a nechte AI ho přečíst.
+- **Hackathon** – vysoký dopad, ale vyžaduje přípravu. Cashflow automatizace má největší měřitelnou úsporu; systém stavu projektů řeší kořenovou příčinu většiny problémů oddělení.
+- **Individuální práce** – menší dopad na oddělení, ale velký pro konkrétního člověka.
+- **Neřešit** – vysoká pracnost při nízkém dopadu, nebo už ověřeno, že nefunguje.
 
-4. **Strach z AI je podprůměrný – a to je dobrá zpráva.** Hodnota **3,1** oproti benchmarku **4,1**. Nikdo se AI nebojí; problém je spíš v tom, že lidé nevidí, co by jim přinesla. Ale pozor: přehlcenost **6,1** a přesčasy **5,7** jsou nad průměrem trhu. Tým nemá volný čas „navíc".
+## Co děláme a kdy
 
-5. **Excel cashflow je tichý zabiják času.** Kvartální aktualizace harmonogramů a nákladů zabírá až týden práce na osobu. **Řehořová**, **Kočí**, **Koiš** i **Falťan** to zmiňují nezávisle na sobě: ruční přesouvání políček, rozpadající se formátování, žádná automatizace.
+<RoadmapTimeline
+  steps={[
+    {
+      number: 1,
+      title: "Pravidla a licence",
+      description: "Nastavit pravidla práce s AI a aktivovat licence ChatGPT Business pro celý tým.",
+      detail: "Interní jednastránkový dokument: co je bezpečné nahrávat, co ne. ChatGPT Business (~600 Kč/osoba/měsíc) pro 15 lidí. 5 licencí Microsoft 365 Copilot (~750 Kč/osoba) pro klíčové PM. Bez pravidel a licencí jsou všechna školení zbytečná.",
+      timing: "Před Nalejvárnou",
+      responsible: "Vedení + IT"
+    },
+    {
+      number: 2,
+      title: "AI Nalejvárna – celodenní bootcamp",
+      description: "Praktický workshop zaměřený na reálné úkoly oddělení. Každý odejde s funkčním promptem.",
+      detail: "Program: demystifikace AI (30 min), pravidla práce s daty (20 min), prompt engineering (90 min), praktická cvičení na stanoviscích, výkresech a normách (120 min), NotebookLM workshop (45 min), osobní akční plán (30 min).",
+      timing: "Měsíc 1",
+      responsible: "AI Pro Smrtelníky"
+    },
+    {
+      number: 3,
+      title: "AI Hackathon – cashflow a systém projektů",
+      description: "Celodenní workshop, kde 3–4 týmy pracují na reálných projektech oddělení.",
+      detail: "Tým 1: Jednotný systém stavu projektů (Knob, Falťan, Mraček, Koiš). Tým 2: Automatizace cashflow (Řehořová, Kočí, Falťan). Tým 3: Hromadná extrakce podmínek (Stáhlík, Holan, Petrlík). Tým 4: AI kontrola dokumentace (Pospíšil, Kočí, Řehořová).",
+      timing: "Měsíc 2",
+      responsible: "AI Pro Smrtelníky + IT"
+    },
+    {
+      number: 4,
+      title: "Debrief + jmenování ambasadorů",
+      description: "Vyhodnocení: co tým reálně používá, co zahodil. Formální jmenování 3 ambasadorů.",
+      detail: "Ambasadoři: Falťan (technický lídr), Mraček (dokumentátor), Pospíšil (most ke stavbám). Alokace 2 hodiny týdně na testování a sdílení know-how. AI buddies párování pro počáteční období.",
+      timing: "Měsíc 3",
+      responsible: "Vedení + ambasadoři"
+    },
+    {
+      number: 5,
+      title: "Specializované workshopy",
+      description: "Dva půldenní workshopy zaměřené na Excel/automatizaci a analýzu dokumentů.",
+      detail: "Workshop 1: Excel, cashflow, Power Query, Copilot (Falťan, Řehořová, Kočí, Koiš, Holan, Petrlík). Workshop 2: ChatGPT Business a NotebookLM nad reálnými smlouvami a výkresy (Stáhlík, Holan, Knob, Pospíšil, Mraček, Petrlík, Kočí).",
+      timing: "Měsíc 3–4",
+      responsible: "AI Pro Smrtelníky",
+      parallel: true
+    },
+    {
+      number: 6,
+      title: "Přeměření",
+      description: "Stejný dotazník + rozhovory. Srovnání indexů Umím a Chci s výchozím měřením.",
+      detail: "Na základě výsledků rozhodnutí: rozšíření Copilot licencí na celý tým? Nákup dalších nástrojů? Pokračování ambasadorského programu nebo přechod na self-service?",
+      timing: "Měsíc 6",
+      responsible: "AI Pro Smrtelníky + vedení"
+    }
+  ]}
+/>
 
-6. **PDF je hlavní pracovní formát – a AI ho dnes umí číst.** Komentování výkresů, kontrola dokumentace, extrakce podmínek ze stanovisek. V některých týdnech to zabere **80 % pracovního času**. Multimodální AI dnes dokáže výkres přečíst a identifikovat problémy.
-
-7. **Analýza smluv a stanovisek má okamžitý AI potenciál.** **Stáhlík** to úspěšně vyzkoušel; **Holan** ušetřil právníkovi 2 hodiny na právní výzvě. Přesně tohle jazykové modely zvládnou.
-
-8. **ChatGPT zná většina, ale používá ho jen jako vyhledávač.** **9 z 15** lidí ho aktivně používá, většinou pro obecné dotazy. Nikdo nepracuje s kontextem vlastních dokumentů.
-
-9. **Daniel Falťan může táhnout změnu.** Nejvyšší Index Umím (**4,7**) i Chci (**7,6**) v oddělení. Používá Copilot, OneNote, Planner, zkoušel AI na přepisy zápisů. Ví, co chce, a aktivně hledá cesty.
-
-10. **Chybí jednotné místo, kde žije stav projektu.** Veškerý kontext je v hlavách lidí, v e-mailech a ve stručných OneNote zápisech. Monitoring 15 projektů závisí na osobní kapacitě jednoho člověka. Tento model funguje, ale je křehký a neškáluje.
+## Co potřebuju od vás
 
 <Callout type="warning">
-  Přehlcenost **6,1** a přesčasy **5,7** jsou nad průměrem trhu. Tým nemá volný čas na experimentování s AI „navíc" – vzdělávání musí být praktické, okamžitě aplikovatelné a zaměřené na úsporu času, ne na teorii.
+  Bez těchto tří věcí se nepohneme. Nejde o velké investice – jde o jasné signály, které odblokují další kroky.
 </Callout>
 
-## 7 klíčových bolestí oddělení
+**1. Otevřenou mysl.** AI se za poslední rok dramaticky posunula. Zkušenosti, které tým má – halucinace u norem, nesmyslné přepisy porad – vycházejí z doby, kdy AI uměla méně, nebo ze situací, kdy nedostala potřebný kontext. Dnes umí pracovat s vašimi dokumenty, číst PDF výkresy a z 80 stanovisek vytáhnout podmínky za minuty. Prosím, dejte jí druhou šanci.
 
-Na základě rozhovorů s 10 projektovými manažery jsem identifikoval 7 systémových problémů, které brzdí produktivitu a blokují AI adopci. Detailní rozbor najdete na stránce [Procesy](/jtre-projektove-rizeni/procesy).
+**2. Licence a přístupy – připravené před Nalejvárnou.** ChatGPT Business pro celý tým (~9 000 Kč/měsíc), 5 licencí Microsoft 365 Copilot pro klíčové PM (~3 750 Kč/měsíc). Všichni přihlášení, funkční účty. Bez toho je workshop jen přednáška.
 
-| # | Bolest | Dopad | Směr řešení |
-|---|---|---|---|
-| 1 | **Nejasná pravidla bezpečnosti dat** – co smím nahrát kam | Blokuje vše ostatní; lidé radši AI nepoužijí vůbec | Interní jednastránkový framework |
-| 2 | **Ruční extrakce podmínek** ze 150+ smluv a stanovisek | Dny per projektová fáze | ChatGPT Business → strukturovaná tabulka |
-| 3 | **AI halucinuje na technické věci** – normy, vyhlášky, zákony | Ztráta důvěry, demotivace celého týmu | NotebookLM s nahranými PDF normami |
-| 4 | **Kontrola výkresů bez AI** – vše na odborném úsudku PM | Stovky připomínek ručně, hodiny per dokumentace | AI pre-screening výkresů v PDF |
-| 5 | **Excelové cashflow peklo** – ruční posun harmonogramů a nákladů | Týden na osobu za kvartál, 20+ člověkodní ročně | Hackathon téma; makra, Copilot Excel |
-| 6 | **Chybí jednotný systém stavu projektů** – vše v hlavách lidí | Bus factor: výpadek klíčové osoby = ztráta kontextu | Hackathon téma; vlastní platforma na M365 |
-| 7 | **Fragmentovaný task management** – každý jiný systém | Úkoly se ztrácejí mezi papírem, OneNote a Plannerem | Součást bodu 6 |
+**3. Čas.** Přehlcenost oddělení je 6,1 – nad průměrem trhu. Kočí a Stáhlík reportují přesčasy 9 z 10. Nalejvárna musí být pracovní den, ne extra zátěž. Ambasadoři potřebují alokaci 2 hodiny týdně. Pokud tým nedostane prostor, nic se nezmění.
 
-<Callout type="insight">
-  Bolesti **1–4** jsou quick wins: řešitelné v řádu dnů, s okamžitým dopadem. Bolesti **5–6** jsou strategické projekty pro hackathon. Společný vzorec u quick wins: vezměte PDF, které už máte v ruce (stanoviska, normy, výkresy), a nechte AI ho přečíst. Detaily ke každé bolesti, včetně citací z rozhovorů, najdete v procesní analýze.
-</Callout>
+{/* === EXPERIMENTÁLNÍ SEKCE – ProcessMatrix pro budoucí použití === */}
 
-<Callout type="positive">
-  **Jiří Knob** má 19 let zkušeností a řídí 15 projektových manažerů. Aktivně hledá, kde AI využít, a otevřeně říká, že zatím nenašel cestu. Právě tady je příležitost: ukázat mu konkrétní scénáře na jeho reálných úkolech. Když uvidí přínos on, posune celé oddělení.
-</Callout>
-
-## Audiopřehled
-
-<audio controls className="w-full mb-6">
-  <source src="/audio/jtre-projektove-rizeni-shrnuti.m4a" type="audio/mp4" />
-  Váš prohlížeč nepodporuje přehrávání audia.
-</audio>
-
-## Co najdete v reportu
-
-**Analytická část** mapuje aktuální stav – jaké jsou znalosti a motivace vašeho týmu, jak se jednotlivci liší v přístupu k AI a jaké nástroje dnes používáte.
-
-**Strategická část** nabízí konkrétní doporučení – které procesy automatizovat, v jakém pořadí postupovat a jak celou transformaci naplánovat tak, aby nezatížila už tak vytížený tým.
-
-## Jak probíhalo měření
-
-Audit stojí na dvou pilířích – **kvantitativní dotazník** a **hloubkové rozhovory**.
-
-| | Dotazník | Rozhovory |
-|---|---|---|
-| **Kdy** | 20.–28. ledna 2026 | 6.–18. února 2026 |
-| **Kdo** | **15 respondentů** z oddělení projektového řízení | **10 klíčových lidí:** Jan Kočí, Jana Řehořová, Pavel Stáhlík, Martin Koiš, Daniel Falťan, Daniel Petrlík, Petr Holan, Jiří Knob, Tomáš Pospíšil, Tomáš Mraček |
-| **Co** | Znalostní kvíz, sebehodnocení, postoje k AI, pracovní návyky, používané nástroje | 45minutové individuální rozhovory o zkušenostech, postojích a pracovních procesech |
-| **Výstup** | Indexy Umím a Chci, srovnání s trhem | Mapa procesů, bolestivá místa, příležitosti pro automatizaci |
-
-<Callout type="insight">
-  Benchmark v tomto reportu vychází z dat více než **200 respondentů** napříč českými firmami, které prošly stejným auditem. Slouží jako orientační bod – ne jako cíl.
-</Callout>
+{/*
+<ProcessMatrix
+  processes={[
+    { name: "Aktualizace cashflow a harmonogramů", impact: 5, effort: 4, lossDays: 60, lossKc: 420000, who: "Řehořová, Kočí, Koiš, Falťan + další", frequency: "Kvartálně", tools: "Excel makra/VBA + Copilot" },
+    { name: "Extrakce podmínek ze smluv a stanovisek", impact: 5, effort: 2, lossDays: 30, lossKc: 210000, who: "Stáhlík, Holan, Knob", frequency: "Per projektová fáze", tools: "ChatGPT Business" },
+    { name: "AI pre-screening výkresů", impact: 4, effort: 3, lossDays: 25, lossKc: 175000, who: "Pospíšil, Kočí, Řehořová", frequency: "Denně–týdně", tools: "ChatGPT multimodální" },
+    { name: "Normalizace nabídek z výběrových řízení", impact: 3, effort: 2, lossDays: 15, lossKc: 105000, who: "Kočí, Petrlík, Mraček", frequency: "10+ tenderů per projekt", tools: "ChatGPT Business" },
+    { name: "Ověřování technických norem", impact: 3, effort: 1, lossDays: 10, lossKc: 70000, who: "Petrlík, Kočí, Knob", frequency: "Průběžně", tools: "NotebookLM" }
+  ]}
+  licenseCostYearly={153000}
+/>
+*/}
