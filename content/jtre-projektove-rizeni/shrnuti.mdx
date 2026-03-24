@@ -3,23 +3,29 @@ title: Shrnutí a další kroky
 description: Závěrečné shrnutí auditu a konkrétní roadmapa implementace
 ---
 
-## 7 bolestí → 7 řešení
+## Centrální zjištění
 
-Celý report identifikoval 7 systémových problémů oddělení. Tady je přehled, jak se každá bolest mapuje na konkrétní řešení a krok v roadmapě.
+Audit odhalil řadu dílčích bolestí: ruční cashflow, roztříštěné úkoly, závislost na e-mailu, nedůvěra v AI. Všechny ale sdílejí společný kořen: **oddělení nemá jednotné místo, kde žije stav projektu nezávisle na konkrétních lidech.**
 
-| Bolest | Řešení | Krok |
-|---|---|---|
-| Chybí licence | ChatGPT Business + Copilot pilot | Týden 1 – rozhodnutí vedení |
-| AI halucinuje na techniku | Vlastní zdroje + NotebookLM + Deep Research | Nalejvárna (Měsíc 1) |
-| Excel cashflow peklo | Makra/VBA + konzultace s Excel specialistou | Hackathon (Měsíc 2) |
-| PDF workflow neefektivní | AI extrakce dat z PDF + revize SharePoint nastavení | Nalejvárna (Měsíc 1) |
-| Ruční extrakce podmínek | ChatGPT prompty na reálných stanoviscích | Quick win (Týden 2) |
-| Nejasná pravidla bezpečnosti dat | Interní jednastránkový dokument – co kam nahrávat | Týden 1 – předpoklad pro vše |
-| Fragmentovaný task management | Sjednocení na OneNote + Planner pro dlouhodobé úkoly | Specializovaný workshop (Měsíc 3) |
+**Knob** monitoruje 15 projektů čtením e-mailů a osobními konzultacemi. Zápisy z kontrolních dnů jsou záměrně stručné. Závazky ze smluv si každý PM hlídá po svém. Když se zeptáte „co se děje na projektu X", odpověď je Knob, ne systém.
+
+Tento model funguje díky excelentním lidem. Ale je křehký a neškáluje.
 
 <Callout type="warning">
-  Bolesti **1** (licence) a **6** (bezpečnost) jsou předpokladem pro všechno ostatní. Dokud lidé nevědí, s čím smí pracovat, žádný nástroj ani školení je neposune. Vyřešení obojího stojí minimální čas a nulové náklady.
+  Všechny dílčí bolesti – cashflow v Excelu, papírové bloky, fragmentovaný Planner, ruční extrakce podmínek – jsou symptomy jedné věci: firma nemá místo, kde informace přežijí nezávisle na lidech, kteří je vytvořili.
 </Callout>
+
+## Bolesti → řešení
+
+| Bolest | Řešení | Priorita |
+|---|---|---|
+| Nejasná pravidla bezpečnosti dat | Interní jednastránkový dokument – co kam nahrávat | Předpoklad pro vše |
+| Ruční extrakce podmínek ze smluv | ChatGPT Business na reálných stanoviscích | Quick win |
+| AI halucinuje na technické normy | NotebookLM s nahranými PDF normami | Quick win |
+| Kontrola výkresů bez AI | AI pre-screening dokumentace v PDF | Quick win |
+| Právní drafty a výzvy | ChatGPT Business – Holan ušetřil právníkovi 2 hodiny | Quick win |
+| Excelové cashflow peklo | Hackathon: analýza tabulek + makra/automatizace | Hackathon |
+| Chybí jednotný systém stavu projektů | Hackathon: návrh platformy na M365 | Hackathon |
 
 ## Kde jste dnes
 
@@ -40,35 +46,39 @@ Celý report identifikoval 7 systémových problémů oddělení. Tady je přehl
 
 ### Quick wins (týdny)
 
-1. **Nastavit pravidla práce s ChatGPT Business** – jasný interní dokument: co je bezpečné nahrávat, co ne. Odstraní nejistotu, kterou popisují Holan, Stáhlík i Kočí. Náklad: 0 Kč, čas: 2 hodiny.
+Společný vzorec: vezměte PDF, které už máte v ruce, a nechte AI ho přečíst. Žádná infrastruktura, žádné nové systémy.
 
-2. **Extrakce podmínek ze stanovisek přes ChatGPT** – Stáhlík to už úspěšně vyzkoušel na jednom dokumentu. Rozšířit na všechna stanoviska per projekt. Každý PM si vytvoří projektový chat s nahranými vyjádřeními. Úspora: hodiny per projektová fáze.
+1. **Nastavit pravidla práce s AI** – jasný interní dokument: co je bezpečné nahrávat, co ne. Odstraní nejistotu, kterou popisují Holan, Stáhlík i Kočí. Náklad: 0 Kč, čas: 2 hodiny. **Bez tohoto dokumentu jsou všechna školení zbytečná.**
 
-3. **Šablona pro normalizaci nabídek** – standardizovaný Excel s pokyny pro dodavatele + ChatGPT prompt pro extrakci dat z nestandardních nabídek. Úspora: **1–2 hodiny per tender**.
+2. **Extrakce podmínek ze stanovisek** – Stáhlík to úspěšně vyzkoušel na jednom dokumentu. Rozšířit na všechna stanoviska per projekt. Každý PM nahraje vyjádření do ChatGPT Business a nechá vypsat podmínky, termíny, zodpovědné osoby. Úspora: hodiny per projektová fáze.
 
-4. **NotebookLM workshop pro ambasadory** – 2hodinový úvod. Nahrát cashflow dokumentaci a technické zprávy. Výsledky sdílet s týmem jako ukázku možností.
+3. **Technické normy v NotebookLM** – nahrát platné normy (PDF) do NotebookLM. Petrlík a Kočí dostanou odpovědi z konkrétních článků, ne z internetu. Řeší frustraci z halucinací, kterou popisuje celý tým.
 
-5. **Power Automate flow pro přenos klientských změn** – Holanův use case: automatická synchronizace tabulky A → tabulka B. Úspora: 15–30 minut týdně + eliminace rizika zapomenutí.
+4. **AI pre-screening výkresů** – nahrát PDF výkres do ChatGPT nebo Claude a nechat identifikovat potenciální problémy: chybějící kóty, nesoulad s normou, počty zařizovacích předmětů. Nejde o náhradu PM, ale o pre-screening, který zkrátí první kolo kontroly.
 
-### Střednědobé projekty (měsíce)
+5. **Právní drafty a výzvy** – Holan nechal AI připravit právní výzvu; právník místo 2,5 hodiny strávil 15 minut. Rozšířit na jednoduché žádosti, výzvy a drafty smluv.
 
-1. **Automatizace cashflow harmonogramů** – vyžaduje analýzu struktury stávajících tabulek, návrh maker nebo VBA skriptů pro automatický posun nákladů při změně harmonogramu. Doporučuji externí konzultaci s Excel specialistou. Úspora: **týden práce per osoba za kvartál**.
+### Strategické projekty (hackathon)
 
-2. **Microsoft 365 Copilot pilot** – 5 licencí pro klíčové PM na 3 měsíce. Měřitelné metriky: čas na zpracování e-mailů, příprava zápisů, práce s Excelem. Po pilotu rozhodnutí o rozšíření.
+Dva velké projekty, které doporučuji ověřit a rozpracovat na AI hackathonu.
 
-### Dlouhodobé (kvartály)
+1. **Jednotný systém stavu projektů** – tým společně navrhne, jak by mělo vypadat místo, kde žije aktuální stav každého projektu, strukturovaná historie rozhodnutí a sdílený přehled závazků. Řešení může mít podobu rozšíření stávajícího M365 (Planner Premium za $30/user/měsíc, Power Apps) nebo vlastní platformy. Tohle je projekt s transformačním dopadem, ale i s odpovídající náročností.
 
-1. **Projektový knowledge base** – centrální úložiště s AI vyhledáváním napříč dokumentací, smlouvami a zápisy. Propojení se SharePointem. Řeší problém, který popsali Mraček i Koiš: *„hledání v tom, co tam uložil někdo jiný, je časově náročné."*
+2. **Automatizace cashflow** – vyžaduje analýzu struktury stávajících tabulek a návrh automatizace pro posun harmonogramů a nákladů. Na hackathonu se dá postavit funkční prototyp; plná implementace pak zabere týdny. Úspora: **týden práce per osoba za kvartál**.
 
-2. **Revize SharePoint struktury a workflow** – řeší problémy se synchronizací, pomalým přístupem a nekompatibilitou s PDF editorem, které zmiňuje celý tým.
+### Doplňkové (průběžně)
+
+1. **Microsoft 365 Copilot pilot** – 5 licencí pro klíčové PM na 3 měsíce. Copilot se integruje přímo do nástrojů, které tým denně používá (Outlook, Excel, Word). Po pilotu vyhodnocení.
+
+2. **Power Automate pro přenos dat** – Holanův use case: automatická synchronizace tabulky klientských změn. Úspora: 15–30 minut týdně + eliminace rizika zapomenutí.
 
 ## Co bych nedoporučoval
 
 1. **Plošné školení „co je AI"** – tým nepotřebuje teorii. Potřebuje ukázat, kde konkrétně AI ušetří čas na jejich úkolech. Obecné přednášky motivaci nezvednou.
 
-2. **Nucení do Planneru bez školení** – Koiš i Knob popisují frustraci z Teams/Planner: úkoly chodí bez kontextu, notifikace nikomu nepomáhají. Než další nástroj, vyladit ten stávající.
+2. **AI přepisy porad jako náhrada zápisů** – Knob to testoval měsíc a půl, nefunguje. Zápisy z kontrolních dnů nejsou přepis diskuze, ale politicky formulovaná instrukce: *„půl hodiny se diskutuje a výsledek je jedna věta: bereme variantu 3."*
 
-3. **AI přepisy porad jako náhrada zápisů** – Knob to testoval měsíc a půl, nefunguje. Zápisy z kontrolních dnů nejsou přepis diskuze, ale politicky formulovaná instrukce. AI přepis může sloužit jako podpůrný zdroj, ne jako náhrada.
+3. **Zavádění dalšího nástroje bez vyřešení kořenového problému** – Planner, To Do, Loop, Teams; tým už teď neví, kam se dívat. Než přidáte další software, potřebujete dohodu na tom, kde žije stav projektu.
 
 ## 4 rozhodnutí, která potřebuji od vás
 
@@ -93,11 +103,11 @@ Celý report identifikoval 7 systémových problémů oddělení. Tady je přehl
 | Krok | Co | Kdy |
 |---|---|---|
 | 1 | Nastavit pravidla práce s AI + licence ChatGPT Business | Týden 1 |
-| 2 | AI Nalejvárna – celodenní bootcamp | Měsíc 1 |
+| 2 | AI Nalejvárna – celodenní bootcamp s quick wins | Měsíc 1 |
 | 3 | Spustit Copilot pilot (5 osob) | Měsíc 1 |
-| 4 | AI Hackathon – týmové projekty na reálných datech | Měsíc 2 |
-| 5 | Debrief + jmenování ambasadorů | Měsíc 3 |
-| 6 | Specializované workshopy (Excel + dokumenty) | Měsíc 3–4 |
+| 4 | AI Hackathon – systém stavu projektů + cashflow automatizace | Měsíc 2 |
+| 5 | Debrief + jmenování ambasadorů + rozhodnutí o PM platformě | Měsíc 3 |
+| 6 | Specializované workshopy (dokumenty + výkresy) | Měsíc 3–4 |
 | 7 | Přeměření + rozhodnutí o škálování | Měsíc 6 |
 
-Tým nemá odpor, má mezeru. A mezery se dají zaplnit. Doporučuji začít rychle – čím dřív lidé uvidí, že AI jim šetří hodiny na cashflow a smlouvách, tím dřív se motivace zvedne sama. Nemusíte čekat na dokonalý plán; stačí začít s tím, co je po ruce.
+Tým nemá odpor, má mezeru. A mezery se dají zaplnit. Quick wins ukážou okamžitý přínos: vezměte PDF stanovisko, normu nebo výkres a nechte AI ho přečíst. Hackathon pak ověří, jestli se dá vyřešit kořenový problém celého oddělení: jak zajistit, aby stav projektu přežil nezávisle na konkrétním člověku. Nemusíte čekat na dokonalý plán; stačí začít s tím, co je po ruce.
