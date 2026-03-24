@@ -84,6 +84,12 @@ export const REPORTS: Record<string, ReportEntry> = {
     color: "#059669",
     colorLight: "rgba(5, 150, 105, 0.08)",
   },
+  demo: {
+    title: "Vzdělávací centrum Horizont",
+    subtitle: "Ukázkový report",
+    color: "#D946EF",
+    colorLight: "rgba(217, 70, 239, 0.08)",
+  },
 };
 
 export const PROTECTED_REPORTS = [...new Set(ACCESS.flatMap((a) => a.reports))];

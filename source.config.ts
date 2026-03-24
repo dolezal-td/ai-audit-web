@@ -20,4 +20,8 @@ export const euroinstitut = defineDocs({
   dir: 'content/euroinstitut',
 });
 
+export const demo = defineDocs({
+  dir: 'content/demo',
+});
+
 export default defineConfig();

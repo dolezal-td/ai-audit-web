@@ -1,4 +1,4 @@
-import { jtreFinance, jtreObchod, jtreProjektoveRizeni, euroinstitut } from '@/.source/server';
+import { jtreFinance, jtreObchod, jtreProjektoveRizeni, euroinstitut, demo } from '@/.source/server';
 import { loader } from 'fumadocs-core/source';
 
 export const jtreFinanceSource = loader({
@@ -19,4 +19,9 @@ export const jtreProjektoveRizeniSource = loader({
 export const euroinstitutSource = loader({
   source: euroinstitut.toFumadocsSource(),
   baseUrl: '/euroinstitut',
+});
+
+export const demoSource = loader({
+  source: demo.toFumadocsSource(),
+  baseUrl: '/demo',
 });
