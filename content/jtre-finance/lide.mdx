@@ -8,8 +8,8 @@ description: Scatter plot Umím × Chci a profily jednotlivců
 Každý bod na grafu je jeden člověk. Horizontální osa ukazuje **motivaci** (Index Chci), vertikální **praktické dovednosti** (Index Umím). Přerušované čáry ukazují benchmark trhu, kosočtverec průměr celého JTRE.
 
 <ScatterPlotChart
-  companyAvgUmim={3.53}
-  companyAvgChci={5.20}
+  companyAvgUmim={3.41}
+  companyAvgChci={5.50}
   benchmarkUmim={3.9}
   benchmarkChci={5.83}
   groups={{
@@ -18,15 +18,15 @@ Každý bod na grafu je jeden člověk. Horizontální osa ukazuje **motivaci** 
   }}
   data={[
     { jmeno: "Leona Holíková", kategorie: "HR", index_umim: 1.93, index_chci: 4.5 },
-    { jmeno: "Ivana Bendová", kategorie: "Support", index_umim: 0.89, index_chci: 3.8 },
-    { jmeno: "Jan Ascherl", kategorie: "AML", index_umim: 4.0, index_chci: 9.2 },
-    { jmeno: "Lucia Čabajová", kategorie: "Finance", index_umim: 3.86, index_chci: 4.3 },
-    { jmeno: "František Jíša", kategorie: "Management", index_umim: 6.93, index_chci: 7.4 },
-    { jmeno: "Duc Minh Hoang", kategorie: "Analytik", index_umim: 5.0, index_chci: 5.3 },
-    { jmeno: "Iveta Polášíková", kategorie: "Support", index_umim: 3.14, index_chci: 6.5 },
-    { jmeno: "Geis Kaltounová", kategorie: "Analytik", index_umim: 7.11, index_chci: 8.4 },
-    { jmeno: "Zdeněk Král", kategorie: "Controlling", index_umim: 5.11, index_chci: 7.3 },
-    { jmeno: "Dominika Langová", kategorie: "Support", index_umim: 1.61, index_chci: 2.2 },
+    { jmeno: "Ivana Bendová", kategorie: "Support", index_umim: 0.89, index_chci: 3.3 },
+    { jmeno: "Jan Ascherl", kategorie: "AML", index_umim: 4.0, index_chci: 10.0 },
+    { jmeno: "Lucia Čabajová", kategorie: "Finance", index_umim: 3.86, index_chci: 4.9 },
+    { jmeno: "František Jíša", kategorie: "Management", index_umim: 6.93, index_chci: 8.0 },
+    { jmeno: "Duc Minh Hoang", kategorie: "Analytik", index_umim: 5.0, index_chci: 6.0 },
+    { jmeno: "Iveta Polášíková", kategorie: "Support", index_umim: 3.14, index_chci: 7.3 },
+    { jmeno: "Geis Kaltounová", kategorie: "Analytik", index_umim: 7.11, index_chci: 9.1 },
+    { jmeno: "Zdeněk Král", kategorie: "Controlling", index_umim: 5.11, index_chci: 7.7 },
+    { jmeno: "Dominika Langová", kategorie: "Support", index_umim: 1.61, index_chci: 1.3 },
   ]}
 />
 
@@ -53,16 +53,16 @@ Každý bod na grafu je jeden člověk. Horizontální osa ukazuje **motivaci** 
     { key: "index_chci", label: "Index Chci", emphasized: true, description: "Motivace k AI adopci. Základ ze Zkoušení + korekce za radost z práce, obavy a přehlcenost. Škála 1–10." },
   ]}
   data={[
-    { jmeno: "Geis Kaltounová", kategorie: "Analytik", spravnost_odpovedi: 5, znam_nastroje: 13, znalosti: 8.21, platim_nastroje: 2, pouzivam_nastroje: 4, schopnosti: 6.0, zkouseni: 8.0, bavi_prace: 8.0, prehlcenost: 3.0, prescasy: 6.0, strach_z_ai: 5.0, index_umim: 7.11, index_chci: 8.4 },
-    { jmeno: "František Jíša", kategorie: "Management", spravnost_odpovedi: 5, znam_nastroje: 12, znalosti: 7.86, platim_nastroje: 2, pouzivam_nastroje: 6, schopnosti: 6.0, zkouseni: 7.67, bavi_prace: 8.0, prehlcenost: 7.0, prescasy: 9.0, strach_z_ai: 6.0, index_umim: 6.93, index_chci: 7.4 },
-    { jmeno: "Zdeněk Král", kategorie: "Controlling", spravnost_odpovedi: 7, znam_nastroje: 9, znalosti: 8.21, platim_nastroje: 0, pouzivam_nastroje: 2, schopnosti: 2.0, zkouseni: 7.33, bavi_prace: 8.0, prehlcenost: 6.0, prescasy: 5.0, strach_z_ai: 7.0, index_umim: 5.11, index_chci: 7.3 },
-    { jmeno: "Duc Minh Hoang", kategorie: "Analytik", spravnost_odpovedi: 4, znam_nastroje: 6, znalosti: 5.0, platim_nastroje: 2, pouzivam_nastroje: 2, schopnosti: 5.0, zkouseni: 4.67, bavi_prace: 8.0, prehlcenost: 5.0, prescasy: 5.0, strach_z_ai: 3.0, index_umim: 5.0, index_chci: 5.3 },
-    { jmeno: "Jan Ascherl", kategorie: "AML", spravnost_odpovedi: 2, znam_nastroje: 10, znalosti: 5.0, platim_nastroje: 0, pouzivam_nastroje: 4, schopnosti: 3.0, zkouseni: 8.33, bavi_prace: 10.0, prehlcenost: 4.0, prescasy: 10.0, strach_z_ai: 1.0, index_umim: 4.0, index_chci: 9.2 },
-    { jmeno: "Lucia Čabajová", kategorie: "Finance", spravnost_odpovedi: 5, znam_nastroje: 6, znalosti: 5.71, platim_nastroje: 0, pouzivam_nastroje: 2, schopnosti: 2.0, zkouseni: 3.33, bavi_prace: 9.0, prehlcenost: 5.0, prescasy: 5.0, strach_z_ai: 4.0, index_umim: 3.86, index_chci: 4.3 },
-    { jmeno: "Iveta Polášíková", kategorie: "Support", spravnost_odpovedi: 3, znam_nastroje: 6, znalosti: 4.29, platim_nastroje: 0, pouzivam_nastroje: 2, schopnosti: 2.0, zkouseni: 5.33, bavi_prace: 9.0, prehlcenost: 1.0, prescasy: 1.0, strach_z_ai: 4.0, index_umim: 3.14, index_chci: 6.5 },
+    { jmeno: "Geis Kaltounová", kategorie: "Analytik", spravnost_odpovedi: 5, znam_nastroje: 13, znalosti: 8.21, platim_nastroje: 2, pouzivam_nastroje: 4, schopnosti: 6.0, zkouseni: 8.0, bavi_prace: 8.0, prehlcenost: 3.0, prescasy: 6.0, strach_z_ai: 5.0, index_umim: 7.11, index_chci: 9.1 },
+    { jmeno: "František Jíša", kategorie: "Management", spravnost_odpovedi: 5, znam_nastroje: 12, znalosti: 7.86, platim_nastroje: 2, pouzivam_nastroje: 6, schopnosti: 6.0, zkouseni: 7.67, bavi_prace: 8.0, prehlcenost: 7.0, prescasy: 9.0, strach_z_ai: 6.0, index_umim: 6.93, index_chci: 8.0 },
+    { jmeno: "Zdeněk Král", kategorie: "Controlling", spravnost_odpovedi: 7, znam_nastroje: 9, znalosti: 8.21, platim_nastroje: 0, pouzivam_nastroje: 2, schopnosti: 2.0, zkouseni: 7.33, bavi_prace: 8.0, prehlcenost: 6.0, prescasy: 5.0, strach_z_ai: 7.0, index_umim: 5.11, index_chci: 7.7 },
+    { jmeno: "Duc Minh Hoang", kategorie: "Analytik", spravnost_odpovedi: 4, znam_nastroje: 6, znalosti: 5.0, platim_nastroje: 2, pouzivam_nastroje: 2, schopnosti: 5.0, zkouseni: 4.67, bavi_prace: 8.0, prehlcenost: 5.0, prescasy: 5.0, strach_z_ai: 3.0, index_umim: 5.0, index_chci: 6.0 },
+    { jmeno: "Jan Ascherl", kategorie: "AML", spravnost_odpovedi: 2, znam_nastroje: 10, znalosti: 5.0, platim_nastroje: 0, pouzivam_nastroje: 4, schopnosti: 3.0, zkouseni: 8.33, bavi_prace: 10.0, prehlcenost: 4.0, prescasy: 10.0, strach_z_ai: 1.0, index_umim: 4.0, index_chci: 10.0 },
+    { jmeno: "Lucia Čabajová", kategorie: "Finance", spravnost_odpovedi: 5, znam_nastroje: 6, znalosti: 5.71, platim_nastroje: 0, pouzivam_nastroje: 2, schopnosti: 2.0, zkouseni: 3.33, bavi_prace: 9.0, prehlcenost: 5.0, prescasy: 5.0, strach_z_ai: 4.0, index_umim: 3.86, index_chci: 4.9 },
+    { jmeno: "Iveta Polášíková", kategorie: "Support", spravnost_odpovedi: 3, znam_nastroje: 6, znalosti: 4.29, platim_nastroje: 0, pouzivam_nastroje: 2, schopnosti: 2.0, zkouseni: 5.33, bavi_prace: 9.0, prehlcenost: 1.0, prescasy: 1.0, strach_z_ai: 4.0, index_umim: 3.14, index_chci: 7.3 },
     { jmeno: "Leona Holíková", kategorie: "HR", spravnost_odpovedi: 3, znam_nastroje: 2, znalosti: 2.86, platim_nastroje: 0, pouzivam_nastroje: 1, schopnosti: 1.0, zkouseni: 4.0, bavi_prace: 8.0, prehlcenost: 9.0, prescasy: 3.0, strach_z_ai: 5.0, index_umim: 1.93, index_chci: 4.5 },
-    { jmeno: "Dominika Langová", kategorie: "Support", spravnost_odpovedi: 2, znam_nastroje: 5, znalosti: 3.21, platim_nastroje: 0, pouzivam_nastroje: 0, schopnosti: 0.0, zkouseni: 1.33, bavi_prace: 3.0, prehlcenost: 5.0, prescasy: 3.0, strach_z_ai: 9.0, index_umim: 1.61, index_chci: 2.2 },
-    { jmeno: "Ivana Bendová", kategorie: "Support", spravnost_odpovedi: 1, znam_nastroje: 3, znalosti: 1.79, platim_nastroje: 0, pouzivam_nastroje: 0, schopnosti: 0.0, zkouseni: 2.0, bavi_prace: 6.0, prehlcenost: 3.0, prescasy: 4.0, strach_z_ai: 5.0, index_umim: 0.89, index_chci: 3.8 },
+    { jmeno: "Dominika Langová", kategorie: "Support", spravnost_odpovedi: 2, znam_nastroje: 5, znalosti: 3.21, platim_nastroje: 0, pouzivam_nastroje: 0, schopnosti: 0.0, zkouseni: 1.33, bavi_prace: 3.0, prehlcenost: 5.0, prescasy: 3.0, strach_z_ai: 9.0, index_umim: 1.61, index_chci: 1.3 },
+    { jmeno: "Ivana Bendová", kategorie: "Support", spravnost_odpovedi: 1, znam_nastroje: 3, znalosti: 1.79, platim_nastroje: 0, pouzivam_nastroje: 0, schopnosti: 0.0, zkouseni: 2.0, bavi_prace: 6.0, prehlcenost: 3.0, prescasy: 4.0, strach_z_ai: 5.0, index_umim: 0.89, index_chci: 3.3 },
   ]}
   previousData={[
     { jmeno: "Geis Kaltounová", spravnost_odpovedi: 6, znam_nastroje: 10, znalosti: 7.86, platim_nastroje: 2, pouzivam_nastroje: 3, schopnosti: 6.0, zkouseni: 8.33, strach_z_ai: 9.0, index_umim: 6.93, index_chci: 7.8 },
@@ -79,11 +79,11 @@ Každý bod na grafu je jeden člověk. Horizontální osa ukazuje **motivaci** 
   Tři lidé mají potenciál táhnout AI adopci za celé oddělení – a každý z jiného úhlu.
 </Callout>
 
-**Geis Kaltounová** (Umím **7,1**, Chci **8,4**) – nejpokročilejší osoba v týmu. Zná **13 AI nástrojů**, **4** aktivně používá, **2** si platí. Jako analytička pracuje s daty denně a dokáže ostatním ukázat, jak AI reálně pomáhá v reportingu.
+**Geis Kaltounová** (Umím **7,1**, Chci **9,1**) – nejpokročilejší osoba v týmu. Zná **13 AI nástrojů**, **4** aktivně používá, **2** si platí. Jako analytička pracuje s daty denně a dokáže ostatním ukázat, jak AI reálně pomáhá v reportingu.
 
-**František Jíša** (Umím **6,9**, Chci **7,4**) – manažer se **7letou zkušeností** ve firmě. Vysoké znalosti plus manažerská pozice – přesně ten člověk, který může AI prosadit nejen prakticky, ale i strategicky. Experimentuje mimo práci (**10/10**).
+**František Jíša** (Umím **6,9**, Chci **8,0**) – manažer se **7letou zkušeností** ve firmě. Vysoké znalosti plus manažerská pozice – přesně ten člověk, který může AI prosadit nejen prakticky, ale i strategicky. Experimentuje mimo práci (**10/10**).
 
-**Jan Ascherl** (Umím **4,0**, Chci **9,2**) – nejvyšší motivace v celém oddělení. Zná **10 nástrojů**, aktivně experimentuje (**8/10**), nemá žádný strach z AI (**1,0**). Znalostmi zatím nepředběhl zbytek týmu, ale jeho nadšení a chuť zkoušet jsou nakažlivé.
+**Jan Ascherl** (Umím **4,0**, Chci **10,0**) – nejvyšší motivace v celém oddělení. Zná **10 nástrojů**, aktivně experimentuje (**8/10**), nemá žádný strach z AI (**1,0**). Znalostmi zatím nepředběhl zbytek týmu, ale jeho nadšení a chuť zkoušet jsou nakažlivé.
 
 ## Postřehy z rozhovorů
 
@@ -91,14 +91,14 @@ S třemi členy týmu jsem vedl individuální **45minutové rozhovory**.
 
 **Zdeněk Král** (Controlling) – technicky nejzdatnější z dotazovaných. Už dnes používá interní ChatGPT k extrakci dat z dokumentů. Hlavní bolest: **2 dny měsíčně** strávené ručním párováním faktur přes čtyři systémy. Sám aktivně hledá cesty, jak to zautomatizovat – *„sázím to tam a v 90 % je to správně."*
 
-**Lucia Čabajová** (Finance) – **15 let ve firmě**, hluboká znalost procesů. Její motivace v dotazníku (**4,3**) neodráží realitu – při rozhovoru se aktivně zajímala o automatizaci Excel reportů. Nepotřebuje další teorii. Potřebuje ukázku konkrétního řešení.
+**Lucia Čabajová** (Finance) – **15 let ve firmě**, hluboká znalost procesů. Její motivace v dotazníku (**4,9**) neodráží realitu – při rozhovoru se aktivně zajímala o automatizaci Excel reportů. Nepotřebuje další teorii. Potřebuje ukázku konkrétního řešení.
 
 **Leona Holíková** (HR) – na oddělení nová, používá ChatGPT pro inspiraci při psaní textů. Největší potenciál vidí v automatizaci onboardingu a správy dokumentů. Vysoká přehlcenost (**9,0**) pravděpodobně souvisí se zapracováním, ne s objemem práce.
 
 ## Rizikové profily
 
 <Callout type="warning">
-  **Dominika Langová** (Umím **1,6**, Chci **2,2**, Strach **9,0**) – jediná osoba, kde se potkává nízká motivace s vysokým strachem. Uvádí nejnižší spokojenost s prací (**3/10**). Individuální rozhovor a praktická ukázka AI přímo na jejích úkolech by pomohly víc než jakékoliv skupinové školení.
+  **Dominika Langová** (Umím **1,6**, Chci **1,3**, Strach **9,0**) – jediná osoba, kde se potkává nízká motivace s vysokým strachem. Uvádí nejnižší spokojenost s prací (**3/10**). Individuální rozhovor a praktická ukázka AI přímo na jejích úkolech by pomohly víc než jakékoliv skupinové školení.
 </Callout>
 
-**Ivana Bendová** (Umím **0,9**, Chci **3,8**) má nejnižší znalosti v týmu a nulové praktické zkušenosti. Na rozdíl od Langové ale nemá extrémní strach (**5,0**) a její motivace je mírná. Stačí začít od úplných základů – ukázat jí ChatGPT na jejích reálných úkolech.
+**Ivana Bendová** (Umím **0,9**, Chci **3,3**) má nejnižší znalosti v týmu a nulové praktické zkušenosti. Na rozdíl od Langové ale nemá extrémní strach (**5,0**) a její motivace je mírná. Stačí začít od úplných základů – ukázat jí ChatGPT na jejích reálných úkolech.
