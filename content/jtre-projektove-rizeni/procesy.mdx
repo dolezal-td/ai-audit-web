@@ -14,6 +14,7 @@ Tato stránka vychází primárně z **10 hloubkových rozhovorů**. Nejde o kom
 | AI pre-screening výkresů | Pospíšil, Kočí, Řehořová + další | Denně–týdně | Hodiny per dokumentace | Quick win |
 | Aktualizace cashflow a harmonogramů | Řehořová, Kočí, Koiš, Falťan + další | Kvartálně + průběžně | 1 týden / osoba / kvartál | Hackathon |
 | Jednotný systém stavu projektů | Knob + celý tým | Průběžně | Bus factor celého oddělení | Hackathon |
+| Brainstorming a specifikace řešení | Knob, Kočí, Stáhlík, Pospíšil + další | Per projektová fáze | Hodiny per zadání | Quick win |
 | Normalizace nabídek z výběrových řízení | Kočí, Petrlík, Mraček | 10+ tenderů per projekt | 1–2 dny per tender | Nalejvárna |
 | Přenos dat mezi tabulkami | Holan, Falťan | Týdně | 15–30 min týdně | Individuální |
 | Zápisy z kontrolních dnů | Falťan, Petrlík, Mraček + další | Týdně | 35–60 min per zápis | Omezeně AI |
@@ -35,6 +36,7 @@ Tato stránka vychází primárně z **10 hloubkových rozhovorů**. Nejde o kom
 | | Právní drafty a výzvy (ChatGPT) | |
 | | Technické normy v NotebookLM | |
 | | AI pre-screening výkresů | |
+| | Brainstorming a specifikace řešení (ChatGPT/Claude) | |
 | **Náročnější** | Jednotný systém stavu projektů (hackathon) | AI zápisy z kontrolních dnů |
 | | Automatizace cashflow (hackathon) | SharePoint optimalizace |
 
@@ -72,7 +74,26 @@ Náklady jsou provázané s harmonogramem v dalších listech. Když se posune h
 
 **Co může AI doplnit:** ChatGPT Business nebo Claude pro extrakci podmínek z textových PDF. OCR pro skenované dokumenty. NotebookLM pro analýzu více dokumentů najednou. Výstup do strukturované tabulky s termíny, které se propojí s kalendářem.
 
-## 3. Normalizace nabídek z výběrových řízení
+## 3. Brainstorming a specifikace řešení
+
+<Callout type="insight">
+  Projektoví manažeři denně řeší situace, kdy potřebují upřesnit zadání, prozkoumat varianty řešení a vytvořit dokumentaci, podle které bude tým postupovat. AI v tomto procesu funguje jako neúnavný sparring partner.
+</Callout>
+
+**Jak to funguje dnes:** Když PM dostane nový požadavek – ať už od investora, subdodavatele nebo z kontrolního dne – musí ho rozložit na konkrétní kroky. **Kočí** při změně dispozice bytu potřebuje zvážit dopady na statiku, normy, náklady a harmonogram. **Stáhlík** při stanovisku od úřadu musí rozklíčovat, co přesně podmínky znamenají pro projekt a jaké jsou varianty splnění. **Pospíšil** při 150 připomínkách k dokumentaci potřebuje každou kategorizovat a navrhnout postup řešení.
+
+Tento proces dnes probíhá v hlavě PM, případně přes konzultace s kolegy a externími odborníky. Výstupem je e-mail, zápis nebo Excel tabulka – ale cesta k němu je často zdlouhavá a nestrukturovaná.
+
+**Co může AI doplnit:** AI exceluje právě v tom, co PM potřebují nejvíc – strukturovaný brainstorming a rychlé vytvoření podkladů:
+
+- **Rozklad problému na varianty** – PM popíše situaci a AI navrhne 3–5 možných cest řešení s pro a proti. Místo hodiny přemýšlení má PM za minuty strukturovaný rozcestník
+- **Specifikace zadání** – z hrubého popisu požadavku AI vytvoří strukturovanou specifikaci: co je cíl, jaké jsou okrajové podmínky, kdo je zodpovědný, jaké jsou závislosti a rizika
+- **Příprava podkladů pro jednání** – před kontrolním dnem nebo schůzkou s investorem AI pomůže PM připravit argumentaci, strukturovat body k projednání a anticipovat otázky protistrany
+- **Dokumentace rozhodnutí** – po brainstormingu AI shrne závěry do čistého dokumentu s odůvodněním, proč byla zvolena konkrétní varianta
+
+**Jak začít:** Stačí placený ChatGPT nebo Claude. PM popíše kontext projektu a aktuální problém; AI se zeptá na doplňující informace a navrhne strukturované řešení. Žádná infrastruktura, žádné nové nástroje – jen jiný způsob, jak přistoupit k práci, kterou PM už dělají.
+
+## 4. Normalizace nabídek z výběrových řízení
 
 **Jak to funguje dnes:** Při tenderu osloví 3–5 dodavatelů. Každý pošle nabídku v jiném formátu – někdo v Excelu, někdo v PDF, někdo ve Wordu. **Kočí**: *„čtyři dodavatelé pošlou nabídky ve čtyřech různých formátech a je potřeba z toho udělat ucelené zhrnutí, kde jsou technické parametry a cenové srovnání."*
 
@@ -82,7 +103,7 @@ Náklady jsou provázané s harmonogramem v dalších listech. Když se posune h
 
 **Co může AI doplnit:** ChatGPT pro extrakci klíčových parametrů z nabídek v libovolném formátu a jejich převod do jednotné struktury. Standardizovaná Excel šablona pro zadání tenderu, která omezí variabilitu odpovědí.
 
-## 4. Přenos dat mezi tabulkami
+## 5. Přenos dat mezi tabulkami
 
 **Jak to funguje dnes:** **Holan** má tabulku klientských změn, kterou vyplňuje příkazník. Z této tabulky musí ručně přenést vybrané sloupce do druhé tabulky pro stavbu – bez citlivých údajů klientů. Kontroluje to jednou týdně; ideálně by to mělo probíhat v reálném čase.
 
@@ -90,7 +111,7 @@ Náklady jsou provázané s harmonogramem v dalších listech. Když se posune h
 
 **Co může automatizace doplnit:** Power Automate flow, který sleduje změny v jedné tabulce a automaticky aktualizuje druhou. Nebo Excel Power Query pro automatické načítání dat z více zdrojů.
 
-## 5. Zápisy z kontrolních dnů
+## 6. Zápisy z kontrolních dnů
 
 **Jak to funguje dnes:** Každý týden probíhá kontrolní den s projektanty a architekty. Zápis se píše ručně ve Wordu, bodově, s úkoly a termíny. **Falťan**: *„editujeme to v průběhu, pak 35 minut na opravu, uložení do PDF a odeslání."*
 
@@ -98,7 +119,7 @@ Tým zkoušel AI přepisy: **Knob** testoval měsíc a půl, výsledek byl nepou
 
 **Co může AI doplnit:** Omezeně. AI přepis může sloužit jako podklad pro dohledání, co přesně zaznělo, ale samotný zápis musí formulovat člověk. Šablony a standardizovaná struktura zápisů mohou ušetřit čas víc než AI.
 
-## 6. Ověřování technických norem a legislativy
+## 7. Ověřování technických norem a legislativy
 
 <Callout type="positive">
   Tohle je příklad procesu, kde tým AI vyzkoušel, narazil a vyvodil špatný závěr. Problém nebyl v AI, ale v tom, že chatbot neměl přístup k normám. Řešení je triviální.
@@ -112,7 +133,7 @@ Tým zkoušel AI přepisy: **Knob** testoval měsíc a půl, výsledek byl nepou
 
 **Řešení:** Nahrát platné normy (PDF, které firma už má koupené) do NotebookLM nebo do projektu v ChatGPT Business. AI pak odpovídá výhradně z těchto dokumentů, ne z internetu. Žádné halucinace, žádné neplatné vyhlášky. Nastavení zabere minuty, ne dny.
 
-## 7. AI pre-screening projektové dokumentace
+## 8. AI pre-screening projektové dokumentace
 
 **Jak to funguje dnes:** Kontrola výkresů a projektové dokumentace je hlavní pracovní činnost celého oddělení. **Pospíšil** sepisuje připomínky do Excelu: *„150 připomínek ode mě, 300–400 od externího TDI."* Dokumentace přichází v PDF, komentuje se v PDF Exchange Editoru. **Kočí** kontroluje dispozice bytů – soulad se zadáním, rozměry, zařizovací předměty. **Řehořová** kontroluje studie v PDF, posuzuje soulad s normami.
 
