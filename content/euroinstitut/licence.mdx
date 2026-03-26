@@ -1,91 +1,85 @@
 ---
 title: Doporučené licence
-description: AI nástroje a licence k zakoupení pro Euroinstitut
+description: AI nástroje a licence pro Euroinstitut – co mít, co si požádat
 ---
 
-Euroinstitut už má solidní základ: celý tým používá ChatGPT (free), většina pracuje s Google Gemini v rámci Workspace a polovina zná NotebookLM. Cílem není přidat co nejvíc nástrojů, ale **definovat jasný tech stack a jít v něm do hloubky**.
+Euroinstitut pracuje s citlivými údaji žáků. Každé rozhodnutí o AI nástrojích musí respektovat bezpečnost dat – žádný nástroj bez ověřené ochrany firemních dat nemá přístup k citlivým informacím.
 
-## Váš AI tech stack
+Licence jsou rozdělené do tří vrstev: **sdílené nástroje** pro celý tým, **osobní AI stack** pro každého, a **nástroje na vyžádání** pro ty, kdo potřebují víc.
+
+## Sdílené licence
+
+Nástroje s jedním účtem sdíleným napříč organizací.
+
+| Nástroj | Účel | Cena | Přístup |
+|---|---|---|---|
+| **ChatGPT Business** | Hloubkový výzkum, sdílené projekty (Kontrola IVP, Karty konzultací), skills | ~600 Kč/měs (1 licence) | login: `TODO` / heslo: `TODO` |
+| **TLDV Pro** | Automatické přepisy a zápisy z online porad | ~500 Kč/měs | Nahrává Marinkovič, záznamy sdílené všem |
+
+ChatGPT Business je určený především pro **hloubkový výzkum** – v tom je v tuto chvíli lepší než Gemini. Velkou výhodou jsou **sdílené projekty** (předpřipravené instrukce pro opakující se úlohy) a **skills** (rozšíření, která automatizují konkrétní workflow). Tím se výrazně posouvá z „chatbota" na pracovní nástroj.
 
 <Callout type="warning">
-  Nejdůležitější rozhodnutí není *který* nástroj koupit, ale *kolik* nástrojů mít. Tým, který zkouší 8 nástrojů povrchně, bude vždy pomalejší než tým, který ovládá 3 nástroje do hloubky. Definujte stack, držte se ho a investujte energii do toho, aby ho každý uměl používat naplno.
+  **Proč Business, ne Plus:** ChatGPT Plus je osobní licence – data mohou být použita k trénování modelu. ChatGPT Business garantuje, že firemní data zůstávají chráněná. U organizace pracující s citlivými údaji žáků je to zásadní rozdíl.
 </Callout>
 
-| Vrstva | Nástroj | Účel | Stav |
+## Osobní AI stack
+
+Nástroje, kde má každý svůj vlastní účet se svými chaty, historií a nastavením.
+
+| Nástroj | Co to je | Cena | Poznámka |
 |---|---|---|---|
-| **Primární AI** | ChatGPT Business | Sdílené projekty, kontrola dokumentů, komplexní úlohy | Zavést (5 licencí) |
-| **Denní driver** | Gemini pro Google Workspace | Emaily, Docs, vyhledávání na Disku – AI přímo tam, kde pracujete | Zakoupeno, zatím nevyužité |
-| **Znalostní báze** | NotebookLM | Legislativa, studijní materiály, přepisy z porad | 8/16 už používá |
-| **Porady** | TLDV | Automatické přepisy a zápisy z online porad | Marinkovič používá (free) |
-| **Vizuální materiály** | Canva | Materiály pro žáky, prezentace | 11/16 už používá (free stačí) |
+| **Gemini** | Primární AI – denní práce, emaily, dokumenty | Zdarma | Každý svůj účet |
+| **Gemini Advanced** | Plná verze – Sheets, Gmail AI, Deep Research, vyhledávání na Disku | ~$20/měs (~480 Kč) | Pro absolventy Nalejvárny (~60 % firmy) |
+| **NotebookLM** | Znalostní báze – legislativa, studijní materiály, přepisy z porad | Zdarma | Každý svůj účet |
+| **Wispr Flow** | Diktování textu hlasem – rychlejší než psaní | ~$10/měs (~240 Kč) | Každý svůj účet |
+| **Antigravity** | Experimentování s AI kódováním | Zdarma | ⚠️ Bez citlivých dat (viz poznámka níže) |
 
-**Všechno ostatní – Cursor, Claude, Perplexity, Copilot – není součástí stacku.** Neznamená to, že jsou špatné. Znamená to, že energie týmu má jít do pěti nástrojů výše, ne do zkoušení dalších. Pokud někdo narazí na limit, řeší se to individuálně, ne plošným přidáváním.
+**Gemini je vaše primární AI.** Pracujete v Google Workspace – Gemini se integruje přímo do Docs, Sheets, Gmail a Disku. Placená verze (Gemini Advanced) odemyká plný potenciál: inteligentní vyhledávání na Disku, AI asistenci v dokumentech, sumarizaci emailů a Deep Research.
 
-## Souhrnná tabulka – co koupit
+<Callout type="warning">
+  **Proč placenou licenci:** Od ledna 2026 Google postupně zpřísňuje limity bezplatné verze Gemini. Například Deep Research (hloubková rešerše) je na free verzi omezený na jeden dotaz za dvě hodiny. Pro běžnou denní práci to nestačí. Placená licence tyto limity odstraní a nástroj bude fungovat tak, jak má.
+</Callout>
 
-| Licence | Měsíční náklad | Pro koho | Důvod |
+### Proč ne Antigravity na citlivá data
+
+Antigravity (Google) je zajímavý nástroj na experimentování, ale **nemá vlastní bezpečnostní certifikace** (SOC 2, ISO 27001) – dědí je pouze z Google Cloud infrastruktury. Není core service Google Workspace, nemá formální DPA ve smyslu GDPR a bezpečnostní výzkumníci nalezli závažné zranitelnosti do 24 hodin od jeho spuštění.
+
+**Pravidlo:** Antigravity používejte volně na zkoušení a učení, ale **nikdy do něj nevkládejte citlivé údaje žáků nebo interní dokumenty**. Pokud potřebujete AI kódovací nástroj pro práci s citlivými daty, požádejte o Cursor Business (viz níže).
+
+## Na vyžádání
+
+Tyto nástroje nejsou pro všechny – jsou pro ty, kdo s AI pracují intenzivněji a potřebují víc. Požádejte Kruckého.
+
+| Nástroj | Co to je | Cena | Pro koho |
 |---|---|---|---|
-| **ChatGPT Business** (5 licencí) | ~3 000 Kč/měsíc | A. Marinkovič, D. Kovaříková, K. Krucký, P. Pospíšilová, M. Týblová | Sdílené projekty, kontrola dokumentů, firemní data zůstávají chráněná |
-| **TLDV Pro** (1 licence) | ~500 Kč/měsíc | A. Marinkovič (sdílí záznamy) | Automatické zápisy z online porad |
-| **Gemini pro Google Workspace** | V ceně GWS licence | Celý tým | Zakoupeno; AI asistence v Docs, Sheets, Gmail, vyhledávání na Disku |
-| **NotebookLM** | Zdarma | Celý tým | Už 8 z 16 používá; legislativa, studijní materiály |
+| **Cursor Business** | AI v IDE – práce s kódem a citlivými daty | ~$40/seat (~960 Kč) | Kdo reálně kóduje nebo automatizuje |
+| **ChatGPT Business** (vlastní účet) | Vlastní projekty, Codex (kódovací agent), skills | ~$25/měs (~600 Kč) | Kdo potřebuje vlastní prostor a projekty |
+| **Claude Team** | Alternativní AI asistent – silný v analýze a psaní | ~$25–30/seat (~600–720 Kč) | Kdo preferuje Claude |
+| **Claude Team Premium** | Claude + Claude Code (kódovací agent v terminálu) | ~$110–150/seat (~2 600–3 600 Kč) | Pokročilí uživatelé |
 
 <Callout type="insight">
-  Celkový měsíční náklad: přibližně **3 500 Kč**. Úspora jen na kontrole karet konzultací (15–20 h/měsíc) při průměrné hodinové sazbě speciálního pedagoga převyšuje tento náklad několikanásobně.
+  **Cursor Business – co potřebujete vědět:** Licence zahrnuje základní kredit ($20/měs na AI požadavky). Pokud kredit dojde, nástroj funguje dál – automaticky se účtuje spotřeba navíc. Doporučujeme používat **Auto mode**, který vybírá nákladově efektivní model a výrazně snižuje spotřebu. Admin nastaví **měsíční strop** pro celý tým – pokud se blížíte limitu, přijde upozornění, při dosažení stropu se AI funkce pozastaví do dalšího měsíce. Pokud potřebujete víc, ozvěte se Kruckému.
 </Callout>
 
-## Proč právě tyto nástroje
-
-### ChatGPT Business
-
-Celý tým už ChatGPT používá – ale na osobních, neplacených účtech. To má tři problémy: limity na počet dotazů, žádné sdílení projektů mezi kolegy a žádná ochrana firemních dat.
-
-<Callout type="warning">
-  **Proč Business, ne Plus:** ChatGPT Plus je osobní licence. Data, která do něj zadáte, mohou být použita k trénování modelu. ChatGPT Business garantuje, že firemní data zůstávají ve firmě. U organizace pracující s citlivými údaji žáků je to zásadní rozdíl.
+<Callout type="insight">
+  **Jak to funguje:** Cursor Business je k dispozici na vyžádání. Jedinou podmínkou je krátký check-in jednou za měsíc – stačí 2 minuty s vedoucím o tom, jak nástroj využíváte. Pokud licence dlouhodobě leží ladem, přesuneme ji někomu dalšímu.
 </Callout>
 
-Konkrétní použití pro Euroinstitut:
+## Kolik to bude stát
 
-- **A. Marinkovič** – sdílený projekt „Kontrola IVP" s instrukcemi a pravidly, projekt „Oběžníky" pro generování pátečních shrnutí
-- **D. Kovaříková** – sdílený projekt „Karty konzultací" pro kontrolu vyplněnosti a kvality zápisů
-- **K. Krucký** – pokročilé projekty, testování automatizací, podpora pro ostatní
-- **P. Pospíšilová** – projekt pro účetní dotazy s kontextem české legislativy, příprava podkladů
-- **M. Týblová** – HR agenda: onboarding materiály, personální dokumentace, komunikace
+Kalkulace pro stav, kdy všichni absolventi Nalejvárny mají placenou licenci a 10 vybraných lidí má Cursor Business.
 
-Pět licencí pokryje klíčové lidi. Ostatní mohou pokračovat na free verzi – pro jejich potřeby (formulace emailů, jednodušší dotazy) to stačí.
+| Položka | Počet | Cena/kus | Celkem |
+|---|---|---|---|
+| **Gemini Advanced** | 40 lidí | ~480 Kč/měs | ~19 200 Kč |
+| **Wispr Flow** | 40 lidí | ~240 Kč/měs | ~9 600 Kč |
+| **ChatGPT Business** (sdílený) | 1 licence | ~600 Kč/měs | ~600 Kč |
+| **TLDV Pro** | 1 licence | ~500 Kč/měs | ~500 Kč |
+| **Cursor Business** | 10 lidí | ~960 Kč/měs | ~9 600 Kč |
+| | | **Celkem** | **~39 500 Kč/měs** |
 
-### TLDV Pro
+NotebookLM a Antigravity jsou zdarma.
 
-**A. Marinkovič** už TLDV aktivně používá na free verzi – nahrává porady a přepisy zpracovává přes NotebookLM. Narazila na limity free verze. Jedna placená licence odstraní omezení a umožní nahrávat všechny koordinační porady, pedagogické rady a konzultace. Záznamy budou přístupné celému týmu.
-
-Konkrétní přínos:
-- **Páteční koordinační porady** – místo ručního zápisu automatický přepis + sumarizace
-- **Pedagogické rady** – přepis, ze kterého se přes NotebookLM vytáhnou úkoly per osoba
-- **Konzultace s učiteli** – záznam pro zpětnou kontrolu (*„Museli jsme si přehrát přesně tu část, jak to přesně řekla,"* říká A. Marinkovič)
-
-### Gemini pro Google Workspace
-
-Euroinstitut Gemini pro Google Workspace už zakoupil – a to je správný krok. Celý tým pracuje v Google Workspace (Disk, Gmail, Docs, Sheets) a Gemini se do těchto aplikací integruje přímo. Oproti základnímu Gemini, který 12 z 16 lidí už používá, placená verze v GWS přidává:
-
-- **Inteligentní vyhledávání na Google Disku** – Gemini rozumí obsahu souborů, ne jen názvům. I v aktuální chaotické struktuře najde relevantní dokumenty.
-- **AI asistence v Docs** – pomoc při psaní IVP, oběžníků, zápisů. Návrhy formulací, korektura, sumarizace dlouhých dokumentů.
-- **Sumarizace emailů v Gmailu** – při 7 schránkách (P. Pospíšilová) a desítkách potvrzení od učitelů (D. Kovaříková) ušetří desítky minut denně.
-- **Generování obsahu v Sheets a Slides** – automatické vzorce, analýza dat, příprava prezentací.
-
-Doporučuji ho aktivně zapojit do vzdělávacího plánu – na Nalejvárně II ukázat konkrétní use cases přímo v prostředí, které tým denně používá.
-
-### NotebookLM
-
-Není co kupovat – je zdarma a 8 z 16 lidí ho už používá. Doporučuji ale rozšířit využití:
-
-- **Legislativa** – K. Krucký tam už má nahrané zákony; zpřístupnit všem speciálním pedagogům
-- **Studijní materiály** – učitelé dodělávající kvalifikaci z toho dělají podcasty a flashcards
-- **Procesní dokumentace** – nahrát směrnice, šablony, pravidla vyplňování IVP
-
-## Co bych nedoporučoval kupovat
-
-**Microsoft 365 Copilot** – Euroinstitut pracuje v Google Workspace, ne v Microsoft ekosystému. Copilot by neměl kam se napojit. Navíc **9 z 16** lidí ho sice zná, ale používají ho jen 2.
-
-**Canva Pro plošně** – 11 lidí Canvu používá, ale většina pro jednoduché materiály, kde free verze stačí. Pokud někdo narazí na limit, má smysl řešit individuálně.
-
-**Cursor / Claude / Perplexity** – zajímavé nástroje, ale pro tým speciálních pedagogů a administrativy nemají enterprise verze kompatibilní s požadavky na ochranu dat. ChatGPT Business pokryje jejich potřeby.
+<Callout type="insight">
+  Největší položka je Gemini Advanced (19 200 Kč) – ale to je nástroj, který každý používá denně. Úspora jen na kontrole karet konzultací (15–20 h/měsíc) při průměrné hodinové sazbě speciálního pedagoga převyšuje celkový měsíční náklad několikanásobně.
+</Callout>

@@ -22,6 +22,7 @@ import { TeamMapChart } from '@/components/charts/team-map-chart';
 import { ProcessMatrix } from '@/components/charts/process-matrix';
 import { RoadmapTimeline } from '@/components/ui/roadmap-timeline';
 import { InfoModal } from '@/components/ui/info-modal';
+import { EducationProgress } from '@/components/charts/education-progress';
 
 export default async function Page(props: {
   params: Promise<{ slug?: string[] }>;
@@ -59,6 +60,7 @@ export default async function Page(props: {
           ProcessMatrix,
           RoadmapTimeline,
           InfoModal,
+          EducationProgress,
         }} />
       </DocsBody>
     </DocsPage>
