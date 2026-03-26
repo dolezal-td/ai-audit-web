@@ -19,7 +19,7 @@ Provedl jsem AI audit organizace Euroinstitut – **16 respondentů**, z toho **
       <li><strong>Práce a nástroje</strong> – charakter práce, používané AI nástroje</li>
       <li><strong>Procesy</strong> – procesní analýza a příležitosti</li>
       <li><strong>Licence</strong> – doporučené AI nástroje</li>
-      <li><strong>Vzdělávací plán</strong> – 5fázový plán</li>
+      <li><strong>Vzdělávací plán</strong> – vzdělávací model a přehled postupu</li>
       <li><strong>Shrnutí</strong> – rozhodnutí a další kroky</li>
     </ul>
   </InfoModal>
@@ -161,52 +161,51 @@ Provedl jsem AI audit organizace Euroinstitut – **16 respondentů**, z toho **
   steps={[
     {
       number: 1,
-      title: "Licence a struktura",
-      description: "Pořídit ChatGPT Business, nastavit TLDV, definovat strukturu Google Disku.",
-      detail: "5 licencí ChatGPT Business (~3 000 Kč/měsíc). TLDV Pro pro automatické zápisy z porad. Definovat standardní složky na Google Disku (IVP, Karty konzultací, Zápisy, Šablony) a replikovat na všechny školy. Bez toho nemá automatizace smysl.",
-      timing: "Tento týden",
-      responsible: "K. Krucký"
-    },
-    {
-      number: 2,
-      title: "AI Nalejvárna II – Prohloubení",
-      description: "Praktický workshop zaměřený na reálné procesy Euroinstitutu. Každý odejde s funkčním řešením.",
-      detail: "Program: rekapitulace od první Nalejvárny, ChatGPT projekty v praxi (živá ukázka na IVP), NotebookLM pro legislativu, automatizace porad (TLDV → NotebookLM → zápis), hands-on na vlastních procesech.",
-      timing: "Duben 2026",
+      title: "Nalejvárny po skupinách",
+      description: "Core team (45 lidí) prochází celodenními bootcampy po skupinách – vedení, kancelář, speciální pedagogové.",
+      detail: "Každá skupina má program přizpůsobený svým procesům. Proběhly: kancelář (listopad 2025), administrativa (únor 2026), speciální pedagogové (březen 2026). Další skupiny navazují.",
+      timing: "Probíhá",
       responsible: "AI Pro Smrtelníky"
     },
     {
-      number: 3,
-      title: "AI Hackathon – týmové projekty",
-      description: "Celodenní workshop, kde týmy pracují na reálných projektech organizace.",
-      detail: "Tým 1: Automatická kontrola karet konzultací (Kovaříková, Marinkovič). Tým 2: Sdílený projekt pro IVP (Marinkovič, Weiserová). Tým 3: Automatizace dodacích listů (Pospíšilová, Krucký). Tým 4: Struktura Disku + sloučení tabulek (Junková, Kosecová).",
-      timing: "Květen 2026",
+      number: 2,
+      title: "Hackathony",
+      description: "Týmová práce na reálných projektech organizace. Různé formáty podle oddělení.",
+      detail: "Hackathony probíhají podle skupin (A+B, C+D, speciální pedagogové, HR, skupina E). Na konci každého vznikají konkrétní projekty, které se nasazují do provozu.",
+      timing: "Jaro–léto 2026",
       responsible: "AI Pro Smrtelníky + Krucký"
     },
     {
+      number: 3,
+      title: "Debrief",
+      description: "Po dokončení všech hackathonů: shrnutí TOP 5 projektů a rozhodnutí, které dostanou další podporu.",
+      detail: "Co se osvědčilo, co ne, co překvapilo. Výběr projektů pro specializované workshopy. Ustanovení 1–3 AI ambasadorů z core teamu.",
+      timing: "Po hackathonech",
+      responsible: "Vedení + AI Pro Smrtelníky"
+    },
+    {
       number: 4,
-      title: "Debrief + ambasadoři",
-      description: "Vyhodnocení: co tým reálně používá, co zahodil. Formální role pro ambasadory.",
-      detail: "Ambasadoři: Marinkovič (koordinace pedagogů), Muchová (procesy a administrativa), Vajdiaková (HR a onboarding). Alokace 2 hodiny týdně na podporu kolegů. K. Krucký zastřešuje technické řešení a směřování.",
-      timing: "Červen 2026",
-      responsible: "Vedení + ambasadoři"
+      title: "Specializované workshopy",
+      description: "Práce na konkrétních projektech z hackathonů – na vyžádání nebo na návrh.",
+      detail: "Žádné ukazování nástrojů – nástroje už člověk zná. Jde o společnou práci na projektu: celodenní/půldenní, jednorázově nebo opakovaně (např. 1× měsíčně). Vzniká na základě detekovaného projektu nebo požadavku z týmu.",
+      timing: "Průběžně",
+      responsible: "AI Pro Smrtelníky"
     },
     {
       number: 5,
-      title: "Specializované workshopy",
-      description: "Dva půldenní workshopy: dokumenty + administrativa.",
-      detail: "Workshop 1: Kontrola dokumentů – Apps Script, ChatGPT projekty pro IVP a karty konzultací (Marinkovič, Kovaříková, Weiserová, Nováková, Petřeková). Workshop 2: Administrativa a účetnictví – Wflow export, dodací listy, fakturace (Pospíšilová, Krucká, Muchová, Týblová).",
-      timing: "Září–Říjen 2026",
-      responsible: "AI Pro Smrtelníky",
-      parallel: true
+      title: "Přeměření",
+      description: "Stejný dotazník + rozhovory. Srovnání s výchozím měřením.",
+      detail: "Posun v Indexu Umím a Chci, kolik projektů z hackathonů přežilo, kolik hodin se ušetřilo, jaké licence se používají. Na základě výsledků: rozhodnutí o rozšíření modelu na další skupiny.",
+      timing: "Léto 2026",
+      responsible: "AI Pro Smrtelníky + vedení"
     },
     {
       number: 6,
-      title: "Přeměření",
-      description: "Stejný dotazník + rozhovory. Srovnání s výchozím měřením.",
-      detail: "Na základě výsledků rozhodnutí: rozšíření ChatGPT Business na učitele? Pilotní AI pro celou organizaci? Pokračování ambasadorského programu?",
-      timing: "Listopad 2026",
-      responsible: "AI Pro Smrtelníky + vedení"
+      title: "Rozšíření na další vrstvy",
+      description: "Stejný model pro další zaměstnance a školy: inspirace → audit → Nalejvárna → hackathon → workshopy.",
+      detail: "Nalejvárna může být živá nebo přednahraná, hackathon celodenní nebo půldenní. AI ambasadoři z core teamu přebírají roli průvodců. Organizace se stává soběstačnou v AI vzdělávání.",
+      timing: "Podzim 2026+",
+      responsible: "Vedení + ambasadoři"
     }
   ]}
 />
@@ -217,10 +216,10 @@ Provedl jsem AI audit organizace Euroinstitut – **16 respondentů**, z toho **
   Euroinstitut má nejlepší výchozí pozici ze všech organizací, které jsem auditoval. Vysoké znalosti, vysoká motivace, nulový strach. Jediné, co chybí, je struktura a nástroje. A to se dá vyřešit rychle.
 </Callout>
 
-**1. Licence – připravené před Nalejvárnou II.** ChatGPT Business pro 5 klíčových lidí (~3 000 Kč/měsíc), TLDV Pro pro Marinkovič. Všichni přihlášení, funkční účty. Bez toho je workshop jen přednáška.
+**1. Licence pro absolventy Nalejvárny.** Gemini Advanced pro každého, kdo prošel Nalejvárnou (~480 Kč/měs/osoba). Sdílený ChatGPT Business pro hloubkový výzkum a projekty (~600 Kč/měs). TLDV Pro pro automatické zápisy z porad (~500 Kč/měs). Podrobný přehled na stránce Licence.
 
-**2. Pevný AI tech stack.** ChatGPT Business, Gemini pro GWS, NotebookLM, TLDV, Canva. Pět nástrojů, každý na jinou vrstvu. Tým musí vědět, že tohle je stack, ve kterém jdete do hloubky – žádné další zkoušení, dokud nezvládnete tyto.
+**2. Jednotná struktura Google Disku.** Rozhodnutí, která struktura složek bude závazná pro všechny školy. Bez toho nemá smysl automatizovat kontrolu dokumentů, protože každá škola má data jinde.
 
-**3. Jednotná struktura Google Disku.** Rozhodnutí, která struktura složek bude závazná pro všechny školy. Bez toho nemá smysl automatizovat kontrolu dokumentů, protože každá škola má data jinde.
+**3. Čas pro AI ambasadory.** 1–3 lidé z core teamu, kteří budou mít AI oblast „na starosti" – sdílení novinek, pomoc kolegům, údržba hackathonových projektů. Potřebují mandát a alespoň 2 hodiny týdně.
 
-**4. Čas pro ambasadory.** A. Marinkovič, M. Muchová a V. Vajdiaková potřebují mandát a alespoň 2 hodiny týdně na podporu kolegů. Motivace je vysoká teď; bez struktury může opadnout.
+**4. Zapojení do hackathonů.** Hackathony probíhají po skupinách (jaro–léto 2026). Každý z core teamu by jimi měl projít – je to klíčový krok, po kterém člověk „prošel" a má veškeré znalosti.
