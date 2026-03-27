@@ -1,7 +1,5 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-import { readFileSync } from "fs";
-import { join } from "path";
 import { decodeSession } from "@/lib/auth";
 import {
   jtreFinanceSource,
@@ -41,15 +39,18 @@ function getSource(slug: string) {
   return SOURCES[slug] ?? null;
 }
 
-// Parse page order from meta.json (filter out separator strings like "---Foo---")
-function getPageOrder(slug: string): string[] | null {
-  try {
-    const metaPath = join(process.cwd(), "content", slug, "meta.json");
-    const meta = JSON.parse(readFileSync(metaPath, "utf-8"));
-    return (meta.pages as string[]).filter((p) => !p.startsWith("---"));
-  } catch {
-    return null;
-  }
+// Extract ordered page slugs from Fumadocs pageTree (built at compile time from meta.json)
+function getPageSlugsFromTree(source: ReturnType<typeof getSource>): string[] {
+  if (!source) return [];
+  const tree = source.pageTree;
+  return tree.children
+    .filter((node: { type: string }) => node.type === "page")
+    .map((node: { type: string; url: string }) => {
+      // url is e.g. "/jtre-finance/uvod" → extract last segment
+      const segments = node.url.split("/").filter(Boolean);
+      return segments[segments.length - 1];
+    })
+    .filter(Boolean);
 }
 
 const mdxComponents = {
@@ -85,8 +86,9 @@ export default async function PrintPage(props: {
   }
 
   const source = getSource(slug);
-  const pageOrder = getPageOrder(slug);
-  if (!source || !pageOrder) redirect("/");
+  if (!source) redirect("/");
+  const pageOrder = getPageSlugsFromTree(source);
+  if (pageOrder.length === 0) redirect("/");
 
   const report = REPORTS[slug];
 
