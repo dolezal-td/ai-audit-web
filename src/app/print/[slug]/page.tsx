@@ -23,6 +23,8 @@ import { TeamMapChart } from "@/components/charts/team-map-chart";
 import { ProcessMatrix } from "@/components/charts/process-matrix";
 import { RoadmapTimeline } from "@/components/ui/roadmap-timeline";
 import { InfoModal } from "@/components/ui/info-modal";
+import { EducationProgress } from "@/components/charts/education-progress";
+import { MdxTable, MdxTh, MdxTd } from "@/components/ui/mdx-table";
 import { PrintWrapper } from "@/components/print-wrapper";
 import { REPORTS } from "@/config/access";
 
@@ -69,6 +71,10 @@ const mdxComponents = {
   ProcessMatrix,
   RoadmapTimeline,
   InfoModal,
+  EducationProgress,
+  table: MdxTable,
+  th: MdxTh,
+  td: MdxTd,
 };
 
 export default async function PrintPage(props: {
